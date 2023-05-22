@@ -1,0 +1,21 @@
+.batchContainer {
+    display: grid !important;
+    justify-content: center;
+    width: 100% !important ;
+}
+
+.batchesTitleColorPublic {
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem !important;
+}
+
+.publicBatchContainer {
+    margin-top: 2rem;
+}
+
+.publicBatchButtons {
+    display: grid;
+    gap: 1.5rem;
+}

@@ -1,0 +1,74 @@
+.mobileSmallStepperStyle {
+    display: none !important;
+}
+
+.organizationDetailsContainer {
+    position: absolute;
+    margin-left: 45%;
+    margin-top: -0.25%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.orgDetailsInfoCard {
+    border: 1px solid #0B5560;
+    margin-top: 20px;
+    width: 90%;
+    padding: 20px;
+}
+
+.notesContainer {
+    margin: 20px 50px;
+    max-width: 1200px;
+}
+
+/* Using important in rules below for overriding default styles of MUI <li> & <a> elements */
+.notesList {
+    border-bottom: none !important;
+}
+
+.notesList a {
+    color: #1C7291 !important;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Square icon */
+.notesList a svg {
+    font-size: 1rem;
+}
+
+.notesContainer button {
+    margin: 20px 0;
+}
+
+.notesContainer button:focus-visible {
+    outline: 2px solid var(--color-brand-darkBlue);
+    outline-offset: 4px;
+}
+
+/* Open in new tab icon */
+.notesList > svg {
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+@media (max-width:800px) {
+    .organizationDetailsContainer {
+        position: relative;
+        margin-left: 1rem;
+    }
+}
+
+@media (max-width:500px) {
+    .basicSmallStepperStyle {
+        display: none !important;
+    }
+
+    .mobileSmallStepperStyle {
+        display: flex !important;
+        max-width: 400px;
+        flex-grow: 1;
+    }
+}

@@ -1,0 +1,88 @@
+footer {
+    width: 100%;
+}
+
+footer,
+.footerContainer {
+    background: var(--color-brand-darkBlue);
+    color: var(--color-white);
+}
+
+footer > p {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    font-size: clamp(0.55rem, 1.5vw, 1.15rem);
+}
+
+/* Using important to override the default styles of MUI link component */
+footer > p > a,
+.socialContainer > a {
+    color: var(--color-white) !important;
+    font-weight: bold;
+}
+
+footer > p > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+footer > p > a:hover {
+    text-decoration: underline !important;
+}
+
+.footerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 5px;
+    font-size: clamp(0.55rem, 1.5vw, 1.15rem);
+}
+
+.footerBoldText {
+    font-weight: 600;
+}
+
+.socialContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 1000px) {
+    .socialContainer > a {
+        padding: 4px;
+    }
+
+    .footerContainer span > img {
+        width: 6em;
+    }
+}
+
+@media (max-width: 700px) {
+    .socialContainer > a > svg {
+        width: 0.8em;
+    }
+}
+
+@media (max-width:550px) {
+    .footerContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .footerContainer > span {
+        margin-left: 2rem;
+    }
+
+    .socialContainer {
+        justify-content: flex-start;
+        gap: 1px;
+    }
+
+    .socialContainer > a {
+        padding: 0;
+    }
+}
