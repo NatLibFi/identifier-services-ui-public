@@ -132,3 +132,7 @@ dist
 # Envs
 .env*
 .prettierrc
+
+# Cypress
+/cypress/videos
+/cypress/downloads

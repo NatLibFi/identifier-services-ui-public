@@ -20,6 +20,15 @@
     "eslint:recommended",
     "plugin:react/recommended"
   ],
+  "overrides": [
+    {
+      "files": ["*cy.js"],
+      "parser": "espree",
+      "parserOptions": {
+        "ecmaVersion": 2020
+      }
+    }
+  ],
   "rules": {
     "react/display-name": [
       "off"
