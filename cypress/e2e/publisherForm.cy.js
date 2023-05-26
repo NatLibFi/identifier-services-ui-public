@@ -97,20 +97,8 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     cy.get('.MuiGrid-item').should('not.contain', 'Distributors');
     cy.get('.MuiGrid-item').contains('Another distributors');
 
-    // Submit the form
-    cy.get('.formSubmitButtonsContainer > button').eq('1').click();
-
-    // Check that the form was submitted successfully and success message is shown
-    cy.get('.MuiAlert-message').should(
-      'contain',
-      'Lomake on lähetetty onnistuneesti'
-    );
-
-    // Wait for redirect to the home page and check that the redirect was successful
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.wait(500).then(() => {
-      cy.location('pathname').should('equal', '/');
-    });
+    // Submit the form and check that it is succesfully submitted
+    cy.submitForm();
   });
 
   // Validation - Kustantajan tiedot - Step 1
@@ -144,7 +132,7 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     ];
 
     // Run validation check
-    cy.checkValidationErrors(validationErrors);
+    cy.checkInputValidationErrors(validationErrors);
 
     // The Next-button should be disabled
     cy.get('@nextButton').should('be.disabled');
@@ -186,7 +174,7 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     ];
 
     // Run validation check
-    cy.checkValidationErrors(validationErrors);
+    cy.checkInputValidationErrors(validationErrors);
 
     // The Next-button should be disabled
     cy.get('@nextButton').should('be.disabled');
