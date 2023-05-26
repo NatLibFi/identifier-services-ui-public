@@ -605,7 +605,7 @@ const fi = {
   'form.issn.publicationInfo.instructions.part3': 'Julkaisun toiset kieliversiot',
   'form.issn.publicationInfo.instructions.part4': 'Jos sama julkaisu ilmestyy kokonaisuudessaan useammalla kielellä, saa jokainen kieliversio oman ISSN-tunnuksen. Kieliversiolla pitää olla oma numerointi. Lisää jokaisen kieliversion tiedot erikseen valitsemalla sopiva julkaisujen lukumäärä.',
   'form.issn.publicationInfo.instructions.part5': 'Julkaisujen enimmäismäärä',
-  'form.issn.publicationInfo.instructions.part6': 'Yhdellä ISSN-hakulomakkeella voidaan hakea ISSN-tunnusta enintään neljälle julkaisulle. Mikäli tarvitset tunnuksen useammalle julkaisulle, ota yhteyttä ISSN-keskukseen issn-keskus@helsinki.fi.',
+  'form.issn.publicationInfo.instructions.part6': 'Yhdellä ISSN-hakulomakkeella voidaan hakea ISSN-tunnusta enintään neljälle julkaisulle. Mikäli tarvitset tunnuksen useammalle julkaisulle, ota yhteyttä ISSN-keskukseen.',
   'form.issn.publicationInfo.instructions.part7': '{icon} Hae verkkoversiolle tunnus vasta kun julkaisu on valmis.',
   'form.issn.publicationMedium.printed': 'Painettu',
   'form.issn.publicationMedium.electronical': 'Sähköinen',
