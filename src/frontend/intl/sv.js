@@ -31,53 +31,53 @@ const sv = {
   'common.ismn': 'ISMN',
   'common.isbn-ismn': 'ISBN och ISMN',
   'common.issn': 'ISSN',
-  'common.user': '', //User
-  'common.users': '', //Users
+  'common.user': 'Användare',
+  'common.users': 'Användare',
   'common.publisher.isbn': 'Förläggare',
-  'common.publishers.isbn': '', //Publishers
-  'common.publisherDetails.isbn': 'Basuppgifter av förläggarem',
-  'common.publisher.issn': '', //Publisher
-  'common.publishers.issn': '', //Publishers
-  'common.publisherDetails.issn': '', //Publisher details
-  'common.request': '', //Request
-  'common.requests': '', //Requests
-  'common.requestDetails': '', //Request details
+  'common.publishers.isbn': 'Förläggarna',
+  'common.publisherDetails.isbn': 'Basuppgifter om förlaget',
+  'common.publisher.issn': 'Utgivare',
+  'common.publishers.issn': 'Utgivarna',
+  'common.publisherDetails.issn': 'Uppgifter om förlaget ',
+  'common.request': 'Ansökan',
+  'common.requests': 'Ansökan',
+  'common.requestDetails': 'Detaljer om ansökan ',
   'common.publication': 'Publikation',
-  'common.publications': '', //Publications
+  'common.publications': 'Uppgifter om publikationerna',
   'common.publicationDetails': 'Uppgifter om publikation',
-  'common.batch': '', //Identifier Batch
-  'common.batches': '', //Identifier Batches
-  'common.batchDetails': '', //Batch Details
+  'common.batch': 'En lista med identifikatorer ',
+  'common.batches': 'Listor med identifikatorer',
+  'common.batchDetails': 'Detaljer om listan',
   'common.yes': 'Ja',
   'common.no': 'Nej',
   'common.true': 'Ja',
   'common.false': 'Nej',
   'common.noData': 'Inga matchande resultat',
-  'common.blank': '', //Blank
+  'common.blank': 'Tom',
   'common.search.inputPlaceholder': 'Sök...',
-  'common.search.searchById': '', //Search by ID...
-  'common.search.searchByPublisherName': '', //Search by publisher name or email...
+  'common.search.searchById': 'Sök med ID...',
+  'common.search.searchByPublisherName': 'Sök med förlagets namn eller email...',
   'common.noValue': '-',
-  'common.name': '', //Name
-  'common.undefined': '', //Not defined
-  'common.link': '', //Link
-  'common.identifier': '', //Identifier
+  'common.name': 'Namn',
+  'common.undefined': 'Inte identifierad',
+  'common.link': 'Länk',
+  'common.identifier': 'Identifikator',
   'common.identifiers': 'Identifierare',
-  'common.identifiersPrinted': 'Identifierare (tryct)',
+  'common.identifiersPrinted': 'Identifierare (tryckt)',
   'common.identifiersElectronical': 'Identifierare (webpublikation)',
-  'common.amount': '', //Amount
+  'common.amount': 'Mängd',
   'common.status': 'Läge',
   'common.id': 'ID',
   'common.contactDetails': 'Kontaktuppgifter',
-  'common.noLink': '', //Not generated
+  'common.noLink': 'Inte skapad',
   'common.important.info': 'Viktig information',
-  'common.datePicker.helperText': '', //E.g. 06/2023
+  'common.datePicker.helperText': 't.ex. 06/2023',
   'common.privacypolicy.title': 'Sekretesspolicy',
   'common.other': 'annan',
-  'common.errorPage': '', //Error page
-  'common.skipLink': '', //Skip to main content
-  'common.inLibrary': '', //In National Library
-  'common.free': '', //free of charge
+  'common.errorPage': 'Fel',
+  'common.skipLink': 'Gå till huvudsidan ',
+  'common.inLibrary': 'På Nationalbiblioteket',
+  'common.free': 'kostnadsfri',
   // Numbers
   'common.one': 'Ett',
   'common.two': 'Två',
@@ -126,7 +126,7 @@ const sv = {
   'common.#': 'Irregular',
   'common.z': 'Annan',
   // ISSN publication medium
-  'common.printed': 'tryct',
+  'common.printed': 'tryckt',
   'common.online': 'webpublikation',
   'common.cdrom': 'CD-ROM',
 
@@ -135,73 +135,73 @@ const sv = {
   'homePage.description.part1': 'De internationella standardnumren (ISBN, ISMN ja ISSN) är unika identifikatorer för publikationer.',
   'homePage.description.part2': 'ISBN identifierar böcker, ISMN notpublikationer och ISSN seriella och fortlöpande publikationer.',
   'homePage.description.part3': 'I Finland sker ansökan om dessa nummer via Finlands ISBN- och ISSN-centraler. Numren är avgiftsfria.',
-  'homePage.link': '', //More about {link}
-  'homePage.instructions.title': 'Instruktioner för att fylla i blanketterna',
+  'homePage.link': 'Mer om {link}',
+  'homePage.instructions.title': 'Instruktioner för att fylla i blanketten',
   'homePage.instructions.main.text': 'Om ni har regelbunden förlagsverksamhet men inte ännu har anslutit er till ISBN-/ISMN-systemet, fyll då i den elektroniska anslutningsblanketten och ansökningsblanketten.{lineBreak}{lineBreak} Om er förlagsverksamhet är tillfällig eller om ni redan har anslutit er till ISBN-systemet, ska ni fylla i denna blankett för att beställa ett ISBN-nummer.{lineBreak}{lineBreak} Förläggarens uppgifter publiceras i den internationella databasen Global Register of Publishers och /eller Music Publishers\' International ISMN Database och de är sökbara på ISBN-centralens hemsida.',
   'homePage.instructions.isbn-ismn.text': 'ISBN identifierar böcker och ISMN notpublikationer som är avsedda för offentligt bruk. Finlands nationella ISBN-central svarar för tilldelningen av ISBN- och ISMN i Finland. Centralen upprätthåller ett nationellt förlagsregister och förmedlar information om finländska förläggare för nationellt och internationellt bruk.{lineBreak}{lineBreak}Identifikatorer som en del av metadata betjänar hela förlagsbranschen och bibliotekssektorn och gör det enklare att identifiera, hantera och hitta publikationer. Numren används bl.a. i beställnings- och distributionssystem inom förlagsbranschen för att påskynda identifieringen av publikationer samt i internationella och nationella samkataloger och bibliografier samt i lånesystem vid bibliotek och vid informationssökning.{lineBreak}{lineBreak}Alla böcker och notpublikationer samt varje publikationsform (tryckt, audiovisuell, digital) och varje ändrad upplaga av dem tilldelas ett eget ISBN eller ISMN. Detta underlättar identifieringen av publikationer i förlagsbranschens distributionskedja och garanterar att kunden får önskad publikation. Publikationsformen kan vara tryckt bok, audiovisuell eller elektronisk publikation.',
   'homePage.instructions.issn.text': 'ISSN är en identifikator för seriella och fortlöpande publikationer, som tidningar och serier. Finlands nationella ISSN-central tillhandahåller ISSN i Finland och sänder informationen om publikationer som tilldelats ISSN till databasen {link}.{lineBreak}{lineBreak}Identifikationsnumren som en del av metadata betjänar hela förlagsbranschen och bibliotekssektorn och gör det enklare att identifiera, hantera och hitta publikationer.{lineBreak}{lineBreak}ISSN används bl.a. för snabbidentifiering av publikationer i branschens prenumerations- och distributionssystem, i nationella och internationella samkataloger, i bibliografier, i bibliotekens lånesystem, i informationssökning. ISSN är bundet till publikationens titel – om titeln ändras måste också numret ändras. För olika publikationsformer (olika fysiska medier) ges separata ISSN.',
 
   // Menu bar
-  'menu.home': 'Framsida',
+  'menu.home': 'Hemsidan',
   'menu.publisherRegistry': 'Förlagsregister',
   'menu.forms': 'Blanketter',
   'menu.forms.publisherRegistration': 'Anslutningsblankett för ISBN-/ISMN-systemet',
-  'menu.forms.publicationRegistration': '', //ISBN-/ISMN-forms
-  'menu.forms.issnPublicationRegistration': '', //ISSN-form
+  'menu.forms.publicationRegistration': 'ISBN-/ISMN-formulär',
+  'menu.forms.issnPublicationRegistration': 'ISSN-formulär',
   'menu.forms.publicationRegistration.isbn-ismn': 'Ansökningsblankett för ISBN/ISMN',
   'menu.forms.publicationRegistration.issn': 'Ansökningsblankett för ISSN',
   'menu.forms.contactInformationChange': 'Ändring av förläggaruppgifterna (ISBN/ISMN)',
 
   // Footer
-  'footer.privacyPolicy': '', //Privacy policy
+  'footer.privacyPolicy': 'Integritetspolicy',
   'footer.library': 'Nationalbiblioteket',
   'footer.address': 'PL 15 (Unioninkatu 36)',
   'footer.zip': '00014 Helsingfors universitet',
   'footer.contact': 'Kontaktinformation',
   'footer.copyright': '© Nationalbiblioteket 2023',
-  'footer.socials': '', //Follow on social media
+  'footer.socials': 'Följ på sociala medier',
 
   // Alt texts (Kuvatekstit)
   'altText.logo.library': 'Nationalbibliotekets officiella logotyp',
 
   // Ranges (Tunnistelohkot)
-  'ranges.identifierType': '', //Identifier type
+  'ranges.identifierType': 'Typ av identifikator',
 
   // Error messages
-  'error.field.required': '', //Required
-  'error.format.issn': '', //Invalid ISSN-identifier
-  'error.format.phone': '', //Invalid phone number
-  'error.format.city': '', //Invalid city
-  'error.format.publishingActivityAmount': '', //Max. 5 characters
-  'error.format.copies': '', //Max. 10 characters
-  'error.format.maxLength': '', //Given value is too long
-  'error.format.minLength': '', //Given value is too short
-  'error.format.integer': '', //Given value must be a number
-  'error.format.integer.twoDigits': '', //Given value must be a number with two digits (e.g. 39)
-  'error.format.year': '', //Invalid year
-  'error.format.email': '', //Invalid email address
-  'error.format.www': '', //Invalid URL, please use http:// or https://
-  'error.format.edition': '', //Max 2 characters
-  'error.postalAddress.zip.format': '', //Invalid postal address
-  'error.postalAddress.city.format': '', //Invalid city
-  'error.publicationRegistrationIsbnIsmn.form.availability': 'För publikationen som är endast för internt bruk ges inget ISBN-nummer alls.',
-  'error.publicationRegistrationIsbnIsmn.form.otherUniversitites': '', //The National Library grant ISBN identifiers only for dissertations made at the University of Helsinki
-  'error.date.invalid': '', //Invalid date
-  'error.date.min': '', //The date to be entered must be after current date
-  'error.identifierBatch.invalid': '', //Loading of identifier batch failed. Please try again or contact customer service
-  'error.formEdit': '', //There are errors in the form, please check the fields marked in red:
+  'error.field.required': 'Krävs',
+  'error.format.issn': 'Ogiltig ISSN',
+  'error.format.phone': 'Ogiltigt telefonnummer',
+  'error.format.city': 'Ogiltig ort',
+  'error.format.publishingActivityAmount': 'Max. 5 tecken',
+  'error.format.copies': 'Max. 10 tecken',
+  'error.format.maxLength': 'Det angivna värdet är för långt',
+  'error.format.minLength': 'Det angivna värdet är för kort',
+  'error.format.integer': 'Det angivna värdet måste vara en siffra',
+  'error.format.integer.twoDigits': 'Det angivna värdet måste vara ett tvåsiffrigt tal (t. ex. 39)',
+  'error.format.year': 'Ogiltigt år',
+  'error.format.email': 'Ogiltig e-postadress',
+  'error.format.www': 'Ogiltig URL, använd http:// eller https://',
+  'error.format.edition': 'Max. 2 tecken',
+  'error.postalAddress.zip.format': 'Ogiltig postadress',
+  'error.postalAddress.city.format': 'Ogiltig ort',
+  'error.publicationRegistrationIsbnIsmn.form.availability': 'För publikationer som är avsedda endast för internt bruk ges inget ISBN-nummer alls.',
+  'error.publicationRegistrationIsbnIsmn.form.otherUniversitites': 'Nationalbiblioteket beviljar ISBN enbart för dissertationer som är gjorda vid Helsingfors universitet',
+  'error.date.invalid': 'Ogiltigt datum',
+  'error.date.min': 'Det angivna datumet måste vara en senare tidpunkt än det nuvarande datumet',
+  'error.identifierBatch.invalid': 'Laddningen av identifikatorerna misslyckades. Vänligen försök på nytt eller ta kontakt med vår kundservice.',
+  'error.formEdit': 'En del av uppgifterna är fel, vänligen korrigera fälten som är markerade med rött:',
 
   // Error page texts
-  'errorPage.header': '', //Sorry, something went wrong
-  'errorPage.message.serviceDown': '', //The service is down. Please try again later. If the problem persists, please contact customer service
-  'errorPage.message.serviceUnderMaintenance': '', //The service is under maintenance. Please try again later. If the problem persists, please contact customer service
-  'errorPage.message.defaultError': '', //Unknown error. Please try again or contact customer service
-  'errorPage.message.generatingMessageFailed': '', //Viestipohjan hakeminen epäonnistui. Yrittäkää uudelleen tai ottakaa yhteyttä asiakaspalveluun
-  'errorPage.grantingIdsMessageError': '', //Jos päädyitte tälle sivulle tunnuksen myöntämisen yhteydessä, ottakaa yhteyttä järjestelmäylläpitöön valittömästi ja ilmoittakaa virheestä (loadTemplate failed after generating new identifierBatch).
-  'errorPage.publicationRequestError': '', //The page could not be loaded. Please check the address and try again. If the problem persists, please contact customer service
-  'errorPage.accessdenied.heading': '', //Access denied
-  'errorPage.accessdenied.message': '', //You do not have permission to access this page
-  'errorPage.admin.genericError': '', //System error. Please contact system administrator for assistance
+  'errorPage.header': 'Något gick tyvärr fel',
+  'errorPage.message.serviceDown': 'Webbplatsen är ur bruk. Vänligen försök igen senare. Om problemen fortsätter, vänligen ta kontakt med vår kundservice.',
+  'errorPage.message.serviceUnderMaintenance': ' Serviceavbrott på webbplatsen. Vänligen försök igen senare. Om problemen fortsätter, vänligen ta kontakt med vår kundservice.',
+  'errorPage.message.defaultError': 'Ett okänt fel uppstod. Vänligen försök på nytt eller ta kontakt med vår kundservice.',
+  'errorPage.message.generatingMessageFailed': 'Skapandet av meddelande misslyckades. Vänligen försök på nytt eller ta kontakt med vår kundservice.',
+  'errorPage.grantingIdsMessageError': 'Ifall ni hamnade på denna webbplats i samband med utdelning av identifikatorer. Ta omedelbar kontakt med uprätthållaren av servicen och meddela om felet (loadTemplate failed after generating new identifierBatch)',
+  'errorPage.publicationRequestError': 'Denna webbplats kan inte nås. Vänligen kontrollera webbadressen och försök igen. Om problemen fortsätter, vänligen ta kontakt med vår kundservice.',
+  'errorPage.accessdenied.heading': 'Åtkomst nekad',
+  'errorPage.accessdenied.message': 'Inget tillträde till webbsidan',
+  'errorPage.admin.genericError': 'Systemfel. Vänligen ta kontakt med administratören för hjälp',
 
   // Common form translations - used in multiple forms
   'form.common.name': 'Förlagets namn',
@@ -209,10 +209,10 @@ const sv = {
   'form.common.previousNames': 'Tidigare namn',
   'form.common.phone': 'Telefon',
   'form.common.email': 'E-post',
-  'form.common.contactPerson': 'Personen som ansvarar för ISBN-numrering',
-  'form.common.website': 'WWW-adress',
+  'form.common.contactPerson': 'Kontaktperson',
+  'form.common.website': 'Webbadress',
   'form.common.address': 'Adress',
-  'form.common.addressLine1': '', //Lisäosoiterivi
+  'form.common.addressLine1': 'Adressfält',
   'form.common.zip': 'Postnummer',
   'form.common.city': 'Postanstalt',
   'form.common.affiliates': 'Dotterbolag',
@@ -223,45 +223,45 @@ const sv = {
   'form.common.nextYear': 'Kalkyl för nästa år',
   'form.common.classification': 'Klassifikationssystem',
   'form.common.classificationOther': 'Annan klassificering',
-  'form.common.classificationCodes': '', //Classification codes
+  'form.common.classificationCodes': 'Klassifikationskoder',
   'form.common.publisherIdentifier': 'Förlagsbeteckning',
-  'form.common.publisherIdentifiers': 'Förlagsnummer',
+  'form.common.publisherIdentifiers': 'Förlagsbeteckning',
   'form.common.title': 'Titel',
   'form.common.subtitle': 'Undertitel',
-  'form.common.authorName': '', //Author name
-  'form.common.selectFormat': '', //Select format
+  'form.common.authorName': 'Namn på författare',
+  'form.common.selectFormat': 'Välj format',
   'form.common.publicationMonth': 'Publikationsmånad',
   'form.common.publicationYear': 'Publikationsår',
   'form.common.language': 'Publikationens språk',
-  'form.common.identifier': '', //Identifier
-  'form.common.volume': '', //Volume
+  'form.common.identifier': 'Identifikator',
+  'form.common.volume': 'Volym',
   'form.common.type': 'Typ',
   'form.common.publishingActivities': 'Publikationsverksamheten',
-  'form.common.instruction.multipleSelect': '', //Select one or more options from the list
-  'form.common.instruction.createableSelect': '', //To add a new option, type the name of the option and press Enter
-  'form.common.basicInfo': '', //Basic information
+  'form.common.instruction.multipleSelect': 'Välj ett eller flera alternativ från listan',
+  'form.common.instruction.createableSelect': 'Lägg till ett val genom att skriva namnet på valet och tryck på Enter',
+  'form.common.basicInfo': 'Grundinformation',
   'form.common.postalAddress': 'Postadress',
-  'form.common.activeIdentifier': '', //Aktiivinen {type}-kustantajatunnus
-  'form.common.organizationDetails': '', //Organisaation lisätiedot
-  'form.common.frequency': '', //Kustannusaktiivisuus
-  'form.common.activity': '', //Aktiivisuus
-  'form.common.additionalDetails': '', //Lisätiedot
-  'form.common.noAdditionalDetails': '', //Ei lisätietoja
-  'form.common.createdAndUpdated': '', //Luotu ja päivitetty
-  'form.common.created': '', //Luotu
-  'form.common.createdBy': '', //Luonut
-  'form.common.modified': '', //Viimeksi päivitetty
-  'form.common.modifiedBy': '', //Päivittänyt
+  'form.common.activeIdentifier': 'Aktiv {type}-förlagsbeteckning ',
+  'form.common.organizationDetails': 'Övrig information om organisationen',
+  'form.common.frequency': 'Förlagsaktivitet',
+  'form.common.activity': 'Aktivitet',
+  'form.common.additionalDetails': 'Tilläggsuppgifter',
+  'form.common.noAdditionalDetails': 'Ej övrig information',
+  'form.common.createdAndUpdated': 'Skapad och uppdaterad',
+  'form.common.created': 'Skapat',
+  'form.common.createdBy': 'Skapad',
+  'form.common.modified': 'Senast uppdaterad',
+  'form.common.modifiedBy': 'Uppdaterad',
   'form.common.printFormat': 'Publikationsform',
   'form.common.fileFormat': 'Filformat',
-  'form.common.subRangeType': '', //Kustantajatunnuksen tyyppi
-  'form.common.otherInfo': '', //Muut tiedot
+  'form.common.subRangeType': 'Typ av förlagsbeteckning',
+  'form.common.otherInfo': 'Övrig information',
   'form.common.format': 'Format',
   'form.common.publicationCity': 'Utgivningsort',
-  'form.common.updated': '', //Päivitetty
-  'form.common.confirmation': '', //Vahvistustieto (vanha järjestelmä)
-  'form.common.scale': '', //Mittakaava
-  'form.common.archiveRecord': '', //Arkistotietue
+  'form.common.updated': 'Uppdaterad',
+  'form.common.confirmation': 'Bekräftelse (gamla systemet)',
+  'form.common.scale': 'Skala',
+  'form.common.archiveRecord': 'Arkivpost',
   'form.common.url': 'WWW-adress',
 
   // Form edition translations (Painos)
@@ -311,21 +311,21 @@ const sv = {
   'form.button.label.next': 'Fortsätt',
   'form.button.label.submit': 'Skicka',
   'form.button.label.proceed': 'Fortsätt',
-  'form.button.label.add': '', //Add
-  'form.button.label.addPublication': '', //Add publication
+  'form.button.label.add': 'Lägg till',
+  'form.button.label.addPublication': 'Tillägg publikation',
   'form.button.label.delete': 'Radera',
-  'form.button.label.downloadAsTextfile': '', //Download
-  'form.button.label.showIdentifiers': '', //Show Identifiers
+  'form.button.label.downloadAsTextfile': 'Ladda ned',
+  'form.button.label.showIdentifiers': 'Visa identifikatorer',
 
   // Publisher registration form (Kustantajan liittymislomake)
-  'form.publisherRegistration.instructions.title': 'När förläggaren anmäler sig till ISBN-systemet, åtar denne sig att iaktta följande:',
+  'form.publisherRegistration.instructions.title': 'Då förlaget anmäler sig till ISBN-systemet, bör den beakta följande:',
   'form.publisherRegistration.instructions.note0': 'Förläggaren måste använda ISBN-nummer i alla sina publikationer.',
-  'form.publisherRegistration.instructions.note1.part1': 'ISBN-numret ska tryckas på publikationerna på sätt som anvisas på ',
+  'form.publisherRegistration.instructions.note1.part1': 'ISBN-numret ska tryckas på publikationerna det sätt som anvisas på ',
   'form.publisherRegistration.instructions.note1.link': 'ISBN-centralens webbplats',
   'form.publisherRegistration.instructions.note1.part2': '.',
   'form.publisherRegistration.instructions.note2': 'Förläggaren ska föra en lista över sina publikationer enligt ISBN-nummer.',
   'form.publisherRegistration.instructions.note3': 'Förläggaren ska omedelbart skicka ett exemplar av alla sina publikationer till Finlands ISBN-central.',
-  'form.publisherRegistration.instructions.note4': 'Förlagsinformationen publiceras i den internationella databasen \'Global Register of Publishers\' och/eller \'Music Publishers\' International ISMN Database\'. Uppgifterna används också i Finlands ISBN-centrals verksamhet och publiceras på dess webbplats.',
+  'form.publisherRegistration.instructions.note4': 'Förlagsinformationen publiceras i den internationella databasen \'Global Register of Publishers\' och/eller \'Music Publishers\' International ISMN Database\'. Uppgifterna används också i Finlands ISBN-centrals verksamhet och publiceras på deras webbsida.',
   'form.publisherRegistration.title': 'Anslutningsblankett för ISBN-/ISMN-systemet',
   'form.publisherRegistration.stepper.label.basicInformation': 'Basuppgifter',
   'form.publisherRegistration.stepper.label.publishingActivities': 'Publikationsverksamheten',
@@ -344,13 +344,13 @@ const sv = {
   'form.publisherRegistration.publishingActivities.currentYear': 'Hur många publikationer ger ni ut i år?*',
   'form.publisherRegistration.publishingActivities.nextYear': 'Kalkyl för nästa år*',
   'form.publisherRegistration.publishingActivities.classification': 'Klassificeringsnummer*',
-  'form.publisherRegistration.publishingActivities.classification.placeholder': 'Välj klassificeringsnummer enligt det bifogat klassifikationssystemet.',
-  'form.publisherRegistration.publishingActivities.classification.instruction': '', //Klikatkaa alla olevaan kenttään oheisen luokituskaavion mukaisesti 1-4 luokitustunnusta, jotka parhaiten kuvaavat julkaisujenne aihealueita. Jos aihealueita on enemmän tai ette löydä oheisesta kaaviosta sopivaa aihealuetta, niin käyttäkää luokkaa 000 Yleistä.
-  'form.publisherRegistration.publishingActivities.classificationOther': 'Om ni inte hittar ett lämpligt ämnesområde i tabellen, kan ni beskriva innehållet med några korta ord.',
+  'form.publisherRegistration.publishingActivities.classification.placeholder': 'Välj ämnesord enligt den bifogade ordlistan*',
+  'form.publisherRegistration.publishingActivities.classification.instruction': 'Klicka på fältet och välj 1-4 klassificeringsnummer enligt bifogat klassifikationssystem som ni tycker bäst beskriver innehållet i era publikationer. Om publikatonerna täcker flera ämnesområden eller om ni inte hittar lämplig klassificering, använd klass 000 Allmänt.',
+  'form.publisherRegistration.publishingActivities.classificationOther': 'Om ni inte hittar ett lämpligt ämnesord i tabellen, kan ni beskriva innehållet med några korta ord.',
   'form.publisherRegistration.organization.affiliates': 'Dotterbolag',
   'form.publisherRegistration.organization.affiliateOf': 'Moderbolag',
-  'form.publisherRegistration.organization.distributors': 'Företag vars distributor eller agent',
-  'form.publisherRegistration.organization.distributorOf': 'Har ni någon annan enda leverantör eller ombud för era publikationer?',
+  'form.publisherRegistration.organization.distributors': 'Fungerar ni som distributör eller agent för andra företag?',
+  'form.publisherRegistration.organization.distributorOf': 'Har ni någon annan annan leverantör eller ombud för era publikationer?',
   'form.publisherRegistration.classification.general': 'Allmänt',
   'form.publisherRegistration.classification.book-business-lib': 'Bokväsen. Biblioteksväsen',
   'form.publisherRegistration.classification.text-books': 'Läroböcker',
@@ -450,22 +450,22 @@ const sv = {
   'form.isbnIsmn.stepper.label.publisherBasicInfo': 'Uppgifter om förläggaren',
   'form.isbnIsmn.stepper.label.publishingActivities': 'Publikationsverksamheten',
   'form.isbnIsmn.stepper.label.basicInformation': 'Förhandsuppgifter om publikationen',
-  'form.isbnIsmn.stepper.label.authorInformation': 'Uppgifter om upphovsmän ',
+  'form.isbnIsmn.stepper.label.authorInformation': 'Uppgifter om upphov',
   'form.isbnIsmn.stepper.label.seriesInformation': 'Seriens uppgifter',
   'form.isbnIsmn.stepper.label.formatBasic': 'Publikationsform',
   'form.isbnIsmn.stepper.label.additionalDetails': 'Tilläggsuppgifter',
-  'form.isbnIsmn.stepper.label.dissertationFormat': '', //Dissertation format
+  'form.isbnIsmn.stepper.label.dissertationFormat': 'Typ av utgåva för dissertationen',
   'form.isbnIsmn.stepper.label.contactInfo': 'Kontaktuppgifter',
-  'form.isbnIsmn.stepper.label.universityInformation': '', //University information
+  'form.isbnIsmn.stepper.label.universityInformation': 'Information om universitetet',
   'form.isbnIsmn.stepper.label.preview': 'Granskning av uppgifterna',
-  'form.isbnIsmn.availability.publicationsPublic': 'Är er publikation avsedd för allmän distribution, t.ex. för utlåning i bibliotek eller försäljning i bokhandel? Om publikationen är en elektronisk publikation är den fritt på nätet eller till salu?',
+  'form.isbnIsmn.availability.publicationsPublic': 'Är er publikation avsedd för allmän distribution, t.ex. för utlåning i bibliotek eller försäljning i bokhandel? Om publikationen är en elektronisk publikation är den fritt tillgänglig på nätet eller till salu?*',
   'form.isbnIsmn.availability.type': 'Publikationen är*',
   'form.isbnIsmn.availability.type.option.book': 'Bok, häfte',
   'form.isbnIsmn.availability.type.option.dissertation': 'Dissertation',
   'form.isbnIsmn.availability.type.option.sheet_music': 'Notpublikation',
   'form.isbnIsmn.availability.type.option.map': 'Karta',
   'form.isbnIsmn.availability.type.option.other': 'Annan',
-  'form.isbnIsmn.availability.publicationsPublic.label': 'Är er publikation utgiven för allmän spridning?',
+  'form.isbnIsmn.availability.publicationsPublic.label': 'Är er publikation avsedd för allmän distribution?',
   'form.isbnIsmn.availability.type.label': 'Publikationen är',
   'form.isbnIsmn.publisherInfo.name': 'Förlagets officiella namn*',
   'form.isbnIsmn.publisherInfo.publisherIdentifierStr': 'Förlagsbeteckning',
@@ -480,7 +480,7 @@ const sv = {
   'form.isbnIsmn.publishingActivities.thisYear': 'Om verksamheten är kontinuerlig, hur många publikationer ger ni ut per år?*',
   'form.isbnIsmn.publishingActivities.option.occasional': 'Tillfällig',
   'form.isbnIsmn.publishingActivities.option.continuous': 'Kontinuerlig',
-  'form.isbnIsmn.university.isHelsinki': '', //Is the dissertation made for the University of Helsinki?
+  'form.isbnIsmn.university.isHelsinki': 'Är dissertationen/doktorsavhandlingen gjord för Helsingfors universitet?',
   'form.isbnIsmn.university.contactInfo.contactPerson': 'Kontaktperson*',
   'form.isbnIsmn.university.contactInfo.address': 'Adress*',
   'form.isbnIsmn.university.contactInfo.zip': 'Postnummer*',
@@ -490,7 +490,7 @@ const sv = {
   'form.isbnIsmn.publicationInfo.title': 'Titel*',
   'form.isbnIsmn.publicationInfo.subtitle': 'Undertitel',
   'form.isbnIsmn.publicationInfo.language': 'Publikationens språk*',
-  'form.isbnIsmn.publicationInfo.scale': '', //Scale
+  'form.isbnIsmn.publicationInfo.scale': 'Skala',
   'form.isbnIsmn.publicationInfo.publicationMonth': 'Publikationsmånad*',
   'form.isbnIsmn.publicationInfo.publicationYear': 'Publikationsår*',
   'form.isbnIsmn.authors.givenName': 'Förnamn*',
@@ -502,29 +502,29 @@ const sv = {
   'form.isbnIsmn.authors.role.option.editor': 'Redaktör',
   'form.isbnIsmn.authors.card.name': 'Namn:',
   'form.isbnIsmn.authors.card.roles': 'Roll:',
-  'form.isbnIsmn.authors.card.noAuthors': 'Upphovsuppgifter har inte ännu tillagts, tillägg upphovsperson genom att fylla i uppgifterna och tryck sedan på ’Lägg till’ -funktionen',
-  'form.isbnIsmn.authors.card.addMoreAuthors': 'Lägg till övriga upphovspersoner genom att fylla i uppgifterna och tryck på ’Lägg till’ -funktionen. Det går att tillägga fyra upphovspersoner. De övriga upphovspersonerna beaktas då publikationen hanteras på Nationalbiblioteket.',
-  'form.isbnIsmn.authors.card.maxAuthors': '', //You have added maximum amount of authors. Other authors will be considered when the publications request arrives to the National Library.
+  'form.isbnIsmn.authors.card.noAuthors': 'Upphovspersonerna är inte ännu tillagda. Lägg till upphovsperson genom att fylla i uppgifter och tryck på ’lägg till’ knappen.',
+  'form.isbnIsmn.authors.card.addMoreAuthors': 'Lägg till övriga upphovspersoner genom att fylla i uppgifterna och tryck på ’lägg till’ knappen. Du kan tillägga högst 4 upphovspersoner. De övriga upphovsuppgifterna beaktas då publikationen hanteras på Nationalbiblioteket.',
+  'form.isbnIsmn.authors.card.maxAuthors': 'Du har lagt till det maximala antalet upphovspersoner. De övriga upphovsuppgifterna beaktas då publikationen hanteras på Nationalbiblioteket.',
   'form.isbnIsmn.series.title': 'Seriens titel',
   'form.isbnIsmn.series.volume': 'Nummer i serien',
   'form.isbnIsmn.format.label': 'Publikationen utkommer*',
-  'form.isbnIsmn.format.option.print': 'I tryct form',
+  'form.isbnIsmn.format.option.print': 'I tryckt form',
   'form.isbnIsmn.format.option.electronical': 'I elektronisk form',
-  'form.isbnIsmn.format.option.print_electronical': 'I både tryct och elektronisk form',
+  'form.isbnIsmn.format.option.print_electronical': 'I både tryckt och elektronisk form',
   'form.isbnIsmn.format.dissertation.option.printed': 'Tryckt (mjuka pärmar)',
   'form.isbnIsmn.format.dissertation.option.electronic': 'Webpublikation (PDF)',
-  'form.isbnIsmn.format.dissertation.option.both': 'I både tryct (mjuka pärmar) och elektronisk (PDF) form',
-  'form.isbnIsmn.format.dissertation.option.printed.edition': '', //Edition
+  'form.isbnIsmn.format.dissertation.option.both': 'I både tryckt (mjuka pärmar) och elektronisk (PDF) form',
+  'form.isbnIsmn.format.dissertation.option.printed.edition': 'Upplaga',
   'form.isbnIsmn.format.dissertation.option.printed.manufacturer': 'Tryckeri',
   'form.isbnIsmn.format.dissertation.option.printed.city': 'Utgivningsort',
   'form.isbnIsmn.format.printFormat': 'Publikationsform*',
-  'form.isbnIsmn.format.printFormat.other': 'Om annan, vilken?',
+  'form.isbnIsmn.format.printFormat.other': 'Om annan, vilken?*',
   'form.isbnIsmn.format.printFormat.printed.manufacturer': 'Tryckeri eller annan tillverkare',
   'form.isbnIsmn.format.printFormat.printed.city': 'Tillverkarens hemort',
   'form.isbnIsmn.format.printFormat.printed.edition': 'Upplagans nummer',
   'form.isbnIsmn.format.printFormat.printed.copies': 'Upplagans storlek',
   'form.isbnIsmn.format.fileFormat': 'Filformat*',
-  'form.isbnIsmn.format.fileFormat.other': 'Annat',
+  'form.isbnIsmn.format.fileFormat.other': 'Om annan, vilken?*',
   'form.isbnIsmn.additionalDetails': 'Tilläggsuppgifter',
   'form.isbnIsmn.preview.publisherDetails': 'Uppgifter om förläggaren',
   'form.isbnIsmn.preview.publicationInfo': 'Förhandsuppgifter om publikationen',
@@ -535,24 +535,24 @@ const sv = {
   'form.isbnIsmn.preview.format': 'Publikationen utkommer',
   'form.isbnIsmn.preview.formatDetails': 'Publiceringsformat',
   'form.isbnIsmn.preview.printFormat': 'Publikationsform',
-  'form.isbnIsmn.preview.printFormatOther': '', //Other cover format
+  'form.isbnIsmn.preview.printFormatOther': 'Om annan, vilken?',
   'form.isbnIsmn.preview.fileFormat': 'Filformat',
-  'form.isbnIsmn.preview.fileformatOther': '', //Other file format
-  'form.isbnIsmn.preview.authors': 'Uppgifter om upphovsmän',
+  'form.isbnIsmn.preview.fileformatOther': 'Övriga filformat',
+  'form.isbnIsmn.preview.authors': 'Uppgifter om upphov',
   'form.isbnIsmn.preview.additionalDetails': 'Tilläggsuppgifter',
   'form.isbnIsmn.preview.manufacturer': 'Tryckeri',
   'form.isbnIsmn.preview.city': 'Utgivningsort',
-  'form.isbnIsmn.preview.edition': '', //Edition
-  'form.isbnIsmn.preview.run': '', //Copies
-  'form.isbnIsmn.preview.seriesDetails': '', //Series details
+  'form.isbnIsmn.preview.edition': 'Upplagans nummer',
+  'form.isbnIsmn.preview.run': 'Kopior',
+  'form.isbnIsmn.preview.seriesDetails': 'Detaljer om serien',
   'form.isbnIsmn.preview.publicationDetails': 'Tilläggsuppgifter',
-  'form.isbnIsmn.preview.isPublic': '', //Public
-  'form.isbnIsmn.card.universityOfHelsinki': '', //Before you fill in this ISBN request form, please check at your department/faculty if you get an ISBN from your university.
-  'form.isbnIsmn.card.otherUniversity': '', //Before you fill in this ISBN request form, please check at your department/faculty if you get an ISBN from your university. Please, contact customer service if needed
-  'form.isbnIsmn.card.publicationIsPublic': 'Observera att ISBN-nummer tilldelas enbart för publikationer som är utgivna för allmän spridning. Ansök inte om ett ISBN om publikationen är enbart ägnad för en sluten krets, t.ex. vänner, släktingar eller för ett samfunds eget bruk.',
-  'form.isbnIsmn.card.editionInfo': 'Om du ansöker ett standardnummer för en ny upplaga.',
+  'form.isbnIsmn.preview.isPublic': 'Allmänt bruk',
+  'form.isbnIsmn.card.universityOfHelsinki': 'Vänligen kontrollera med din enhet/fakultet om du får ett ISBN från ditt universitet, innan du fyller i detta ISBN formulär.',
+  'form.isbnIsmn.card.otherUniversity': 'Vänligen kontrollera med din enhet/fakultet om du får ett ISBN från ditt universitet, innan du fyller i detta ISBN formulär. Ta kontakt med vår kundtjänst.',
+  'form.isbnIsmn.card.publicationIsPublic': 'Om er publikation är avsedd endast för privat bruk (t.ex. för vänner, släktingar eller för internt bruk i ett samfund), tilldelas inget ISBN för pulikationen.',
+  'form.isbnIsmn.card.editionInfo': 'Det går inte att anöka om en identifikator i efterhand, då publikationen är redan tryckt eller publicerad på webben.',
   'form.isbnIsmn.card.publicationInfo': 'En identifikator kan inte ansökas i efterhand, om en bok är redan tryckt eller om den redan publicerats på nätet.',
-  'form.isbnIsmn.card.seriesInfo': 'Fyll i uppgifterna om serien, ifall publikationen ingår i en serie.',
+  'form.isbnIsmn.card.seriesInfo': 'Fyll i uppgifter om serien ifall publikationen ingår i en serie.',
 
   // ISSN-form
   'form.issn.title': 'Ansökningsblankett för ISSN',
@@ -562,18 +562,18 @@ const sv = {
   'form.issn.stepper.label.publicationInformation_3': 'Uppgifter om publikation 3',
   'form.issn.stepper.label.publicationInformation_4': 'Uppgifter om publikation 4',
   'form.issn.stepper.label.publicationVersions': 'Antalet publikationer',
-  'form.issn.stepper.label.publicationVersionsCheck': '', //Muut versiot (tarkistus)
-  'form.issn.stepper.label.preview': 'Granskning',
+  'form.issn.stepper.label.publicationVersionsCheck': 'Övriga versioner (granskning)',
+  'form.issn.stepper.label.preview': 'Granskning av uppgifterna',
   'form.issn.versionInfo.number_of_versions': 'Antalet publikationer',
   'form.issn.publisherInfo.name': 'Utgivarens namn*',
   'form.issn.publisherInfo.contact_person': 'Kontaktperson*',
   'form.issn.publisherInfo.email': 'E-post*',
   'form.issn.publisherInfo.phone': 'Telefon*',
-  'form.issn.publisherInfo.address': 'Gatuadress*',
+  'form.issn.publisherInfo.address': 'Adress*',
   'form.issn.publisherInfo.zip': 'Postnummer*',
   'form.issn.publisherInfo.city': 'Postanstalt*',
   'form.issn.publicationInfo.title': 'Publikationens titel*',
-  'form.issn.publicationInfo.title.instructions': 'ISSN är bundet till publikationens titel. Titeln ska vara permanent och den måste tryckas synligt till publikationen.',
+  'form.issn.publicationInfo.title.instructions': 'ISSN är bundet till publikationens titel. Titeln ska vara permanent och den måste tryckas synligt på publikationen.',
   'form.issn.publicationInfo.subtitle': 'Undertitel',
   'form.issn.publicationInfo.place_of_publication': 'Utgivningsort*',
   'form.issn.publicationInfo.printer': 'Tryckeri',
@@ -587,7 +587,7 @@ const sv = {
   'form.issn.publicationInfo.url': 'Webbadress om publikationen ges ut online*',
   'form.issn.publicationInfo.previous': 'Publikationens tidigare titel*',
   'form.issn.publicationInfo.issn': 'Publikationens tidigare ISSN',
-  'form.issn.publicationInfo.last_issue': 'Det sista numret med denna titel (nummer/år)',
+  'form.issn.publicationInfo.last_issue': 'Det sista numret med denna titel (nummer/år)*',
   'form.issn.publicationInfo.main_series': 'Huvudseriens titel*',
   'form.issn.publicationInfo.main_series_issn': 'Huvudseriens ISSN',
   'form.issn.publicationInfo.subseries': 'Underseriens titel*',
@@ -595,20 +595,20 @@ const sv = {
   'form.issn.publicationInfo.another_medium': 'Publikationens titel*',
   'form.issn.publicationInfo.another_medium_issn': 'Publikationens ISSN',
   'form.issn.publicationInfo.additional_info': 'Tilläggsuppgifter',
-  'form.issn.publicationInfo.publication_was_issued': 'Om publikationen har utkommit tidigare under en annan titel?',
-  'form.issn.publicationInfo.publication_has_main_series': 'Om publikationen ingår i en huvudserie?',
-  'form.issn.publicationInfo.publication_has_subseries': 'Om publikationen har en underserie?',
-  'form.issn.publicationInfo.publication_has_another_medium': 'Om publikationen har en annan publikationsform?',
-  'form.issn.publicationInfo.publication_has_another_medium.instructions': 'Om samma publikation har tidigare getts ut i olika utgåvor, ange uppgifterna om dem här.',
+  'form.issn.publicationInfo.publication_was_issued': 'Har publikationen utkommit tidigare under en annan titel?',
+  'form.issn.publicationInfo.publication_has_main_series': 'Ingår publikationen i en huvudserie?',
+  'form.issn.publicationInfo.publication_has_subseries': 'Har publikationen en underserie?',
+  'form.issn.publicationInfo.publication_has_another_medium': 'Har publikationen redan getts ut i en annan publikationsform?',
+  'form.issn.publicationInfo.publication_has_another_medium.instructions': 'Ifall samma publikation getts ut I olika format eller utgåvor, lägg till informartion om dem här.',
   'form.issn.publicationInfo.instructions.part1': 'Publikationens övriga medier',
-  'form.issn.publicationInfo.instructions.part2': 'Om samma publikation ges ut regelbundet också i en annan publikationsform (tryckt, webbpublikation), ska den andra formen ha ett separat ISSN. Fyll i delen uppgifter om publikation separat för varje publikationsform.',
+  'form.issn.publicationInfo.instructions.part2': 'Om samma publikation ges ut regelbundet också i en annan publikationsform (tryckt, webbpublikation), ska den andra formen ha ett separat ISSN. Fyll i uppgifter om varje publikationsformat separat.',
   'form.issn.publicationInfo.instructions.part3': 'Publikationens övriga språkversioner',
-  'form.issn.publicationInfo.instructions.part4': 'Om samma publikation ges ut i sin helhet på flera olika språk, ska varje språkversion ha ett separat ISSN som skiljer den från de andra versionerna. Språkversionen måste ha en separat numrering. Fyll i delen uppgifter om publikationen separat för varje språkversion.',
-  'form.issn.publicationInfo.instructions.part5': '', //Julkaisujen enimmäismäärä
-  'form.issn.publicationInfo.instructions.part6': 'Med ett ISSN-formulär går det att ansöka om ISSN för högst fyra publikationer. Ifall du behöver ISSN för flera publikationer, ta kontakt med ISSN-centralen issn-keskus@helsinki.fi.',
+  'form.issn.publicationInfo.instructions.part4': 'Om samma publikation ges ut i sin helhet på flera olika språk, ska varje språkversion ha ett separat ISSN som skiljer den från de andra versionerna. Språkversionen måste ha en separat numrering. Fyll i uppgifter om varje språkversion separat.',
+  'form.issn.publicationInfo.instructions.part5': 'Max antal publikationer',
+  'form.issn.publicationInfo.instructions.part6': 'Med ett ISSN-formulär går det att ansöka om ISSN för högst fyra publikationer. Ifall du behöver ISSN för flera publikationer, ta kontakt med ISSN-centralen.',
   'form.issn.publicationInfo.instructions.part7': '{icon} Ansök om identifikator för webbversionen först då publikationen är färdig.',
-  'form.issn.publicationMedium.printed': 'Tryct',
-  'form.issn.publicationMedium.electronical': 'Webpublikation',
+  'form.issn.publicationMedium.printed': 'Tryckt',
+  'form.issn.publicationMedium.electronical': 'Webbpublikation',
   'form.issn.publicationMedium.online': 'Webpublikation',
   'form.issn.publicationMedium.cd_rom': 'CD-ROM',
   'form.issn.publicationMedium.cdrom': 'CD-ROM',
@@ -621,46 +621,46 @@ const sv = {
   'form.issn.publicationCard.publicationType': 'Publikationstyp',
   'form.issn.publicationCard.publicationMedium': 'Publikationsform',
   'form.issn.publicationCard.url': 'Www-adress',
-  'form.issn.preview.publisherInfo': 'Uppgifter om förläggaren',
+  'form.issn.preview.publisherInfo': 'Uppgifter om utgivare',
   'form.issn.preview.name': 'Utgivarens namn',
-  'form.issn.relatedPublications': '', //Liittyvät julkaisut
+  'form.issn.relatedPublications': 'Tillhörande publikationer',
   'form.issn.preview.publicationDetails': 'Uppgifter om publikation',
-  'form.issn.preview.versions': '', //Julkaisun versiot
-  'form.issn.preview.info': '', //HUOM! Julkaisupyynnön lähettämisen yhteydessä julkaisulle luodaan automaattisesti seuraavat versiot (jokainen versio saa oman tunnuksen):
+  'form.issn.preview.versions': 'Versioner av publikationen',
+  'form.issn.preview.info': 'OBS! I samband med ansökan om publicering skapas det automatiskt följande versioner av publikationen (varje version får en egen identifikator):',
 
   // ISSN request
   'request.issn.preview.title': '{index}. Publikation - {title}',
 
   // TableComponent
-  'table.rowsPerPage': '', //Rows per page
-  'table.total': '', //Total
-  'table.forms': '', //Displaying
-  'table.formsOnOnePage': '', //Total
-  'table.headRows.active': 'Aktiva',
+  'table.rowsPerPage': 'Rader per sida',
+  'table.total': 'Total',
+  'table.forms': 'Visar',
+  'table.formsOnOnePage': 'Total',
+  'table.headRows.active': 'Aktiv',
   'table.headRows.id': 'ID',
-  'table.headRows.block': '', //Lohko
-  'table.headRows.publicationType': '', //Julkaisutyyppi
-  'table.headRows.identifier': '', //Identifier
+  'table.headRows.block': 'Ett block',
+  'table.headRows.publicationType': 'Typ av publikation',
+  'table.headRows.identifier': 'Identifikator',
 
   // Publisher registry (Kustantajarekisteri)
-  'publisherRegistry.title': 'Sök utgivare',
-  'publisherRegistry.headRows.activeIdentifiers': 'Förlagsnummer',
+  'publisherRegistry.title': 'Sök förlag',
+  'publisherRegistry.headRows.activeIdentifiers': 'Förlagsbeteckning',
   'publisherRegistry.publisher.otherNameForms': 'Övriga former av namnet',
   'publisherRegistry.publisher.previousNameForms': 'Publikationens tidigare titel',
   'publisherRegistry.publisher.publisherHasQuitted': 'Förläggaren har avslutat sin verksamhet',
-  'publisherRegistry.publisher.noOtherNames': '', //Ei muita nimimuotoja
-  'publisherRegistry.publisher.noPreviousNames': '', //Ei aiempia nimiä
-  'publisherRegistry.publisher.typeOther': '', //Muut kansityypit
-  'publisherRegistry.publisher.fileFormatOther': '', //Muut tiedostomuodot
-  'publisherRegistry.publisher.manufacturer': '', //Kirjapaino
-  'publisherRegistry.publisher.run': '', //Painoksen suuruus
-  'publisherRegistry.publisher.edition': '', //Painos
-  'publisherRegistry.publisher.role': '', //Rooli
-  'publisherRegistry.popover.isbn': '', //ISBN - Kirjat
-  'publisherRegistry.popover.ismn': '', //ISMN - Nuottijulkaisut
+  'publisherRegistry.publisher.noOtherNames': 'Ej övriga namnformer',
+  'publisherRegistry.publisher.noPreviousNames': 'Ej tidigare nam',
+  'publisherRegistry.publisher.typeOther': 'Övriga produktformer',
+  'publisherRegistry.publisher.fileFormatOther': 'Övriga filformat',
+  'publisherRegistry.publisher.manufacturer': 'Boktryckeri',
+  'publisherRegistry.publisher.run': 'Storlek av upplagan',
+  'publisherRegistry.publisher.edition': 'Upplaga',
+  'publisherRegistry.publisher.role': 'Roll',
+  'publisherRegistry.popover.isbn': 'ISBN - Böcker',
+  'publisherRegistry.popover.ismn': 'ISMN - Notpublikationer',
 
   // ISSN publication
-  'publication.issn.title': '', //Search ISSN publication by title
+  'publication.issn.title': 'Sök ISSN publikation med titel',
   'publication.issn.additionalDetails': 'Tilläggsuppgifter',
   'publication.issn.manufacturer': 'Tryckeri',
   'publication.issn.frequency': 'Utgivningsfrekvens',
@@ -672,26 +672,26 @@ const sv = {
   'publication.issn.mainSeries': 'Huvudserie',
   'publication.issn.subSeries': 'Underserie',
   'publication.issn.previousNameForms': 'Publikationens tidigare titel',
-  'publication.issn.lastIssue': 'Det sista numret med denna titel (nummer/år)',
+  'publication.issn.lastIssue': 'Det sista numret med den tidigare titeln (nummer/år)',
 
   // Modals - used in multiple places in modal components
-  'modal.publicBatch.confirmation': '', //Confirmation
-  'modal.publicBatch.confirmation.text.part1': '', //I confirm that I represent the publisher
-  'modal.publicBatch.confirmation.text.part2': '', // and I am the owner of the publisher identifier
+  'modal.publicBatch.confirmation': 'Bekräftelse',
+  'modal.publicBatch.confirmation.text.part1': 'Jag bekräftar att jag representerar förläggaren',
+  'modal.publicBatch.confirmation.text.part2': 'och att jag är ägaren av förlagsbeteckingen',
 
   // Service messages - used in action dispatchers (store/actions)
   'serviceMessage.registration.success': 'Formuläret har skickats',
-  'serviceMessage.registration.error': '', //Registration request failed
-  'serviceMessage.requestCreate.successfull': '', //Request sent successfully
-  'serviceMessage.requestCreate.unsuccessfull': '', //Request sending failed
-  'serviceMessage.requestQuery.unsuccessfull': '', //Pyyntöjen haku epäonnistui
-  'serviceMessage.requestRead.unsuccessfull': '', //Pyynnön haku epäonnistui
-  'serviceMessage.publisherRead.unsuccessfull': '', //Publisher read failed
-  'serviceMessage.publisherSearch.unsuccessfull': '', //Publisher search failed
-  'serviceMessage.batchRead.unsuccessfull': '', //Batch read failed
-  'serviceMessage.batchQuery.unsuccessfull': '', //Batches query failed
-  'serviceMessage.batchDownload.successfull': '', //Downloaded successfully
-  'serviceMessage.batchDownload.unsuccessfull': '' //Tunnuksien lataus epäonnistui
+  'serviceMessage.registration.error': 'Begäran om registrering misslyckades',
+  'serviceMessage.requestCreate.successfull': 'Begäran har skickats',
+  'serviceMessage.requestCreate.unsuccessfull': 'Sändningen av begäran misslyckades',
+  'serviceMessage.requestQuery.unsuccessfull': 'Begäran kunde inte skickas',
+  'serviceMessage.requestRead.unsuccessfull': 'Begäran kunde inte skickas',
+  'serviceMessage.publisherRead.unsuccessfull': 'Förläggaren hittades inte',
+  'serviceMessage.publisherSearch.unsuccessfull': 'Sök av förläggare misslyckades',
+  'serviceMessage.batchRead.unsuccessfull': 'Blocket kunde inte avläsas',
+  'serviceMessage.batchQuery.unsuccessfull': 'Sök av block misslyckades',
+  'serviceMessage.batchDownload.successfull': 'Nedladdninger lyckades',
+  'serviceMessage.batchDownload.unsuccessfull': 'Nedladdning av identifikator misslyckades'
 };
 
 export default sv;
