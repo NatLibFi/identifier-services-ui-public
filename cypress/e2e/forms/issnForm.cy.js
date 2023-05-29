@@ -197,7 +197,7 @@ describe('Tunnistepalvelut - ISSN-lomake', () => {
   });
 
   // Validation - Julkaisijan tiedot - Step 2
-  it('Validation errors are shown when fields are not filled or filled with invalid data', () => {
+  it('Validation - Step 2', () => {
     cy.get('.formButtonsContainer > button').eq('1').as('nextButton'); // alias for the 'Next'-button
 
     // Julkaisujen lukumäärä - Step 1
@@ -241,7 +241,7 @@ describe('Tunnistepalvelut - ISSN-lomake', () => {
   });
 
   // Validation - Julkaisun tiedot - Step 3
-  it('Validation errors are shown when fields are not filled or filled with invalid data', () => {
+  it('Validation - Step 3', () => {
     cy.get('.formButtonsContainer > button').eq('1').as('nextButton'); // alias for the 'Next'-button
 
     // Julkaisujen lukumäärä - Step 1

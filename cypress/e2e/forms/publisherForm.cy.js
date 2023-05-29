@@ -102,7 +102,7 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
   });
 
   // Validation - Kustantajan tiedot - Step 1
-  it('Validation errors are shown when fields are not filled or filled with invalid data', () => {
+  it('Validation - Step 1', () => {
     cy.get('.notesContainer button').click();
     cy.get('.formButtonsContainer > button').eq('1').as('nextButton');
 
@@ -139,7 +139,7 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
   });
 
   // Validation - Kustannustominta - Step 2
-  it('Validation errors are shown when required fields are not filled', () => {
+  it('Validation - Step 2', () => {
     cy.get('.notesContainer button').click();
     cy.get('.formButtonsContainer > button').eq('1').as('nextButton');
 
