@@ -1,7 +1,7 @@
 describe('Tunnistepalvelut - Tunnuslista', () => {
   // run before each test
   beforeEach(() => {
-    cy.visit('localhost:8080/isbn-registry/identifierbatches/3');
+    cy.visit('localhost:8080/isbn-registry/identifierbatches/3'); // access a batch page with id 3
   });
 
   it('User can confirm ownership of an ID and proceed to the batch page', () => {
@@ -25,5 +25,13 @@ describe('Tunnistepalvelut - Tunnuslista', () => {
         cy.get('.marcModal').should('be.visible');
         cy.get('.marcModal').should('contain', publisherName);
       });
+  });
+
+  it('User can successfully download a batch file', () => {
+    cy.batchOwnership(1);
+    cy.get('.publicBatchButtons > button').last().click();
+
+    const downloadsFolder = Cypress.config('downloadsFolder');
+    cy.readFile(`${downloadsFolder}/identifierBatch-3.txt`).should('exist'); // 3 = batch id
   });
 });
