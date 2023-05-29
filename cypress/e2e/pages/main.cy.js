@@ -46,4 +46,29 @@ describe('Tunnistepalvelut - Etusivu', () => {
       cy.url().should('include', links[i]);
     }
   });
+
+  /* Check external links */
+  it('User can click the Privacy Policy link and is redirected to the right page', () => {
+    cy.get('footer > p > a').then(link => {
+      cy.request(link.prop('href')).its('status').should('eq', 200);
+    });
+  });
+
+  it('User can click "More about ISBN/ISMN/ISSN" links and is redirected to the right page', () => {
+    cy.get('.buttonContainer a').each(link => {
+      cy.request(link.prop('href')).its('status').should('eq', 200);
+    });
+
+    cy.get('.issnContainer a').then(link => {
+      cy.request(link.prop('href')).its('status').should('eq', 200);
+    });
+  });
+
+  it('User can click social media links in the Footer and is redirected to the right page', () => {
+    // During the tests, it came out that LinkedIn link is returning 999 status code for some reason, so it is excluded from the test
+    // However, the link is still clickable and redirects to the right page. Should be investigated further.
+    cy.get('.socialContainer a:not(:last-child)').each(link => {
+      cy.request(link.prop('href')).its('status').should('eq', 200);
+    });
+  });
 });

@@ -15,6 +15,13 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     });
   });
 
+  // Check external links
+  it('User can click the ISBN Center link and is redirected to the right page', () => {
+    cy.get('.notesContainer a').then(link => {
+      cy.request(link.prop('href')).its('status').should('eq', 200);
+    });
+  });
+
   it('User can fill the form, edit, preview and succesfully submit it', () => {
     cy.get('.notesContainer button').click();
     cy.get('.formButtonsContainer > button').eq('1').as('nextButton'); // alias for the 'Next'-button
