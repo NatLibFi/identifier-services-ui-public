@@ -99,7 +99,7 @@ export function validate(values) {
     const {classification = []} = values;
     const classificationErrors = {};
 
-    if ((!classification || classification.length === 0) && values.classificationOther === '') {
+    if ((!classification || classification.length === 0) && values.classificationOther === undefined) {
       classificationErrors.classification = 'field.required';
     }
 
