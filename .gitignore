@@ -132,3 +132,6 @@ dist
 # Envs
 .env*
 .prettierrc
+
+# Dev
+dev-certs
