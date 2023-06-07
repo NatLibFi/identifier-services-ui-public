@@ -129,7 +129,8 @@ function PublisherRegistrationForm (props) {
     const turnstileWidgedId = window.turnstile.render('#turnstileWidget', {
       sitekey: siteKey,
       callback: (token) => makeApiCall(token),
-      ['error-callback']: () => {loading = false;}
+      'error-callback': () => {loading = false;},
+      'refresh-expired': 'never'
     });
 
     setTurnstileId(turnstileWidgedId);
@@ -176,7 +177,7 @@ function PublisherRegistrationForm (props) {
     >
       {({handleSubmit, errors, valid, values, form, submitting}) => {
         // Manage publication format information
-        const isPreviewPage = activeStep === contentOrder.length;
+        const isPreviewPage = activeStep === contentOrder.length - 1;
         formatFormValues(values, form.change, isPreviewPage);
 
         return (
@@ -205,12 +206,12 @@ function PublisherRegistrationForm (props) {
               {/* Mobile Stepper is visible when screen < 500px */}
               <MobileStepper
                 variant="dots"
-                steps={contentOrder.length + 1}
+                steps={contentOrder.length}
                 position="static"
                 activeStep={activeStep}
                 className='mobileSmallStepperStyle'
                 nextButton={
-                  activeStep === contentOrder.length
+                  isPreviewPage
                     ? (
                       <Button type="submit" disabled={!valid || submitting} size="small">
                         <FormattedMessage id="form.button.label.submit"/>
@@ -257,7 +258,7 @@ function PublisherRegistrationForm (props) {
                     </div>
                   )}
                 {/* Render the preview of a form with the data passed by user */}
-                {activeStep === contentOrder.length - 1 && <Preview values={values}/>}
+                {isPreviewPage && <Preview values={values}/>}
               </Grid>
 
               {/* Required for turnstile */}
@@ -266,11 +267,11 @@ function PublisherRegistrationForm (props) {
                 {submitting && <CircularProgress/>}
               </div>
 
-              <div className={activeStep === contentOrder.length - 1 ? 'formSubmitButtonsContainer' : 'formButtonsContainer'}>
+              <div className={isPreviewPage ? 'formSubmitButtonsContainer' : 'formButtonsContainer'}>
                 <Button disableRipple onClick={handleBack} disabled={submitting}>
                   <FormattedMessage id="form.button.label.back"/>
                 </Button>
-                {activeStep === contentOrder.length - 1 ? null : (
+                {isPreviewPage ? null : (
                   <Button
                     disableRipple
                     type="button"
@@ -284,7 +285,7 @@ function PublisherRegistrationForm (props) {
                     <FormattedMessage id="form.button.label.next"/>
                   </Button>
                 )}
-                {activeStep === contentOrder.length - 1 && (
+                {isPreviewPage && (
                   <Button
                     disableRipple
                     type="submit"
