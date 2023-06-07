@@ -122,7 +122,9 @@ function IsbnIsmnPublicationRegistrationForm (props) {
 
     const turnstileWidgedId = window.turnstile.render('#turnstileWidget', {
       sitekey: siteKey,
-      callback: (token) => makeApiCall(token)
+      callback: (token) => makeApiCall(token),
+      'error-callback': () => {loading = false;},
+      'refresh-expired': 'never'
     });
 
     setTurnstileId(turnstileWidgedId);
