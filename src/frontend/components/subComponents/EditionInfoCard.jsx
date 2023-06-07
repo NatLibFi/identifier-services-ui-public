@@ -35,12 +35,25 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 import '/src/frontend/css/subComponents/cards/infoCard.css';
 
-function EditionInfoCard ({infoText}) {
+function EditionInfoCard ({infoText, language}) {
+  // Get correct link for each language
+  const getLink = (language) => {
+    if (language === 'fi') {
+      return 'https://www.kiwi.fi/display/ISBNjaISMN/Uuden+painoksen+tunnukset';
+    }
+
+    if (language === 'sv') {
+      return 'https://www.kiwi.fi/pages/viewpage.action?pageId=70813198';
+    }
+
+    return 'https://www.kiwi.fi/display/ISBNjaISMN/Identifiers+for+reprints';
+  };
+
   return (
     <Card className='infoLink'>
       <Typography variant="subtitle1" className='infoLinkHeader'>
         <InfoOutlinedIcon/>
-        <Link href='https://www.kiwi.fi/display/ISBNjaISMN/Uuden+painoksen+tunnukset' target='_blank' rel='noreferrer'>
+        <Link href={getLink(language)} target='_blank' rel='noreferrer'>
           <FormattedMessage id={infoText}/>
           <OpenInNewIcon/>
         </Link>
@@ -50,7 +63,8 @@ function EditionInfoCard ({infoText}) {
 }
 
 EditionInfoCard.propTypes = {
-  infoText: PropTypes.string.isRequired
+  infoText: PropTypes.string.isRequired,
+  language: PropTypes.string.isRequired
 };
 
 export default EditionInfoCard;

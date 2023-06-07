@@ -50,7 +50,6 @@ export function validate(values) {
     // Required for all publication types except dissertation
     !isDissertation ? 'officialName' : null,
     !isDissertation ? 'publishingActivity' : null,
-    !isDissertation ? 'publishingActivityAmount' : null,
     // Required only for dissertations
     isDissertation ? 'isHelsinki' : null
   ];

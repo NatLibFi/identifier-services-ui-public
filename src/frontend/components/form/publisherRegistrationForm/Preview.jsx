@@ -152,7 +152,7 @@ function Preview ({values}) {
         </Typography>
         <ListComponent
           fieldName="classification"
-          label={<FormattedMessage id="form.common.classification"/>}
+          label={<FormattedMessage id="form.common.classificationKeywords"/>}
           value={values.classification?.map(i => i.value) ?? []}
         />
         {values.classificationOther && (
