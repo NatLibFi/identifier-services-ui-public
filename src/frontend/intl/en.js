@@ -197,7 +197,6 @@ const en = {
   'errorPage.message.serviceUnderMaintenance': 'The service is under maintenance. Please try again later. If the problem persists, please contact customer service',
   'errorPage.message.defaultError': 'Unknown error. Please try again or contact customer service',
   'errorPage.message.generatingMessageFailed': 'Operation failed, please try again or contact customer service',
-  'errorPage.grantingIdsMessageError': '', //Jos päädyitte tälle sivulle tunnuksen myöntämisen yhteydessä, ottakaa yhteyttä järjestelmäylläpitöön valittömästi ja ilmoittakaa virheestä (loadTemplate failed after generating new identifierBatch).
   'errorPage.publicationRequestError': 'The page could not be loaded. Please check the address and try again. If the problem persists, please contact customer service',
   'errorPage.accessdenied.heading': 'Access denied',
   'errorPage.accessdenied.message': 'You do not have permission to access this page',
@@ -346,7 +345,6 @@ const en = {
   'form.publisherRegistration.publishingActivities.nextYear': 'Please estimate the number of publications you publish next year*',
   'form.publisherRegistration.publishingActivities.classification': 'Classification codes*',
   'form.publisherRegistration.publishingActivities.classification.placeholder': 'Add classification keyword*',
-  'form.publisherRegistration.publishingActivities.classification.instruction': '', //Klikatkaa alla olevaan kenttään oheisen luokituskaavion mukaisesti 1-4 luokitustunnusta, jotka parhaiten kuvaavat julkaisujenne aihealueita. Jos aihealueita on enemmän tai ette löydä oheisesta kaaviosta sopivaa aihealuetta, niin käyttäkää luokkaa 000 Yleistä.
   'form.publisherRegistration.publishingActivities.classificationOther': 'Other keywords',
   'form.publisherRegistration.organization.affiliates': 'Affiliates',
   'form.publisherRegistration.organization.affiliateOf': 'Affiliate of',
@@ -627,7 +625,6 @@ const en = {
   'form.issn.relatedPublications': 'Related publications',
   'form.issn.preview.publicationDetails': 'Publication details',
   'form.issn.preview.versions': 'Publication versions',
-  'form.issn.preview.info': '', //HUOM! Julkaisupyynnön lähettämisen yhteydessä julkaisulle luodaan automaattisesti seuraavat versiot (jokainen versio saa oman tunnuksen):
 
   // ISSN request
   'request.issn.preview.title': '{index}. Publication - {title}',

@@ -197,7 +197,6 @@ const fi = {
   'errorPage.message.serviceUnderMaintenance': 'Palvelin on huoltotilassa ja se on hetken poissa käytöstä. Yrittäkää myöhemmin uudelleen. Kiireellisissä asioissa ottakaa yhteyttä asiakaspalveluun',
   'errorPage.message.defaultError': 'Tuntematon virhe. Yrittäkää uudelleen tai ottakaa yhteyttä asiakaspalveluun',
   'errorPage.message.generatingMessageFailed': 'Viestipohjan hakeminen epäonnistui. Yrittäkää uudelleen tai ottakaa yhteyttä asiakaspalveluun',
-  'errorPage.grantingIdsMessageError': 'Jos päädyitte tälle sivulle tunnuksen myöntämisen yhteydessä, ottakaa yhteyttä järjestelmäylläpitöön valittömästi ja ilmoittakaa virheestä (loadTemplate failed after generating new identifierBatch).',
   'errorPage.publicationRequestError': 'Sivun lataaminen epäonnistui. Tarkista osoite ja yritä uudelleen. Jos ongelma toistuu, ota yhteyttä ISBN-keskukseen',
   'errorPage.accessdenied.heading': 'Pääsy kielletty',
   'errorPage.accessdenied.message': 'Sinulla ei ole oikeuksia tälle sivulle.',
@@ -346,7 +345,6 @@ const fi = {
   'form.publisherRegistration.publishingActivities.nextYear': 'Arvionne kustannusmäärästä ensi vuoden osalta?*',
   'form.publisherRegistration.publishingActivities.classification': 'Luokitustunnukset*',
   'form.publisherRegistration.publishingActivities.classification.placeholder': 'Valitse kustannustoiminnan aihealueet*',
-  'form.publisherRegistration.publishingActivities.classification.instruction': 'Klikatkaa alla olevaan kenttään oheisen luokituskaavion mukaisesti 1-4 luokitustunnusta, jotka parhaiten kuvaavat julkaisujenne aihealueita. Jos aihealueita on enemmän tai ette löydä oheisesta kaaviosta sopivaa aihealuetta, niin käyttäkää luokkaa 000 Yleistä.',
   'form.publisherRegistration.publishingActivities.classificationOther': 'Jos et löydä sopivia aihealueita valikosta, lisää haluamasi tähän',
   'form.publisherRegistration.organization.affiliates': 'Tytäryhtiöt',
   'form.publisherRegistration.organization.affiliateOf': 'Emoyhtiö',
@@ -627,7 +625,6 @@ const fi = {
   'form.issn.relatedPublications': 'Liittyvät julkaisut',
   'form.issn.preview.publicationDetails': 'Julkaisutiedot',
   'form.issn.preview.versions': 'Julkaisun versiot',
-  'form.issn.preview.info': 'HUOM! Julkaisupyynnön lähettämisen yhteydessä julkaisulle luodaan automaattisesti seuraavat versiot (jokainen versio saa oman tunnuksen):',
 
   // ISSN request
   'request.issn.preview.title': '{index}. Julkaisu - {title}',

@@ -197,7 +197,6 @@ const sv = {
   'errorPage.message.serviceUnderMaintenance': ' Serviceavbrott på webbplatsen. Vänligen försök igen senare. Om problemen fortsätter, vänligen ta kontakt med vår kundservice.',
   'errorPage.message.defaultError': 'Ett okänt fel uppstod. Vänligen försök på nytt eller ta kontakt med vår kundservice.',
   'errorPage.message.generatingMessageFailed': 'Skapandet av meddelande misslyckades. Vänligen försök på nytt eller ta kontakt med vår kundservice.',
-  'errorPage.grantingIdsMessageError': 'Ifall ni hamnade på denna webbplats i samband med utdelning av identifikatorer. Ta omedelbar kontakt med uprätthållaren av servicen och meddela om felet (loadTemplate failed after generating new identifierBatch)',
   'errorPage.publicationRequestError': 'Denna webbplats kan inte nås. Vänligen kontrollera webbadressen och försök igen. Om problemen fortsätter, vänligen ta kontakt med vår kundservice.',
   'errorPage.accessdenied.heading': 'Åtkomst nekad',
   'errorPage.accessdenied.message': 'Inget tillträde till webbsidan',
@@ -346,7 +345,6 @@ const sv = {
   'form.publisherRegistration.publishingActivities.nextYear': 'Kalkyl för nästa år*',
   'form.publisherRegistration.publishingActivities.classification': 'Klassificeringsnummer*',
   'form.publisherRegistration.publishingActivities.classification.placeholder': 'Välj ämnesord enligt den bifogade ordlistan*',
-  'form.publisherRegistration.publishingActivities.classification.instruction': 'Klicka på fältet och välj 1-4 klassificeringsnummer enligt bifogat klassifikationssystem som ni tycker bäst beskriver innehållet i era publikationer. Om publikatonerna täcker flera ämnesområden eller om ni inte hittar lämplig klassificering, använd klass 000 Allmänt.',
   'form.publisherRegistration.publishingActivities.classificationOther': 'Om ni inte hittar ett lämpligt ämnesord i tabellen, kan ni beskriva innehållet med några korta ord.',
   'form.publisherRegistration.organization.affiliates': 'Dotterbolag',
   'form.publisherRegistration.organization.affiliateOf': 'Moderbolag',
@@ -627,7 +625,6 @@ const sv = {
   'form.issn.relatedPublications': 'Tillhörande publikationer',
   'form.issn.preview.publicationDetails': 'Uppgifter om publikation',
   'form.issn.preview.versions': 'Versioner av publikationen',
-  'form.issn.preview.info': 'OBS! I samband med ansökan om publicering skapas det automatiskt följande versioner av publikationen (varje version får en egen identifikator):',
 
   // ISSN request
   'request.issn.preview.title': '{index}. Publikation - {title}',
