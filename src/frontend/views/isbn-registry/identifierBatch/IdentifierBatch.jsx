@@ -54,6 +54,11 @@ function IdentifierBatch ({configuration, match}) {
 
   // Turnstile
   const [turnstileId, setTurnstileId] = useState(null);
+  const turnstileConfiguration = {
+    sitekey: siteKey,
+    callback: (token) => makeApiCall(token),
+    'refresh-expired': 'never'
+  };
 
   // Fetch the batch data
   const {data, loading, error} = useItem({
@@ -63,6 +68,11 @@ function IdentifierBatch ({configuration, match}) {
     prefetch: true,
     fetchOnce: true
   });
+
+  // Turnstile callback api function
+  async function makeApiCall(turnstileToken) {
+    await downloadIdentifierBatch(id, turnstileToken);
+  }
 
   // Turnstile
   async function handleBatchDownload() {
@@ -74,29 +84,18 @@ function IdentifierBatch ({configuration, match}) {
       if(turnstileId) {
         window.turnstile.reset(turnstileId);
       } else {
-        const turnstileWidgedId = window.turnstile.render('#turnstileWidget', {
-          sitekey: siteKey,
-          callback: (token) => makeApiCall(token)
-        });
-
+        const turnstileWidgedId = window.turnstile.render('#turnstileWidget', turnstileConfiguration);
         setTurnstileId(turnstileWidgedId);
       }
     } catch(err) {
       // Attempt reinitializing widget once more
-      const turnstileWidgedId = window.turnstile.render('#turnstileWidget', {
-        sitekey: siteKey,
-        callback: (token) => makeApiCall(token)
-      });
+      const turnstileWidgedId = window.turnstile.render('#turnstileWidget', turnstileConfiguration);
 
       setTurnstileId(turnstileWidgedId);
     }
 
     // For disabling buttons set minimum resolve time to 3 seconds
     return await new Promise(r => setTimeout(r, 3000));
-
-    async function makeApiCall(turnstileToken) {
-      await downloadIdentifierBatch(id, turnstileToken);
-    }
   }
 
   // Get the component based on state
