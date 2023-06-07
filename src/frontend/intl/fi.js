@@ -136,9 +136,9 @@ const fi = {
   'homePage.description.part2': 'ISBN-tunnus identifioi kirjat, ISMN-tunnus nuottijulkaisut ja ISSN-tunnus jatkuvasti ilmestyvät julkaisut.',
   'homePage.description.part3': 'Suomessa tunnuksia haetaan Kansalliskirjastossa toimivista Suomen ISBN- ja ISSN-keskuksista. Tunnukset ovat maksuttomia.',
   'homePage.link': 'Lisätietoja {link}-tunnuksista',
-  'homePage.instructions.title': 'Ohjeita lomakkeiden täyttöön',
-  'homePage.instructions.main.text': 'Jos kustannatte säännöllisesti (esim. yhden tai useamman julkaisun vuodessa) ettekä ole vielä liittynyt ISBN-järjestelmään, täyttäkää sekä liittymislomake ISBN/ISMN-järjestelmään että ISBN-ISMN-tunnuksen hakulomake.{lineBreak}{lineBreak}Jos kustannustoimintanne on satunnaista tai jos olette jo liittynyt ISBN-järjestelmään, täyttäkää vain ISBN-/ISMN-tunnuksen hakulomake.{lineBreak}{lineBreak}Kustantajan tiedot julkaistaan kansainvälisissä Global Register of Publishers ja/tai Music Publishers\' International ISMN Database -tietokannoissa ja tietoja käytetään myös Suomen ISBN-keskuksen toiminnassa ja/tai ne ovat haettavissa kustantajarekisteristä.',
-  'homePage.instructions.isbn-ismn.text': 'ISBN identifioi julkiseen käyttöön tarkoitetut kirjat ja ISMN nuottijulkaisut. Suomen kansallinen ISBN-keskus vastaa ISBN- ja ISMN-tunnusten käytöstä Suomessa. Keskus ylläpitää kansallista kustantajarekisteriä ja välittää tietoja suomalaisista kustantajista kansalliseen ja kansainväliseen käyttöön.{lineBreak}{lineBreak}Erillinen ISBN tai ISMN annetaan jokaiselle kirjalle tai nuottijulkaisulle, sen jokaiselle erilaiselle julkaisumuodolle (painettu, audiovisuaalinen, digitaalinen) ja muutoksia sisältävälle painokselle. Tunnukset edistävät julkaisujen tunnistamista julkaisualan jakeluketjussa ja takaavat, että asiakas saa käyttöönsä haluamansa julkaisun. Julkaisumuoto voi olla painettu kirja, audiovisuaalinen tai elektroninen tallenne.',
+  'homePage.instructions.title': 'Ohjeita ISBN/ISMN-lomakkeiden täyttöön',
+  'homePage.instructions.main.text': 'Jos kustannatte säännöllisesti (esim. yhden tai useamman julkaisun vuodessa) ettekä ole vielä liittynyt ISBN-järjestelmään, täyttäkää sekä liittymislomake ISBN/ISMN-järjestelmään että ISBN/ISMN-tunnuksen hakulomake.{lineBreak}{lineBreak}Jos kustannustoimintanne on satunnaista tai jos olette jo liittynyt ISBN-järjestelmään, täyttäkää vain ISBN-/ISMN-tunnuksen hakulomake.{lineBreak}{lineBreak}Kustantajan tiedot julkaistaan kansainvälisissä Global Register of Publishers ja/tai Music Publishers\' International ISMN Database -tietokannoissa ja tietoja käytetään myös Suomen ISBN-keskuksen toiminnassa ja/tai ne ovat haettavissa kustantajarekisteristä.',
+  'homePage.instructions.isbn-ismn.text': 'ISBN identifioi julkiseen käyttöön tarkoitetut kirjat ja ISMN nuottijulkaisut. Suomen kansallinen ISBN-keskus vastaa ISBN- ja ISMN-tunnusten käytöstä Suomessa. Keskus ylläpitää kansallista kustantajarekisteriä ja välittää tietoja suomalaisista kustantajista kansalliseen ja kansainväliseen käyttöön.{lineBreak}{lineBreak}Tunnisteet metatiedon osana palvelevat koko julkaisualaa ja kirjastosektoria ja tukevat julkaisujen tunnistamista, käsittelyä ja löytyvyyttä. Tunnuksia käytetään mm. julkaisualan tilaus- ja jakelujärjestelmissä nopeuttamaan julkaisujen tunnistamista sekä kansainvälisissä että kansallisissa yhteisluetteloissa, bibliografioissa, kirjastojen lainausjärjestelmissä ja tiedonhauissa.{lineBreak}{lineBreak}Erillinen ISBN tai ISMN annetaan jokaiselle kirjalle tai nuottijulkaisulle, sen jokaiselle erilaiselle julkaisumuodolle (painettu, audiovisuaalinen, digitaalinen) ja muutoksia sisältävälle painokselle. Tunnukset edistävät julkaisujen tunnistamista julkaisualan jakeluketjussa ja takaavat, että asiakas saa käyttöönsä haluamansa julkaisun. Julkaisumuoto voi olla painettu kirja, audiovisuaalinen tai elektroninen tallenne.',
   'homePage.instructions.issn.text': 'ISSN-tunnus identifioi jatkuvasti ilmestyvät julkaisut, kuten lehdet ja sarjat. Suomen ISSN-keskus vastaa tunnusten jakamisesta Suomessa ja lähettää ISSN-tunnuksen saaneiden julkaisujen tiedot {link} -tietokantaan.{lineBreak}{lineBreak}ISSN-tunnus liittyy kiinteästi julkaisun nimeen, nimen muuttuessa myös tunnus on vaihdettava. Eri julkaisumuodoille annetaan erillinen ISSN-tunnus.',
 
   // Menu bar
@@ -197,7 +197,6 @@ const fi = {
   'errorPage.message.serviceUnderMaintenance': 'Palvelin on huoltotilassa ja se on hetken poissa käytöstä. Yrittäkää myöhemmin uudelleen. Kiireellisissä asioissa ottakaa yhteyttä asiakaspalveluun',
   'errorPage.message.defaultError': 'Tuntematon virhe. Yrittäkää uudelleen tai ottakaa yhteyttä asiakaspalveluun',
   'errorPage.message.generatingMessageFailed': 'Viestipohjan hakeminen epäonnistui. Yrittäkää uudelleen tai ottakaa yhteyttä asiakaspalveluun',
-  'errorPage.grantingIdsMessageError': 'Jos päädyitte tälle sivulle tunnuksen myöntämisen yhteydessä, ottakaa yhteyttä järjestelmäylläpitöön valittömästi ja ilmoittakaa virheestä (loadTemplate failed after generating new identifierBatch).',
   'errorPage.publicationRequestError': 'Sivun lataaminen epäonnistui. Tarkista osoite ja yritä uudelleen. Jos ongelma toistuu, ota yhteyttä ISBN-keskukseen',
   'errorPage.accessdenied.heading': 'Pääsy kielletty',
   'errorPage.accessdenied.message': 'Sinulla ei ole oikeuksia tälle sivulle.',
@@ -222,6 +221,7 @@ const fi = {
   'form.common.currentYear': 'Arvio julkaisumäärästä (tämä vuosi)',
   'form.common.nextYear': 'Arvio julkaisumäärästä (tuleva vuosi)',
   'form.common.classification': 'Luokitus',
+  'form.common.classificationKeywords': 'Luokitusavainsanat',
   'form.common.classificationOther': 'Muu luokitus',
   'form.common.classificationCodes': 'Luokitustunnukset',
   'form.common.publisherIdentifier': 'Kustantajatunnus',
@@ -345,7 +345,6 @@ const fi = {
   'form.publisherRegistration.publishingActivities.nextYear': 'Arvionne kustannusmäärästä ensi vuoden osalta?*',
   'form.publisherRegistration.publishingActivities.classification': 'Luokitustunnukset*',
   'form.publisherRegistration.publishingActivities.classification.placeholder': 'Valitse kustannustoiminnan aihealueet*',
-  'form.publisherRegistration.publishingActivities.classification.instruction': 'Klikatkaa alla olevaan kenttään oheisen luokituskaavion mukaisesti 1-4 luokitustunnusta, jotka parhaiten kuvaavat julkaisujenne aihealueita. Jos aihealueita on enemmän tai ette löydä oheisesta kaaviosta sopivaa aihealuetta, niin käyttäkää luokkaa 000 Yleistä.',
   'form.publisherRegistration.publishingActivities.classificationOther': 'Jos et löydä sopivia aihealueita valikosta, lisää haluamasi tähän',
   'form.publisherRegistration.organization.affiliates': 'Tytäryhtiöt',
   'form.publisherRegistration.organization.affiliateOf': 'Emoyhtiö',
@@ -477,7 +476,7 @@ const fi = {
   'form.isbnIsmn.publisherInfo.email': 'Sähköpostiosoite*',
   'form.isbnIsmn.publishingActivities.hasPublishedBefore': 'Oletteko kustantaneet aikaisemmin?',
   'form.isbnIsmn.publishingActivities.occasionalOrContinuous': 'Onko kustannustoimintanne?*',
-  'form.isbnIsmn.publishingActivities.thisYear': 'Kuinka monta julkaisua kustannatte vuodessa?*',
+  'form.isbnIsmn.publishingActivities.thisYear': 'Kuinka monta julkaisua kustannatte vuodessa?',
   'form.isbnIsmn.publishingActivities.option.occasional': 'Satunnaista',
   'form.isbnIsmn.publishingActivities.option.continuous': 'Jatkuvaa',
   'form.isbnIsmn.university.isHelsinki': 'Onko väitöskirja tehty Helsingin yliopistolle?',
@@ -626,7 +625,6 @@ const fi = {
   'form.issn.relatedPublications': 'Liittyvät julkaisut',
   'form.issn.preview.publicationDetails': 'Julkaisutiedot',
   'form.issn.preview.versions': 'Julkaisun versiot',
-  'form.issn.preview.info': 'HUOM! Julkaisupyynnön lähettämisen yhteydessä julkaisulle luodaan automaattisesti seuraavat versiot (jokainen versio saa oman tunnuksen):',
 
   // ISSN request
   'request.issn.preview.title': '{index}. Julkaisu - {title}',

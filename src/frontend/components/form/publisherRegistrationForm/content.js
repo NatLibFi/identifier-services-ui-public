@@ -115,7 +115,6 @@ export function getFormPages() {
           placeholder: <FormattedMessage id="form.publisherRegistration.publishingActivities.classification.placeholder"/>,
           options: classificationCodes,
           width: 'half',
-          instructions: <FormattedMessage id="form.publisherRegistration.publishingActivities.classification.instruction"/>,
           ariaLabel: 'form.publisherRegistration.publishingActivities.classification'
         },
         {

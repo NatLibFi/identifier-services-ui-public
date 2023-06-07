@@ -111,7 +111,7 @@ const en = {
   'common.membership_based_magazine': 'Membership-based magazine',
   'common.newspaper': 'Newspaper',
   'common.free_paper': 'Free paper',
-  'common.monography_series': 'Monography series',
+  'common.monography_series': 'Monograph series',
   'common.cartoon': 'Cartoon',
   'common.other_serial': 'Other (e.g. statistics, yearbook, report)',
   // ISSN publication frequency options
@@ -197,7 +197,6 @@ const en = {
   'errorPage.message.serviceUnderMaintenance': 'The service is under maintenance. Please try again later. If the problem persists, please contact customer service',
   'errorPage.message.defaultError': 'Unknown error. Please try again or contact customer service',
   'errorPage.message.generatingMessageFailed': 'Operation failed, please try again or contact customer service',
-  'errorPage.grantingIdsMessageError': '', //Jos päädyitte tälle sivulle tunnuksen myöntämisen yhteydessä, ottakaa yhteyttä järjestelmäylläpitöön valittömästi ja ilmoittakaa virheestä (loadTemplate failed after generating new identifierBatch).
   'errorPage.publicationRequestError': 'The page could not be loaded. Please check the address and try again. If the problem persists, please contact customer service',
   'errorPage.accessdenied.heading': 'Access denied',
   'errorPage.accessdenied.message': 'You do not have permission to access this page',
@@ -222,6 +221,7 @@ const en = {
   'form.common.currentYear': 'Estimated publication amount (this year)',
   'form.common.nextYear': 'Estimated publication amount (next year)',
   'form.common.classification': 'Classification',
+  'form.common.classificationKeywords': 'Keywords',
   'form.common.classificationOther': 'Other classification',
   'form.common.classificationCodes': 'Classification codes',
   'form.common.publisherIdentifier': 'Publisher identifier',
@@ -344,8 +344,7 @@ const en = {
   'form.publisherRegistration.publishingActivities.currentYear': 'Please estimate the number of publications you publish this year*',
   'form.publisherRegistration.publishingActivities.nextYear': 'Please estimate the number of publications you publish next year*',
   'form.publisherRegistration.publishingActivities.classification': 'Classification codes*',
-  'form.publisherRegistration.publishingActivities.classification.placeholder': 'Add keyword*',
-  'form.publisherRegistration.publishingActivities.classification.instruction': '', //Klikatkaa alla olevaan kenttään oheisen luokituskaavion mukaisesti 1-4 luokitustunnusta, jotka parhaiten kuvaavat julkaisujenne aihealueita. Jos aihealueita on enemmän tai ette löydä oheisesta kaaviosta sopivaa aihealuetta, niin käyttäkää luokkaa 000 Yleistä.
+  'form.publisherRegistration.publishingActivities.classification.placeholder': 'Add classification keyword*',
   'form.publisherRegistration.publishingActivities.classificationOther': 'Other keywords',
   'form.publisherRegistration.organization.affiliates': 'Affiliates',
   'form.publisherRegistration.organization.affiliateOf': 'Affiliate of',
@@ -462,7 +461,7 @@ const en = {
   'form.isbnIsmn.availability.type': 'Publication is*',
   'form.isbnIsmn.availability.type.option.book': 'Book',
   'form.isbnIsmn.availability.type.option.dissertation': 'Dissertation',
-  'form.isbnIsmn.availability.type.option.music': 'Music',
+  'form.isbnIsmn.availability.type.option.sheet_music': 'Sheet music',
   'form.isbnIsmn.availability.type.option.map': 'Map',
   'form.isbnIsmn.availability.type.option.other': 'Other',
   'form.isbnIsmn.availability.publicationsPublic.label': 'Is your publication intended for public use?',
@@ -477,7 +476,7 @@ const en = {
   'form.isbnIsmn.publisherInfo.email': 'Email*',
   'form.isbnIsmn.publishingActivities.hasPublishedBefore': 'Have you published previously?',
   'form.isbnIsmn.publishingActivities.occasionalOrContinuous': 'Are your publishing activities occasional/continuous?*',
-  'form.isbnIsmn.publishingActivities.thisYear': 'How many publications do you publish annually?*',
+  'form.isbnIsmn.publishingActivities.thisYear': 'How many publications do you publish annually?',
   'form.isbnIsmn.publishingActivities.option.occasional': 'Occasional',
   'form.isbnIsmn.publishingActivities.option.continuous': 'Continuous',
   'form.isbnIsmn.university.isHelsinki': 'Is the dissertation made at the University of Helsinki?',
@@ -548,8 +547,8 @@ const en = {
   'form.isbnIsmn.preview.publicationDetails': 'Additional publication details',
   'form.isbnIsmn.preview.isPublic': 'Public',
   'form.isbnIsmn.card.universityOfHelsinki': 'Before you fill in this ISBN request form, please check at your department/faculty if you get an ISBN from your university. If needed, please contact ISBN Agency for more information.',
-  'form.isbnIsmn.card.otherUniversity': 'Before you fill in this ISBN request form, please check at your department/faculty if you get an ISBN from here. Please, contact customer service if needed.',
-  'form.isbnIsmn.card.publicationIsPublic': 'If your publication is intended for private use only(e.g., for friends, family or the internal use of an association or organisation), publication will not be assigned an ISBN.',
+  'form.isbnIsmn.card.otherUniversity': 'Before you fill in this ISBN request form, please check at your department/faculty if you get an ISBN from here. If needed, please contact ISBN Agency for more information.',
+  'form.isbnIsmn.card.publicationIsPublic': 'If your publication is intended for private use only (e.g., for friends, family or the internal use of an association or organisation), publication will not be assigned an ISBN.',
   'form.isbnIsmn.card.editionInfo': 'Information about new editions',
   'form.isbnIsmn.card.publicationInfo': 'Important information! An ISBN cannot be requested after the book is printed, or published online.',
   'form.isbnIsmn.card.seriesInfo': 'Important information! Enter series details if the publication is part of a series.',
@@ -626,7 +625,6 @@ const en = {
   'form.issn.relatedPublications': 'Related publications',
   'form.issn.preview.publicationDetails': 'Publication details',
   'form.issn.preview.versions': 'Publication versions',
-  'form.issn.preview.info': '', //HUOM! Julkaisupyynnön lähettämisen yhteydessä julkaisulle luodaan automaattisesti seuraavat versiot (jokainen versio saa oman tunnuksen):
 
   // ISSN request
   'request.issn.preview.title': '{index}. Publication - {title}',

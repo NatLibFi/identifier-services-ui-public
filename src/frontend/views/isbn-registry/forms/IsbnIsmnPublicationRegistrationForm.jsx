@@ -355,7 +355,7 @@ function IsbnIsmnPublicationRegistrationForm (props) {
                 }
                 {/* Info card with the link to the publication edition info page */}
                 {(activeContent?.renderType === 'element' && activeContent?.fields.some(field => field.name === 'edition'))
-                  && <EditionInfoCard infoText="form.isbnIsmn.card.editionInfo"/>
+                  && <EditionInfoCard infoText="form.isbnIsmn.card.editionInfo" language={language}/>
                 }
                 {(activeContent?.renderType === 'element' && activeContent?.fields.some(field => field.name === 'series'))
                   && <InfoCard infoText="form.isbnIsmn.card.seriesInfo" cardStyle='dissertationInfoCardContainer'/>
