@@ -45,9 +45,9 @@ const en = {
   'common.publication': 'Publication',
   'common.publications': 'Publications',
   'common.publicationDetails': 'Publication details',
-  'common.batch': 'Identifier Batch',
+  'common.batch': 'List of ISBNs',
   'common.batches': 'Identifier Batches',
-  'common.batchDetails': 'Batch Details',
+  'common.batchDetails': 'Identifier list details',
   'common.yes': 'Yes',
   'common.no': 'No',
   'common.true': 'Yes',
@@ -98,7 +98,7 @@ const en = {
   'common.en-GB': 'English',
   'common.sv-SE': 'Swedish',
   // ISBN/ISMN publication types
-  'common.BOOK': 'Book',
+  'common.BOOK': 'Book/booklet',
   'common.DISSERTATION': 'Dissertation',
   'common.MUSIC': 'Sheet music',
   'common.SHEET_MUSIC': 'Sheet music',
@@ -132,18 +132,18 @@ const en = {
 
   // Home page
   'homePage.title': 'Identifier Services',
-  'homePage.description.part1': 'International standard identifiers (ISBN, ISSN, AND ISMN) uniquely identify publications. Identifiers are used, for example, in publishing industry\'s ordering and distribution systems.',
+  'homePage.description.part1': 'International standard identifiers (ISBN, ISSN and ISMN) uniquely identify publications. Identifiers are used, for example, in publishing industry\'s ordering and distribution systems.',
   'homePage.description.part2': 'ISBN identifies books, ISMN notated music publications and ISSN serial publications.',
   'homePage.description.part3': 'In Finland, these identifiers are applied for from the Finnish ISBN and ISSN Agencies operating at the National Library of Finland. The identifiers are free of charge.',
   'homePage.link': 'More about {link}',
   'homePage.instructions.title': 'Instructions for completing the forms',
-  'homePage.instructions.main.text': 'If you publish regularly (for example, one or more publications a year) and you are not yet a member of the ISBN/ISMN system, please complete both the electronic application form to join the ISBN/ISMN system and the application form for identifiers.{lineBreak}{lineBreak}If your publishing activities are occasional or you have already joined the ISBN/ISMN system, please complete the application form for identifiers only.{lineBreak}{lineBreak}Information on publishers entered in the ISBN/ISMN system is published in the international databases Global Register of Publishers and/or Music Publishers\' International ISMN Database. This information is also used by the Finnish ISBN Agency and published on its website.',
+  'homePage.instructions.main.text': 'If you publish regularly (for example, one or more publications a year) and you are not yet a member of the ISBN/ISMN system, please complete both the electronic publisher registration form (ISBN/ISMN) and the ISBN/ISMN application form.{lineBreak}{lineBreak}If your publishing activities are occasional or you have already joined the ISBN/ISMN system, please complete the ISBN/ISMN application for books and sheet music only..{lineBreak}{lineBreak}Information on publishers entered in the ISBN/ISMN system is published in the international databases Global Register of Publishers and/or Music Publishers\' International ISMN Database. This information is also used by the Finnish ISBN Agency and published on its website.',
   'homePage.instructions.isbn-ismn.text': 'An ISBN identifies books and an ISMN identifies notated music publications intended for public use. The Finnish national ISBN Agency is responsible for handing out ISBNs and ISMNs in Finland. The Agency maintains a national publisher register and provides information about Finnish publishers for national and international use.{lineBreak}{lineBreak}Identifiers as a part of metadata serve the publishing industry and the library sector in their entirety, supporting identification, processing and availability of publications. Identifiers are used, for example, in publishing industry\'s ordering and distribution systems to speed up the identification of publications - as well as in international and domestic joint catalogues, bibliographies, library lending systems and information retrieval.{lineBreak}{lineBreak}Each book or sheet music publication, each different publication form (printed, audio-visual, digital) and each edition containing changes are issued a separate ISBN or ISMN. This promotes identification of publications in the publishing industry\'s distribution chain and ensures that customers get the desired publication at their disposal. Publication format may be a printed book or an audio-visual or electronic recording.',
   'homePage.instructions.issn.text': 'An ISSN identifies continuously published publications, such as journals and series. The Finnish national ISSN Agency is responsible for providing the identifiers in Finland and sends the information about publications that have received an ISSN to the {link} database.{lineBreak}{lineBreak}Identifiers as a part of metadata serve the publishing industry and the library sector in their entirety, supporting identification, processing and availability of publications.{lineBreak}{lineBreak}Identifiers are used, for example, in publishing industry\'s ordering and distribution systems to speed up the identification of publications as well as in international and domestic joint catalogues, bibliographies, library lending systems and information retrieval. An ISSN is inseparable from the title of the publication; if the title of the publication changes, the identifier must also be changed. A separate ISSN is given to different forms of publication.',
 
   // Menu bar
   'menu.home': 'Home',
-  'menu.publisherRegistry': 'Publisher registry',
+  'menu.publisherRegistry': 'Publisher Register',
   'menu.forms': 'Forms',
   'menu.forms.publisherRegistration': 'Publisher registration form',
   'menu.forms.publicationRegistration': 'ISBN-/ISMN-forms',
@@ -165,7 +165,7 @@ const en = {
   'altText.logo.library': 'The official logo of The National Library of Finland',
 
   // Ranges (Tunnistelohkot)
-  'ranges.identifierType': 'Identifier type',
+  'ranges.identifierType': 'Type',
 
   // Error messages
   'error.field.required': 'Required',
@@ -217,7 +217,7 @@ const en = {
   'form.common.affiliates': 'Affiliates',
   'form.common.affiliateOf': 'Affiliate of',
   'form.common.distributors': 'Distributors',
-  'form.common.distributorOf': 'Distributors of',
+  'form.common.distributorOf': 'Distributor of',
   'form.common.currentYear': 'Estimated publication amount (this year)',
   'form.common.nextYear': 'Estimated publication amount (next year)',
   'form.common.classification': 'Classification',
@@ -314,7 +314,7 @@ const en = {
   'form.button.label.add': 'Add',
   'form.button.label.addPublication': 'Add publication',
   'form.button.label.delete': 'Delete',
-  'form.button.label.downloadAsTextfile': 'Download',
+  'form.button.label.downloadAsTextfile': 'Download as text file',
   'form.button.label.showIdentifiers': 'Show Identifiers',
 
   // Publisher registration form (Kustantajan liittymislomake)
@@ -459,7 +459,7 @@ const en = {
   'form.isbnIsmn.stepper.label.preview': 'Preview',
   'form.isbnIsmn.availability.publicationsPublic': 'Is your publication intended for public use (e.g., for library use or sale in bookshops) or will it be made otherwise available to the public? If your publication is a web-version or an ebook, will it be free to download or to buy?*',
   'form.isbnIsmn.availability.type': 'Publication is*',
-  'form.isbnIsmn.availability.type.option.book': 'Book',
+  'form.isbnIsmn.availability.type.option.book': 'Book/booklet',
   'form.isbnIsmn.availability.type.option.dissertation': 'Dissertation',
   'form.isbnIsmn.availability.type.option.sheet_music': 'Sheet music',
   'form.isbnIsmn.availability.type.option.map': 'Map',
@@ -502,8 +502,8 @@ const en = {
   'form.isbnIsmn.authors.card.name': 'Name:',
   'form.isbnIsmn.authors.card.roles': 'Roles:',
   'form.isbnIsmn.authors.card.noAuthors': 'Add author by filling the information and press the \'Add\' button',
-  'form.isbnIsmn.authors.card.addMoreAuthors': 'Add more authors by filling the information and press the \'Add\' button. Max. 4 authors are allowed. Other authors will be considered when the publications request arrives to the National Library.',
-  'form.isbnIsmn.authors.card.maxAuthors': 'You have added maximum amount of authors. Other authors will be considered when the publications request arrives to the National Library.',
+  'form.isbnIsmn.authors.card.addMoreAuthors': 'Add more authors by filling the information and press the \'Add\' button. Max. 4 authors are allowed. Other authors will be considered when the publications arrives to the National Library.',
+  'form.isbnIsmn.authors.card.maxAuthors': 'You have added maximum amount of authors. Other authors will be considered when the publications arrives to the National Library.',
   'form.isbnIsmn.series.title': 'Series title',
   'form.isbnIsmn.series.volume': 'Volume number',
   'form.isbnIsmn.format.label': 'Publication format*',
@@ -529,7 +529,7 @@ const en = {
   'form.isbnIsmn.preview.publicationInfo': 'Publication details',
   'form.isbnIsmn.preview.universityName': 'University',
   'form.isbnIsmn.preview.helsinki': 'University of Helsinki',
-  'form.isbnIsmn.preview.previouslyPublished': 'Has publisher previously',
+  'form.isbnIsmn.preview.previouslyPublished': 'Has published previously',
   'form.isbnIsmn.preview.thisYear': 'Estimated number of publications this year',
   'form.isbnIsmn.preview.format': 'Format',
   'form.isbnIsmn.preview.formatDetails': 'Publication format',
@@ -544,14 +544,14 @@ const en = {
   'form.isbnIsmn.preview.edition': 'Edition',
   'form.isbnIsmn.preview.run': 'Copies',
   'form.isbnIsmn.preview.seriesDetails': 'Series details',
-  'form.isbnIsmn.preview.publicationDetails': 'Additional publication details',
+  'form.isbnIsmn.preview.publicationDetails': 'Basic information',
   'form.isbnIsmn.preview.isPublic': 'Public',
-  'form.isbnIsmn.card.universityOfHelsinki': 'Before you fill in this ISBN request form, please check at your department/faculty if you get an ISBN from your university. If needed, please contact ISBN Agency for more information.',
-  'form.isbnIsmn.card.otherUniversity': 'Before you fill in this ISBN request form, please check at your department/faculty if you get an ISBN from here. If needed, please contact ISBN Agency for more information.',
+  'form.isbnIsmn.card.universityOfHelsinki': 'Before you fill in this ISBN application form, please check at your department/faculty if you get an ISBN from your university. If needed, please contact ISBN Agency.',
+  'form.isbnIsmn.card.otherUniversity': 'Before you fill in this ISBN application form, please check at your department/faculty if you get an ISBN from there. If needed, please contact ISBN Agency for more information.',
   'form.isbnIsmn.card.publicationIsPublic': 'If your publication is intended for private use only (e.g., for friends, family or the internal use of an association or organisation), publication will not be assigned an ISBN.',
   'form.isbnIsmn.card.editionInfo': 'Information about new editions',
-  'form.isbnIsmn.card.publicationInfo': 'Important information! An ISBN cannot be requested after the book is printed, or published online.',
-  'form.isbnIsmn.card.seriesInfo': 'Important information! Enter series details if the publication is part of a series.',
+  'form.isbnIsmn.card.publicationInfo': 'An ISBN cannot be requested after the book is printed, or published online.',
+  'form.isbnIsmn.card.seriesInfo': 'Enter series details if the publication is part of a series.',
 
   // ISSN-form
   'form.issn.title': 'ISSN request form',
@@ -604,7 +604,7 @@ const en = {
   'form.issn.publicationInfo.instructions.part3': 'Publication in several languages',
   'form.issn.publicationInfo.instructions.part4': 'If the same publication is issued in several languages, language version needs an ISSN of its own. Enter details on each language version separately by choosing the correct amount of publication versions.',
   'form.issn.publicationInfo.instructions.part5': 'Maximum number of publications',
-  'form.issn.publicationInfo.instructions.part6': 'You can request an ISSN for a maximum of four publications with a single ISSN request form. If you need ISSNs for a larger number of publications, please contact the ISSN Agency.',
+  'form.issn.publicationInfo.instructions.part6': 'You can request an ISSN for a maximum of four publications with a single ISSN application form. If you need ISSNs for a larger number of publications, please contact the ISSN Agency.',
   'form.issn.publicationInfo.instructions.part7': '{icon} Please request ISSN for online version when the publication is online, or ready for publication.',
   'form.issn.publicationMedium.printed': 'Printed',
   'form.issn.publicationMedium.electronical': 'Electronical',
@@ -674,7 +674,7 @@ const en = {
 
   // Modals - used in multiple places in modal components
   'modal.publicBatch.confirmation': 'Confirmation',
-  'modal.publicBatch.confirmation.text.part1': 'I confirm that I represent the publisher ',
+  'modal.publicBatch.confirmation.text.part1': 'I confirm I represent ',
   'modal.publicBatch.confirmation.text.part2': ' and I am the owner of the publisher identifier',
 
   // Service messages - used in action dispatchers (store/actions)

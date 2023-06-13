@@ -26,6 +26,7 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import useDocumentTitle from '/src/frontend/hooks/useDocumentTitle';
 
@@ -34,7 +35,7 @@ import MainInstructions from '/src/frontend/components/main/MainInstructions.jsx
 import IsbnInfoBox from '/src/frontend/components/main/IsbnInfoBox.jsx';
 import IssnInfoBox from '/src/frontend/components/main/IssnInfoBox.jsx';
 
-function Home () {
+function Home ({language}) {
   // Set the title of the current page
   useDocumentTitle('menu.home');
 
@@ -42,10 +43,14 @@ function Home () {
     <div>
       <Banner />
       <MainInstructions />
-      <IsbnInfoBox />
-      <IssnInfoBox />
+      <IsbnInfoBox language={language} />
+      <IssnInfoBox language={language} />
     </div>
   );
 }
+
+Home.propTypes = {
+  language: PropTypes.string.isRequired
+};
 
 export default Home;

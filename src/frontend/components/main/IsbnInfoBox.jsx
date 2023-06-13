@@ -27,6 +27,7 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import PropTypes from 'prop-types';
 
 import {Typography, Button} from '@mui/material';
 import MusicNoteOutlinedIcon from '@mui/icons-material/MusicNoteOutlined';
@@ -34,7 +35,32 @@ import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
 
 import '/src/frontend/css/mainPage/instructions/isbnIsmn.css';
 
-function IsbnInfoBox () {
+function IsbnInfoBox ({language}) {
+  // Get correct links for each language
+  const getIsbnLink = (language) => {
+    if (language === 'fi') {
+      return 'https://www.kansalliskirjasto.fi/fi/palvelut/palvelut-organisaatioasiakkaille/isbn-tunnus';
+    }
+
+    if (language === 'sv') {
+      return 'https://www.kansalliskirjasto.fi/sv/tjanster/isbn-nummer';
+    }
+
+    return 'https://www.kansalliskirjasto.fi/en/services/isbn';
+  };
+
+  const getIsmnLink = (language) => {
+    if (language === 'fi') {
+      return 'https://www.kansalliskirjasto.fi/fi/palvelut/palvelut-organisaatioasiakkaille/ismn-tunnus';
+    }
+
+    if (language === 'sv') {
+      return 'https://www.kansalliskirjasto.fi/sv/tjanster/ismn-nummer';
+    }
+
+    return 'https://www.kansalliskirjasto.fi/en/services/ismn';
+  };
+
   return (
     <div className="isbnIsmnContainer">
       <Typography variant="h3" color="primary">
@@ -50,7 +76,7 @@ function IsbnInfoBox () {
       <div className="buttonContainer">
         <Button
           disableRipple
-          href="https://www.kansalliskirjasto.fi/fi/palvelut/palvelut-organisaatioasiakkaille/isbn-tunnus"
+          href={getIsbnLink(language)}
           target="_blank"
           rel="noreferrer"
         >
@@ -61,7 +87,7 @@ function IsbnInfoBox () {
         </Button>
         <Button
           disableRipple
-          href="https://www.kansalliskirjasto.fi/fi/palvelut/palvelut-organisaatioasiakkaille/ismn-tunnus"
+          href={getIsmnLink(language)}
           target="_blank"
           rel="noreferrer"
         >
@@ -74,5 +100,9 @@ function IsbnInfoBox () {
     </div>
   );
 }
+
+IsbnInfoBox.propTypes = {
+  language: PropTypes.string.isRequired
+};
 
 export default IsbnInfoBox;
