@@ -18,7 +18,7 @@
 .textContainer > h1 {
     text-align: center;
     letter-spacing: 0.1px;
-    text-decoration: var(--color-brand-teal) underline;
+    padding-top: 0.5rem;
     font-size: clamp(1.8rem, 3.5vw, 3.8rem);
     /* Using important to override the default font-family of H1 */
     font-family: Georgia, serif !important;

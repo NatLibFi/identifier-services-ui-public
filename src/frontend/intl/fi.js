@@ -51,7 +51,9 @@ const fi = {
   'common.yes': 'Kyllä',
   'common.no': 'Ei',
   'common.true': 'Kyllä',
+  'common.true.allLangs': 'Kyllä / Ja / Yes',
   'common.false': 'Ei',
+  'common.false.allLangs': 'Ei / Nej / No',
   'common.noData': 'Ei hakutuloksia',
   'common.blank': 'Tyhjä',
   'common.search.inputPlaceholder': 'Hae...',
@@ -673,9 +675,13 @@ const fi = {
   'publication.issn.lastIssue': 'Viimeinen numero/vuosi',
 
   // Modals
-  'modal.publicBatch.confirmation': 'Vahvistus',
+  'modal.publicBatch.confirmation': 'Vahvistus / Bekräftelse / Confirmation',
   'modal.publicBatch.confirmation.text.part1': 'Vahvistan edustavani kustantajaa ',
   'modal.publicBatch.confirmation.text.part2': ' ja omistavani kustantajatunnuksen ',
+  'modal.publicBatch.confirmation.text.part3': 'Jag bekräftar att jag representerar förlaget  ',
+  'modal.publicBatch.confirmation.text.part4': ' och äger förlagsbeteckningen ',
+  'modal.publicBatch.confirmation.text.part5': 'I confirm I represent ',
+  'modal.publicBatch.confirmation.text.part6': ' (publisher ID {id})',
 
   // Service messages - used in action dispatchers (store/actions)
   'serviceMessage.registration.success': 'Lomake on lähetetty onnistuneesti.',

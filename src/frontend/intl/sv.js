@@ -33,7 +33,7 @@ const sv = {
   'common.issn': 'ISSN',
   'common.user': 'Användare',
   'common.users': 'Användare',
-  'common.publisher.isbn': 'Förläggare',
+  'common.publisher.isbn': 'Förlaget',
   'common.publishers.isbn': 'Förläggarna',
   'common.publisherDetails.isbn': 'Basuppgifter om förlaget',
   'common.publisher.issn': 'Utgivare',
@@ -45,9 +45,9 @@ const sv = {
   'common.publication': 'Publikation',
   'common.publications': 'Uppgifter om publikationerna',
   'common.publicationDetails': 'Uppgifter om publikation',
-  'common.batch': 'En lista med identifikatorer ',
+  'common.batch': 'Förteckning över identifikatorer ',
   'common.batches': 'Listor med identifikatorer',
-  'common.batchDetails': 'Detaljer om listan',
+  'common.batchDetails': 'Uppgifter om förteckningen över identifikatorer',
   'common.yes': 'Ja',
   'common.no': 'Nej',
   'common.true': 'Ja',
@@ -165,7 +165,7 @@ const sv = {
   'altText.logo.library': 'Nationalbibliotekets officiella logotyp',
 
   // Ranges (Tunnistelohkot)
-  'ranges.identifierType': 'Typ av identifikator',
+  'ranges.identifierType': 'Typ',
 
   // Error messages
   'error.field.required': 'Krävs',
@@ -314,7 +314,7 @@ const sv = {
   'form.button.label.add': 'Lägg till',
   'form.button.label.addPublication': 'Tillägg publikation',
   'form.button.label.delete': 'Radera',
-  'form.button.label.downloadAsTextfile': 'Ladda ned',
+  'form.button.label.downloadAsTextfile': 'Ladda ned som textfil',
   'form.button.label.showIdentifiers': 'Visa identifikatorer',
 
   // Publisher registration form (Kustantajan liittymislomake)
@@ -674,8 +674,8 @@ const sv = {
 
   // Modals - used in multiple places in modal components
   'modal.publicBatch.confirmation': 'Bekräftelse',
-  'modal.publicBatch.confirmation.text.part1': 'Jag bekräftar att jag representerar förläggaren',
-  'modal.publicBatch.confirmation.text.part2': 'och att jag är ägaren av förlagsbeteckingen',
+  'modal.publicBatch.confirmation.text.part1': 'Jag bekräftar att jag representerar förläget ',
+  'modal.publicBatch.confirmation.text.part2': ' och äger förlagsbeteckingen',
 
   // Service messages - used in action dispatchers (store/actions)
   'serviceMessage.registration.success': 'Formuläret har skickats',

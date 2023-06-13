@@ -108,20 +108,33 @@ function IdentifierBatchDataComponent ({identifierBatch, handleDownload, history
           <DialogTitle id="alert-dialog-title">
             <FormattedMessage id="modal.publicBatch.confirmation"/>
           </DialogTitle>
-          <DialogContent>
+          <DialogContent className="dialogContent">
             <DialogContentText id="alert-dialog-description">
               <FormattedMessage id="modal.publicBatch.confirmation.text.part1"/>
               <strong>{identifierBatch.publisherName}</strong>
               <FormattedMessage id="modal.publicBatch.confirmation.text.part2"/>
               <strong>{identifierBatch.publisherIdentifier}</strong>
             </DialogContentText>
+
+            <DialogContentText id="alert-dialog-description">
+              <FormattedMessage id="modal.publicBatch.confirmation.text.part3"/>
+              <strong>{identifierBatch.publisherName}</strong>
+              <FormattedMessage id="modal.publicBatch.confirmation.text.part4"/>
+              <strong>{identifierBatch.publisherIdentifier}</strong>
+            </DialogContentText>
+
+            <DialogContentText id="alert-dialog-description">
+              <FormattedMessage id="modal.publicBatch.confirmation.text.part5"/>
+              <strong>{identifierBatch.publisherName}</strong>
+              <FormattedMessage id="modal.publicBatch.confirmation.text.part6" values={{id: identifierBatch.publisherIdentifier}}/>
+            </DialogContentText>
           </DialogContent>
           <DialogActions>
             <Button onClick={handleReject}>
-              <FormattedMessage id="common.false"/>
+              <FormattedMessage id="common.false.allLangs"/>
             </Button>
             <Button onClick={handleApprove} autoFocus>
-              <FormattedMessage id="common.true"/>
+              <FormattedMessage id="common.true.allLangs"/>
             </Button>
           </DialogActions>
         </Dialog>

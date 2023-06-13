@@ -27,13 +27,27 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import PropTypes from 'prop-types';
 
 import {Typography, Button, Link} from '@mui/material';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 
 import '/src/frontend/css/mainPage/instructions/issn.css';
 
-function IssnInfoBox () {
+function IssnInfoBox ({language}) {
+  // Get correct links for each language
+  const getIssnLink = (language) => {
+    if (language === 'fi') {
+      return 'https://www.kansalliskirjasto.fi/fi/palvelut/palvelut-organisaatioasiakkaille/issn-tunnus';
+    }
+
+    if (language === 'sv') {
+      return 'https://www.kansalliskirjasto.fi/sv/tj%C3%A4nster/tjanster-organisationer/issn-nummer';
+    }
+
+    return 'https://www.kansalliskirjasto.fi/en/services/services-organizations/issn';
+  };
+
   return (
     <div className="issnContainer">
       <Typography variant="h3" color="primary">
@@ -60,7 +74,7 @@ function IssnInfoBox () {
       <Button
         disableRipple
         color="primary"
-        href="https://www.kansalliskirjasto.fi/fi/palvelut/palvelut-organisaatioasiakkaille/issn-tunnus"
+        href={getIssnLink(language)}
         target="_blank"
         rel="noreferrer"
       >
@@ -72,5 +86,9 @@ function IssnInfoBox () {
     </div>
   );
 }
+
+IssnInfoBox.propTypes = {
+  language: PropTypes.string.isRequired
+};
 
 export default IssnInfoBox;
