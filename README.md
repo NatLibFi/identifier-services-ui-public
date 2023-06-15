@@ -2,7 +2,7 @@
 
 Public UI service of Identifier Services system.
 
-This repo contains the public home page of identifier services system and a form implementations that are based on [Identifier Registry](https://github.com/petkivim/id-registry).
+This repo contains the public home page of identifier services system and a form implementations that are based on the [Identifier Registry](https://github.com/petkivim/id-registry) by [Petteri Kivimäki](https://github.com/petkivim/).
 
 
 ## License and copyright
