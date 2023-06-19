@@ -326,7 +326,7 @@ const fi = {
   'form.publisherRegistration.instructions.note1.link': 'ISBN-keskuksen kotisivuilla',
   'form.publisherRegistration.instructions.note1.part2': ' annettujen ohjeiden mukaisesti.',
   'form.publisherRegistration.instructions.note2': 'Kustantaja pitää yllä listausta ISBN-tunnuksen saaneista julkaisuistaan.',
-  'form.publisherRegistration.instructions.note3': 'Kustantaja lähettää yhden kappaleen (ISBN-tarkistuskappale) kustantamistaan julkaisuista heti niiden ilmestyttyä Suomen ISBN-keskukseen.',
+  'form.publisherRegistration.instructions.note3': 'Kustantaja lähettää yhden kappaleen (ISBN-kustantajakappale) kustantamistaan julkaisuista heti niiden ilmestyttyä Suomen ISBN-keskukseen.',
   'form.publisherRegistration.instructions.note4': 'Kustantajan tiedot julkaistaan kansainvälisissä Global Register of Publishers ja/tai Music Publishers\' International ISMN Database -tietokannoissa. Tietoja käytetään myös Suomen ISBN-keskuksen toiminnassa ja ne ovat esillä ISBN-keskuksen kotisivulla.',
   'form.publisherRegistration.title': 'Kustantajan rekisteröinti',
   'form.publisherRegistration.stepper.label.basicInformation': 'Kustantajan tiedot',
@@ -549,7 +549,7 @@ const fi = {
   'form.isbnIsmn.preview.publicationDetails': 'Julkaisun lisätiedot',
   'form.isbnIsmn.preview.isPublic': 'Julkinen',
   'form.isbnIsmn.card.universityOfHelsinki': 'Ennen kun täytät ISBN-hakemuksen, tarkista saatko ISBN-tunnuksen omalta laitokselta/tiedekunnasta.',
-  'form.isbnIsmn.card.otherUniversity': 'Tarkista saatko ISBN-tunnuksen omalta laitokselta/yliopistolta. Jos väittelet muualla kuin Helsingin yliopistossa, pyydä ISBN-tunnus omalta laitokselta/tiedekunnasta. Tarvittaessa ota yhteyttä asiakaspalveluun',
+  'form.isbnIsmn.card.otherUniversity': 'Tarkista saatko ISBN-tunnuksen omalta laitokselta/yliopistolta. Jos väittelet muualla kuin Helsingin yliopistossa, pyydä ISBN-tunnus omalta laitokselta/tiedekunnasta. Tarvittaessa ota yhteyttä ISBN-keskukseen.',
   'form.isbnIsmn.card.publicationIsPublic': 'Huomaathan, että ISBN-tunnus myönnetään vain julkiseen käyttöön tarkoitetulle julkaisulle. Jos julkaisu on tarkoitettu ainoastaan sisäiseen käyttöön, esim. ystäville, sukulaisille tai jonkun yhteisön sisäiseen käyttöön, älä hae ISBN-tunnusta. ',
   'form.isbnIsmn.card.editionInfo': 'Jos haet tunnusta uudelle painokselle',
   'form.isbnIsmn.card.publicationInfo': 'Tunnusta ei voi hakea jälkikäteen, jos kirja on jo painettu tai julkaistu verkossa.',
@@ -643,7 +643,7 @@ const fi = {
   'table.headRows.identifier': 'Tunnus',
 
   // Publisher registry (Kustantajarekisteri)
-  'publisherRegistry.title': 'Hae kustantajaa nimellä',
+  'publisherRegistry.title': 'Hae kustantajaa nimellä tai kustantajatunnuksella',
   'publisherRegistry.headRows.activeIdentifiers': 'Aktiiviset tunnukset',
   'publisherRegistry.publisher.otherNameForms': 'Muut nimimuodot',
   'publisherRegistry.publisher.previousNameForms': 'Aikaisemmat nimimuodot',
