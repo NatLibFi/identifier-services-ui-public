@@ -31,25 +31,12 @@ import helmet from 'helmet';
 import https from 'https';
 import path from 'path';
 
-import {API_URL, ALLOW_SELF_SIGNED, HELMET_CONFIG, HTTP_PORT, HTTPS_PORT, NODE_ENV, TLS_CERT, TLS_KEY} from './config';
-import {provideFrontendConfig, proxyRequests} from './utils';
+import {HELMET_CONFIG, HTTP_PORT, HTTPS_PORT, NODE_ENV, TLS_CERT, TLS_KEY} from './config';
+import {getConfiguredProxy} from './proxy';
+import {provideFrontendConfig} from './utils';
 
 export default async function run() {
   const app = express();
-  const proxyOpts = {};
-
-  if (ALLOW_SELF_SIGNED) {
-    proxyOpts.proxyReqOptDecorator = (proxyReqOpts) => {
-      proxyReqOpts.rejectUnauthorized = false;
-      delete proxyReqOpts.headers['authorization'];
-      return proxyReqOpts;
-    };
-  } else {
-    proxyOpts.proxyReqOptDecorator = (proxyReqOpts) => {
-      delete proxyReqOpts.headers['authorization'];
-      return proxyReqOpts;
-    };
-  }
 
   // Header config
   app.disable('x-powered-by');
@@ -63,7 +50,7 @@ export default async function run() {
   app.get('/api/config', provideFrontendConfig);
 
   // Proxy API calls
-  app.use('/api', proxyRequests(API_URL, proxyOpts));
+  app.use('/api', getConfiguredProxy());
 
   // Serve static files
   app.use(express.static(path.resolve(__dirname, 'public')));

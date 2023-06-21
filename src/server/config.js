@@ -29,7 +29,11 @@ import {readEnvironmentVariable} from '@natlibfi/melinda-backend-commons';
 import {parseBoolean} from './utils';
 
 export const NODE_ENV = readEnvironmentVariable('NODE_ENV', {defaultValue: 'development'});
-export const API_URL = readEnvironmentVariable('API_URL', {defaultValue: 'https://localhost:8081'});
+
+export const API_HOST = readEnvironmentVariable('API_HOST', {defaultValue: 'https://localhost:8081'});
+export const API_PATH_PREFIX = readEnvironmentVariable('API_PATH_PREFIX', {defaultValue: ''});
+export const API_KEY = readEnvironmentVariable('API_KEY', {defaultValue: ''});
+
 export const MAINTENANCE_MODE = readEnvironmentVariable('MAINTENANCE_MODE', {defaultValue: false, format: v => parseBoolean(v)});
 export const NOTIFICATION_BANNER = readEnvironmentVariable('NOTIFICATION_BANNER', {defaultValue: {}, format: JSON.parse});
 

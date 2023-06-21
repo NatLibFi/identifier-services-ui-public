@@ -26,50 +26,21 @@
  */
 
 import HttpStatus from 'http-status';
-import httpProxy from 'express-http-proxy';
 
-import {DISABLE_TURNSTILE, CONTACT_INFORMATION_CHANGE_URL, CUSTOMER_SERVICE_CONTACT, NODE_ENV, MAINTENANCE_MODE, NOTIFICATION_BANNER, SITE_KEY} from './config';
+import * as config from './config';
 
 export function provideFrontendConfig(_, res) {
   const frontendConfig = {
-    siteKey: SITE_KEY,
-    environment: NODE_ENV,
-    disableTurnstile: DISABLE_TURNSTILE,
-    maintenance: MAINTENANCE_MODE,
-    notificationBanner: NOTIFICATION_BANNER,
-    contactInformationChangeUrl: CONTACT_INFORMATION_CHANGE_URL,
-    customerServiceContact: CUSTOMER_SERVICE_CONTACT
+    siteKey: config.SITE_KEY,
+    environment: config.NODE_ENV,
+    disableTurnstile: config.DISABLE_TURNSTILE,
+    maintenance: config.MAINTENANCE_MODE,
+    notificationBanner: config.NOTIFICATION_BANNER,
+    contactInformationChangeUrl: config.CONTACT_INFORMATION_CHANGE_URL,
+    customerServiceContact: config.CUSTOMER_SERVICE_CONTACT
   };
 
   return res.status(HttpStatus.OK).json(frontendConfig);
-}
-
-// Handles proxying necessary API calls for public UI
-export function proxyRequests(target, proxyOpts) {
-  const availableEndpoints = [
-    {regex: /^\/isbn-registry\/publishers\/query$/, method: 'POST'},
-    {regex: /^\/isbn-registry\/publishers\/[0-9]+$/, method: 'GET'},
-    {regex: /^\/isbn-registry\/identifierbatches\/[0-9]+$/, method: 'GET'},
-    {regex: /^\/isbn-registry\/identifierbatches\/[0-9]+\/download$/, method: 'POST'},
-    {regex: /^\/issn-registry\/requests$/, method: 'POST'},
-    {regex: /^\/isbn-registry\/requests\/publishers$/, method: 'POST'},
-    {regex: /^\/isbn-registry\/requests\/publications$/ , method: 'POST'}
-  ];
-
-  return (req, res, next) => {
-    const configuredProxy = httpProxy(target, proxyOpts);
-    const endpoint = availableEndpoints.find(endpoint => endpoint.method === req.method && req.url.match(endpoint.regex));
-
-    if(MAINTENANCE_MODE) {
-      return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({message: 'Maintenance mode is enabled. Refusing to interact with API.'});
-    }
-
-    if (endpoint) {
-      return configuredProxy(req, res, next);
-    }
-    return res.status(HttpStatus.FORBIDDEN).json({message: 'Forbidden'});
-
-  };
 }
 
 export function parseBoolean(value) {
