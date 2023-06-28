@@ -26,7 +26,6 @@
  */
 
 import express from 'express';
-import fs from 'fs';
 import helmet from 'helmet';
 import https from 'https';
 import path from 'path';
@@ -71,8 +70,8 @@ export default async function run() {
 
   // Return https server with defined cert and key
   const tlsConfig = {
-    key: fs.readFileSync(TLS_KEY, 'utf8'),
-    cert: fs.readFileSync(TLS_CERT, 'utf8')
+    key: TLS_KEY,
+    cert: TLS_CERT
   };
 
   const server = https.createServer(tlsConfig, app).listen(HTTPS_PORT, () => {

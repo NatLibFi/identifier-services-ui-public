@@ -26,13 +26,15 @@
  */
 
 import {readEnvironmentVariable} from '@natlibfi/melinda-backend-commons';
-import {parseBoolean} from './utils';
+import {parseBoolean, parseFile} from './utils';
 
 export const NODE_ENV = readEnvironmentVariable('NODE_ENV', {defaultValue: 'development'});
 
 export const API_HOST = readEnvironmentVariable('API_HOST', {defaultValue: 'https://localhost:8081'});
 export const API_PATH_PREFIX = readEnvironmentVariable('API_PATH_PREFIX', {defaultValue: ''});
 export const API_KEY = readEnvironmentVariable('API_KEY', {defaultValue: ''});
+export const API_CLIENT_CERTIFICATE_KEY = readEnvironmentVariable('API_CLIENT_CERTIFICATE_KEY', {defaultValue: '', format: parseFile});
+export const API_CLIENT_CERTIFICATE_CERT = readEnvironmentVariable('API_CLIENT_CERTIFICATE_CERT', {defaultValue: '', format: parseFile});
 
 export const MAINTENANCE_MODE = readEnvironmentVariable('MAINTENANCE_MODE', {defaultValue: false, format: v => parseBoolean(v)});
 export const NOTIFICATION_BANNER = readEnvironmentVariable('NOTIFICATION_BANNER', {defaultValue: {}, format: JSON.parse});
@@ -44,8 +46,8 @@ export const ALLOW_SELF_SIGNED = readEnvironmentVariable('ALLOW_SELF_SIGNED', {d
 export const HTTP_PORT = readEnvironmentVariable('HTTP_PORT', {defaultValue: 8080, format: v => Number(v)});
 export const HTTPS_PORT = readEnvironmentVariable('HTTPS_PORT', {defaultValue: 8080, format: v => Number(v)});
 
-export const TLS_KEY = readEnvironmentVariable('TLS_KEY', {defaultValue: ''});
-export const TLS_CERT = readEnvironmentVariable('TLS_CERT', {defaultValue: ''});
+export const TLS_KEY = readEnvironmentVariable('TLS_KEY', {defaultValue: '', format: parseFile});
+export const TLS_CERT = readEnvironmentVariable('TLS_CERT', {defaultValue: '', format: parseFile});
 
 export const DISABLE_TURNSTILE = readEnvironmentVariable('DISABLE_TURNSTILE', {defaultValue: false, format: v => parseBoolean(v)});
 export const SITE_KEY = readEnvironmentVariable('SITE_KEY', {defaultValue: ''});
