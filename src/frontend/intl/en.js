@@ -129,6 +129,19 @@ const en = {
   'common.printed': 'printed',
   'common.online': 'electronical',
   'common.cdrom': 'CD-ROM',
+  // Months
+  'common.month.1': 'January',
+  'common.month.2': 'February',
+  'common.month.3': 'March',
+  'common.month.4': 'April',
+  'common.month.5': 'May',
+  'common.month.6': 'June',
+  'common.month.7': 'July',
+  'common.month.8': 'August',
+  'common.month.9': 'September',
+  'common.month.10': 'October',
+  'common.month.11': 'November',
+  'common.month.12': 'December',
 
   // Home page
   'homePage.title': 'Identifier Services',

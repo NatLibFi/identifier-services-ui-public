@@ -49,7 +49,7 @@ import RenderTextField from '../render/RenderTextField.jsx';
 import {PAGES} from './constants';
 import {getMonthOptions, getYearOptions} from './utils';
 
-export function getFormPages(lang, values) {
+export function getFormPages(values) {
   return {
     [PAGES.AVAILABILITY_INFORMATION]: {
       renderType: 'element',
@@ -233,7 +233,7 @@ export function getFormPages(lang, values) {
           type: 'select',
           width: 'half',
           label: 'form.isbnIsmn.publicationInfo.publicationMonth',
-          options: getMonthOptions(lang)
+          options: getMonthOptions()
         },
         {
           name: 'publicationYear',

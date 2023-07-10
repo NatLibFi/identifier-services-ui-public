@@ -131,6 +131,19 @@ const fi = {
   'common.printed': 'painettu',
   'common.online': 'sähköinen',
   'common.cdrom': 'CD-ROM',
+  // Months
+  'common.month.1': 'tammikuu',
+  'common.month.2': 'helmikuu',
+  'common.month.3': 'maaliskuu',
+  'common.month.4': 'huhtikuu',
+  'common.month.5': 'toukokuu',
+  'common.month.6': 'kesäkuu',
+  'common.month.7': 'heinäkuu',
+  'common.month.8': 'elokuu',
+  'common.month.9': 'syyskuu',
+  'common.month.10': 'lokakuu',
+  'common.month.11': 'marraskuu',
+  'common.month.12': 'joulukuu',
 
   // Home page
   'homePage.title': 'Tunnistepalvelut',

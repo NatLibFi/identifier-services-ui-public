@@ -25,7 +25,7 @@
  *
  */
 
-import moment from 'moment';
+import {useIntl} from 'react-intl';
 
 import {PAGES} from './constants';
 import {PUBLICATION_TYPES, FORMATS, PRINT_FORMATS, ELECTRONICAL_FORMATS} from '../constants';
@@ -106,16 +106,17 @@ export function formatPublicationValues(values, langCode) {
 }
 
 // Get the months as options
-export const getMonthOptions = (lang) => {
-  moment.locale(lang);
+export const getMonthOptions = () => {
+  const intl = useIntl();
+  // An array of month indexes starting from 1 and ending at 12
+  const months = [...Array(12).keys()].map(month => ++month);
 
-  const months = moment.monthsShort();
   const options = [
     {label: '', value: ''},
-    ...months.map((month, index) =>
+    ...months.map((month) =>
       ({
-        label: moment().month(month).format('MMMM').charAt(0).toUpperCase() + moment().month(month).format('MMMM').slice(1),
-        value: index + 1 // In moment months are zero-indexed
+        label: intl.formatMessage({id: `common.month.${month}`}),
+        value: month
       }))
   ];
 
@@ -124,8 +125,9 @@ export const getMonthOptions = (lang) => {
 
 // Get the current year and set it and the next 5 years as options
 export const getYearOptions = () => {
-  const currentYear = moment().year();
-  const years = [currentYear, currentYear + 1, currentYear + 2, currentYear + 3, currentYear + 4, currentYear + 5];
+  const currentYear = new Date().getFullYear();
+  // An array of years starting from current year and ending at current year + 5
+  const years = [...Array(6).keys()].map(year => currentYear + year);
   const options = [
     {label: '', value: ''},
     ...years.map(year => ({label: year, value: year}))

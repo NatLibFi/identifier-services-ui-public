@@ -27,7 +27,6 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import moment from 'moment';
 import PropTypes from 'prop-types';
 import {Typography} from '@mui/material';
 
@@ -109,7 +108,7 @@ function Preview ({values, intl}) {
           ) : null}
           <ListComponent
             label={<FormattedMessage id="form.common.publicationMonth" />}
-            value={moment(values.publicationMonth).format('MMMM')}
+            value={intl.formatMessage({id: `common.month.${values.publicationMonth}`})}
           />
           <ListComponent
             label={<FormattedMessage id="form.common.publicationYear" />}
