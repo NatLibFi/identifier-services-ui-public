@@ -99,7 +99,7 @@ export async function createRequest(values, url, history, setSnackbarMessage) {
  */
 export const downloadIdentifierBatch = async (id, turnstileToken) => {
   try {
-    const response = await fetch(`/api/isbn-registry/identifierbatches/${id}/download`, {
+    const response = await fetch(`/api/public/isbn-registry/identifierbatches/${id}/download`, {
       method: 'POST',
       headers: getHeaders(),
       body: JSON.stringify({turnstileToken})
