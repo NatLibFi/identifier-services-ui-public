@@ -44,7 +44,7 @@ function IsbnIsmnPublisherModal ({publisherId, isModalOpen, setIsModalOpen}) {
   const publisherIdentifiersIsmnString = `${intl.formatMessage({id: 'form.common.publisherIdentifiers'})} (ISMN)`;
 
   const {data, loading, error} = useItem({
-    url: `/api/isbn-registry/publishers/${publisherId}`,
+    url: `/api/public/isbn-registry/publishers/${publisherId}`,
     method: 'GET',
     dependencies: [publisherId],
     prefetch: true,

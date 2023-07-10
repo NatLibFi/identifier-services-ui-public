@@ -62,7 +62,7 @@ function IdentifierBatch ({configuration, match}) {
 
   // Fetch the batch data
   const {data, loading, error} = useItem({
-    url: `/api/isbn-registry/identifierbatches/${id}`,
+    url: `/api/public/isbn-registry/identifierbatches/${id}`,
     method: 'GET',
     dependencies: [],
     prefetch: true,

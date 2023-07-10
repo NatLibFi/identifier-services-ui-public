@@ -151,7 +151,7 @@ function PublisherRegistrationForm (props) {
 
     async function makeApiCall(turnstileToken) {
       const formattedPublisherRequest = {...formatPublisher(values, formattedLanguage), turnstileToken};
-      await createRequest(formattedPublisherRequest, '/api/isbn-registry/requests/publishers', history, setSnackbarMessage);
+      await createRequest(formattedPublisherRequest, '/api/public/isbn-registry/requests/publishers', history, setSnackbarMessage);
       loading = false; // Sets loading to false to outer scope since API responded to request
     }
   };

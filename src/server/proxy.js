@@ -34,13 +34,13 @@ function filterRequest(req, _res) {
   }
 
   const allowedEndpoints = [
-    {regex: /^\/isbn-registry\/publishers\/query$/, method: 'POST'},
-    {regex: /^\/isbn-registry\/publishers\/[0-9]+$/, method: 'GET'},
-    {regex: /^\/isbn-registry\/identifierbatches\/[0-9]+$/, method: 'GET'},
-    {regex: /^\/isbn-registry\/identifierbatches\/[0-9]+\/download$/, method: 'POST'},
-    {regex: /^\/issn-registry\/requests$/, method: 'POST'},
-    {regex: /^\/isbn-registry\/requests\/publishers$/, method: 'POST'},
-    {regex: /^\/isbn-registry\/requests\/publications$/ , method: 'POST'}
+    {regex: /^\/public\/isbn-registry\/publishers\/query$/, method: 'POST'},
+    {regex: /^\/public\/isbn-registry\/publishers\/[0-9]+$/, method: 'GET'},
+    {regex: /^\/public\/isbn-registry\/identifierbatches\/[0-9]+$/, method: 'GET'},
+    {regex: /^\/public\/isbn-registry\/identifierbatches\/[0-9]+\/download$/, method: 'POST'},
+    {regex: /^\/public\/issn-registry\/requests$/, method: 'POST'},
+    {regex: /^\/public\/isbn-registry\/requests\/publishers$/, method: 'POST'},
+    {regex: /^\/public\/isbn-registry\/requests\/publications$/ , method: 'POST'}
   ];
 
   const endpointIsAllowed = allowedEndpoints.find(endpoint => endpoint.method === req.method && req.url.match(endpoint.regex));

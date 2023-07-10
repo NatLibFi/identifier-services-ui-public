@@ -66,7 +66,7 @@ function IsbnIsmnPublisherSearch() {
   }, [isModalOpen]);
 
   const {data, loading, error} = useSearch({
-    url: '/api/isbn-registry/publishers/query',
+    url: '/api/public/isbn-registry/publishers/query',
     method: 'POST',
     body: searchBody,
     dependencies: [searchBody],

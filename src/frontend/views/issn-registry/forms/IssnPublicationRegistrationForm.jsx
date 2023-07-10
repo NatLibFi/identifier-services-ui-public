@@ -139,7 +139,7 @@ function IssnPublicationRegistrationForm (props) {
 
     async function makeApiCall(turnstileToken) {
       const apiValues = {...formatValues({...values}, formattedLanguage), turnstileToken};
-      await createRequest(apiValues, '/api/issn-registry/requests', history, setSnackbarMessage);
+      await createRequest(apiValues, '/api/public/issn-registry/requests', history, setSnackbarMessage);
       loading = false; // Sets loading to false to outer scope since API responded to request
     }
   };
