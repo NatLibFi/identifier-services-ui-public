@@ -26,7 +26,6 @@
  */
 
 import React from 'react';
-import moment from 'moment';
 import {PropTypes, oneOfType} from 'prop-types';
 
 import {Grid, ListItemText} from '@mui/material';
@@ -36,9 +35,7 @@ import RenderListComponent from './form/render/RenderListComponent.jsx';
 import '/src/frontend/css/listComponent.css';
 
 function ListComponent (props) {
-  const {label, value, fieldName, lang} = props;
-
-  moment.locale(lang);
+  const {label, value, fieldName} = props;
 
   return (
     <div>
@@ -60,8 +57,7 @@ ListComponent.propTypes = {
     PropTypes.array,
     PropTypes.object
   ]),
-  fieldName: PropTypes.string,
-  lang: PropTypes.string
+  fieldName: PropTypes.string
 };
 
 export default ListComponent;

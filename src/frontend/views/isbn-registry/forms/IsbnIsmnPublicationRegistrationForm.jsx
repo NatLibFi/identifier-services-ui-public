@@ -244,7 +244,7 @@ function IsbnIsmnPublicationRegistrationForm (props) {
     >
       {({handleSubmit, errors, valid, values, form, submitting}) => {
         // Form field content
-        const formPages = getFormPages(language, values);
+        const formPages = getFormPages(values);
         const content = filterFormFields(formPages, values);
         const contentOrder = getSteps(values);
         const activeContent = content[contentOrder[activeStep]];

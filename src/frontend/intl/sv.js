@@ -129,6 +129,19 @@ const sv = {
   'common.printed': 'tryckt',
   'common.online': 'webpublikation',
   'common.cdrom': 'CD-ROM',
+  // Months
+  'common.month.1': 'januari',
+  'common.month.2': 'februari',
+  'common.month.3': 'mars',
+  'common.month.4': 'april',
+  'common.month.5': 'maj',
+  'common.month.6': 'juni',
+  'common.month.7': 'juli',
+  'common.month.8': 'augusti',
+  'common.month.9': 'september',
+  'common.month.10': 'oktober',
+  'common.month.11': 'november',
+  'common.month.12': 'december',
 
   // Home page
   'homePage.title': 'Identifikatorservice',
