@@ -1,0 +1,67 @@
+.modal {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(500px, 70vw, 1200px);
+    max-height: 80vh;
+    min-height: 80vh;
+    border: 2px solid var(--color-black);
+    background-color: var(--color-white);
+    box-shadow: 2px 2px var(--color-brand-darkBlue);
+    padding: 20px;
+    overflow: auto;
+}
+
+.modal > div:nth-child(1), .modal > div:nth-child(2) {
+    align-self: flex-start;
+    justify-self: flex-start;
+}
+
+.marcModal,
+.savePublisherModal,
+.publicationRequestModal {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 70%;
+    max-width: 70%;
+    min-height: 70%;
+    max-height: 70%;
+    border: 2px solid var(--color-black);
+    background-color: var(--color-white);
+    box-shadow: 2px 2px var(--color-brand-darkBlue);
+    padding: 1.5rem;
+    overflow: auto;
+}
+
+/* Set divider line to the bottom of first <pre> item if there is more than one such items */
+.marcModal > pre:first-child:not(:only-child) {
+    border-bottom:  1px solid var(--color-black);
+    padding-bottom: 2rem;
+}
+
+.marcModal pre {
+    font-size: clamp(10px, 1.5vw, 16px);
+}
+
+.archiveRecordContainer {
+    margin-top: 1rem;
+    width: 100%
+}
+
+.archiveRecordContainer > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.archiveRecordContainer > div > p:first-child {
+    font-weight: 700;
+}

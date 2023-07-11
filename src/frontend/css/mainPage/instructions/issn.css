@@ -1,0 +1,41 @@
+.issnContainer {
+    max-width: 1200px;
+    margin: 30px auto 40px;
+}
+
+.issnContainer h3 {
+    font-family: Georgia, serif;
+    letter-spacing: 0.2px;
+    font-size: clamp(1rem, 3.5vw, 2.1rem);
+    color: var(--color-brand-darkBlue);
+}
+
+.issnContainer a {
+    padding: 0;
+}
+
+.issnContainer a:focus-visible {
+    outline: 2px solid var(--color-brand-darkBlue);
+    outline-offset: 2px;
+}
+
+.issnContainer span {
+    display: flex;
+    gap: 5px;
+    font-size: clamp(0.6rem, 1.3vw, 0.85rem);
+    align-items: center;
+}
+
+.issnContainer span > svg {
+    width: 0.6em;
+}
+
+.issnContainer p {
+    font-size: clamp(0.7rem, 2.5vw, 1rem);
+}
+
+@media (max-width:1200px) {
+    .issnContainer {
+        padding-left: 5px;
+    }
+}
