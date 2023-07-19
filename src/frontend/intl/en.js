@@ -203,6 +203,7 @@ const en = {
   'error.date.min': 'The date to be entered must be after current date',
   'error.identifierBatch.invalid': 'Loading of identifier batch failed. Please try again or contact customer service',
   'error.formEdit': 'There are errors in the form, please check the fields marked in red: ',
+  'error.emptyField': ' ',
 
   // Error page texts
   'errorPage.header': 'Sorry, something went wrong',

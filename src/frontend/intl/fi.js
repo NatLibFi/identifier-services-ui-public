@@ -205,6 +205,7 @@ const fi = {
   'error.date.min': 'Päivämäärä ei voi olla nykyistä päivämäärää aikaisempi',
   'error.identifierBatch.invalid': 'Tunnuslistan hakeminen epäonnistui. Yrittäkää uudelleen tai ottakaa tarvittaessa yhteyttä asiakaspalveluun',
   'error.formEdit': 'Lomakkeessa on virheellisiä tietoja. Tarkistakaa seuraavat kentät:',
+  'error.emptyField': ' ',
 
   // Error page texts
   'errorPage.header': 'Olemme pahoillamme, mutta jokin meni väärin',

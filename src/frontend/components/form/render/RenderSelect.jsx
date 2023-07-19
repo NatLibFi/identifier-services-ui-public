@@ -84,7 +84,8 @@ function RenderSelect (props) {
       {errAsBool && (
         <Box mt={2}>
           <Typography variant="caption" color="error" className="selectErrors">
-            <ErrorIcon fontSize="inherit" />
+            {/* Display error icon in all cases except when error is set to 'emptyField' */}
+            {error !== 'emptyField' && <ErrorIcon fontSize="inherit" />}
             {intl.formatMessage({id: `error.${error}`})}
           </Typography>
         </Box>
