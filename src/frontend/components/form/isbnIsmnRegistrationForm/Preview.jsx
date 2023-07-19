@@ -193,7 +193,7 @@ function Preview ({values, intl}) {
           {values.edition && (
             <ListComponent
               label={<FormattedMessage id="form.isbnIsmn.preview.edition" />}
-              value={values.edition}
+              value={values.edition + '.'}
             />
           )}
           {values.copies && (
