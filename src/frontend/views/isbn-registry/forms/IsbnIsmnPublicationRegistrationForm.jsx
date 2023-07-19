@@ -335,7 +335,10 @@ function IsbnIsmnPublicationRegistrationForm (props) {
                 {/* Showing an info message if user has selected that the publication is not public */}
                 {(activeContent?.renderType === 'element' && activeContent?.fields.some(field => field.name === 'publicationsPublic'))
                   && values?.publicationsPublic === 'false'
-                  && <InfoCard infoText="form.isbnIsmn.card.publicationIsPublic" cardStyle='dissertationInfoCardContainer'/>
+                  && <InfoCard
+                    infoText="form.isbnIsmn.card.publicationIsPublic"
+                    cardStyle='isPublicInfoCardContainer'
+                    textStyle='infoCardWarning'/>
                 }
                 {/* Instruct user to find out if he can obtain ID from his own department (showing if a dissertation is chosen as a publication type) */}
                 {(activeContent?.renderType === 'element' && activeContent?.fields.some(field => field.name === 'publicationType'))
