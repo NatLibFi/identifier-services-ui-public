@@ -19,6 +19,8 @@
 }
 
 .infoCardWarning {
+    display: flex;
+    align-items: center;
     color: var(--color-brand-red);
 }
 

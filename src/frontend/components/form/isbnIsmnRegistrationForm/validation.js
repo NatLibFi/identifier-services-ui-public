@@ -130,7 +130,7 @@ export function validate(values) {
       {fieldName: 'city', hasError: values.city && !regexPatterns.city.test(values.city), message: 'format.city'},
       {fieldName: 'phone', hasError: values.phone && !regexPatterns.phone.test(values.phone), message: 'format.phone'},
       // In case below the message is blank, since we are displaying the error message in the InfoCard component
-      {fieldName: 'publicationsPublic', hasError: !values.publicationsPublic || String(values.publicationsPublic).toLowerCase() !== 'true', message: ''},
+      {fieldName: 'publicationsPublic', hasError: !values.publicationsPublic || String(values.publicationsPublic).toLowerCase() !== 'true', message: 'emptyField'},
       {fieldName: 'publicationType', hasError: !values.publicationType, message: 'field.required'},
       {fieldName: 'issn', hasError: values.issn && !regexPatterns.issn.test(values.issn), message: 'format.issn'},
       {fieldName: 'isHelsinki', hasError: values.publicationType === PUBLICATION_TYPES.DISSERTATION && values.isHelsinki !== 'true', message: 'publicationRegistrationIsbnIsmn.form.otherUniversitites'},

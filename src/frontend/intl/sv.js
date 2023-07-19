@@ -203,6 +203,7 @@ const sv = {
   'error.date.min': 'Det angivna datumet måste vara en senare tidpunkt än det nuvarande datumet',
   'error.identifierBatch.invalid': 'Laddningen av identifikatorerna misslyckades. Vänligen försök på nytt eller ta kontakt med vår kundservice.',
   'error.formEdit': 'En del av uppgifterna är fel, vänligen korrigera fälten som är markerade med rött:',
+  'error.emptyField': ' ',
 
   // Error page texts
   'errorPage.header': 'Något gick tyvärr fel',
