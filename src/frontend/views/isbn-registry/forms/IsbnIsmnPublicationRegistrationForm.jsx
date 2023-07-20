@@ -198,7 +198,8 @@ function IsbnIsmnPublicationRegistrationForm (props) {
       }
     // If publication type is dissertation and format is print or print and electronical, add additional fields regarding manufacturer
     } else {
-      const dissertationAdditionalFields = activeContent.additionalFields.find(f => f.name === 'dissertationAdditionalFields').fields;
+      const dissertationAdditionalFields = activeContent?.additionalFields
+        .find(f => f.name === 'dissertationAdditionalFields').fields ?? [];
 
       // Display edition field if publication format is either print or print and electronical
       if(values.publicationFormat === FORMATS.PRINT || values.publicationFormat === FORMATS.PRINT_ELECTRONICAL) {
