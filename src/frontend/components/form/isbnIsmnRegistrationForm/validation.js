@@ -117,8 +117,8 @@ export function validate(values) {
       ...getMaxLengthErrors(max200Chars, 200, values),
       ...getMaxLengthErrors(max100Chars, 100, values),
       ...getMaxLengthErrors(max50Chars, 50, values),
-      ...getMaxLengthErrors(max20Chars, 20, values),
       ...getMaxLengthErrors(['phone'], 30, values),
+      ...getMaxLengthErrors(max20Chars, 20, values),
       ...getMaxLengthErrors(['copies'], 10, values)
     };
   }
