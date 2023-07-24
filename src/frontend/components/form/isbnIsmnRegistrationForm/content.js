@@ -316,15 +316,8 @@ export function getFormPages(values) {
       ],
       additionalFields: [
         {
-          name: 'dissertationEdition',
+          name: 'dissertationAdditionalFields',
           fields: [
-            {
-              name: 'edition',
-              type: 'select',
-              width: 'half',
-              label: 'form.isbnIsmn.format.dissertation.option.printed.edition',
-              options: editionOptions
-            },
             {
               label: <FormattedMessage id="form.isbnIsmn.format.dissertation.option.printed.manufacturer"/>,
               name: 'printingHouse',
