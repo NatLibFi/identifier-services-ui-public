@@ -77,6 +77,12 @@ function Preview ({values, intl}) {
             label={<FormattedMessage id="form.common.city" />}
             value={values.city}
           />
+          {values.publicationType === PUBLICATION_TYPES.DISSERTATION && (
+            <ListComponent
+              label={<FormattedMessage id="form.isbnIsmn.preview.universityName" />}
+              value={<FormattedMessage id="form.isbnIsmn.preview.helsinki" />}
+            />
+          )}
           <ListComponent
             label={<FormattedMessage id="form.common.contactPerson" />}
             value={values.contactPerson}
@@ -118,12 +124,6 @@ function Preview ({values, intl}) {
             label={<FormattedMessage id="form.common.language" />}
             value={intl.formatMessage({id: `common.${values.language.toLowerCase()}`})}
           />
-          {values.publicationType === PUBLICATION_TYPES.DISSERTATION && (
-            <ListComponent
-              label={<FormattedMessage id="form.isbnIsmn.preview.universityName" />}
-              value={<FormattedMessage id="form.isbnIsmn.preview.helsinki" />}
-            />
-          )}
         </div>
 
         {/* Julkaisutoiminta - Publishing activities*/}
@@ -193,7 +193,7 @@ function Preview ({values, intl}) {
           {values.edition && (
             <ListComponent
               label={<FormattedMessage id="form.isbnIsmn.preview.edition" />}
-              value={values.edition}
+              value={`${values.edition}.`}
             />
           )}
           {values.copies && (
