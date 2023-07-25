@@ -70,6 +70,25 @@ function App() {
   const [snackbarMessage, setSnackbarMessage] = useState(null);
   const [showNotificationBanner, setShowNotificationBanner] = useState(false);
 
+  // Get list of user preferred languages from the browser settings
+  const userPreferredLanguages = navigator.languages;
+
+  // Language versions available in the app
+  const availableLanguages = Object.keys(translations);
+
+  // Get language to use based on order of user preferred languages and language versions available in the app
+  const getPrimaryLanguage = () => {
+    return (
+      // Check if some of the user preferred languages is available in the app (use the first one found)
+      // Slice is used, since language can be in format 'fi-FI' or 'fi', however we need only the first two letters
+      userPreferredLanguages
+        .find(language => availableLanguages.includes(language.slice(0, 2)))
+        .slice(0, 2)
+      // If no user preferred language is available in the app, use the default language ('fi')
+        ?? 'fi'
+    );
+  };
+
   // Load config
   useEffect(() => {
     async function fetchConfig() {
@@ -87,11 +106,10 @@ function App() {
     fetchConfig();
   }, []);
 
-  // Language control
-  const [language, setLanguage] = useState('fi');
-  const availableLanguages = Object.keys(translations);
+  // Language state
+  const [language, setLanguage] = useState(getPrimaryLanguage());
 
-  // Change language, required for topNav
+  // Handles language change
   function changeLanguage(newLanguage) {
     // Validate the messages for language exists
     if(availableLanguages.includes(newLanguage)) {
