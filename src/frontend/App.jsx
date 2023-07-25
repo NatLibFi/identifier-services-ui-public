@@ -78,15 +78,18 @@ function App() {
 
   // Get language to use based on order of user preferred languages and language versions available in the app
   const getPrimaryLanguage = () => {
-    return (
-      // Check if some of the user preferred languages is available in the app (use the first one found)
-      // Slice is used, since language can be in format 'fi-FI' or 'fi', however we need only the first two letters
-      userPreferredLanguages
-        .find(language => availableLanguages.includes(language.slice(0, 2)))
-        .slice(0, 2)
-      // If no user preferred language is available in the app, use the default language ('fi')
-        ?? 'fi'
+    // Check if some of the user preferred languages is available in the app (use the first one found)
+    const primaryLanguage = userPreferredLanguages.find(language =>
+      availableLanguages.includes(language.slice(0, 2))
     );
+
+    if (primaryLanguage) {
+      // Slice is used (here and above), since language can be presented in different formats, however we need only the first two letters
+      return primaryLanguage.slice(0, 2);
+    }
+
+    // If no user preferred language is available in the app, use the default language ('fi')
+    return 'fi';
   };
 
   // Load config
