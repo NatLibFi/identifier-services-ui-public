@@ -51,10 +51,15 @@ function RenderSelect (props) {
     defaultValue,
     isDisabled,
     infoIconComponent,
-    meta: {touched, error}
+    // Meta object contains different properties related to the state of the field
+    // https://final-form.org/docs/final-form/types/FieldState
+    meta: {modified, error, touched}
   } = props;
 
-  const errAsBool = touched && Boolean(error);
+  // Show error message if:
+  // - field has been modified (value has been changed) and has an error
+  // - field has been touched (gained and lost focus) and has an error
+  const errAsBool = (modified || touched) && Boolean(error);
   const intl = useIntl();
 
   return (
@@ -99,7 +104,6 @@ RenderSelect.propTypes = {
   input: PropTypes.object,
   name: PropTypes.string,
   options: PropTypes.array,
-  className: PropTypes.string,
   defaultValue: PropTypes.string,
   isDisabled: PropTypes.bool,
   infoIconComponent: PropTypes.element,
