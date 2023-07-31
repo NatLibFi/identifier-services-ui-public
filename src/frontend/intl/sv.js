@@ -51,7 +51,9 @@ const sv = {
   'common.yes': 'Ja',
   'common.no': 'Nej',
   'common.true': 'Ja',
+  'common.true.allLangs': 'Kyllä / Ja / Yes',
   'common.false': 'Nej',
+  'common.false.allLangs': 'Ei / Nej / No',
   'common.noData': 'Inga matchande resultat',
   'common.blank': 'Tom',
   'common.search.inputPlaceholder': 'Sök...',
@@ -687,9 +689,13 @@ const sv = {
   'publication.issn.lastIssue': 'Det sista numret med den tidigare titeln (nummer/år)',
 
   // Modals - used in multiple places in modal components
-  'modal.publicBatch.confirmation': 'Bekräftelse',
-  'modal.publicBatch.confirmation.text.part1': 'Jag bekräftar att jag representerar förläget ',
-  'modal.publicBatch.confirmation.text.part2': ' och äger förlagsbeteckingen',
+  'modal.publicBatch.confirmation': 'Vahvistus / Bekräftelse / Confirmation',
+  'modal.publicBatch.confirmation.text.part1': 'Vahvistan edustavani kustantajaa ',
+  'modal.publicBatch.confirmation.text.part2': ' ja omistavani kustantajatunnuksen ',
+  'modal.publicBatch.confirmation.text.part3': 'Jag bekräftar att jag representerar förlaget  ',
+  'modal.publicBatch.confirmation.text.part4': ' och äger förlagsbeteckningen ',
+  'modal.publicBatch.confirmation.text.part5': 'I confirm I represent ',
+  'modal.publicBatch.confirmation.text.part6': ' (publisher ID {id})',
 
   // Service messages - used in action dispatchers (store/actions)
   'serviceMessage.registration.success': 'Formuläret har skickats',
