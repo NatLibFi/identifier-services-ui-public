@@ -51,7 +51,9 @@ const sv = {
   'common.yes': 'Ja',
   'common.no': 'Nej',
   'common.true': 'Ja',
+  'common.true.allLangs': 'Kyllä / Ja / Yes',
   'common.false': 'Nej',
+  'common.false.allLangs': 'Ei / Nej / No',
   'common.noData': 'Inga matchande resultat',
   'common.blank': 'Tom',
   'common.search.inputPlaceholder': 'Sök...',
@@ -690,6 +692,10 @@ const sv = {
   'modal.publicBatch.confirmation': 'Bekräftelse',
   'modal.publicBatch.confirmation.text.part1': 'Jag bekräftar att jag representerar förläget ',
   'modal.publicBatch.confirmation.text.part2': ' och äger förlagsbeteckingen',
+  'modal.publicBatch.confirmation.text.part3': 'Jag bekräftar att jag representerar förlaget  ',
+  'modal.publicBatch.confirmation.text.part4': ' och äger förlagsbeteckningen ',
+  'modal.publicBatch.confirmation.text.part5': 'I confirm I represent ',
+  'modal.publicBatch.confirmation.text.part6': ' (publisher ID {id})',
 
   // Service messages - used in action dispatchers (store/actions)
   'serviceMessage.registration.success': 'Formuläret har skickats',

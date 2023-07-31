@@ -51,7 +51,9 @@ const en = {
   'common.yes': 'Yes',
   'common.no': 'No',
   'common.true': 'Yes',
+  'common.true.allLangs': 'Kyllä / Ja / Yes',
   'common.false': 'No',
+  'common.false.allLangs': 'Ei / Nej / No',
   'common.noData': 'No search results',
   'common.blank': 'Blank',
   'common.search.inputPlaceholder': 'Search...',
@@ -690,6 +692,10 @@ const en = {
   'modal.publicBatch.confirmation': 'Confirmation',
   'modal.publicBatch.confirmation.text.part1': 'I confirm I represent ',
   'modal.publicBatch.confirmation.text.part2': ' and I am the owner of the publisher identifier',
+  'modal.publicBatch.confirmation.text.part3': 'Jag bekräftar att jag representerar förlaget  ',
+  'modal.publicBatch.confirmation.text.part4': ' och äger förlagsbeteckningen ',
+  'modal.publicBatch.confirmation.text.part5': 'I confirm I represent ',
+  'modal.publicBatch.confirmation.text.part6': ' (publisher ID {id})',
 
   // Service messages - used in action dispatchers (store/actions)
   'serviceMessage.registration.success': 'Registration request sent successfully',
