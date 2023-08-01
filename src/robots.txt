@@ -1,0 +1,7 @@
+# Do not allow access to the API and the identifier batches
+User-agent: *
+Disallow: /api/
+Disallow: /isbn-registry/identifierbatches/
+
+# Sitemap file used by search engines
+Sitemap: https://tunnisteportaali.kansalliskirjasto.fi/sitemap.xml
