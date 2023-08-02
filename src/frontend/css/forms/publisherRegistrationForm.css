@@ -29,9 +29,15 @@
 }
 
 .notesList a {
-    color: #1C7291 !important;
+    color: var(--color-brand-teal);
     display: inline-flex;
     align-items: center;
+    gap: 0.25rem;
+    text-decoration: none;
+}
+
+.notesList a:hover {
+    text-decoration: underline;
 }
 
 /* Square icon */

@@ -149,7 +149,7 @@ function TableComponent (props) {
         setPage &&
           (
             <TablePagination
-              rowsPerPageOptions={[1, 5, 10, 25, 50]}
+              rowsPerPageOptions={[5, 10, 25, 50]}
               component="div"
               count={totalDoc || 0}
               rowsPerPage={rowsPerPage || 0}
