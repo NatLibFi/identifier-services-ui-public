@@ -15,10 +15,15 @@
 }
 
 .issnContainer a:first-child {
-    color: var(--color-brand-teal) !important;
+    color: var(--color-brand-teal);
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
+    text-decoration: none;
+}
+
+.issnContainer a:first-child:hover {
+    text-decoration: underline;
 }
 
 .issnContainer a:first-child svg {

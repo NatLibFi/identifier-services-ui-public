@@ -16,6 +16,13 @@
 .publicMenu div {
     height: 50px;
     display: flex;
+    color: var(--color-brand-darkBlue);
+    text-decoration: none;
+}
+
+.publicMenu a:hover,
+.publicMenu > div > button:hover {
+    text-decoration: underline;
 }
 
 .publicMenu > div > button:focus-visible {
@@ -32,6 +39,7 @@
     height: 50px;
     display: flex;
     align-items: center;
+    color: var(--color-brand-darkBlue);
     font-family: "Open Sans", sans-serif;
 }
 
