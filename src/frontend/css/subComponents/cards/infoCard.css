@@ -8,9 +8,7 @@
 .infoLinkHeader > a {
     display: flex;
     align-items: center;
-    /* Using !important to override default link styling set in global.css */
-    text-decoration: underline !important;
-    text-underline-offset: 2px;
+    color: inherit;
 }
 
 .infoLinkHeader svg:first-child {
