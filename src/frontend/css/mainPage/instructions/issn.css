@@ -14,9 +14,21 @@
     padding: 0;
 }
 
+.issnContainer a:first-child {
+    color: var(--color-brand-teal) !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.issnContainer a:first-child svg {
+    font-size: 1em;
+}
+
 .issnContainer a:focus-visible {
     outline: 2px solid var(--color-brand-darkBlue);
     outline-offset: 2px;
+    border-radius: 0.25rem;
 }
 
 .issnContainer span {
