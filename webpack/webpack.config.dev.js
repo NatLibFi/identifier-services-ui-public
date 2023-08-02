@@ -23,16 +23,18 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(jpg|gif|png|svg|webp)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name]-[hash:8].[ext]',
-              outputPath: 'images/'
-            }
-          }
-        ]
+        test: /\.txt/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'robots.txt'
+        }
+      },
+      {
+        test: /\.xml/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'sitemap.xml'
+        }
       }
     ]
   },

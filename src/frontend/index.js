@@ -29,6 +29,10 @@ import React from 'react';
 import {createRoot} from 'react-dom/client';
 import {BrowserRouter as Router} from 'react-router-dom';
 
+// NB! Imports below are required for webpack to copy the robots.txt and sitemap.xml files to dist, although they are not used explicitly
+import '/src/robots.txt';
+import '/src/sitemap.xml';
+
 import App from './App.jsx';
 
 (async function run() {
