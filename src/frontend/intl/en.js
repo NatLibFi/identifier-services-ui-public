@@ -709,7 +709,16 @@ const en = {
   'serviceMessage.batchRead.unsuccessfull': 'Batch read failed',
   'serviceMessage.batchQuery.unsuccessfull': 'Batches query failed',
   'serviceMessage.batchDownload.successfull': 'Downloaded successfully',
-  'serviceMessage.batchDownload.unsuccessfull': 'Download failed'
+  'serviceMessage.batchDownload.unsuccessfull': 'Download failed',
+
+  // Service messages - errors
+  'serviceMessage.turnstileScript.error': 'An unknown error has occurred. Please refresh the page and try again.',
+
+  // Turnstile info
+  'form.turnstile.title': 'Important notification',
+  'form.turnstile.info': '',
+  'form.turnstile.link.privacy': '',
+  'form.turnstile.link.terms': ''
 };
 
 export default en;

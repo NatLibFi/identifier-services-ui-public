@@ -709,7 +709,16 @@ const fi = {
   'serviceMessage.batchRead.unsuccessfull': 'Tunnuksen haku epäonnistui',
   'serviceMessage.batchQuery.unsuccessfull': 'Tunnuksien haku epäonnistui',
   'serviceMessage.batchDownload.successfull': 'Tunnuksien lataus onnistui',
-  'serviceMessage.batchDownload.unsuccessfull': 'Tunnuksien lataus epäonnistui'
+  'serviceMessage.batchDownload.unsuccessfull': 'Tunnuksien lataus epäonnistui',
+
+  // Service messages - errors
+  'serviceMessage.turnstileScript.error': 'Tuntematon virhe. Ole hyvä ja yritä sivun latausta uudelleen.',
+
+  // Turnstile info
+  'form.turnstile.title': 'Tärkeä huomio',
+  'form.turnstile.info': 'Siirtymällä täyttämään lomakkeen hyväksyt, että Turnstile-tunnistusta käytetään automaattisesti taustalla tunnistamaan ihmiskäyttäjät robottikäyttäjistä. Automaattisen tunnistamisen yhteydessä Turnstile-palveluntarjoaja (Cloudflare) saa tiedon IP-osoitteestasi.',
+  'form.turnstile.link.privacy': 'Turnstile tietosuojaseloste (englanniksi)',
+  'form.turnstile.link.terms': 'Turnstile käyttöehdot (englanniksi)'
 };
 
 export default fi;

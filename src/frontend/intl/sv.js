@@ -709,7 +709,16 @@ const sv = {
   'serviceMessage.batchRead.unsuccessfull': 'Blocket kunde inte avläsas',
   'serviceMessage.batchQuery.unsuccessfull': 'Sök av block misslyckades',
   'serviceMessage.batchDownload.successfull': 'Nedladdninger lyckades',
-  'serviceMessage.batchDownload.unsuccessfull': 'Nedladdning av identifikator misslyckades'
+  'serviceMessage.batchDownload.unsuccessfull': 'Nedladdning av identifikator misslyckades',
+
+  // Service messages - errors
+  'serviceMessage.turnstileScript.error': 'Ett okänt fel har inträffat. Uppdatera sidan och försök igen.',
+
+  // Turnstile info
+  'form.turnstile.title': '',
+  'form.turnstile.info': '',
+  'form.turnstile.link.privacy': '',
+  'form.turnstile.link.terms': ''
 };
 
 export default sv;
