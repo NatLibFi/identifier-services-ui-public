@@ -206,6 +206,7 @@ const sv = {
   'error.identifierBatch.invalid': 'Laddningen av identifikatorerna misslyckades. Vänligen försök på nytt eller ta kontakt med vår kundservice.',
   'error.formEdit': 'En del av uppgifterna är fel, vänligen korrigera fälten som är markerade med rött:',
   'error.emptyField': ' ',
+  'error.classification.maxAmount': 'Du har lagt till det maximala antalet ämnesord (5 st)',
 
   // Error page texts
   'errorPage.header': 'Något gick tyvärr fel',

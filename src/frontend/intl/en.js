@@ -206,6 +206,7 @@ const en = {
   'error.identifierBatch.invalid': 'Loading of identifier batch failed. Please try again or contact customer service',
   'error.formEdit': 'There are errors in the form, please check the fields marked in red: ',
   'error.emptyField': ' ',
+  'error.classification.maxAmount': 'You can add max. 5 classification keywords',
 
   // Error page texts
   'errorPage.header': 'Sorry, something went wrong',
