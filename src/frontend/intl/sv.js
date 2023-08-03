@@ -715,10 +715,10 @@ const sv = {
   'serviceMessage.turnstileScript.error': 'Ett okänt fel har inträffat. Uppdatera sidan och försök igen.',
 
   // Turnstile info
-  'form.turnstile.title': '',
-  'form.turnstile.info': '',
-  'form.turnstile.link.privacy': '',
-  'form.turnstile.link.terms': ''
+  'form.turnstile.title': 'Viktig notering',
+  'form.turnstile.info': 'Genom att fylla i formuläret ger du samtycke till att en automatisk identifiering används för att skilja åt mänskliga användare från botanvändare. I samband med den automatiska identifieringen får tjänsteleverantören (Cloudflare) information om din IP-adress.',
+  'form.turnstile.link.privacy': 'Cloudflare dataskyddsbeskrivning',
+  'form.turnstile.link.terms': 'Cloudflare villkor'
 };
 
 export default sv;
