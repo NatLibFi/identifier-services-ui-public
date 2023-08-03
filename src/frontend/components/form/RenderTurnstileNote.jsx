@@ -29,47 +29,43 @@ import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import {PropTypes} from 'prop-types';
 
-import {Typography, Button, Link} from '@mui/material';
-import Alert from '@mui/material/Alert';
+import {Typography, Button, Link, Alert} from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 import '/src/frontend/css/forms/turnstileNotification.css';
 
 function RenderTurnstileNotification ({setInformation}) {
   return (
-    <div className={setInformation === 'function' ? 'turnstileContainer' : undefined}>
-      <div>
-        <Alert severity='error'>
-          <Typography>
-            <strong>
-              <FormattedMessage id="form.turnstile.title"/>
-            </strong>
-          </Typography>
+    <div className={setInformation ? 'turnstileContainer' : 'notificationContainer'}>
+      <Alert severity='error'>
+        <Typography>
+          <strong>
+            <FormattedMessage id="form.turnstile.title"/>
+          </strong>
+        </Typography>
 
-          <Typography>
-            <FormattedMessage id="form.turnstile.info" />
-          </Typography>
+        <Typography>
+          <FormattedMessage id="form.turnstile.info" />
+        </Typography>
 
-          <Typography>
-            <Link target="_blank" rel="noopener" href="https://www.cloudflare.com/privacypolicy/">
-              <FormattedMessage id={'form.turnstile.link.privacy'}/>
-              <OpenInNewIcon fontSize="small"/>
-            </Link>
-            <Link target="_blank" rel="noopener" href="https://www.cloudflare.com/website-terms/">
-              <FormattedMessage id={'form.turnstile.link.terms'}/>
-              <OpenInNewIcon fontSize="small"/>
-            </Link>
-          </Typography>
+        <Typography>
+          <Link target="_blank" rel="noopener" href="https://www.cloudflare.com/privacypolicy/">
+            <FormattedMessage id={'form.turnstile.link.privacy'}/>
+            <OpenInNewIcon fontSize="small"/>
+          </Link>
+          <Link target="_blank" rel="noopener" href="https://www.cloudflare.com/website-terms/">
+            <FormattedMessage id={'form.turnstile.link.terms'}/>
+            <OpenInNewIcon fontSize="small"/>
+          </Link>
+        </Typography>
 
-          {
-            typeof setInformation === 'function' &&
-            <Button className={'continueButton'} disableRipple variant="contained" color="primary" onClick={() => setInformation(false)}>
+        {
+          typeof setInformation === 'function' &&
+            <Button disableRipple variant="contained" color="primary" onClick={() => setInformation(false)}>
               <FormattedMessage id="form.button.label.proceed"/>
             </Button>
-          }
-        </Alert>
-      </div>
-
+        }
+      </Alert>
     </div>
   );
 }
