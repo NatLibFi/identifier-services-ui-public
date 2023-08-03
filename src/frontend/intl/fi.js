@@ -206,6 +206,7 @@ const fi = {
   'error.identifierBatch.invalid': 'Tunnuslistan hakeminen epäonnistui. Yrittäkää uudelleen tai ottakaa tarvittaessa yhteyttä asiakaspalveluun',
   'error.formEdit': 'Lomakkeessa on virheellisiä tietoja. Tarkistakaa seuraavat kentät:',
   'error.emptyField': ' ',
+  'error.classification.maxAmount': 'Voit lisätä enintään 5 aihealuetta',
 
   // Error page texts
   'errorPage.header': 'Olemme pahoillamme, mutta jokin meni väärin',
