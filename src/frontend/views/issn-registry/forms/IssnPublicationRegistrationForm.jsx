@@ -25,7 +25,7 @@
  *
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {Form} from 'react-final-form';
 import {FormattedMessage, useIntl} from 'react-intl';
@@ -56,7 +56,10 @@ import {getSteps} from '/src/frontend/components/form/issnRegistrationForm/logic
 import {getFormPages} from '/src/frontend/components/form/issnRegistrationForm/content';
 import {validate} from '/src/frontend/components/form/issnRegistrationForm/validation';
 import {formatValues} from '/src/frontend/components/form/issnRegistrationForm/utils';
+
 import RenderIssnInstructions from '/src/frontend/components/form/issnRegistrationForm/RenderIssnInstructions.jsx';
+import RenderTurnstileNotification from '/src/frontend/components/form/RenderTurnstileNote.jsx';
+
 import Preview from '/src/frontend/components/form/issnRegistrationForm/Preview.jsx';
 
 function IssnPublicationRegistrationForm (props) {
@@ -71,7 +74,26 @@ function IssnPublicationRegistrationForm (props) {
 
   // Index of the current step
   const [activeStep, setActiveStep] = useState(0);
+  const [information, setInformation] = useState(true);
   const [turnstileId, setTurnstileId] = useState(null);
+
+  // Attempt on loading Turnstile script after information has been viewed and user has decided to progress to form
+  useEffect(() => {
+    if(!information && typeof window.turnstile === 'undefined') {
+      const url = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+
+      const scriptElement = document.createElement('script');
+      scriptElement.src = url;
+      scriptElement.type = 'text/javascript';
+      scriptElement.async = true;
+      scriptElement.referrerPolicy = 'no-referrer';
+
+      scriptElement.onerror = () => setSnackbarMessage({severity: 'error', intlId: 'serviceMessage.turnstileScript.error'});
+
+      document.head.appendChild(scriptElement);
+      return;
+    }
+  }, [information, activeStep]);
 
   // Handles going to the next step
   const handleNext = (e) => {
@@ -91,6 +113,10 @@ function IssnPublicationRegistrationForm (props) {
 
   // Handles going to the previous step
   const handleBack = () => {
+    if (activeStep === 0) {
+      return setInformation(true);
+    }
+
     setActiveStep(activeStep - 1);
 
     // Scroll to top
@@ -144,7 +170,11 @@ function IssnPublicationRegistrationForm (props) {
     }
   };
 
-  return (
+  return information ? (
+    <div>
+      <RenderTurnstileNotification setInformation={setInformation}/>
+    </div>
+  ) : (
     <Form
       validate={validate}
       onSubmit={handlePublisherRegistration}
@@ -239,7 +269,7 @@ function IssnPublicationRegistrationForm (props) {
                 backButton={
                   <Button
                     size="small"
-                    disabled={activeStep === 0 || submitting}
+                    disabled={submitting}
                     onClick={handleBack}
                   >
                     <KeyboardArrowLeft/>
@@ -278,7 +308,7 @@ function IssnPublicationRegistrationForm (props) {
               <div className={isFinalPage ? 'formSubmitButtonsContainer' : 'formButtonsContainer'}>
                 <Button
                   disableRipple
-                  disabled={activeStep === 0 || submitting}
+                  disabled={submitting}
                   onClick={handleBack}
                 >
                   <FormattedMessage id="form.button.label.back"/>

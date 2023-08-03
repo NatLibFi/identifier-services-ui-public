@@ -709,7 +709,16 @@ const en = {
   'serviceMessage.batchRead.unsuccessfull': 'Batch read failed',
   'serviceMessage.batchQuery.unsuccessfull': 'Batches query failed',
   'serviceMessage.batchDownload.successfull': 'Downloaded successfully',
-  'serviceMessage.batchDownload.unsuccessfull': 'Download failed'
+  'serviceMessage.batchDownload.unsuccessfull': 'Download failed',
+
+  // Service messages - errors
+  'serviceMessage.turnstileScript.error': 'An unknown error has occurred. Please refresh the page and try again.',
+
+  // Turnstile info
+  'form.turnstile.title': 'Important note',
+  'form.turnstile.info': 'By proceeding to complete this form you agree and consent that the site is protected by an automated detection service to distinguish human users from bot users. In the process, the service provider (Cloudflare) receives information on your IP-address.',
+  'form.turnstile.link.privacy': 'Cloudflare privacy policy',
+  'form.turnstile.link.terms': 'Cloudflare terms of use'
 };
 
 export default en;

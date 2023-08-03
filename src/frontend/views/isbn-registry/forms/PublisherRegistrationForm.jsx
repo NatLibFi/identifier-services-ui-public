@@ -25,7 +25,7 @@
  *
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {Form} from 'react-final-form';
 import {FormattedMessage, useIntl} from 'react-intl';
@@ -50,6 +50,8 @@ import useDocumentTitle from '/src/frontend/hooks/useDocumentTitle';
 import {createRequest} from '/src/frontend/actions';
 
 import RenderInformation from '/src/frontend/components/form/publisherRegistrationForm/RenderInformation.jsx';
+import RenderTurnstileNotification from '/src/frontend/components/form/RenderTurnstileNote.jsx';
+
 import {getSteps} from '/src/frontend/components/form/publisherRegistrationForm/logic';
 import {formatPublisher} from '/src/frontend/components/form/publisherRegistrationForm/utils';
 import {getFormPages} from '/src/frontend/components/form/publisherRegistrationForm/content';
@@ -81,6 +83,24 @@ function PublisherRegistrationForm (props) {
       && activeStep < contentOrder.length - 1
       ? undefined
       : content[contentOrder[activeStep]];
+
+  // Attempt on loading Turnstile script after information has been viewed and user has decided to progress to form
+  useEffect(() => {
+    if(!information && typeof window.turnstile === 'undefined') {
+      const url = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+
+      const scriptElement = document.createElement('script');
+      scriptElement.src = url;
+      scriptElement.type = 'text/javascript';
+      scriptElement.async = true;
+      scriptElement.referrerPolicy = 'no-referrer';
+
+      scriptElement.onerror = () => setSnackbarMessage({severity: 'error', intlId: 'serviceMessage.turnstileScript.error'});
+
+      document.head.appendChild(scriptElement);
+      return;
+    }
+  }, [information, activeStep]);
 
   const handleNext = (e) => {
     e.preventDefault(); // Added to prevent auto-click when using mobile stepper
@@ -169,7 +189,10 @@ function PublisherRegistrationForm (props) {
   };
 
   return information ? (
-    <RenderInformation setInformation={setInformation}/>
+    <div>
+      <RenderTurnstileNotification />
+      <RenderInformation setInformation={setInformation}/>
+    </div>
   ) : (
     <Form
       onSubmit={handlePublisherRegistration}
