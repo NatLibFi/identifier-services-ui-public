@@ -72,77 +72,87 @@ function IsbnIsmnPublisherModal ({publisherId, isModalOpen, setIsModalOpen}) {
         <Typography variant="h2" className="normalTitle">
           <FormattedMessage id="common.publisherDetails.isbn" />
         </Typography>
-        <div className="archiveRecordContainer">
-          <div>
-            <Typography>
-              <FormattedMessage id="form.common.name" />:
-            </Typography>{' '}
-            <p>{formattedPublisherData.officialName ?? undefinedString}</p>
-          </div>
-          <div>
-            <Typography>
-              <FormattedMessage id="form.common.otherNames" />:
-            </Typography>{' '}
-            <p>{formattedPublisherData.otherNames ?? undefinedString}</p>
-          </div>
-          <div>
-            <Typography>
-              <FormattedMessage id="form.common.previousNames" />:
-            </Typography>{' '}
-            <p>{formattedPublisherData.previousNames ?? undefinedString}</p>
-          </div>
-          <div>
-            <Typography>
-              <FormattedMessage id="form.common.address" />:
-            </Typography>{' '}
-            <p>{formattedPublisherData.address ?? undefinedString}</p>
-          </div>
-          <div>
-            <Typography>
-              <FormattedMessage id="form.common.zip" />:
-            </Typography>{' '}
-            <p>{formattedPublisherData.zip ?? undefinedString}</p>
-          </div>
-          <div>
-            <Typography>
-              <FormattedMessage id="form.common.city" />:
-            </Typography>{' '}
-            <p>{formattedPublisherData.city ?? undefinedString}</p>
-          </div>
-          <div>
-            <Typography>
-              <FormattedMessage id="form.common.phone" />:
-            </Typography>{' '}
-            <p>{formattedPublisherData.phone ?? undefinedString}</p>
-          </div>
-          <div>
-            <Typography>
-              <FormattedMessage id="form.common.website" />:
-            </Typography>{' '}
-            <p>{formattedPublisherData.website ?? undefinedString}</p>
-          </div>
-          {/* If publisher has quitted, display status text */}
-          {formattedPublisherData.hasQuitted && <div>
-            <Typography>
-              <FormattedMessage id="common.status" />:
-            </Typography>{' '}
-            <p>{intl.formatMessage({id: 'publisherRegistry.publisher.publisherHasQuitted'})}</p>
-          </div>
-          }
-          {formattedPublisherData.isbnPublisherIdentifiers && <div>
-            <Typography>
-              {publisherIdentifiersIsbnString}:
-            </Typography>{' '}
-            <p>{formattedPublisherData.isbnPublisherIdentifiers}</p>
-          </div>
-          }
-          {formattedPublisherData.ismnPublisherIdentifiers && <div>
-            <Typography>
-              {publisherIdentifiersIsmnString}:
-            </Typography>{' '}
-            <p>{formattedPublisherData.ismnPublisherIdentifiers}</p>
-          </div>
-          }
+        <div className="publisherDetailsContainer">
+          <section>
+            <h3>
+              <FormattedMessage id="form.common.basicInfo" />
+            </h3>
+            <div>
+              <Typography>
+                <FormattedMessage id="form.common.name" />:
+              </Typography>
+              <p>{formattedPublisherData.officialName ?? undefinedString}</p>
+            </div>
+            <div>
+              <Typography>
+                <FormattedMessage id="form.common.otherNames" />:
+              </Typography>
+              <p>{formattedPublisherData.otherNames ?? undefinedString}</p>
+            </div>
+            <div>
+              <Typography>
+                <FormattedMessage id="form.common.previousNames" />:
+              </Typography>
+              <p>{formattedPublisherData.previousNames ?? undefinedString}</p>
+            </div>
+            <div>
+              <Typography>
+                <FormattedMessage id="form.common.address" />:
+              </Typography>
+              <p>{formattedPublisherData.address ?? undefinedString}</p>
+            </div>
+            <div>
+              <Typography>
+                <FormattedMessage id="form.common.zip" />:
+              </Typography>
+              <p>{formattedPublisherData.zip ?? undefinedString}</p>
+            </div>
+            <div>
+              <Typography>
+                <FormattedMessage id="form.common.city" />:
+              </Typography>
+              <p>{formattedPublisherData.city ?? undefinedString}</p>
+            </div>
+            <div>
+              <Typography>
+                <FormattedMessage id="form.common.phone" />:
+              </Typography>
+              <p>{formattedPublisherData.phone ?? undefinedString}</p>
+            </div>
+            <div>
+              <Typography>
+                <FormattedMessage id="form.common.website" />:
+              </Typography>
+              <p>{formattedPublisherData.website ?? undefinedString}</p>
+            </div>
+            {/* If publisher has quitted, display status text */}
+            {formattedPublisherData.hasQuitted && <div>
+              <Typography>
+                <FormattedMessage id="common.status" />:
+              </Typography>
+              <p>{intl.formatMessage({id: 'publisherRegistry.publisher.publisherHasQuitted'})}</p>
+            </div>
+            }
+          </section>
+          <section>
+            <h3>
+              <FormattedMessage id="common.identifiers" />
+            </h3>
+            {formattedPublisherData.isbnPublisherIdentifiers && <div>
+              <Typography>
+                {publisherIdentifiersIsbnString}:
+              </Typography>
+              <p>{formattedPublisherData.isbnPublisherIdentifiers}</p>
+            </div>
+            }
+            {formattedPublisherData.ismnPublisherIdentifiers && <div>
+              <Typography>
+                {publisherIdentifiersIsmnString}:
+              </Typography>
+              <p>{formattedPublisherData.ismnPublisherIdentifiers}</p>
+            </div>
+            }
+          </section>
         </div>
       </>
     );
@@ -151,7 +161,7 @@ function IsbnIsmnPublisherModal ({publisherId, isModalOpen, setIsModalOpen}) {
   return (
     <>
       <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <Box className="marcModal">{getComponent()}</Box>
+        <Box className="publisherModal">{getComponent()}</Box>
       </Modal>
     </>
   );
