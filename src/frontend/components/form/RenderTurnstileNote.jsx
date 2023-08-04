@@ -34,7 +34,7 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 import '/src/frontend/css/forms/turnstileNotification.css';
 
-function RenderTurnstileNotification ({setInformation}) {
+function RenderTurnstileNotification ({setInformation, identifierBatch=false}) {
   return (
     <div className={setInformation ? 'turnstileContainer' : 'notificationContainer'}>
       <Alert severity='error'>
@@ -45,7 +45,7 @@ function RenderTurnstileNotification ({setInformation}) {
         </Typography>
 
         <Typography>
-          <FormattedMessage id="form.turnstile.info" />
+          <FormattedMessage id={identifierBatch ? 'form.turnstile.info.batchdownload' : 'form.turnstile.info'} />
         </Typography>
 
         <Typography>
@@ -71,7 +71,8 @@ function RenderTurnstileNotification ({setInformation}) {
 }
 
 RenderTurnstileNotification.propTypes = {
-  setInformation: PropTypes.func
+  setInformation: PropTypes.func,
+  identifierBatch: PropTypes.bool
 };
 
 export default RenderTurnstileNotification;

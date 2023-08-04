@@ -44,21 +44,9 @@ import DownloadIcon from '@mui/icons-material/Download';
 import ListComponent from '/src/frontend/components/ListComponent.jsx';
 import IsbnIsmnPublisherModal from '/src/frontend/views/isbn-registry/publishers/IsbnIsmnPublisherModal.jsx';
 
-function IdentifierBatchDataComponent ({identifierBatch, handleDownload, history}) {
-  // State of the confirmation modal
-  const [open, setOpen] = useState(true);
-
+function IdentifierBatchDataComponent ({identifierBatch, handleDownload, hasApproved, handleApprove, handleReject}) {
   // State of the publisher details modal
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // Handles the closing of the modal after successful confirmation
-  const handleApprove = () => setOpen(false);
-
-  // Redirects to the main page if the user doesn't confirm having access to the batch
-  const handleReject = () => {
-    setOpen(false);
-    history.push('/');
-  };
 
   return (
     <div className='listComponentContainer publicBatchContainer'>
@@ -100,7 +88,7 @@ function IdentifierBatchDataComponent ({identifierBatch, handleDownload, history
 
       <>
         <Dialog
-          open={open}
+          open={hasApproved}
           onClose={handleReject}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
@@ -146,7 +134,9 @@ function IdentifierBatchDataComponent ({identifierBatch, handleDownload, history
 IdentifierBatchDataComponent.propTypes = {
   identifierBatch: PropTypes.object.isRequired,
   handleDownload: PropTypes.func.isRequired,
-  history: PropTypes.object
+  hasApproved: PropTypes.bool.isRequired,
+  handleApprove: PropTypes.func.isRequired,
+  handleReject: PropTypes.func.isRequired
 };
 
 export default withRouter(IdentifierBatchDataComponent);

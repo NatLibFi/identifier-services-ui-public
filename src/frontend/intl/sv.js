@@ -718,6 +718,7 @@ const sv = {
   // Turnstile info
   'form.turnstile.title': 'Viktig notering',
   'form.turnstile.info': 'Genom att fylla i formuläret ger du samtycke till att en automatisk identifiering används för att skilja åt mänskliga användare från botanvändare. I samband med den automatiska identifieringen får tjänsteleverantören (Cloudflare) information om din IP-adress.',
+  'form.turnstile.info.batchdownload': 'Genom att ladda ner identifierna ger du samtycke till att en automatisk identifiering används för att skilja åt mänskliga användare från botanvändare. I samband med den automatiska identifieringen får tjänsteleverantören (Cloudflare) information om din IP-adress.',
   'form.turnstile.link.privacy': 'Cloudflare dataskyddsbeskrivning',
   'form.turnstile.link.terms': 'Cloudflare villkor'
 };

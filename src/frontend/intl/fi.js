@@ -718,6 +718,7 @@ const fi = {
   // Turnstile info
   'form.turnstile.title': 'Tärkeä huomio',
   'form.turnstile.info': 'Siirtymällä täyttämään lomakkeen hyväksyt, että automaattista tunnistusta käytetään taustalla erottelemaan ihmiskäyttäjät robottikäyttäjistä. Automaattisen tunnistamisen yhteydessä tunnistamisen palveluntarjoaja (Cloudflare) saa tiedon IP-osoitteestasi.',
+  'form.turnstile.info.batchdownload': 'Siirtymällä lataamaan tunnukset hyväksyt, että automaattista tunnistusta käytetään taustalla erottelemaan ihmiskäyttäjät robottikäyttäjistä. Automaattisen tunnistamisen yhteydessä tunnistamisen palveluntarjoaja (Cloudflare) saa tiedon IP-osoitteestasi.',
   'form.turnstile.link.privacy': 'Cloudflare tietosuojaseloste (englanniksi)',
   'form.turnstile.link.terms': 'Cloudflare käyttöehdot (englanniksi)'
 };
