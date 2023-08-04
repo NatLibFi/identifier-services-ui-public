@@ -71,7 +71,7 @@ function App() {
   const [showNotificationBanner, setShowNotificationBanner] = useState(false);
 
   // Check if language is saved in local storage
-  const languageInLocalStorage = localStorage.getItem('language') ?? null;
+  // const languageInLocalStorage = localStorage.getItem('language') ?? null;
 
   // Get list of user preferred languages from the browser settings
   const userPreferredLanguages = navigator.languages;
@@ -82,9 +82,11 @@ function App() {
   // Get language to use based on local storage, order of user preferred languages and language versions available in the app
   const getPrimaryLanguage = () => {
     // Check if language is saved in local storage and use it if it is available in the app
-    if (languageInLocalStorage && availableLanguages.includes(languageInLocalStorage)) {
-      return languageInLocalStorage;
-    }
+
+    //if (languageInLocalStorage && availableLanguages.includes(languageInLocalStorage)) {
+    //  return languageInLocalStorage;
+    //}
+
 
     /* If no language is saved in local storage continue with the steps below */
 
@@ -95,7 +97,7 @@ function App() {
 
     if (primaryLanguage) {
       // Save preferred language to local storage
-      localStorage.setItem('language', primaryLanguage.slice(0, 2));
+      // localStorage.setItem('language', primaryLanguage.slice(0, 2));
 
       // Slice is used (here and above), since language can be presented in different formats, however we need only the first two letters
       return primaryLanguage.slice(0, 2);
@@ -139,7 +141,7 @@ function App() {
       setLanguage(newLanguage);
 
       // Save language to local storage
-      localStorage.setItem('language', newLanguage);
+      // localStorage.setItem('language', newLanguage);
     }
   }
 
