@@ -51,7 +51,9 @@ const en = {
   'common.yes': 'Yes',
   'common.no': 'No',
   'common.true': 'Yes',
+  'common.true.allLangs': 'Kyllä / Ja / Yes',
   'common.false': 'No',
+  'common.false.allLangs': 'Ei / Nej / No',
   'common.noData': 'No search results',
   'common.blank': 'Blank',
   'common.search.inputPlaceholder': 'Search...',
@@ -203,6 +205,8 @@ const en = {
   'error.date.min': 'The date to be entered must be after current date',
   'error.identifierBatch.invalid': 'Loading of identifier batch failed. Please try again or contact customer service',
   'error.formEdit': 'There are errors in the form, please check the fields marked in red: ',
+  'error.emptyField': ' ',
+  'error.classification.maxAmount': 'You can add max. 5 classification keywords',
 
   // Error page texts
   'errorPage.header': 'Sorry, something went wrong',
@@ -686,9 +690,13 @@ const en = {
   'publication.issn.lastIssue': 'Last issue/year',
 
   // Modals - used in multiple places in modal components
-  'modal.publicBatch.confirmation': 'Confirmation',
-  'modal.publicBatch.confirmation.text.part1': 'I confirm I represent ',
-  'modal.publicBatch.confirmation.text.part2': ' and I am the owner of the publisher identifier',
+  'modal.publicBatch.confirmation': 'Vahvistus / Bekräftelse / Confirmation',
+  'modal.publicBatch.confirmation.text.part1': 'Vahvistan edustavani kustantajaa ',
+  'modal.publicBatch.confirmation.text.part2': ' ja omistavani kustantajatunnuksen ',
+  'modal.publicBatch.confirmation.text.part3': 'Jag bekräftar att jag representerar förlaget  ',
+  'modal.publicBatch.confirmation.text.part4': ' och äger förlagsbeteckningen ',
+  'modal.publicBatch.confirmation.text.part5': 'I confirm I represent ',
+  'modal.publicBatch.confirmation.text.part6': ' (publisher ID {id})',
 
   // Service messages - used in action dispatchers (store/actions)
   'serviceMessage.registration.success': 'Registration request sent successfully',
@@ -702,7 +710,17 @@ const en = {
   'serviceMessage.batchRead.unsuccessfull': 'Batch read failed',
   'serviceMessage.batchQuery.unsuccessfull': 'Batches query failed',
   'serviceMessage.batchDownload.successfull': 'Downloaded successfully',
-  'serviceMessage.batchDownload.unsuccessfull': 'Download failed'
+  'serviceMessage.batchDownload.unsuccessfull': 'Download failed',
+
+  // Service messages - errors
+  'serviceMessage.turnstileScript.error': 'An unknown error has occurred. Please refresh the page and try again.',
+
+  // Turnstile info
+  'form.turnstile.title': 'Important note',
+  'form.turnstile.info': 'By proceeding to complete this form you agree and consent that the site is protected by an automated detection service to distinguish human users from bot users. In the process, the service provider (Cloudflare) receives information on your IP-address.',
+  'form.turnstile.info.batchdownload': 'By proceeding to download the identifiers you agree and consent that the site is protected by an automated detection service to distinguish human users from bot users. In the process, the service provider (Cloudflare) receives information on your IP-address.',
+  'form.turnstile.link.privacy': 'Cloudflare privacy policy',
+  'form.turnstile.link.terms': 'Cloudflare terms of use'
 };
 
 export default en;

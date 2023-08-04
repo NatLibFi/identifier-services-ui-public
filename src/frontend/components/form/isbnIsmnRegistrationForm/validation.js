@@ -117,8 +117,8 @@ export function validate(values) {
       ...getMaxLengthErrors(max200Chars, 200, values),
       ...getMaxLengthErrors(max100Chars, 100, values),
       ...getMaxLengthErrors(max50Chars, 50, values),
-      ...getMaxLengthErrors(max20Chars, 20, values),
       ...getMaxLengthErrors(['phone'], 30, values),
+      ...getMaxLengthErrors(max20Chars, 20, values),
       ...getMaxLengthErrors(['copies'], 10, values)
     };
   }
@@ -129,7 +129,8 @@ export function validate(values) {
       {fieldName: 'zip', hasError: values.zip && !regexPatterns.zip.test(values.zip), message: 'postalAddress.zip.format'},
       {fieldName: 'city', hasError: values.city && !regexPatterns.city.test(values.city), message: 'format.city'},
       {fieldName: 'phone', hasError: values.phone && !regexPatterns.phone.test(values.phone), message: 'format.phone'},
-      {fieldName: 'publicationsPublic', hasError: !values.publicationsPublic || String(values.publicationsPublic).toLowerCase() !== 'true', message: 'publicationRegistrationIsbnIsmn.form.availability'},
+      // In case below the message is blank, since we are displaying the error message in the InfoCard component
+      {fieldName: 'publicationsPublic', hasError: !values.publicationsPublic || String(values.publicationsPublic).toLowerCase() !== 'true', message: 'emptyField'},
       {fieldName: 'publicationType', hasError: !values.publicationType, message: 'field.required'},
       {fieldName: 'issn', hasError: values.issn && !regexPatterns.issn.test(values.issn), message: 'format.issn'},
       {fieldName: 'isHelsinki', hasError: values.publicationType === PUBLICATION_TYPES.DISSERTATION && values.isHelsinki !== 'true', message: 'publicationRegistrationIsbnIsmn.form.otherUniversitites'},

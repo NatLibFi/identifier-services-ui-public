@@ -30,7 +30,7 @@ import {FormattedMessage} from 'react-intl';
 import PropTypes from 'prop-types';
 
 import {Typography, Button, Link} from '@mui/material';
-import NewspaperIcon from '@mui/icons-material/Newspaper';
+import {Newspaper, OpenInNew} from '@mui/icons-material';
 
 import '/src/frontend/css/mainPage/instructions/issn.css';
 
@@ -66,6 +66,7 @@ function IssnInfoBox ({language}) {
                 rel="noreferrer"
               >
                 ISSN Portal
+                <OpenInNew fontSize="small"/>
               </Link>
             )
           }}
@@ -80,7 +81,7 @@ function IssnInfoBox ({language}) {
       >
         <span>
           <FormattedMessage id="homePage.link" values={{link: 'ISSN'}} />
-          <NewspaperIcon />
+          <Newspaper />
         </span>
       </Button>
     </div>

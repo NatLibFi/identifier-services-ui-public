@@ -16,10 +16,11 @@ footer > p {
 }
 
 /* Using important to override the default styles of MUI link component */
-footer > p > a,
+.appWrapper footer > p > a,
 .socialContainer > a {
-    color: var(--color-white) !important;
+    color: var(--color-white);
     font-weight: bold;
+    text-decoration: none;
 }
 
 footer > p > a {
@@ -30,7 +31,7 @@ footer > p > a {
 }
 
 footer > p > a:hover {
-    text-decoration: underline !important;
+    text-decoration: underline;
 }
 
 .footerContainer {

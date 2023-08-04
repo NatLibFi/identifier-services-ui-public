@@ -58,6 +58,8 @@ import {FORMATS, PUBLICATION_TYPES} from '/src/frontend/components/form/constant
 import useDocumentTitle from '/src/frontend/hooks/useDocumentTitle';
 import {createRequest} from '/src/frontend/actions';
 
+import RenderTurnstileNotification from '/src/frontend/components/form/RenderTurnstileNote.jsx';
+
 import FieldArrayElement from '/src/frontend/components/form/isbnIsmnRegistrationForm/FieldArray.jsx';
 import {validate} from '/src/frontend/components/form/isbnIsmnRegistrationForm/validation';
 import {getFormPages} from '/src/frontend/components/form/isbnIsmnRegistrationForm/content';
@@ -75,7 +77,26 @@ function IsbnIsmnPublicationRegistrationForm (props) {
   const intl = useIntl();
 
   const [activeStep, setActiveStep] = useState(0);
+  const [information, setInformation] = useState(true);
   const [turnstileId, setTurnstileId] = useState(null);
+
+  // Attempt on loading Turnstile script after information has been viewed and user has decided to progress to form
+  useEffect(() => {
+    if(!information && typeof window.turnstile === 'undefined') {
+      const url = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+
+      const scriptElement = document.createElement('script');
+      scriptElement.src = url;
+      scriptElement.type = 'text/javascript';
+      scriptElement.async = true;
+      scriptElement.referrerPolicy = 'no-referrer';
+
+      scriptElement.onerror = () => setSnackbarMessage({severity: 'error', intlId: 'serviceMessage.turnstileScript.error'});
+
+      document.head.appendChild(scriptElement);
+      return;
+    }
+  }, [information, activeStep]);
 
   // Prevent the view position from freezing in the middle of the page
   useEffect(() => {
@@ -98,6 +119,10 @@ function IsbnIsmnPublicationRegistrationForm (props) {
   }
 
   function handleBack() {
+    if (activeStep === 0) {
+      return setInformation(true);
+    }
+
     setActiveStep(activeStep - 1);
 
     // Scroll to top
@@ -196,13 +221,14 @@ function IsbnIsmnPublicationRegistrationForm (props) {
       if(values.publicationFormat === FORMATS.PRINT_ELECTRONICAL) {
         return [...activeContent.fields, ...printFields, ...electronicalFields];
       }
-    // If publication type is dissertation and format is print or print and electronical, add additional fields regarding edition and manufacturer
+    // If publication type is dissertation and format is print or print and electronical, add additional fields regarding manufacturer
     } else {
-      const dissertationEditionField = activeContent.additionalFields.find(f => f.name === 'dissertationEdition').fields;
+      const dissertationAdditionalFields = activeContent?.additionalFields
+        .find(f => f.name === 'dissertationAdditionalFields').fields ?? [];
 
       // Display edition field if publication format is either print or print and electronical
       if(values.publicationFormat === FORMATS.PRINT || values.publicationFormat === FORMATS.PRINT_ELECTRONICAL) {
-        return [...activeContent.fields, ...dissertationEditionField];
+        return [...activeContent.fields, ...dissertationAdditionalFields];
       }
     }
 
@@ -236,7 +262,11 @@ function IsbnIsmnPublicationRegistrationForm (props) {
     return values;
   };
 
-  return (
+  return information ? (
+    <div>
+      <RenderTurnstileNotification setInformation={setInformation}/>
+    </div>
+  ) : (
     <Form
       onSubmit={handlePublicationRegistration}
       validate={(values) => validate(values)}
@@ -302,7 +332,7 @@ function IsbnIsmnPublicationRegistrationForm (props) {
                       </Button>)
                 }
                 backButton={
-                  <Button size="small" disabled={activeStep === 0 || submitting} onClick={handleBack}>
+                  <Button size="small" disabled={submitting} onClick={handleBack}>
                     <KeyboardArrowLeft/>
                     <FormattedMessage id="form.button.label.back"/>
                   </Button>
@@ -335,7 +365,10 @@ function IsbnIsmnPublicationRegistrationForm (props) {
                 {/* Showing an info message if user has selected that the publication is not public */}
                 {(activeContent?.renderType === 'element' && activeContent?.fields.some(field => field.name === 'publicationsPublic'))
                   && values?.publicationsPublic === 'false'
-                  && <InfoCard infoText="form.isbnIsmn.card.publicationIsPublic" cardStyle='dissertationInfoCardContainer'/>
+                  && <InfoCard
+                    infoText="form.isbnIsmn.card.publicationIsPublic"
+                    cardStyle='isPublicInfoCardContainer'
+                    textStyle='infoCardWarning'/>
                 }
                 {/* Instruct user to find out if he can obtain ID from his own department (showing if a dissertation is chosen as a publication type) */}
                 {(activeContent?.renderType === 'element' && activeContent?.fields.some(field => field.name === 'publicationType'))
@@ -385,7 +418,7 @@ function IsbnIsmnPublicationRegistrationForm (props) {
               <div className={isPreviewPage ? 'formSubmitButtonsContainer' : 'formButtonsContainer'}>
                 <Button
                   disableRipple
-                  disabled={activeStep < 1 || submitting}
+                  disabled={submitting}
                   onClick={handleBack}
                 >
                   <FormattedMessage id="form.button.label.back"/>

@@ -42,10 +42,13 @@ function RenderTextField (props) {
     infoIconComponent,
     type,
     disabled,
-    errors,
     meta: {touched, error},
     ...custom
   } = props;
+
+  // Show error message if:
+  // - field has been touched (gained and lost focus) and has an error
+  const errAsBool = touched && Boolean(error);
   const intl = useIntl();
 
   return (
@@ -56,19 +59,13 @@ function RenderTextField (props) {
       type={input.name === 'password' ? input.type : type}
       className={className}
       variant="outlined"
-      error={touched && Boolean(error)}
+      error={errAsBool}
       inputProps={{...custom}}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
             <>
-              {touched && error && (
-                <Typography variant="caption" color="error" className="errors">
-                  <ErrorIcon fontSize="inherit" />
-                  {intl.formatMessage({id: `error.${error}`})}
-                </Typography>
-              )}
-              {touched && errors && (
+              {errAsBool && (
                 <Typography variant="caption" color="error" className="errors">
                   <ErrorIcon fontSize="inherit" />
                   {intl.formatMessage({id: `error.${error}`})}
@@ -90,8 +87,7 @@ RenderTextField.propTypes = {
   infoIconComponent: PropTypes.object,
   type: PropTypes.string,
   meta: PropTypes.object.isRequired,
-  disabled: PropTypes.bool,
-  errors: PropTypes.bool
+  disabled: PropTypes.bool
 };
 
 export default RenderTextField;

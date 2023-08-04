@@ -1,0 +1,57 @@
+/*
+Both containers are used to display a turnstile notification.
+.turnstileContainer - used in ISBN/ISMN- and ISSN-forms (notification + button)
+.notificationContainer - used in Publiher registration form (notification only)
+*/
+
+.turnstileContainer div > div:last-of-type,
+.notificationContainer div > div:last-of-type {
+  padding: 0.5rem;
+}
+
+.turnstileContainer p:last-of-type,
+.notificationContainer p:last-of-type {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.turnstileContainer p:last-of-type a,
+.notificationContainer p:last-of-type a {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--color-brand-teal);
+  text-decoration: none;
+}
+
+.turnstileContainer p:last-of-type a:hover,
+.notificationContainer p:last-of-type a:hover {
+  text-decoration: underline;
+}
+
+.notificationContainer {
+  width: 95vw;
+  margin: 1rem auto;
+}
+
+.turnstileContainer {
+  width: 90vw;
+  margin: 3rem auto;
+}
+
+.turnstileContainer button {
+  margin-top: 1rem;
+}
+
+.turnstileContainer button:focus-visible {
+  outline: 0.125rem solid var(--color-brand-darkBlue);
+  outline-offset: 0.25rem;
+}
+
+@media screen and (width < 700px) {
+  .turnstileContainer p:last-of-type,
+  .notificationContainer p:last-of-type {
+    display: grid;
+  }
+}

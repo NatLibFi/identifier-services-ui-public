@@ -30,6 +30,7 @@ function appendPrefixToPath(req) {
 // eslint-disable-next-line no-unused-vars
 function filterRequest(req, _res) {
   if(config.MAINTENANCE_MODE) {
+    console.log('Maintenance mode is enabled: won\'t proxy calls to api');
     return false;
   }
 

@@ -107,6 +107,11 @@ export function validate(values) {
       classificationErrors.classificationOther = 'field.required';
     }
 
+    // Max. amount of classification keywords is 5
+    if (values.classification?.length > 5) {
+      classificationErrors.classification = 'classification.maxAmount';
+    }
+
     return classificationErrors;
   }
 }

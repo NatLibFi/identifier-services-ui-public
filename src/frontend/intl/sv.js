@@ -51,7 +51,9 @@ const sv = {
   'common.yes': 'Ja',
   'common.no': 'Nej',
   'common.true': 'Ja',
+  'common.true.allLangs': 'Kyllä / Ja / Yes',
   'common.false': 'Nej',
+  'common.false.allLangs': 'Ei / Nej / No',
   'common.noData': 'Inga matchande resultat',
   'common.blank': 'Tom',
   'common.search.inputPlaceholder': 'Sök...',
@@ -203,6 +205,8 @@ const sv = {
   'error.date.min': 'Det angivna datumet måste vara en senare tidpunkt än det nuvarande datumet',
   'error.identifierBatch.invalid': 'Laddningen av identifikatorerna misslyckades. Vänligen försök på nytt eller ta kontakt med vår kundservice.',
   'error.formEdit': 'En del av uppgifterna är fel, vänligen korrigera fälten som är markerade med rött:',
+  'error.emptyField': ' ',
+  'error.classification.maxAmount': 'Du har lagt till det maximala antalet ämnesord (5 st)',
 
   // Error page texts
   'errorPage.header': 'Något gick tyvärr fel',
@@ -686,9 +690,13 @@ const sv = {
   'publication.issn.lastIssue': 'Det sista numret med den tidigare titeln (nummer/år)',
 
   // Modals - used in multiple places in modal components
-  'modal.publicBatch.confirmation': 'Bekräftelse',
-  'modal.publicBatch.confirmation.text.part1': 'Jag bekräftar att jag representerar förläget ',
-  'modal.publicBatch.confirmation.text.part2': ' och äger förlagsbeteckingen',
+  'modal.publicBatch.confirmation': 'Vahvistus / Bekräftelse / Confirmation',
+  'modal.publicBatch.confirmation.text.part1': 'Vahvistan edustavani kustantajaa ',
+  'modal.publicBatch.confirmation.text.part2': ' ja omistavani kustantajatunnuksen ',
+  'modal.publicBatch.confirmation.text.part3': 'Jag bekräftar att jag representerar förlaget  ',
+  'modal.publicBatch.confirmation.text.part4': ' och äger förlagsbeteckningen ',
+  'modal.publicBatch.confirmation.text.part5': 'I confirm I represent ',
+  'modal.publicBatch.confirmation.text.part6': ' (publisher ID {id})',
 
   // Service messages - used in action dispatchers (store/actions)
   'serviceMessage.registration.success': 'Formuläret har skickats',
@@ -702,7 +710,17 @@ const sv = {
   'serviceMessage.batchRead.unsuccessfull': 'Blocket kunde inte avläsas',
   'serviceMessage.batchQuery.unsuccessfull': 'Sök av block misslyckades',
   'serviceMessage.batchDownload.successfull': 'Nedladdninger lyckades',
-  'serviceMessage.batchDownload.unsuccessfull': 'Nedladdning av identifikator misslyckades'
+  'serviceMessage.batchDownload.unsuccessfull': 'Nedladdning av identifikator misslyckades',
+
+  // Service messages - errors
+  'serviceMessage.turnstileScript.error': 'Ett okänt fel har inträffat. Uppdatera sidan och försök igen.',
+
+  // Turnstile info
+  'form.turnstile.title': 'Viktig notering',
+  'form.turnstile.info': 'Genom att fylla i formuläret ger du samtycke till att en automatisk identifiering används för att skilja åt mänskliga användare från botanvändare. I samband med den automatiska identifieringen får tjänsteleverantören (Cloudflare) information om din IP-adress.',
+  'form.turnstile.info.batchdownload': 'Genom att ladda ner identifierna ger du samtycke till att en automatisk identifiering används för att skilja åt mänskliga användare från botanvändare. I samband med den automatiska identifieringen får tjänsteleverantören (Cloudflare) information om din IP-adress.',
+  'form.turnstile.link.privacy': 'Cloudflare dataskyddsbeskrivning',
+  'form.turnstile.link.terms': 'Cloudflare villkor'
 };
 
 export default sv;

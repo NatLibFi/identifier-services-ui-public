@@ -42,11 +42,25 @@ import ErrorPage from '/src/frontend/components/ErrorPage.jsx';
 import Spinner from '/src/frontend/components/Spinner.jsx';
 
 import IdentifierBatchDataComponent from '/src/frontend/views/isbn-registry/identifierBatch/IdentifierBatchDataComponent.jsx';
+import RenderTurnstileNotification from '/src/frontend/components/form/RenderTurnstileNote.jsx';
+
 import useDocumentTitle from '/src/frontend/hooks/useDocumentTitle';
 
-function IdentifierBatch ({configuration, match}) {
+function IdentifierBatch ({history, configuration, match, setSnackbarMessage}) {
   // Set the title of the current page
   useDocumentTitle('common.batch');
+
+  // State of the confirmation modal
+  const [hasApproved, setHasApproved] = useState(true);
+
+  // Handles the closing of the modal after successful confirmation
+  const handleApprove = () => setHasApproved(false);
+
+  // Redirects to the main page if the user doesn't confirm having access to the batch
+  const handleReject = () => {
+    setHasApproved(false);
+    history.push('/');
+  };
 
   // Current range's id
   const {disableTurnstile, siteKey} = configuration;
@@ -60,6 +74,8 @@ function IdentifierBatch ({configuration, match}) {
     'refresh-expired': 'never'
   };
 
+  const [loadingTurnstile, setLoadingTurnstile] = useState(false);
+
   // Fetch the batch data
   const {data, loading, error} = useItem({
     url: `/api/public/isbn-registry/identifierbatches/${id}`,
@@ -72,10 +88,36 @@ function IdentifierBatch ({configuration, match}) {
   // Turnstile callback api function
   async function makeApiCall(turnstileToken) {
     await downloadIdentifierBatch(id, turnstileToken);
+    setLoadingTurnstile(false);
+  }
+
+  async function loadTurnstilScript(setSnackbarMessage) {
+    return new Promise(resolve => {
+      if(typeof window.turnstile === 'undefined') {
+        const url = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+
+        const scriptElement = document.createElement('script');
+        scriptElement.src = url;
+        scriptElement.type = 'text/javascript';
+        scriptElement.async = true;
+        scriptElement.referrerPolicy = 'no-referrer';
+
+        scriptElement.onerror = () => setSnackbarMessage({severity: 'error', intlId: 'serviceMessage.turnstileScript.error'});
+        scriptElement.onload = resolve;
+
+        document.head.appendChild(scriptElement);
+        return;
+      }
+
+      return resolve();
+    });
   }
 
   // Turnstile
   async function handleBatchDownload() {
+    setLoadingTurnstile(true);
+    await loadTurnstilScript(setSnackbarMessage);
+
     if(disableTurnstile) {
       return makeApiCall();
     }
@@ -100,7 +142,7 @@ function IdentifierBatch ({configuration, match}) {
 
   // Get the component based on state
   const getComponent = () => {
-    if (loading) {
+    if (loading || loadingTurnstile) {
       return <Spinner />;
     }
 
@@ -109,12 +151,19 @@ function IdentifierBatch ({configuration, match}) {
     }
 
     return (
-      <IdentifierBatchDataComponent identifierBatch={data} handleDownload={handleBatchDownload} />
+      <IdentifierBatchDataComponent
+        identifierBatch={data}
+        handleDownload={handleBatchDownload}
+        hasApproved={hasApproved}
+        handleApprove={handleApprove}
+        handleReject={handleReject}
+      />
     );
   };
 
   return (
     <Grid item xs={12}>
+      <RenderTurnstileNotification identifierBatch={true}/>
       {data.publisherName && (
         <Typography variant="h2" className='batchesTitleColorPublic normalTitle'>
           <FormattedMessage id="common.batch" /> -{' '}
@@ -132,7 +181,9 @@ function IdentifierBatch ({configuration, match}) {
 
 IdentifierBatch.propTypes = {
   configuration: PropTypes.object.isRequired,
-  match: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+  setSnackbarMessage: PropTypes.func.isRequired
 };
 
 export default IdentifierBatch;
