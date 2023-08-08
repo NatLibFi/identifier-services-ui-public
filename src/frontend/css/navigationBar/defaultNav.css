@@ -1,4 +1,4 @@
-.publicMenu {
+.desktopMenu {
     display: flex;
     align-items: center;
     gap: 3rem;
@@ -7,26 +7,41 @@
     background-color: var(--color-whitesmoke);
 }
 
-.publicMenu button {
+.desktopMenu button,
+.mobileMenu button {
     text-transform: none;
     font-size: 1rem;
 }
 
-.publicMenu a,
-.publicMenu div {
-    height: 50px;
+.desktopMenu a,
+.desktopMenu div {
+    height: 3rem;
     display: flex;
     color: var(--color-brand-darkBlue);
     text-decoration: none;
 }
 
-.publicMenu a:hover,
-.publicMenu > div > button:hover {
+.desktopMenu a:hover,
+.mobileMenu a:hover,
+.desktopMenu > div > button:hover,
+.mobileMenu > button:hover {
     text-decoration: underline;
 }
 
-.publicMenu > div > button:focus-visible {
-    outline: 2px solid var(--color-brand-darkBlue);
+.desktopMenu > div > button:focus-visible,
+.mobileMenu > button:focus-visible,
+.mobileMenu > a:focus-visible {
+    outline: 0.125rem solid var(--color-brand-darkBlue);
+}
+
+.mobileMenu > a:focus-visible {
+    outline-offset: -0.2rem;
+    outline-style: auto;
+    background-color: transparent;
+}
+
+.mobileMenu {
+    display: none;
 }
 
 .menuIcon {
@@ -34,30 +49,57 @@
     align-items: center;
 }
 
-.menuItem {
+.menuItem,
+.mobileMenuItem {
     font-size: 1rem;
-    height: 50px;
+    height: 3rem;
     display: flex;
     align-items: center;
     color: var(--color-brand-darkBlue);
     font-family: "Open Sans", sans-serif;
 }
 
+p.mobileMenuItem {
+    font-size: 0.875rem;
+}
+
 .menuItemWithIcon {
     gap: 0.25rem;
 }
 
-@media (max-width:1000px) {
-    .publicMenu {
+@media (width < 1000px) {
+    .desktopMenu {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 0.5rem;
-        padding-left: 1rem;
+        padding: 0.5rem 1rem;
     }
 }
 
-@media (max-width:525px) {
-    .publicMenu {
-        padding-bottom: 1rem;
+@media (width < 600px) {
+    .desktopMenu {
+        display: none;
+    }
+
+    .mobileMenu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+        height: 3rem;
+        background-color: var(--color-whitesmoke);
+        color: var(--color-brand-darkBlue);
+    }
+
+    .mobileMenu > a p {
+        display: flex;
+        align-items: center;
+        gap: 0.125rem;
+    }
+}
+
+@media (width < 400px) {
+    p.mobileMenuItem {
+        font-size: 0.75rem;
     }
 }

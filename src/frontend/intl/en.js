@@ -157,6 +157,7 @@ const en = {
   'homePage.instructions.issn.text': 'An ISSN identifies continuously published publications, such as journals and series. The Finnish national ISSN Agency is responsible for providing the identifiers in Finland and sends the information about publications that have received an ISSN to the {link} database.{lineBreak}{lineBreak}Identifiers as a part of metadata serve the publishing industry and the library sector in their entirety, supporting identification, processing and availability of publications.{lineBreak}{lineBreak}Identifiers are used, for example, in publishing industry\'s ordering and distribution systems to speed up the identification of publications as well as in international and domestic joint catalogues, bibliographies, library lending systems and information retrieval. An ISSN is inseparable from the title of the publication; if the title of the publication changes, the identifier must also be changed. A separate ISSN is given to different forms of publication.',
 
   // Menu bar
+  'menu.mobile': 'Menu',
   'menu.home': 'Home',
   'menu.publisherRegistry': 'Publisher Register',
   'menu.forms': 'Forms',
