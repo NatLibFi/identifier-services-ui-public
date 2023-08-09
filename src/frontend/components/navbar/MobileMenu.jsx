@@ -64,7 +64,7 @@ function MobileMenu({getLink}) {
         onClick={handleCloseMobileMenu}
         tabIndex={0}
       >
-        <Typography>
+        <Typography className="menuIcon">
           <HomeIcon fontSize="default" color="primary" />
           <FormattedMessage id="menu.home" />
         </Typography>

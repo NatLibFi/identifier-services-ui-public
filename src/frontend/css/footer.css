@@ -12,10 +12,9 @@ footer > p {
     display: flex;
     justify-content: center;
     padding: 0.5rem;
-    font-size: clamp(0.55rem, 1.5vw, 1.15rem);
+    font-size: clamp(0.75rem, 1.5vw, 1.15rem);
 }
 
-/* Using important to override the default styles of MUI link component */
 .appWrapper footer > p > a,
 .socialContainer > a {
     color: var(--color-white);
@@ -38,8 +37,8 @@ footer > p > a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px 5px;
-    font-size: clamp(0.55rem, 1.5vw, 1.15rem);
+    padding: 1rem 1.5rem 0.25rem;
+    font-size: clamp(0.75rem, 1.5vw, 1.15rem);
 }
 
 .footerBoldText {
@@ -51,39 +50,49 @@ footer > p > a:hover {
     justify-content: space-between;
 }
 
-@media (max-width: 1000px) {
-    .socialContainer > a {
-        padding: 4px;
-    }
+.socialContainer > a {
+    padding: 0.25rem 0;
+}
 
+@media (width < 1000px) {
     .footerContainer span > img {
         width: 6em;
     }
-}
 
-@media (max-width: 700px) {
+    .socialContainer > a {
+        padding: 0.125rem 0;
+    }
+
+    .privacyPolicyLink > svg,
     .socialContainer > a > svg {
         width: 0.8em;
     }
 }
 
-@media (max-width:550px) {
+@media (width < 750px) {
     .footerContainer {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        align-items: flex-start;
         gap: 1rem;
     }
 
     .footerContainer > span {
-        margin-left: 2rem;
+        padding-left: 1rem;
     }
 
     .socialContainer {
         justify-content: flex-start;
-        gap: 1px;
+        gap: 0.5rem;
     }
 
     .socialContainer > a {
         padding: 0;
+    }
+}
+
+@media (width < 500px) {
+    .footerContainer > span {
+        padding-left: 0;
     }
 }
