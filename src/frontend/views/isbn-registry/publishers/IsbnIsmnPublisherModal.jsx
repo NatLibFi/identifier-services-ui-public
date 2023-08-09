@@ -48,21 +48,22 @@ function IsbnIsmnPublisherModal ({publisherId, isModalOpen, setIsModalOpen}) {
     method: 'GET',
     dependencies: [publisherId],
     prefetch: true,
-    fetchOnce: false
+    fetchOnce: false,
+    slowDown: 1000
   });
 
   // Get component based on state
   function getComponent() {
-    if (loading) {
-      return <Spinner />;
-    }
-
     if(error) {
       return (
         <Typography>
           <FormattedMessage id="error.issn.archive" />
         </Typography>
       );
+    }
+
+    if(!data || Object.keys(data).length === 0 || loading) {
+      return <Spinner />;
     }
 
     const formattedPublisherData = formatPublisherData(data);
