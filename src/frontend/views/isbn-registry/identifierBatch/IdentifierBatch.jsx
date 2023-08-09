@@ -142,7 +142,7 @@ function IdentifierBatch ({history, configuration, match, setSnackbarMessage}) {
 
   // Get the component based on state
   const getComponent = () => {
-    if (loading || loadingTurnstile) {
+    if (loading || loadingTurnstile || Object.keys(data).length === 0) {
       return <Spinner />;
     }
 
@@ -163,7 +163,7 @@ function IdentifierBatch ({history, configuration, match, setSnackbarMessage}) {
 
   return (
     <Grid item xs={12}>
-      <RenderTurnstileNotification identifierBatch={true}/>
+      {!loading && !error && Object.keys(data).length > 0 && <RenderTurnstileNotification identifierBatch={true}/>}
       {data.publisherName && (
         <Typography variant="h2" className='batchesTitleColorPublic normalTitle'>
           <FormattedMessage id="common.batch" /> -{' '}
