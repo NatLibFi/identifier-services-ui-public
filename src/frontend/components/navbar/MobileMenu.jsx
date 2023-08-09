@@ -36,7 +36,8 @@ import {
   MenuItem,
   Typography,
   Divider,
-  ListItemIcon
+  ListItemIcon,
+  Link as MUILink
 } from '@mui/material';
 
 import HomeIcon from '@mui/icons-material/Home';
@@ -135,9 +136,11 @@ function MobileMenu({getLink}) {
         </MenuItem>
         <Divider />
         <MenuItem
-          component={Link}
-          to={getLink()}
+          component={MUILink}
+          href={getLink()}
           onClick={handleCloseMobileMenu}
+          target="_blank"
+          rel="noreferrer"
         >
           <ListItemIcon>
             <AlternateEmailIcon fontSize="small" />
