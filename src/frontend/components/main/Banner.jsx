@@ -29,18 +29,18 @@ import React from 'react';
 import {FormattedMessage} from 'react-intl';
 
 import {Container, Typography, Paper} from '@mui/material';
+
 import '/src/frontend/css/mainPage/banner.css';
 
-function MainPageBanner () {
+function MainPageBanner() {
   return (
     <div className="bannerContainer">
       <Container className="textContainer">
         <Typography variant="h1">
           <FormattedMessage id="homePage.title" />
         </Typography>
-
         <div>
-          {[1, 2, 3].map((item) => (
+          {[1, 2, 3].map(item => (
             <Paper key={item}>
               <Typography variant="h2">
                 <FormattedMessage id={`homePage.description.part${item}`} />

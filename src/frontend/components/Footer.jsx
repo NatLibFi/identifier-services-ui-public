@@ -39,7 +39,7 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 import '/src/frontend/css/footer.css';
 
-function Footer ({customerServiceContact}) {
+function Footer({customerServiceContact}) {
   const intl = useIntl();
   const {phone, email} = customerServiceContact;
 
@@ -49,7 +49,8 @@ function Footer ({customerServiceContact}) {
         <Box component="span">
           <img
             src="https://extra.kansalliskirjasto.fi/kk_logo.svg"
-            alt={intl.formatMessage({id: 'altText.logo.library'})} width={125}
+            alt={intl.formatMessage({id: 'altText.logo.library'})}
+            width={125}
           />
         </Box>
         <Box component="span">
@@ -63,18 +64,19 @@ function Footer ({customerServiceContact}) {
           <span className="footerBoldText">
             <FormattedMessage id="footer.contact" /> <br />
           </span>
-          {phone}<br />
+          {phone}
+          <br />
           {email}
         </Box>
         <Box component="span">
           <span className="footerBoldText">
-            <FormattedMessage id="footer.socials" /> <br />
+            <FormattedMessage id="footer.socials" />
           </span>
           <span className="socialContainer">
             <IconButton
               href="https://facebook.com/Kansalliskirjasto"
               target="_blank"
-              rel='noreferrer'
+              rel="noreferrer"
               aria-label="facebook"
             >
               <FacebookIcon />
@@ -82,7 +84,7 @@ function Footer ({customerServiceContact}) {
             <IconButton
               href="https://twitter.com/NatLibFi"
               target="_blank"
-              rel='noreferrer'
+              rel="noreferrer"
               aria-label="twitter"
             >
               <TwitterIcon />
@@ -90,7 +92,7 @@ function Footer ({customerServiceContact}) {
             <IconButton
               href="https://www.youtube.com/channel/UCMCKdIT517O4D8o9-lesbvQ"
               target="_blank"
-              rel='noreferrer'
+              rel="noreferrer"
               aria-label="youtube"
             >
               <YouTubeIcon />
@@ -98,7 +100,7 @@ function Footer ({customerServiceContact}) {
             <IconButton
               href="https://instagram.com/kansalliskirjasto/"
               target="_blank"
-              rel='noreferrer'
+              rel="noreferrer"
               aria-label="instagram"
             >
               <InstagramIcon />
@@ -106,19 +108,24 @@ function Footer ({customerServiceContact}) {
             <IconButton
               href="https://fi.linkedin.com/company/nationallibraryfinland"
               target="_blank"
-              rel='noreferrer'
+              rel="noreferrer"
               aria-label="linkedin"
             >
               <LinkedInIcon />
             </IconButton>
           </span>
-          <FormattedMessage id="footer.copyright" /> <br />
+          <FormattedMessage id="footer.copyright" />
         </Box>
       </Grid>
       <p>
-        <Link href="https://www.kansalliskirjasto.fi/fi/tietosuoja" target="_blank" rel="noreferrer">
+        <Link
+          className="privacyPolicyLink"
+          href="https://www.kansalliskirjasto.fi/fi/tietosuoja"
+          target="_blank"
+          rel="noreferrer"
+        >
           <FormattedMessage id="footer.privacyPolicy" />
-          <OpenInNewIcon fontSize="small"/>
+          <OpenInNewIcon fontSize="small" />
         </Link>
       </p>
     </footer>
