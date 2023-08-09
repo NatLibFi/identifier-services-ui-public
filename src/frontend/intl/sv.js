@@ -157,6 +157,7 @@ const sv = {
   'homePage.instructions.issn.text': 'ISSN är en identifikator för seriella och fortlöpande publikationer, som tidningar och serier. Finlands nationella ISSN-central tillhandahåller ISSN i Finland och sänder informationen om publikationer som tilldelats ISSN till databasen {link}.{lineBreak}{lineBreak}Identifikationsnumren som en del av metadata betjänar hela förlagsbranschen och bibliotekssektorn och gör det enklare att identifiera, hantera och hitta publikationer.{lineBreak}{lineBreak}ISSN används bl.a. för snabbidentifiering av publikationer i branschens prenumerations- och distributionssystem, i nationella och internationella samkataloger, i bibliografier, i bibliotekens lånesystem, i informationssökning. ISSN är bundet till publikationens titel – om titeln ändras måste också numret ändras. För olika publikationsformer (olika fysiska medier) ges separata ISSN.',
 
   // Menu bar
+  'menu.mobile': 'Meny',
   'menu.home': 'Hemsidan',
   'menu.publisherRegistry': 'Förlagsregister',
   'menu.forms': 'Blanketter',

@@ -157,6 +157,7 @@ const fi = {
   'homePage.instructions.issn.text': 'ISSN-tunnus identifioi jatkuvasti ilmestyvät julkaisut, kuten lehdet ja sarjat. Suomen ISSN-keskus vastaa tunnusten jakamisesta Suomessa ja lähettää ISSN-tunnuksen saaneiden julkaisujen tiedot {link} -tietokantaan.{lineBreak}{lineBreak}ISSN-tunnus liittyy kiinteästi julkaisun nimeen, nimen muuttuessa myös tunnus on vaihdettava. Eri julkaisumuodoille annetaan erillinen ISSN-tunnus.',
 
   // Menu bar
+  'menu.mobile': 'Valikko',
   'menu.home': 'Etusivu',
   'menu.publisherRegistry': 'Kustantajarekisteri',
   'menu.forms': 'Hakulomakkeet',

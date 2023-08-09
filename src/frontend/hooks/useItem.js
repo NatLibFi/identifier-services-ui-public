@@ -34,7 +34,7 @@ import {getHeaders} from '/src/frontend/actions/util';
  *   - Copyright (c) 2021-present Tanner Linsley
 */
 
-export function useItem({url, method, body, dependencies, prefetch, fetchOnce}) {
+export function useItem({url, method, body, dependencies, prefetch, fetchOnce, slowDown = false}) {
   const [fetched, setFetched] = useState(false);
   const [initialized, setInitialized] = useState(false);
   const [data, setData] = useState({});
@@ -72,6 +72,9 @@ export function useItem({url, method, body, dependencies, prefetch, fetchOnce}) 
         const result = await response.json();
 
         if(!ignoreResult) {
+          if(slowDown && typeof slowDown === 'number') {
+            await new Promise(resolve => setTimeout(() => resolve(), slowDown));
+          }
           setData(result);
         }
       } catch (error) {

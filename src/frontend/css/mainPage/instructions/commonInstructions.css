@@ -1,6 +1,6 @@
 .instructions {
     max-width: 1200px;
-    margin: 30px auto;
+    margin: 1.75rem auto;
 }
 
 .instructions h3 {
@@ -22,7 +22,7 @@
 .instructions span {
     display: flex;
     gap: 5px;
-    font-size: clamp(0.6rem, 1.3vw, 0.85rem);
+    font-size: clamp(0.75rem, 1.3vw, 0.85rem);
     align-items: center;
 }
 
@@ -31,11 +31,11 @@
 }
 
 .instructions p {
-    font-size: clamp(0.7rem, 2.5vw, 1rem);
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
 }
 
-@media (max-width:1200px) {
+@media (width < 1200px) {
     .instructions{
-        padding-left: 5px;
+        max-width: 90vw;
     }
 }
