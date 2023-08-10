@@ -241,7 +241,7 @@ function IssnPublicationRegistrationForm (props) {
               {/* Mobile Stepper is visible when screen < 500px */}
               <MobileStepper
                 variant="dots"
-                steps={contentOrder.length + 1}
+                steps={contentOrder.length}
                 position="static"
                 activeStep={activeStep}
                 className='mobileSmallStepperStyle'
@@ -278,7 +278,7 @@ function IssnPublicationRegistrationForm (props) {
                 }
               />
             </div>
-            <div>
+            <div className="issnFormContainer">
               <Grid container spacing={2} className="issnFormGrid">
                 {/* Render the fields of the current step */}
                 {activeContent(values)?.renderType === 'element'

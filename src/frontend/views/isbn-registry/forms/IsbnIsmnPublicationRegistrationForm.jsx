@@ -304,7 +304,7 @@ function IsbnIsmnPublicationRegistrationForm (props) {
               {/* Mobile Stepper is visible when screen < 1100px */}
               <MobileStepper
                 variant="dots"
-                steps={contentOrder.length + 1}
+                steps={contentOrder.length}
                 position="static"
                 activeStep={activeStep}
                 className='mobileStepperStyle'

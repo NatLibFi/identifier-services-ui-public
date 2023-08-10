@@ -40,6 +40,7 @@ import TableComponent from '/src/frontend/components/TableComponent.jsx';
 import PopoverComponent from '/src/frontend/components/PopoverComponent.jsx';
 import Spinner from '/src/frontend/components/Spinner.jsx';
 import IsbnIsmnPublisherModal from './IsbnIsmnPublisherModal.jsx';
+
 import '/src/frontend/css/common.css';
 
 function IsbnIsmnPublisherSearch() {
@@ -143,12 +144,12 @@ function IsbnIsmnPublisherSearch() {
   return (
     <div className="listSearch">
       <InputLabel htmlFor="search-input">
-        <Typography variant="h2" className="normalTitle">
+        <Typography variant="h2" className="normalTitle publisherRegisterTitle">
           <FormattedMessage id="publisherRegistry.title" />
         </Typography>
       </InputLabel>
-      <SearchComponent searchFunction={updateSearchText} />
-      <div>{getComponent()}</div>
+      <SearchComponent searchFunction={updateSearchText} className="publisherRegisterSearch"/>
+      <div className="publisherRegisterTable">{getComponent()}</div>
       {/* Display modal if selecting publisher from table */}
       {selectedPublisherId && (
         <IsbnIsmnPublisherModal
