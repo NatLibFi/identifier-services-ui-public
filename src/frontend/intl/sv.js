@@ -618,7 +618,7 @@ const sv = {
   'form.issn.publicationInfo.publication_has_another_medium': 'Har publikationen redan getts ut i en annan publikationsform?',
   'form.issn.publicationInfo.publication_has_another_medium.instructions': 'Ifall samma publikation getts ut i olika format eller utgåvor, lägg till informartion om dem här.',
   'form.issn.publicationInfo.instructions.part1': 'Publikationens övriga medier',
-  'form.issn.publicationInfo.instructions.part2': 'Om samma publikation ges ut regelbundet också i en annan publikationsform (tryckt, webbpublikation), ska den andra formen ha ett separat ISSN. Fyll i uppgifter om varje publikationsformat separat.',
+  'form.issn.publicationInfo.instructions.part2': 'Om samma publikation ges ut regelbundet också i en annan publikationsform (tryckt, webbpublikation), ska den andra formen ha ett separat ISSN. Fyll i uppgifter om varje publikationsformat separat.{lineBreak}{lineBreak}',
   'form.issn.publicationInfo.instructions.part3': 'Publikationens övriga språkversioner',
   'form.issn.publicationInfo.instructions.part4': 'Om samma publikation ges ut i sin helhet på flera olika språk, ska varje språkversion ha ett separat ISSN som skiljer den från de andra versionerna. Språkversionen måste ha en separat numrering. Fyll i uppgifter om varje språkversion separat.',
   'form.issn.publicationInfo.instructions.part5': 'Max antal publikationer',

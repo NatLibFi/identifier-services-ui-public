@@ -60,14 +60,18 @@
     margin-right: 10px;
 }
 
-@media (max-width:800px) {
+@media (width < 800px) {
     .organizationDetailsContainer {
         position: relative;
-        margin-left: 1rem;
+        margin-left: 0;
+    }
+
+    .orgDetailsInfoCard {
+        width: 100%;
     }
 }
 
-@media (max-width:500px) {
+@media (width < 500px) {
     .basicSmallStepperStyle {
         display: none !important;
     }

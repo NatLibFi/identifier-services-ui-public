@@ -618,7 +618,7 @@ const en = {
   'form.issn.publicationInfo.publication_has_another_medium': 'Has the publication already been published in another form/medium?',
   'form.issn.publicationInfo.publication_has_another_medium.instructions': 'If the same publication was issued in another form/medium, add its information here.',
   'form.issn.publicationInfo.instructions.part1': 'Publication in several media',
-  'form.issn.publicationInfo.instructions.part2': 'If the same publication is regularly issued in another form/medium (print, online), it will need its own ISSN. Enter details on each form/medium separately by choosing the correct amount of publication versions.',
+  'form.issn.publicationInfo.instructions.part2': 'If the same publication is regularly issued in another form/medium (print, online), it will need its own ISSN. Enter details on each form/medium separately by choosing the correct amount of publication versions.{lineBreak}{lineBreak}',
   'form.issn.publicationInfo.instructions.part3': 'Publication in several languages',
   'form.issn.publicationInfo.instructions.part4': 'If the same publication is issued in several languages, language version needs an ISSN of its own. Enter details on each language version separately by choosing the correct amount of publication versions.',
   'form.issn.publicationInfo.instructions.part5': 'Maximum number of publications',
