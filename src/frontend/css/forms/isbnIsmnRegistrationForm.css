@@ -40,9 +40,11 @@
     .basicStepperStyle {
         display: none !important;
     }
+
     .mobileStepperStyle {
         display: flex !important;
     }
+
     .mobileStepperStyle > div {
         gap: 2rem;
     }
@@ -52,8 +54,14 @@
     .addAuthorsContainer {
         grid-template-columns: 1fr;
     }
+
     .mobileStepperStyle > div {
         gap: 1rem;
+    }
+
+    .wideContainer .subContainer .dissertationInfoCardContainer {
+        padding-left: 1rem;
+        margin-left: 0;
     }
 }
 

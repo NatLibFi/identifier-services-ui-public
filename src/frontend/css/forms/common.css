@@ -152,6 +152,15 @@
     .wideContainer .subContainer > div > div {
         padding-left: 0;
     }
+
+    .isbnAuthorsFields {
+        width: 95%;
+        padding-left: 0;
+    }
+
+    .subContainer .textArea {
+        min-width: 100%;
+    }
 }
 
 @media (width < 500px) {
