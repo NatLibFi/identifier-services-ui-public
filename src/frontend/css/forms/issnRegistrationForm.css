@@ -64,3 +64,9 @@
   display: flex;
   gap: 0.5rem;
 }
+
+@media (width < 800px) {
+  .issnFormContainer > div:first-of-type > div {
+    min-width: 98%
+  }
+}
