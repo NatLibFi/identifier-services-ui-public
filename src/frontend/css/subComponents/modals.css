@@ -14,6 +14,12 @@
     overflow: auto;
 }
 
+.publisherModal > button {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+}
+
 .publisherDetailsContainer {
     display: flex;
     flex-direction: column;

@@ -29,7 +29,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {useIntl, FormattedMessage} from 'react-intl';
 
-import {Modal, Box, Typography} from '@mui/material';
+import {Modal, Box, Typography, IconButton} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 import '/src/frontend/css/common.css';
 import '/src/frontend/css/subComponents/modals.css';
@@ -70,6 +71,9 @@ function IsbnIsmnPublisherModal ({publisherId, isModalOpen, setIsModalOpen}) {
 
     return (
       <>
+        <IconButton onClick={() => setIsModalOpen(false)} aria-label="close">
+          <CloseIcon />
+        </IconButton>
         <Typography variant="h2" className="normalTitle">
           <FormattedMessage id="common.publisherDetails.isbn" />
         </Typography>
