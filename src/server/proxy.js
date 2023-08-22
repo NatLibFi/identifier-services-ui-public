@@ -68,9 +68,8 @@ function preprocessRequest(proxyReqOpts, srcReq) {
   delete proxyReqOpts.headers['authorization'];
   delete proxyReqOpts.headers['Authorization'];
 
-  // Add originating IP to custom header, if it's defined
-  if(config.PROXY_CUSTOM_HEADER && config.PROXY_CUSTOM_HEADER.startsWith('x-')) {
-    proxyReqOpts.headers[config.PROXY_CUSTOM_HEADER] = srcReq.socket.remoteAddress;
+  if(config.PROXY_IP_SRC_HEADER && config.PROXY_CUSTOM_HEADER && config.PROXY_CUSTOM_HEADER.startsWith('x-')) {
+    proxyReqOpts.headers[config.PROXY_CUSTOM_HEADER] = srcReq.headers[config.PROXY_IP_SRC_HEADER];
   }
 
   return proxyReqOpts;
