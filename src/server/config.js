@@ -55,3 +55,4 @@ export const SITE_KEY = readEnvironmentVariable('SITE_KEY', {defaultValue: ''});
 export const HELMET_CONFIG = readEnvironmentVariable('HELMET_CONFIG', {defaultValue: {}, format: JSON.parse});
 
 export const PROXY_CUSTOM_HEADER = readEnvironmentVariable('PROXY_CUSTOM_HEADER', {defaultValue: ''});
+export const PROXY_IP_SRC_HEADER = readEnvironmentVariable('PROXY_IP_SRC_HEADER', {defaultValue: 'x-forwarded-for'});
