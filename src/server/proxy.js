@@ -70,7 +70,7 @@ function preprocessRequest(proxyReqOpts, srcReq) {
 
   // Add originating IP to custom header, if it's defined
   if(config.PROXY_CUSTOM_HEADER && config.PROXY_CUSTOM_HEADER.startsWith('x-')) {
-    proxyReqOpts.headers[config.PROXY_CUSTOM_HEADER] = srcReq.ip;
+    proxyReqOpts.headers[config.PROXY_CUSTOM_HEADER] = srcReq.socket.remoteAddress;
   }
 
   return proxyReqOpts;
