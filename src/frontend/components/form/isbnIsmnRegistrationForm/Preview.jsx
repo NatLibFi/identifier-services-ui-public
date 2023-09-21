@@ -37,6 +37,8 @@ import AuthorCard from '/src/frontend/components/subComponents/AuthorCard.jsx';
 import {PUBLICATION_TYPES, PUBLISHING_ACTIVITIES_TYPE} from '../constants';
 
 function Preview ({values, intl}) {
+  const isDissertation = values.publicationType === PUBLICATION_TYPES.DISSERTATION;
+
   return (
     <>
       <div className="mainContainer">
@@ -45,13 +47,13 @@ function Preview ({values, intl}) {
           <Typography variant="h3" className="listComponentContainerHeader">
             <FormattedMessage
               id={
-                values.publicationType === PUBLICATION_TYPES.DISSERTATION
+                isDissertation
                   ? 'common.contactDetails'
                   : 'form.isbnIsmn.preview.publisherDetails'
               }
             />
           </Typography>
-          {values.publicationType !== PUBLICATION_TYPES.DISSERTATION && (
+          {!isDissertation && (
             <>
               <ListComponent
                 label={<FormattedMessage id="form.common.name" />}
@@ -77,7 +79,7 @@ function Preview ({values, intl}) {
             label={<FormattedMessage id="form.common.city" />}
             value={values.city}
           />
-          {values.publicationType === PUBLICATION_TYPES.DISSERTATION && (
+          {isDissertation && (
             <ListComponent
               label={<FormattedMessage id="form.isbnIsmn.preview.universityName" />}
               value={<FormattedMessage id="form.isbnIsmn.preview.helsinki" />}
@@ -127,7 +129,7 @@ function Preview ({values, intl}) {
         </div>
 
         {/* Julkaisutoiminta - Publishing activities*/}
-        {values.publicationType !== PUBLICATION_TYPES.DISSERTATION && (
+        {!isDissertation && (
           <div className="listComponentContainer">
             <Typography variant="h3" className="listComponentContainerHeader">
               <FormattedMessage id="form.common.publishingActivities" />
@@ -229,7 +231,7 @@ function Preview ({values, intl}) {
         )}
 
         {/* Tekijät - Authors*/}
-        <div className="listComponentContainer listComponentAuthors">
+        <div className="listComponentContainer listComponentAuthors" data-isDissertation={isDissertation}>
           <Typography variant="h3" className="listComponentContainerHeader">
             <FormattedMessage id="form.isbnIsmn.preview.authors" />
           </Typography>
