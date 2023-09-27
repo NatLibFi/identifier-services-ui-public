@@ -51,28 +51,6 @@
     font-weight: 600;
 }
 
-.publisherDetailsContainer > section:last-child > div {
-    align-items: baseline;
-}
-
-.publisherDetailsContainer > section:last-child > div > ul {
-    padding-inline-start: 0.75rem;
-}
-
-.publisherDetailsContainer > section:last-child > div > ul li:not(:last-child) {
-    margin-bottom: 0.5rem;
-}
-
-.publisherDetailsContainer > section:last-child > div > ul a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.125rem;
-}
-
-.publisherDetailsContainer > section:last-child > div > ul a svg {
-    font-size: 1rem;
-}
-
 @media (width < 600px) {
     .publisherModal {
         min-width: 90%;

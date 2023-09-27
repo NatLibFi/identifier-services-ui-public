@@ -31,7 +31,6 @@ import {useIntl, FormattedMessage} from 'react-intl';
 
 import {Modal, Box, Typography, IconButton} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 import '/src/frontend/css/common.css';
 import '/src/frontend/css/subComponents/modals.css';
@@ -69,10 +68,6 @@ function IsbnIsmnPublisherModal ({publisherId, isModalOpen, setIsModalOpen}) {
     }
 
     const formattedPublisherData = formatPublisherData(data);
-
-    // Get Finna and Melinda search links for each identifier
-    const getFinnaLink = identifier => `https://kansalliskirjasto.finna.fi/Search/Results?lookfor=${identifier}`;
-    const getMelindaLink = identifier => `https://melinda.kansalliskirjasto.fi/F/?func=find-b&request=${identifier}-*`;
 
     return (
       <>
@@ -148,47 +143,19 @@ function IsbnIsmnPublisherModal ({publisherId, isModalOpen, setIsModalOpen}) {
             <h3>
               <FormattedMessage id="common.identifiers" />
             </h3>
-            {formattedPublisherData.isbnPublisherIdentifiers.length ?
-              <div>
-                <Typography>
-                  {publisherIdentifiersIsbnString}:
-                </Typography>
-                <ul>
-                  {formattedPublisherData.isbnPublisherIdentifiers.map((identifier, index) => (
-                    <li key={index}>
-                      {identifier}{' - '}
-                      <a href={getFinnaLink(identifier)} target="_blank" rel="noopener noreferrer">
-                        Finna <OpenInNewIcon />
-                      </a>,{' '}
-                      <a href={getMelindaLink(identifier)} target="_blank" rel="noopener noreferrer">
-                        Melinda <OpenInNewIcon />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              : null
+            {formattedPublisherData.isbnPublisherIdentifiers && <div>
+              <Typography>
+                {publisherIdentifiersIsbnString}:
+              </Typography>
+              <p>{formattedPublisherData.isbnPublisherIdentifiers}</p>
+            </div>
             }
-            {formattedPublisherData.ismnPublisherIdentifiers.length ?
-              <div>
-                <Typography>
-                  {publisherIdentifiersIsmnString}:
-                </Typography>
-                <ul>
-                  {formattedPublisherData.ismnPublisherIdentifiers.map((identifier, index) => (
-                    <li key={index}>
-                      {identifier}{' - '}
-                      <a href={getFinnaLink(identifier)} target="_blank" rel="noopener noreferrer">
-                        Finna <OpenInNewIcon />
-                      </a>,{' '}
-                      <a href={getMelindaLink(identifier)} target="_blank" rel="noopener noreferrer">
-                        Melinda <OpenInNewIcon />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              : null
+            {formattedPublisherData.ismnPublisherIdentifiers && <div>
+              <Typography>
+                {publisherIdentifiersIsmnString}:
+              </Typography>
+              <p>{formattedPublisherData.ismnPublisherIdentifiers}</p>
+            </div>
             }
           </section>
         </div>
@@ -239,7 +206,9 @@ function formatPublisherData(publisherData) {
       return null;
     }
 
-    return publisherIdentifiers.map(({publisherIdentifier}) => publisherIdentifier);
+    return publisherIdentifiers
+      .map(({publisherIdentifier}) => publisherIdentifier)
+      .join(', ');
   }
 }
 
