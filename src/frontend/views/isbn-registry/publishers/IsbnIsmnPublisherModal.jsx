@@ -128,7 +128,7 @@ function IsbnIsmnPublisherModal ({publisherId, isModalOpen, setIsModalOpen}) {
               <Typography>
                 <FormattedMessage id="form.common.website" />:
               </Typography>
-              <p>{formattedPublisherData.www.length ? formattedPublisherData.www : undefinedString}</p>
+              <p>{formattedPublisherData.www && formattedPublisherData.www.length ? formattedPublisherData.www : undefinedString}</p>
             </div>
             {/* If publisher has quitted, display status text */}
             {formattedPublisherData.hasQuitted && <div>
