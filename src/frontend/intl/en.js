@@ -663,7 +663,7 @@ const en = {
   'publisherRegistry.headRows.activeIdentifiers': 'Active identifiers',
   'publisherRegistry.publisher.otherNameForms': 'Other name forms',
   'publisherRegistry.publisher.previousNameForms': 'Previous name forms',
-  'publisherRegistry.publisher.publisherHasQuitted': 'Publishing acitivity terminated',
+  'publisherRegistry.publisher.publisherHasQuitted': 'Publishing activity terminated',
   'publisherRegistry.publisher.noOtherNames': 'No other names',
   'publisherRegistry.publisher.noPreviousNames': 'No previous names',
   'publisherRegistry.publisher.typeOther': 'Other publication types',
