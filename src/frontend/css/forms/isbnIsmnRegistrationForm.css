@@ -10,6 +10,14 @@
     padding: 20px;
 }
 
+/* Change the color of the border and text in the info card if the publication month is invalid */
+.wideContainer:has(select[name="publicationMonth"][aria-invalid="true"]) .dissertationInfoCardContainer {
+    border: 1px solid var(--color-brand-red);
+    & * {
+        color: var(--color-brand-red);
+    }
+}
+
 .dissertationInfoCardContainer {
     border: 1px solid #0B5560;
 }

@@ -124,6 +124,9 @@ export function validate(values) {
   }
 
   function validateGeneralFields() {
+    const currentMonth = new Date().getMonth() + 1;
+    const currentYear = new Date().getFullYear();
+
     return [
       {fieldName: 'email', hasError: values.email && !regexPatterns.email.test(values.email), message: 'format.email'},
       {fieldName: 'zip', hasError: values.zip && !regexPatterns.zip.test(values.zip), message: 'postalAddress.zip.format'},
@@ -144,6 +147,12 @@ export function validate(values) {
         fieldName: 'authors', hasError: values.authors && values.authors.length > 4, message: {
           _error: 'format.authorsLength'
         }
+      },
+      {
+        fieldName: 'publicationMonth',
+        hasError:
+          // Display an error if publication date (month) is in the past
+          values.publicationMonth && parseInt(values.publicationMonth) < currentMonth && parseInt(values.publicationYear) === currentYear, message: 'date.min'
       }
     ];
   }
