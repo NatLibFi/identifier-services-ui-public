@@ -37,7 +37,7 @@ Both containers are used to display a turnstile notification.
 
 .turnstileContainer {
   width: 90vw;
-  margin: 3rem auto;
+  margin: 1rem auto;
 }
 
 .turnstileContainer button {

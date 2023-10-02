@@ -264,6 +264,9 @@ function IsbnIsmnPublicationRegistrationForm (props) {
 
   return information ? (
     <div>
+      <h2>
+        <FormattedMessage id="menu.forms.publicationRegistration.isbn-ismn"/>
+      </h2>
       <RenderTurnstileNotification setInformation={setInformation}/>
     </div>
   ) : (
