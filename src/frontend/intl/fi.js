@@ -548,7 +548,7 @@ const fi = {
   'form.isbnIsmn.preview.universityName': 'Yliopisto',
   'form.isbnIsmn.preview.helsinki': 'Helsingin yliopisto',
   'form.isbnIsmn.preview.previouslyPublished': 'Kustantanut aiemmin',
-  'form.isbnIsmn.preview.thisYear': 'Kuinka monta julkaisua kustannatte vuosittain?',
+  'form.isbnIsmn.preview.thisYear': 'Kuinka monta julkaisua kustannatte vuosittain',
   'form.isbnIsmn.preview.format': 'Julkaisu ilmestyy',
   'form.isbnIsmn.preview.formatDetails': 'Julkaisumuoto',
   'form.isbnIsmn.preview.printFormat': 'Kansityyppi',
