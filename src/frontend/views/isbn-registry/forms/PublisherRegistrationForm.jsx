@@ -190,6 +190,9 @@ function PublisherRegistrationForm (props) {
 
   return information ? (
     <div>
+      <h2>
+        <FormattedMessage id="menu.forms.publisherRegistration"/>
+      </h2>
       <RenderTurnstileNotification />
       <RenderInformation setInformation={setInformation}/>
     </div>

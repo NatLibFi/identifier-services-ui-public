@@ -1,3 +1,9 @@
+.bodyContainer > div > h2 {
+    text-align: center;
+    color: var(--color-brand-darkBlue);
+    font-family: "Open Sans", Helvetica, sans-serif;
+}
+
 .mobileSmallStepperStyle {
     display: none !important;
 }

@@ -172,6 +172,9 @@ function IssnPublicationRegistrationForm (props) {
 
   return information ? (
     <div>
+      <h2>
+        <FormattedMessage id="menu.forms.publicationRegistration.issn"/>
+      </h2>
       <RenderTurnstileNotification setInformation={setInformation}/>
     </div>
   ) : (
