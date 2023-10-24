@@ -80,6 +80,7 @@ const sv = {
   'common.skipLink': 'Gå till huvudsidan ',
   'common.inLibrary': 'På Nationalbiblioteket',
   'common.free': 'kostnadsfri',
+  'common.requiredField': 'Fält markerade med asterisk (*) är obligatoriska',
   // Numbers
   'common.one': 'Ett',
   'common.two': 'Två',

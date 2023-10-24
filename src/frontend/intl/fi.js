@@ -80,6 +80,7 @@ const fi = {
   'common.skipLink': 'Hyppää pääsisältöön',
   'common.inLibrary': 'Kansalliskirjastossa',
   'common.free': 'maksuttomia',
+  'common.requiredField': 'Tähdellä (*) merkityt kohdat ovat pakollisia',
   // Numbers
   'common.one': 'Yksi',
   'common.two': 'Kaksi',

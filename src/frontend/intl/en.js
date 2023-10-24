@@ -80,6 +80,7 @@ const en = {
   'common.skipLink': 'Skip to main content',
   'common.inLibrary': 'In National Library',
   'common.free': 'free of charge',
+  'common.requiredField': 'Fields marked with asterisk (*) are required',
   // Numbers
   'common.one': 'One',
   'common.two': 'Two',

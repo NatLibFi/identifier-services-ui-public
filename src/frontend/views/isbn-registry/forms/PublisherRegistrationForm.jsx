@@ -40,8 +40,7 @@ import {
   StepLabel,
   Typography
 } from '@mui/material';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import {InfoOutlined, KeyboardArrowRight, KeyboardArrowLeft} from '@mui/icons-material';
 
 import InfoCard from '/src/frontend/components/subComponents/InfoCard.jsx';
 import FormElement from '/src/frontend/components/form/render/RenderFormElement.jsx';
@@ -263,6 +262,13 @@ function PublisherRegistrationForm (props) {
                 }
               />
             </div>
+            {/* Display an info message regarding required fields marked with an asterisk */}
+            {activeStep !== contentOrder.length - 1 && (
+              <span className='requiredFieldInfo'>
+                <InfoOutlined/>
+                <FormattedMessage id="common.requiredField"/>
+              </span>
+            )}
             <div className={activeStep === 3 ? '' : 'subContainer'}>
               <Grid
                 container

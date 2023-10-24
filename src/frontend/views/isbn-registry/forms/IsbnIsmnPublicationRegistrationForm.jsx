@@ -42,8 +42,7 @@ import {
   StepLabel,
   Typography
 } from '@mui/material';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import {InfoOutlined, KeyboardArrowRight, KeyboardArrowLeft} from '@mui/icons-material';
 
 import '/src/frontend/css/forms/common.css';
 import '/src/frontend/css/forms/isbnIsmnRegistrationForm.css';
@@ -342,6 +341,13 @@ function IsbnIsmnPublicationRegistrationForm (props) {
                 }
               />
             </div>
+            {/* Display an info message regarding required fields marked with an asterisk */}
+            {activeStep !== contentOrder.length - 1 && (
+              <span className='requiredFieldInfo'>
+                <InfoOutlined/>
+                <FormattedMessage id="common.requiredField"/>
+              </span>
+            )}
             <div className={(activeStep === 0 || activeStep === 4 || activeStep === 8) ? '' : 'subContainer'}>
               <Grid
                 container
