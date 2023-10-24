@@ -132,6 +132,12 @@ export function validate(values) {
       {fieldName: 'zip', hasError: values.zip && !regexPatterns.zip.test(values.zip), message: 'postalAddress.zip.format'},
       {fieldName: 'city', hasError: values.city && !regexPatterns.city.test(values.city), message: 'format.city'},
       {fieldName: 'phone', hasError: values.phone && !regexPatterns.phone.test(values.phone), message: 'format.phone'},
+      // Check that user has not entered corporate (Y-tunnus) or personal (Henkilötunnus) ID in the publisher identifier field by mistake
+      {
+        fieldName: 'publisherIdentifierStr',
+        hasError: values.publisherIdentifierStr && (regexPatterns.corporateId.test(values.publisherIdentifierStr) || regexPatterns.personalId.test(values.publisherIdentifierStr)),
+        message: 'format.publisherIdentifierStr'
+      },
       // In case below the message is blank, since we are displaying the error message in the InfoCard component
       {fieldName: 'publicationsPublic', hasError: !values.publicationsPublic || String(values.publicationsPublic).toLowerCase() !== 'true', message: 'emptyField'},
       {fieldName: 'publicationType', hasError: !values.publicationType, message: 'field.required'},

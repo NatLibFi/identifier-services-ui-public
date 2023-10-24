@@ -187,6 +187,7 @@ const sv = {
   // Error messages
   'error.field.required': 'Krävs',
   'error.format.issn': 'Ogiltig ISSN',
+  'error.format.publisherIdentifierStr': 'Ogiltig förlagsbeteckning',
   'error.format.phone': 'Ogiltigt telefonnummer',
   'error.format.city': 'Ogiltig ort',
   'error.format.publishingActivityAmount': 'Max. 5 tecken',

@@ -187,6 +187,7 @@ const en = {
   // Error messages
   'error.field.required': 'Required',
   'error.format.issn': 'Invalid ISSN-identifier',
+  'error.format.publisherIdentifierStr': 'Invalid publisher identifier',
   'error.format.phone': 'Invalid phone number',
   'error.format.city': 'Invalid city',
   'error.format.publishingActivityAmount': 'Max. 5 characters',

@@ -187,6 +187,7 @@ const fi = {
   // Error messages
   'error.field.required': 'Pakollinen kenttä',
   'error.format.issn': 'Annettu arvo ei ole kelvollinen ISSN-tunnus',
+  'error.format.publisherIdentifierStr': 'Annettu arvo ei ole kelvollinen kustantajatunnus',
   'error.format.phone': 'Annettu puhelinnumero ei ole kelvollinen',
   'error.format.city': 'Annettu postitoimipaikka ei ole kelvollinen',
   'error.format.publishingActivityAmount': 'Max. pituus 5 merkkiä',
