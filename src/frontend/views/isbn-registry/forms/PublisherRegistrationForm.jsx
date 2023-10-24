@@ -223,7 +223,7 @@ function PublisherRegistrationForm (props) {
               >
                 {contentOrder.map(label => (
                   <Step key={label}>
-                    <StepLabel className='stepLabelContainer'>
+                    <StepLabel className='stepLabelContainerPublisher'>
                       <FormattedMessage id={`form.publisherRegistration.stepper.label.${label}`}/>
                     </StepLabel>
                   </Step>

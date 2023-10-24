@@ -298,7 +298,7 @@ function IsbnIsmnPublicationRegistrationForm (props) {
               >
                 {contentOrder.map(label => (
                   <Step key={label}>
-                    <StepLabel className='stepLabelContainer'>
+                    <StepLabel className='stepLabelContainerPublication'>
                       {intl.formatMessage({id: `form.isbnIsmn.stepper.label.${label}`})}
                     </StepLabel>
                   </Step>
