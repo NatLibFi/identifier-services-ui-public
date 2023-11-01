@@ -35,5 +35,5 @@ export const regexPatterns = {
   phone: /^[+0-9()\s-]{5,}$/,
   issn: /^\d{4}-\d{3}[0-9X]{1}$/,
   corporateId: /^\d{7}-\d$/, // Y-tunnus
-  personalId: /^\d{6}[-+A]\d{3}[0-9A-Z]$/ // Henkilötunnus (not precise check since we don't need it in our use case)
+  personalId: /^\d{6}[-+AaBbCcDdEeFfYyXxWwVvUu]\d{3}[0-9A-Za-z]$/ // Henkilötunnus
 };
