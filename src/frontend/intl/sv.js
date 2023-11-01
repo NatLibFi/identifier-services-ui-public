@@ -80,6 +80,7 @@ const sv = {
   'common.skipLink': 'Gå till huvudsidan ',
   'common.inLibrary': 'På Nationalbiblioteket',
   'common.free': 'kostnadsfri',
+  'common.requiredField': 'Fält markerade med asterisk (*) är obligatoriska',
   // Numbers
   'common.one': 'Ett',
   'common.two': 'Två',
@@ -186,6 +187,7 @@ const sv = {
   // Error messages
   'error.field.required': 'Krävs',
   'error.format.issn': 'Ogiltig ISSN',
+  'error.format.publisherIdentifierStr': 'Ogiltig förlagsbeteckning',
   'error.format.phone': 'Ogiltigt telefonnummer',
   'error.format.city': 'Ogiltig ort',
   'error.format.publishingActivityAmount': 'Max. 5 tecken',

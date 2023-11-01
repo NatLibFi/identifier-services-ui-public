@@ -103,6 +103,13 @@
   color: var(--color-brand-darkBlue);
 }
 
+.requiredFieldInfo {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0 0 0.25rem 0.25rem;
+  color: var(--color-brand-darkBlue);
+}
+
 @media (width < 900px) {
   .mainContainer {
     display: flex;

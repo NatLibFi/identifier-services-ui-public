@@ -4,8 +4,12 @@
     font-family: "Open Sans", Helvetica, sans-serif;
 }
 
-.mobileSmallStepperStyle {
-    display: none !important;
+div.mobileSmallStepperStyle {
+    display: none;
+}
+
+.stepLabelContainerPublisher {
+    hyphens: auto;
 }
 
 .organizationDetailsContainer {
@@ -27,11 +31,6 @@
 .notesContainer {
     margin: 20px 50px;
     max-width: 1200px;
-}
-
-/* Using important in rules below for overriding default styles of MUI <li> & <a> elements */
-.notesList {
-    border-bottom: none !important;
 }
 
 .notesList a {
@@ -78,12 +77,12 @@
 }
 
 @media (width < 500px) {
-    .basicSmallStepperStyle {
-        display: none !important;
+    div.basicSmallStepperStyle {
+        display: none;
     }
 
-    .mobileSmallStepperStyle {
-        display: flex !important;
+    div.mobileSmallStepperStyle {
+        display: flex;
         max-width: 400px;
         flex-grow: 1;
     }

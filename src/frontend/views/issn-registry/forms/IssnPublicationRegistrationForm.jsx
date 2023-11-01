@@ -40,8 +40,7 @@ import {
   StepLabel,
   Typography
 } from '@mui/material';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import {InfoOutlined, KeyboardArrowRight, KeyboardArrowLeft} from '@mui/icons-material';
 
 import '/src/frontend/css/forms/common.css';
 import '/src/frontend/css/forms/publisherRegistrationForm.css';
@@ -281,6 +280,13 @@ function IssnPublicationRegistrationForm (props) {
                 }
               />
             </div>
+            {/* Display an info message regarding required fields marked with an asterisk */}
+            {!isFinalPage && (
+              <span className='requiredFieldInfo'>
+                <InfoOutlined/>
+                <FormattedMessage id="common.requiredField"/>
+              </span>
+            )}
             <div className="issnFormContainer">
               <Grid container spacing={2} className="issnFormGrid">
                 {/* Render the fields of the current step */}
