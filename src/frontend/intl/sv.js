@@ -572,6 +572,7 @@ const sv = {
   'form.isbnIsmn.card.editionInfo': 'Identifikator för ny upplaga',
   'form.isbnIsmn.card.publicationInfo': 'En identifikator kan inte ansökas i efterhand, om en bok är redan tryckt eller om den redan publicerats på nätet.',
   'form.isbnIsmn.card.seriesInfo': 'Fyll i uppgifter om serien ifall publikationen ingår i en serie.',
+  'form.isbnIsmn.instructions': 'Förläggarens uppgifter publiceras i den internationella databasen Global Register of Publishers och /eller Music Publishers\' International ISMN Database och de är sökbara på ISBN-centralens hemsida.',
 
   // ISSN-form
   'form.issn.title': 'Ansökningsblankett för ISSN',
