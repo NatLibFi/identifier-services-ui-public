@@ -57,6 +57,9 @@ import PublishersList from './views/isbn-registry/publishers/IsbnIsmnPublisherSe
 // Batch
 import Batch from './views/isbn-registry/identifierBatch/IdentifierBatch.jsx';
 
+// Accessibility statement
+import AccessibilityStatement from './views/AccessibilityStatement.jsx';
+
 // Language config
 import {translations} from './intl/index.js';
 
@@ -156,7 +159,9 @@ function App() {
     // Form routes
     {path: '/forms/isbn-ismn-publication', component: IsbnIsmnPublicationRegistrationForm},
     {path: '/forms/isbn-ismn-publisher', component: PublisherRegistrationForm},
-    {path: '/forms/issn-publication', component: IssnRegistrationForm}
+    {path: '/forms/issn-publication', component: IssnRegistrationForm},
+    // Accessibility statement
+    {path: '/accessibility-statement', component: AccessibilityStatement}
   ];
 
   const routes = (

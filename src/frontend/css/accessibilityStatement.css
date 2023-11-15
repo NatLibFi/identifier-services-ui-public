@@ -1,0 +1,32 @@
+.accessibilityStatement {
+    padding: 0 15%;
+    font-family: "Open Sans", Helvetica, sans-serif;
+
+    & h3 {
+        margin-top: 2rem;
+    }
+
+    & p {
+        text-wrap: balance;
+    }
+
+    & section {
+        background-color: var(--color-brand-gold-20);
+        padding: 0.5rem;
+
+        & p:nth-child(even) {
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+    }
+
+    & section:not(:last-of-type) {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (width <= 750px) {
+    .accessibilityStatement {
+        padding: 0 5%;
+    }
+}
