@@ -1,6 +1,8 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 
+import {OpenInNew} from '@mui/icons-material';
+
 import useDocumentTitle from '/src/frontend/hooks/useDocumentTitle';
 
 import '/src/frontend/css/accessibilityStatement.css';
@@ -23,8 +25,9 @@ function AccessibilityStatement () {
         <FormattedMessage
           id="accessibilityStatement.description.main"
           values={{
-            link: <a href="https://www.w3.org/Translations/WCAG21-fi/">
+            link: <a href="https://www.w3.org/Translations/WCAG21-fi/" target="_blank" rel="noopener noreferrer">
               <FormattedMessage id="accessibilityStatement.description.main.link" />
+              <OpenInNew fontSize="small"/>
             </a>
           }}
         />
@@ -78,8 +81,9 @@ function AccessibilityStatement () {
       <FormattedMessage
         id="accessibilityStatement.authority.description"
         values={{
-          link: <a href="https://www.saavutettavuusvaatimukset.fi/oikeutesi/">
+          link: <a href="https://www.saavutettavuusvaatimukset.fi/oikeutesi/" target="_blank" rel="noopener noreferrer">
             <FormattedMessage id="accessibilityStatement.authority.description.link" />
+            <OpenInNew fontSize="small"/>
           </a>
         }}
       />
@@ -89,8 +93,9 @@ function AccessibilityStatement () {
       </h4>
       <p><FormattedMessage id="accessibilityStatement.authority.contact.organization" /></p>
       <p><FormattedMessage id="accessibilityStatement.authority.contact.department" /></p>
-      <a href="http://www.saavutettavuusvaatimukset.fi/">
+      <a href="http://www.saavutettavuusvaatimukset.fi/" target="_blank" rel="noopener noreferrer">
         <FormattedMessage id="accessibilityStatement.authority.contact.website" />
+        <OpenInNew fontSize="small"/>
       </a>
       <p><FormattedMessage id="accessibilityStatement.authority.contact.email" /></p>
       <p><FormattedMessage id="accessibilityStatement.authority.contact.phone" /></p>

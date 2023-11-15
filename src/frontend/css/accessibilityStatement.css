@@ -10,6 +10,16 @@
         text-wrap: balance;
     }
 
+    & a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        & svg {
+            font-size: 1.125rem;
+        }
+    }
+
     & section {
         background-color: var(--color-brand-gold-20);
         padding: 0.5rem;
