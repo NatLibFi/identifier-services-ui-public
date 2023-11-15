@@ -119,6 +119,11 @@ function Footer({customerServiceContact}) {
       </Grid>
       <p>
         <Link
+          href="/accessibility-statement"
+        >
+          <FormattedMessage id="footer.accessibilityStatement" />
+        </Link>
+        <Link
           className="privacyPolicyLink"
           href="https://www.kansalliskirjasto.fi/fi/tietosuoja"
           target="_blank"

@@ -10,6 +10,7 @@
     --color-brand-gray-20: #f5f5f5; /* Shade of primary gray color - GRAY 20 */
     --color-brand-red: #A0270A; /* Primary red color - RED 100 */
     --color-brand-gold: #786444; /* Primary gold color - GOLD 100 */
+    --color-brand-gold-20: #F2EFEB; /* Shade of primary gold color - GOLD 20 */
     /* Other colors */
     --color-white: #ffffff; /* Plain white */
     --color-white-90: hsla(0, 0%, 100%, 0.9); /* 90% white */
