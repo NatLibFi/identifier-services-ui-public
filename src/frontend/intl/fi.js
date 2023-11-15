@@ -573,6 +573,7 @@ const fi = {
   'form.isbnIsmn.card.editionInfo': 'Jos haet tunnusta uudelle painokselle',
   'form.isbnIsmn.card.publicationInfo': 'Tunnusta ei voi hakea jälkikäteen, jos kirja on jo painettu tai julkaistu verkossa.',
   'form.isbnIsmn.card.seriesInfo': 'Täytä sarjan tiedot mikäli julkaisu ilmestyy sarjassa.',
+  'form.isbnIsmn.instructions': 'Kustantajan tiedot julkaistaan kansainvälisissä Global Register of Publishers ja/tai Music Publishers\' International ISMN Database -tietokannoissa ja tietoja käytetään myös Suomen ISBN-keskuksen toiminnassa ja/tai ne ovat haettavissa kustantajarekisteristä.',
 
   // ISSN-form
   'form.issn.title': 'ISSN-hakulomake',

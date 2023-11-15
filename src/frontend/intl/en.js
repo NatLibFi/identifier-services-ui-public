@@ -573,6 +573,7 @@ const en = {
   'form.isbnIsmn.card.editionInfo': 'Information about new editions',
   'form.isbnIsmn.card.publicationInfo': 'An ISBN cannot be requested after the book is printed, or published online.',
   'form.isbnIsmn.card.seriesInfo': 'Enter series details if the publication is part of a series.',
+  'form.isbnIsmn.instructions': 'Information on publishers entered in the ISBN/ISMN system is published in the international databases Global Register of Publishers and/or Music Publishers\' International ISMN Database. This information is also used by the Finnish ISBN Agency and published on its website.',
 
   // ISSN-form
   'form.issn.title': 'ISSN request form',
