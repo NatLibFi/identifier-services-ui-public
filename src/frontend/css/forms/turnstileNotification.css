@@ -38,6 +38,10 @@ Both containers are used to display a turnstile notification.
 .turnstileContainer {
   width: 90vw;
   margin: 1rem auto;
+
+  & .isbnIsmnInstructions {
+    margin: 0.5rem 0;
+  }
 }
 
 .turnstileContainer button {
