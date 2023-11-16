@@ -55,6 +55,11 @@
 .issnAccordionFields > div {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
+  gap: 0.5rem;
+}
+
+.issnAccordionFields > div > p {
+  overflow-wrap: anywhere;
 }
 
 .issnAccordionFields > div > p:first-child {

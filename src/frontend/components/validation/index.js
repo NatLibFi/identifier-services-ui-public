@@ -33,5 +33,7 @@ export const regexPatterns = {
   zip: /^\d{5}$/,
   city: /^[a-zåäöA-ZÅÄÖ\s-]{2,}$/,
   phone: /^[+0-9()\s-]{5,}$/,
-  issn: /^\d{4}-\d{3}[0-9X]{1}$/
+  issn: /^\d{4}-\d{3}[0-9X]{1}$/,
+  corporateId: /^\d{7}-\d$/, // Y-tunnus
+  personalId: /^\d{6}[-+AaBbCcDdEeFfYyXxWwVvUu]\d{3}[0-9A-Za-z]$/ // Henkilötunnus
 };
