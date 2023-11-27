@@ -35,8 +35,21 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 import '/src/frontend/css/forms/publisherRegistrationForm.css';
 
-function RenderInformation ({setInformation}) {
+function RenderInformation ({setInformation, language}) {
   const notes = ['note0', 'note1', 'note2', 'note3', 'note4'];
+
+  // Get correct info link for each language version
+  const getInfoLink = (language) => {
+    if (language === 'fi') {
+      return 'https://www.kansalliskirjasto.fi/fi/palvelut/suomen-isbn-keskus/isbn-tunnus#ohjeet';
+    }
+
+    if (language === 'sv') {
+      return 'https://www.kansalliskirjasto.fi/sv/tjanster/finlands-isbn-central/isbn-nummer#anvisningar';
+    }
+
+    return 'https://www.kansalliskirjasto.fi/en/services/finlands-national-isbn-agency/isbn#instructions';
+  };
 
   return (
     <div className='notesContainer'>
@@ -53,7 +66,7 @@ function RenderInformation ({setInformation}) {
                 <StopIcon fontSize="small"/>
                 <Typography>
                   <FormattedMessage id={`form.publisherRegistration.instructions.${item}.part1`}/>
-                  <Link target="_blank" rel="noopener" href="https://www.kiwi.fi/display/ISBNjaISMN/ISBN-+ja+ISMN-tunnuksen+merkitseminen">
+                  <Link target="_blank" rel="noopener" href={getInfoLink(language)}>
                     <FormattedMessage id={`form.publisherRegistration.instructions.${item}.link`}/>
                     <OpenInNewIcon fontSize="small"/>
                   </Link>
@@ -77,7 +90,8 @@ function RenderInformation ({setInformation}) {
 }
 
 RenderInformation.propTypes = {
-  setInformation: PropTypes.func.isRequired
+  setInformation: PropTypes.func.isRequired,
+  language: PropTypes.string.isRequired
 };
 
 export default RenderInformation;
