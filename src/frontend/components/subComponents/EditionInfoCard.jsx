@@ -39,14 +39,14 @@ function EditionInfoCard ({infoText, language}) {
   // Get correct link for each language
   const getLink = (language) => {
     if (language === 'fi') {
-      return 'https://www.kiwi.fi/display/ISBNjaISMN/Uuden+painoksen+tunnukset';
+      return 'https://www.kansalliskirjasto.fi/fi/palvelut/suomen-isbn-keskus/isbn-tunnus#ohjeet';
     }
 
     if (language === 'sv') {
-      return 'https://www.kiwi.fi/pages/viewpage.action?pageId=70813198';
+      return 'https://www.kansalliskirjasto.fi/sv/tjanster/finlands-isbn-central/isbn-nummer#anvisningar';
     }
 
-    return 'https://www.kiwi.fi/display/ISBNjaISMN/Identifiers+for+reprints';
+    return 'https://www.kansalliskirjasto.fi/en/services/finlands-national-isbn-agency/isbn#instructions';
   };
 
   return (
