@@ -1,7 +1,7 @@
 // Custom command to change the page language
 Cypress.Commands.add('changeLanguage', language => {
-  cy.get('.languageSelect').click();
-  cy.get('ul').contains(language).click();
+  cy.getBySel('language-select-button').click();
+  cy.getBySel('language-select-list').contains(language).click();
 });
 
 // Custom command to cofirm or reject ownership of an ID on the batch page
@@ -103,4 +103,46 @@ Cypress.Commands.add('isbnFillStep7', () => {
   cy.get('input[name="copies"]').type('123');
   cy.get('.subContainer > div > div:nth-child(7)').click(); // Click to open multiselect dropdown (file format)
   cy.get('#react-select-4-option-0').click(); // Select the first option
+});
+
+
+Cypress.Commands.add('checkInternalLink', (selector, linkHref, linkText = '') => {
+  if (linkText) {
+    return cy.getBySel(selector)
+      .should('have.attr', 'href', linkHref)
+      .invoke('text')
+      .should('equal', linkText);
+  }
+
+  return cy.getBySel(selector)
+    .should('have.attr', 'href', linkHref);
+});
+
+Cypress.Commands.add('checkExternalLink', (selector, linkHref, linkText = '') => {
+  if (linkText) {
+    return cy.getBySel(selector)
+      .should('have.attr', 'href', linkHref)
+      .should('have.attr', 'target', '_blank')
+      .should('have.attr', 'rel', 'noreferrer')
+      .invoke('text')
+      .should('equal', linkText);
+  }
+
+  return cy.getBySel(selector)
+    .should('have.attr', 'href', linkHref)
+    .should('have.attr', 'target', '_blank')
+    .should('have.attr', 'rel', 'noreferrer');
+});
+
+// Cypress getter functions for elements with data-test -attribute
+// From: https://github.com/cypress-io/cypress-realworld-app/blob/edd640b1e821a0f18cc3fef87bdae3c70c393d5d/cypress/support/commands.ts
+// License: MIT, https://github.com/cypress-io/cypress-realworld-app/blob/edd640b1e821a0f18cc3fef87bdae3c70c393d5d/LICENSE
+// Copyright (c): 2020 Cypress.io
+
+Cypress.Commands.add('getBySel', (selector, ...args) => {
+  return cy.get(`[data-test=${selector}]`, ...args);
+});
+
+Cypress.Commands.add('getBySelLike', (selector, ...args) => {
+  return cy.get(`[data-test*=${selector}]`, ...args);
 });

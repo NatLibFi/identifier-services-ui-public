@@ -35,7 +35,7 @@ import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
 
 import '/src/frontend/css/mainPage/instructions/isbnIsmn.css';
 
-function IsbnInfoBox ({language}) {
+function IsbnInfoBox({language}) {
   // Get correct links for each language
   const getIsbnLink = (language) => {
     if (language === 'fi') {
@@ -75,6 +75,7 @@ function IsbnInfoBox ({language}) {
       </Typography>
       <div className="buttonContainer">
         <Button
+          data-test='homepage-link-external-isbn'
           disableRipple
           href={getIsbnLink(language)}
           target="_blank"
@@ -86,6 +87,7 @@ function IsbnInfoBox ({language}) {
           </span>
         </Button>
         <Button
+          data-test='homepage-link-external-ismn'
           disableRipple
           href={getIsmnLink(language)}
           target="_blank"
