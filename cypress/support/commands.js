@@ -4,11 +4,24 @@ Cypress.Commands.add('changeLanguage', language => {
   cy.getBySel('language-select-list').contains(language).click();
 });
 
-// Custom command to cofirm or reject ownership of an ID on the batch page
-Cypress.Commands.add('batchOwnership', buttonToPress => {
-  cy.get('.MuiDialog-root').should('be.visible');
-  cy.get('.MuiDialogActions-root').find('button').eq(buttonToPress).click();
-  cy.get('.MuiDialog-root').should('not.exist');
+// Custom command to verify the turnstile notification regarding forms is displayed
+Cypress.Commands.add('turnstileFormNotificationIsDisplayed', () => {
+  cy.getBySel('turnstile-notification-text')
+    .should('be.visible')
+    .invoke('text')
+    .should('equal', 'By proceeding to complete this form you agree and consent that the site is protected by an automated detection service to distinguish human users from bot users. In the process, the service provider (Cloudflare) receives information on your IP-address.');
+
+  cy.changeLanguage('SV');
+  cy.getBySel('turnstile-notification-text')
+    .should('be.visible')
+    .invoke('text')
+    .should('equal', 'Genom att fylla i formuläret ger du samtycke till att en automatisk identifiering används för att skilja åt mänskliga användare från botanvändare. I samband med den automatiska identifieringen får tjänsteleverantören (Cloudflare) information om din IP-adress.');
+
+  cy.changeLanguage('FI');
+  cy.getBySel('turnstile-notification-text')
+    .should('be.visible')
+    .invoke('text')
+    .should('equal', 'Siirtymällä täyttämään lomakkeen hyväksyt, että automaattista tunnistusta käytetään taustalla erottelemaan ihmiskäyttäjät robottikäyttäjistä. Automaattisen tunnistamisen yhteydessä tunnistamisen palveluntarjoaja (Cloudflare) saa tiedon IP-osoitteestasi.');
 });
 
 // Custom command for checking validation errors (input fields)
@@ -28,9 +41,9 @@ Cypress.Commands.add('checkSelectValidationErrors', validationErrors => {
 });
 
 // Custom command for submitting the form and checking that the form was submitted successfully
-Cypress.Commands.add('submitForm', () => {
+Cypress.Commands.add('submitForm', submitButtonSelector => {
   // Submit the form
-  cy.get('.formSubmitButtonsContainer > button').eq('1').click();
+  cy.getBySel(submitButtonSelector).click();
 
   // Check that the form was submitted successfully and success message is shown
   cy.get('.MuiAlert-message').should('exist');

@@ -1,33 +1,27 @@
 describe('Tunnistepalvelut - Liittymislomake', () => {
-  // run before each test
   beforeEach(() => {
-    cy.visit('localhost:8080/forms/isbn-ismn-publisher');
+    cy.intercept('POST', '/api/public/isbn-registry/requests/publishers', (req) => {
+      return req.reply({fixture: 'responses/formCreateSucceeded.json'});
+    }).as('postPublisherRegistryForm');
+
+    cy.visit('/forms/isbn-ismn-publisher');
   });
 
-  it('User can check instructions on the first page of the form', () => {
-    // Check the Cloudflare info block
-    cy.get('.notificationContainer').should('be.visible');
+  it('User can fill form with all information (happy path)', () => {
+    // Check turnstile notification
+    cy.turnstileFormNotificationIsDisplayed();
+    cy.changeLanguage('FI');
 
     // Check that instructions for filling the form are visible
-    cy.get('.notesContainer').should('be.visible');
+    cy.getBySel('publisher-registry-form-information').should('be.visible');
 
     // Check that there are 5 instructions and that the second one has a link
-    cy.get('.notesContainer').within(() => {
+    cy.getBySel('publisher-registry-form-information').within(() => {
       cy.get('ul > li').should('have.length', 5);
-      cy.get('ul > li').eq(1).find('a').should('exist');
+      cy.checkExternalLink('publisher-registry-form-instructions-link', 'https://www.kansalliskirjasto.fi/fi/palvelut/suomen-isbn-keskus/isbn-tunnus#ohjeet', 'ISBN-keskuksen kotisivuilla');
     });
-  });
 
-  // Check external links
-  it('User can click the ISBN Center link and is redirected to the right page', () => {
-    cy.get('.notesContainer a').then(link => {
-      cy.request(link.prop('href')).its('status').should('eq', 200);
-    });
-  });
-
-  it('User can fill the form, edit, preview and succesfully submit it', () => {
-    cy.get('.notesContainer button').click();
-    cy.get('.formButtonsContainer > button').eq('1').as('nextButton'); // alias for the 'Next'-button
+    cy.getBySel('publisher-form-accept-terms-button').click();
 
     // Kustantajan tiedot - Step 1
     cy.get('input[name="officialName"]').type('Official name');
@@ -39,82 +33,106 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     cy.get('input[name="contactPerson"]').type('Contact person');
     cy.get('input[name="email"]').type('test@example.com');
     cy.get('input[name="www"]').type('www.example.com');
-    cy.get('@nextButton').click();
+    cy.getBySel('publisher-form-next-button').click();
 
     // Kustannustominta - Step 2
     cy.get('input[name="frequencyCurrent"]').type('123');
     cy.get('input[name="frequencyNext"]').type('456');
-    // Open Classification codes -dropdown and select the first option
-    cy.get('.MuiGrid-spacing-xs-2 > .MuiGrid-container').click();
-    cy.get('#react-select-2-option-0').click();
+    cy.getBySel('classification').click();
+    cy.get('#react-select-2-option-0').click(); // TODO: better selector
     cy.get('input[name="classificationOther"]').type('Other classification');
-    cy.get('@nextButton').click();
+    cy.getBySel('publisher-form-next-button').click();
 
     // Organisaation lisätiedot - Step 3
     cy.get('input[name="affiliateOf"]').type('Affiliate of');
     cy.get('input[name="affiliates"]').type('Affiliates');
     cy.get('input[name="distributorOf"]').type('Distributor of');
     cy.get('input[name="distributors"]').type('Test distributors');
-    cy.get('@nextButton').click();
+    cy.getBySel('publisher-form-next-button').click();
 
     // Esikatselu - Step 4
-    cy.get('.mainContainer').within(() => {
+    // Labels to be displayed on the preview page when all fields are filled
+    // TODO: better selectors
+    const previewTests = {
+      officialName: 'Official name',
+      otherNames: 'Other name',
+      address: 'Street address',
+      zip: '12345',
+      city: 'City',
+      phone: '123456789',
+      contactPerson: 'Contact person',
+      email: 'test@example.com',
+      website: 'https://www.example.com', // Note the automatically added https-prefix
+      frequencyCurrent: '123',
+      frequencyNext: '456',
+      classification: 'Antiikki. Keräily',
+      classificationOther: 'Other classification',
+      affiliateOf: 'Affiliate of',
+      affiliates: 'Affiliates',
+      distributorOf: 'Distributor of',
+      distributors: 'Test distributors'
+    };
+
+    cy.getBySel('publisher-form-preview').within(() => {
       // Check that preview page has 5 data containers
       cy.get('.listComponentContainer').should('have.length', 5);
     });
 
-    // Labels to be displayed on the preview page when all fields are filled
-    const labels = [
-      ['Kustantajan nimi', 'Publisher name'],
-      ['Muut nimet', 'Other names'],
-      ['Puhelinnumero', 'Phone number'],
-      ['Sähköposti', 'Email'],
-      ['Yhteyshenkilö', 'Contact person'],
-      ['Verkkosivu', 'Website'],
-      ['Lähiosoite', 'Address'],
-      ['Postinumero', 'Postal code'],
-      ['Postitoimipaikka', 'City'],
-      ['Tytäryhtiöt', 'Affiliate of'],
-      ['Emoyhtiöt', 'Affiliates'],
-      ['Jakelijat', 'Distributor of'],
-      ['Yritykset, joiden jakelija', 'Distributors'],
-      ['Arvio julkaisumäärästä (tämä vuosi)', 'Estimated publication amount'],
-      ['Arvio julkaisumäärästä (tuleva vuosi)', 'Estimated publication amount'],
-      ['Luokitus', 'Keywords'],
-      ['Muu luokitus', 'Other classification']
-    ];
+    // Check that preview page contains correct labels and values
+    for (const [k, v] of Object.entries(previewTests)) {
+      cy.getBySel(`list-component-${k}`).invoke('text').should('equal', v);
+    }
 
-    // Check that preview page contains correct labels
-    cy.get('.mainContainer').within(() => {
-      for (const label of labels) {
-        const regex = new RegExp((`${label.join('|')}`));
-        cy.get('span.label').contains(regex).should('exist');
-      }});
-
-    // Check that all labels have a corresponding value which is not empty
-    cy.get(
-      '.MuiListItemText-root > .MuiTypography-root > .MuiGrid-container > :nth-child(2)'
-    ).each($el => {
-      expect($el.text()).to.not.equal('');
-    });
-
-    // Check that user can go back to the previous step and edit a field
-    cy.get('.MuiGrid-item').contains('Test distributors');
-    cy.get('.formSubmitButtonsContainer > button').eq('0').click();
+    // Test that value can be changed from previous page
+    cy.getBySel('publisher-form-back-button').click();
     cy.get('input[name="distributors"]').clear();
-    cy.get('input[name="distributors"]').type('Another distributors');
-    cy.get('@nextButton').click();
-    cy.get('.MuiGrid-item').should('not.contain', 'Test distributors');
-    cy.get('.MuiGrid-item').contains('Another distributors');
+    cy.get('input[name="distributors"]').type('Changed distributors');
+    cy.getBySel('publisher-form-next-button').click();
 
-    // Submit the form and check that it is succesfully submitted
-    cy.submitForm();
+    cy.getBySel('list-component-distributors').invoke('text').should('equal', 'Changed distributors');
+
+    // Submit form - note: interceptor will respond with success + id
+    cy.getBySel('publisher-form-submit-button').click();
+
+    // Verify response body contains what it should
+    cy.wait('@postPublisherRegistryForm').should((interception) => {
+      expect(interception.request.url).to.equal('http://localhost:8080/api/public/isbn-registry/requests/publishers');
+
+      const expectedRequestBody = {
+        ...previewTests,
+        distributors: 'Changed distributors',
+        classification: ['780'], // Note: classifications are sent to API using codes
+        www: 'https://www.example.com', // Note: attribute name change website -> www
+        langCode: 'fi-FI'
+      };
+
+      delete expectedRequestBody.website;
+
+      for (const k of Object.keys(expectedRequestBody)) {
+        if (Array.isArray(expectedRequestBody[k])) {
+          expectedRequestBody[k].map(v => expect(interception.request.body[k]).to.include(v)); // TODO: negative case
+        } else {
+          expect(interception.request.body[k]).to.equal(expectedRequestBody[k]);
+        }
+      }
+    });
   });
 
-  // Validation - Kustantajan tiedot - Step 1
-  it('Validation - Step 1', () => {
-    cy.get('.notesContainer button').click();
-    cy.get('.formButtonsContainer > button').eq('1').as('nextButton');
+  // Validation tests
+  it('Validates mandatory fields', () => {
+    cy.changeLanguage('FI');
+    cy.getBySel('publisher-form-accept-terms-button').click();
+
+    const firstPageInputFields = [
+      'officialName',
+      'address',
+      'zip',
+      'city',
+      'phone',
+      'contactPerson',
+      'email',
+      'www'
+    ];
 
     // Kustantajan tiedot - Step 1
     // Clear required fields and type invalid data for fields with additional validation
@@ -131,30 +149,31 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     cy.get('input[name="www"]').type('1');
 
     // With input above there are should be validation errors for fields: officialName, address, zip, city, phone, contactPerson, email
-    const validationErrors = [
-      'officialName',
-      'address',
-      'zip',
-      'city',
-      'phone',
-      'contactPerson',
-      'email'
-    ];
+    const validationErrors = {
+      page1: [
+        'officialName',
+        'address',
+        'zip',
+        'city',
+        'phone',
+        'contactPerson',
+        'email'
+      ],
+      page2: [
+        'frequencyCurrent',
+        'frequencyNext',
+        'classificationOther'
+      ]
+    };
 
     // Run validation check
-    cy.checkInputValidationErrors(validationErrors);
+    cy.checkInputValidationErrors(validationErrors.page1);
 
     // The Next-button should be disabled
-    cy.get('@nextButton').should('be.disabled');
-  });
+    cy.getBySel('publisher-form-next-button').should('be.disabled');
 
-  // Validation - Kustannustominta - Step 2
-  it('Validation - Step 2', () => {
-    cy.get('.notesContainer button').click();
-    cy.get('.formButtonsContainer > button').eq('1').as('nextButton');
-
-    // Kustantajan tiedot - Step 1
-    // Fill required fields of the first step to be able to proceed to the second step
+    // Clear and redo first page properly
+    firstPageInputFields.forEach(inputField => cy.get(`input[name="${inputField}"]`).clear());
     cy.get('input[name="officialName"]').type('Official name');
     cy.get('input[name="address"]').type('Street address');
     cy.get('input[name="zip"]').type('12345');
@@ -162,10 +181,10 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     cy.get('input[name="phone"]').type('123456789');
     cy.get('input[name="contactPerson"]').type('Contact person');
     cy.get('input[name="email"]').type('test@example.com');
-    cy.get('@nextButton').click();
+    cy.getBySel('publisher-form-next-button').click();
 
     // Kustannustominta - Step 2
-    // Clear required fields
+    // Note: clear required fields to invoke error
     cy.get('input[name="frequencyCurrent"]').type('123');
     cy.get('input[name="frequencyCurrent"]').clear();
     cy.get('input[name="frequencyNext"]').type('456');
@@ -176,26 +195,18 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     // Click somewhere else to trigger validation of the last field (required due to current validation implementation)
     cy.get('input[name="frequencyCurrent"]').click();
 
-    // There are should be validation errors for fields: frequencyCurrent, frequencyNext, classificationOther
-    const validationErrors = [
-      'frequencyCurrent',
-      'frequencyNext',
-      'classificationOther'
-    ];
-
     // Run validation check
-    cy.checkInputValidationErrors(validationErrors);
+    cy.checkInputValidationErrors(validationErrors.page2);
 
     // The Next-button should be disabled
-    cy.get('@nextButton').should('be.disabled');
+    cy.getBySel('publisher-form-next-button').should('be.disabled');
 
     // User can fix the errors and proceed to the next step
     cy.get('input[name="frequencyCurrent"]').type('123');
     cy.get('input[name="frequencyNext"]').type('456');
-    cy.get('.MuiGrid-spacing-xs-2 > .MuiGrid-container').click();
-    cy.get('#react-select-2-option-0').click();
+    cy.getBySel('classification').click();
+    cy.get('#react-select-2-option-0').click(); // TODO: better selector
 
-    // The Next-button should be enabled this time
-    cy.get('@nextButton').should('not.be.disabled').click();
+    cy.getBySel('publisher-form-next-button').should('not.be.disabled').click();
   });
 });
