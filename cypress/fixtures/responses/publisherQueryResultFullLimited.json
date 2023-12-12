@@ -1,0 +1,45 @@
+{
+  "totalDoc": 2,
+  "results": [
+    {
+      "id": 1,
+      "officialName": "FooBar Publisher",
+      "otherNames": "OtherFooBar, OtherAnotherFooBar",
+      "hasQuitted": false,
+      "activeIdentifierIsbn": "978-951-550",
+      "activeIdentifierIsmn": ""
+    },
+    {
+      "id": 2,
+      "officialName": "Baz Publisher",
+      "otherNames": "",
+      "hasQuitted": false,
+      "activeIdentifierIsbn": "978-951-551",
+      "activeIdentifierIsmn": ""
+    },
+    {
+      "id": 3,
+      "officialName": "Third Publisher",
+      "otherNames": "",
+      "hasQuitted": false,
+      "activeIdentifierIsbn": "978-951-552",
+      "activeIdentifierIsmn": ""
+    },
+    {
+      "id": 4,
+      "officialName": "Fourth Publisher",
+      "otherNames": "",
+      "hasQuitted": false,
+      "activeIdentifierIsbn": "978-951-553",
+      "activeIdentifierIsmn": ""
+    },
+    {
+      "id": 5,
+      "officialName": "Fifth Publisher",
+      "otherNames": "",
+      "hasQuitted": false,
+      "activeIdentifierIsbn": "978-951-554",
+      "activeIdentifierIsmn": ""
+    }
+  ]
+}
