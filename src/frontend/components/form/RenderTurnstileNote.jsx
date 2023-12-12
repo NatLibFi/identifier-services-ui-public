@@ -34,43 +34,43 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 import '/src/frontend/css/forms/turnstileNotification.css';
 
-function RenderTurnstileNotification ({setInformation, identifierBatch=false, formType}) {
+function RenderTurnstileNotification({setInformation, identifierBatch = false, formType}) {
   return (
     <div className={setInformation ? 'turnstileContainer' : 'notificationContainer'}>
       <Alert severity='error'>
         <Typography>
           <strong>
-            <FormattedMessage id="form.turnstile.title"/>
+            <FormattedMessage id="form.turnstile.title" />
           </strong>
         </Typography>
 
         {
           formType === 'isbnIsmn' &&
-            <Typography className="isbnIsmnInstructions">
-              <FormattedMessage id={'form.isbnIsmn.instructions'}/>
-            </Typography>
+          <Typography className="isbnIsmnInstructions">
+            <FormattedMessage id={'form.isbnIsmn.instructions'} />
+          </Typography>
         }
 
-        <Typography>
+        <Typography data-test='turnstile-notification-text'>
           <FormattedMessage id={identifierBatch ? 'form.turnstile.info.batchdownload' : 'form.turnstile.info'} />
         </Typography>
 
         <Typography>
           <Link target="_blank" rel="noopener" href="https://www.cloudflare.com/privacypolicy/">
-            <FormattedMessage id={'form.turnstile.link.privacy'}/>
-            <OpenInNewIcon fontSize="small"/>
+            <FormattedMessage id={'form.turnstile.link.privacy'} />
+            <OpenInNewIcon fontSize="small" />
           </Link>
           <Link target="_blank" rel="noopener" href="https://www.cloudflare.com/website-terms/">
-            <FormattedMessage id={'form.turnstile.link.terms'}/>
-            <OpenInNewIcon fontSize="small"/>
+            <FormattedMessage id={'form.turnstile.link.terms'} />
+            <OpenInNewIcon fontSize="small" />
           </Link>
         </Typography>
 
         {
           typeof setInformation === 'function' &&
-            <Button disableRipple variant="contained" color="primary" onClick={() => setInformation(false)}>
-              <FormattedMessage id="form.button.label.proceed"/>
-            </Button>
+          <Button disableRipple variant="contained" color="primary" onClick={() => setInformation(false)}>
+            <FormattedMessage id="form.button.label.proceed" />
+          </Button>
         }
       </Alert>
     </div>
