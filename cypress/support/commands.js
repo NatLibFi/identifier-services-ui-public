@@ -40,19 +40,15 @@ Cypress.Commands.add('checkSelectValidationErrors', validationErrors => {
   }
 });
 
-// Custom command for submitting the form and checking that the form was submitted successfully
-Cypress.Commands.add('submitForm', submitButtonSelector => {
-  // Submit the form
-  cy.getBySel(submitButtonSelector).click();
+// Custom command for verifying the notification banner displays success text in FIN language
+// And browser has been redirected to the home page
+Cypress.Commands.add('formSubmittedCorrectly', () => {
+  cy.getBySel('notification-banner')
+    .should('be.visible')
+    .invoke('text')
+    .should('equal', 'Lomake on lähetetty onnistuneesti.');
 
-  // Check that the form was submitted successfully and success message is shown
-  cy.get('.MuiAlert-message').should('exist');
-
-  // Wait for redirect to the home page and check that the redirect was successful
-  // eslint-disable-next-line cypress/no-unnecessary-waiting
-  cy.wait(500).then(() => {
-    cy.location('pathname').should('equal', '/');
-  });
+  cy.location('pathname').should('equal', '/');
 });
 
 // Custom commands for filling the ISBN form with valid data

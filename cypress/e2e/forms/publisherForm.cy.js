@@ -1,13 +1,13 @@
 describe('Tunnistepalvelut - Liittymislomake', () => {
   beforeEach(() => {
     cy.intercept('POST', '/api/public/isbn-registry/requests/publishers', (req) => {
-      return req.reply({fixture: 'responses/formCreateSucceeded.json'});
+      return req.reply({statusCode: 201, fixture: 'responses/formCreateSucceeded.json'});
     }).as('postPublisherRegistryForm');
 
     cy.visit('/forms/isbn-ismn-publisher');
   });
 
-  it('User can fill form with all information (happy path)', () => {
+  it('User can complete form with all information (happy path)', () => {
     // Check turnstile notification
     cy.turnstileFormNotificationIsDisplayed();
     cy.changeLanguage('FI');
@@ -18,9 +18,12 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     // Check that there are 5 instructions and that the second one has a link
     cy.getBySel('publisher-registry-form-information').within(() => {
       cy.get('ul > li').should('have.length', 5);
-      cy.checkExternalLink('publisher-registry-form-instructions-link', 'https://www.kansalliskirjasto.fi/fi/palvelut/suomen-isbn-keskus/isbn-tunnus#ohjeet', 'ISBN-keskuksen kotisivuilla');
     });
 
+    // Check external link that should be found in page
+    cy.checkExternalLink('publisher-registry-form-instructions-link', 'https://www.kansalliskirjasto.fi/fi/palvelut/suomen-isbn-keskus/isbn-tunnus#ohjeet', 'ISBN-keskuksen kotisivuilla');
+
+    // Continue to fill form
     cy.getBySel('publisher-form-accept-terms-button').click();
 
     // Kustantajan tiedot - Step 1
@@ -39,7 +42,7 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     cy.get('input[name="frequencyCurrent"]').type('123');
     cy.get('input[name="frequencyNext"]').type('456');
     cy.getBySel('classification').click();
-    cy.get('#react-select-2-option-0').click(); // TODO: better selector
+    cy.get('#react-select-2-option-0').click(); // TODO: better selector for multiselect
     cy.get('input[name="classificationOther"]').type('Other classification');
     cy.getBySel('publisher-form-next-button').click();
 
@@ -73,8 +76,8 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
       distributors: 'Test distributors'
     };
 
+    // Check that preview page has 5 data containers
     cy.getBySel('publisher-form-preview').within(() => {
-      // Check that preview page has 5 data containers
       cy.get('.listComponentContainer').should('have.length', 5);
     });
 
@@ -116,10 +119,93 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
         }
       }
     });
+
+    // Test redirect and success message
+    cy.formSubmittedCorrectly();
+  });
+
+  it('User can complete form with minimal information (happy path)', () => {
+    cy.changeLanguage('FI');
+
+    // Continue to fill form
+    cy.getBySel('publisher-form-accept-terms-button').click();
+
+    // Kustantajan tiedot - Step 1
+    cy.get('input[name="officialName"]').type('Official name');
+    cy.get('input[name="address"]').type('Street address');
+    cy.get('input[name="zip"]').type('12345');
+    cy.get('input[name="city"]').type('City');
+    cy.get('input[name="phone"]').type('123456789');
+    cy.get('input[name="contactPerson"]').type('Contact person');
+    cy.get('input[name="email"]').type('test@example.com');
+    cy.getBySel('publisher-form-next-button').click();
+
+    // Kustannustominta - Step 2
+    cy.get('input[name="frequencyCurrent"]').type('123');
+    cy.get('input[name="frequencyNext"]').type('456');
+    cy.getBySel('classification').click();
+    cy.get('#react-select-2-option-0').click(); // TODO: better selector for multiselect
+    cy.getBySel('publisher-form-next-button').click();
+
+    // Organisaation lisätiedot - Step 3
+    cy.getBySel('publisher-form-next-button').click();
+
+    // Esikatselu - Step 4
+    // Labels to be displayed on the preview page when all fields are filled
+    // TODO: better selectors
+    const previewTests = {
+      officialName: 'Official name',
+      address: 'Street address',
+      zip: '12345',
+      city: 'City',
+      phone: '123456789',
+      contactPerson: 'Contact person',
+      email: 'test@example.com',
+      frequencyCurrent: '123',
+      frequencyNext: '456',
+      classification: 'Antiikki. Keräily'
+    };
+
+    // Check that preview page has 4 data containers since step 3 information was not given
+    cy.getBySel('publisher-form-preview').within(() => {
+      cy.get('.listComponentContainer').should('have.length', 4);
+    });
+
+    // Check that preview page contains correct labels and values
+    for (const [k, v] of Object.entries(previewTests)) {
+      cy.getBySel(`list-component-${k}`).invoke('text').should('equal', v);
+    }
+
+    // Submit form - note: interceptor will respond with success + id
+    cy.getBySel('publisher-form-submit-button').click();
+
+    // Verify response body contains what it should
+    cy.wait('@postPublisherRegistryForm').should((interception) => {
+      expect(interception.request.url).to.equal('http://localhost:8080/api/public/isbn-registry/requests/publishers');
+
+      const expectedRequestBody = {
+        ...previewTests,
+        classification: ['780'], // Note: classifications are sent to API using codes
+        langCode: 'fi-FI'
+      };
+
+      delete expectedRequestBody.website;
+
+      for (const k of Object.keys(expectedRequestBody)) {
+        if (Array.isArray(expectedRequestBody[k])) {
+          expectedRequestBody[k].map(v => expect(interception.request.body[k]).to.include(v)); // TODO: negative case
+        } else {
+          expect(interception.request.body[k]).to.equal(expectedRequestBody[k]);
+        }
+      }
+    });
+
+    // Test redirect and success message
+    cy.formSubmittedCorrectly();
   });
 
   // Validation tests
-  it('Validates mandatory fields', () => {
+  it('Validates fields properly', () => {
     cy.changeLanguage('FI');
     cy.getBySel('publisher-form-accept-terms-button').click();
 
