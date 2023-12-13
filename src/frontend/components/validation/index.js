@@ -29,7 +29,7 @@ export const regexPatterns = {
   integerString: /^\d+$/,
   yearString: /^[0-9]{4}$/,
   twoDigitInteger: /^\d{1,2}$/,
-  email: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,5}$/,
+  email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}$/,
   zip: /^\d{5}$/,
   city: /^[a-zåäöA-ZÅÄÖ\s-]{2,}$/,
   phone: /^[+0-9()\s-]{5,}$/,
