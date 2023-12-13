@@ -68,7 +68,7 @@ function RenderTurnstileNotification({setInformation, identifierBatch = false, f
 
         {
           typeof setInformation === 'function' &&
-          <Button disableRipple variant="contained" color="primary" onClick={() => setInformation(false)}>
+          <Button data-test='accept-form-terms-button' disableRipple variant="contained" color="primary" onClick={() => setInformation(false)}>
             <FormattedMessage id="form.button.label.proceed" />
           </Button>
         }
