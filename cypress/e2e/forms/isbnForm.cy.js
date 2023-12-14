@@ -89,6 +89,7 @@ describe('Tunnistepalvelut - ISBN-/ISMN-lomake', () => {
       volume: '123',
       publicationFormat: 'Sekä painettuna että sähköisenä',
       type: 'Pehmeäkantinen',
+      copies: '123',
       printingHouse: 'Printing house',
       printingHouseCity: 'Printing house city',
       edition: '1.',
@@ -111,7 +112,7 @@ describe('Tunnistepalvelut - ISBN-/ISMN-lomake', () => {
     cy.getBySel('isbn-form-submit-button').click();
 
     // Verify response body contains what it should
-    cy.wait('@postIsbnIsmnForm').should((interception) => {
+    cy.wait('@postIsbnIsmnForm').then((interception) => {
       expect(interception.request.url).to.equal('http://localhost:8080/api/public/isbn-registry/requests/publications');
 
       // Note: many fields have different value in API format than what is displayed in UI
@@ -134,13 +135,11 @@ describe('Tunnistepalvelut - ISBN-/ISMN-lomake', () => {
         edition: '1' // Transformed to API format from the UI label
       };
 
-      for (const k of Object.keys(expectedRequestBody)) {
-        if (Array.isArray(expectedRequestBody[k])) {
-          expectedRequestBody[k].map(v => expect(interception.request.body[k]).to.include(v)); // TODO: negative case
-        } else {
-          expect(interception.request.body[k]).to.equal(expectedRequestBody[k]);
-        }
-      }
+      // Note: year parameter differ from API call and thus is not to be compared
+      const comparableRequestBody = JSON.parse(JSON.stringify(interception.request.body)); // Deep copy
+      delete comparableRequestBody.year; // Year cannot be compared reliably due to dynamically generating year options
+
+      cy.compareObjects(expectedRequestBody, comparableRequestBody);
     });
 
     // Test redirect and success message
@@ -289,7 +288,7 @@ describe('Tunnistepalvelut - ISBN-/ISMN-lomake', () => {
     cy.getBySel('isbn-form-submit-button').click();
 
     // Verify response body contains what it should
-    cy.wait('@postIsbnIsmnForm').should((interception) => {
+    cy.wait('@postIsbnIsmnForm').then((interception) => {
       expect(interception.request.url).to.equal('http://localhost:8080/api/public/isbn-registry/requests/publications');
 
       // Note: many fields have different value in API format than what is displayed in UI
@@ -307,18 +306,17 @@ describe('Tunnistepalvelut - ISBN-/ISMN-lomake', () => {
         firstName1: 'First name',
         lastName1: 'Last name',
         role1: ['AUTHOR'],
-        officialName: 'Helsingin yliopisto' // Helsingin yliopisto is the publisher this information is transfomed from universityName
+        officialName: 'Helsingin yliopisto', // Helsingin yliopisto is the publisher this information is transfomed from universityName
+        locality: 'Helsinki' // placed in formatting due to accepting only Helsingin yliopisto for dissertations
       };
 
       delete expectedRequestBody.universityName;
 
-      for (const k of Object.keys(expectedRequestBody)) {
-        if (Array.isArray(expectedRequestBody[k])) {
-          expectedRequestBody[k].map(v => expect(interception.request.body[k]).to.include(v)); // TODO: negative case
-        } else {
-          expect(interception.request.body[k]).to.equal(expectedRequestBody[k]);
-        }
-      }
+      // Note: year parameter differ from API call and thus is not to be compared
+      const comparableRequestBody = JSON.parse(JSON.stringify(interception.request.body)); // Deep copy
+      delete comparableRequestBody.year; // Year cannot be compared reliably due to dynamically generating year options
+
+      cy.compareObjects(expectedRequestBody, comparableRequestBody);
     });
 
     // Test redirect and success message

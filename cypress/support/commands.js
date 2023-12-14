@@ -57,7 +57,6 @@ Cypress.Commands.add('formSubmittedCorrectly', () => {
 
 // Custom commands for filling the ISBN form with valid data
 Cypress.Commands.add('isbnFillStep1', isDissertation => {
-  // TODO: better selectors
   if (isDissertation) {
     cy.get('select[name="publicationsPublic"]').select(1);
     cy.get('select[name="publicationType"]').select(2);
@@ -256,6 +255,8 @@ Cypress.Commands.add('isbnFillStep7Validations', () => {
   // With input above there are should be validation errors for fields: publicationType, fileFormat
   cy.get('.selectErrors').should('have.length', 2);
   cy.getBySel('isbn-form-next-button').should('be.disabled');
+
+  cy.get('input[name="copies"]').clear();
 });
 
 Cypress.Commands.add('checkInternalLink', (selector, linkHref, linkText = '') => {
@@ -284,6 +285,59 @@ Cypress.Commands.add('checkExternalLink', (selector, linkHref, linkText = '') =>
     .should('have.attr', 'href', linkHref)
     .should('have.attr', 'target', '_blank')
     .should('have.attr', 'rel', 'noreferrer');
+});
+
+Cypress.Commands.add('compareObjects', (o1, o2) => {
+  expect(objectsAreEqual(o1, o2)).to.equal(true);
+
+  // Utility function for comparing request body with expected body
+  function objectsAreEqual(o1, o2) {
+    const o1Keys = Object.keys(o1);
+    const o2Keys = Object.keys(o2);
+    const objectsHaveEqualAttributesAvailable = o1Keys.every(k => o2Keys.includes(k)) && o1Keys.length === o2Keys.length;
+
+    if (!objectsHaveEqualAttributesAvailable) {
+      return false;
+    }
+
+    return o1Keys.every(k => {
+      if (typeof o1[k] !== typeof o2[k]) {
+        return false;
+      }
+
+      if (Array.isArray(o1[k])) {
+        if (!Array.isArray(o2[k])) {
+          return false;
+        }
+
+        return arraysAreEqual(o1[k], o2[k]);
+      }
+
+      if (typeof o1[k] === 'object') {
+        return objectsAreEqual(o1[k], o2[k]);
+      }
+
+      return o1[k] === o2[k];
+    });
+  }
+
+  function arraysAreEqual(a1, a2) {
+    return a1.length === a2.length && a1.every((v, idx) => {
+      if (typeof a1[idx] !== typeof a2[idx]) {
+        return false;
+      }
+
+      if (Array.isArray(v)) {
+        return arraysAreEqual(a1[idx], a2[idx]);
+      }
+
+      if (typeof v === 'object') {
+        return objectsAreEqual(a1[idx], a2[idx]);
+      }
+
+      return a1[idx] === a2[idx];
+    });
+  }
 });
 
 // Cypress getter functions for elements with data-test -attribute

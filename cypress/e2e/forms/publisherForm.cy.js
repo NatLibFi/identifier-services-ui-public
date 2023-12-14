@@ -27,6 +27,60 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     cy.getBySel('publisher-form-accept-terms-button').click();
 
     // Kustantajan tiedot - Step 1
+
+    // Test validations
+    const firstPageInputFields = [
+      'officialName',
+      'address',
+      'zip',
+      'city',
+      'phone',
+      'contactPerson',
+      'email',
+      'www'
+    ];
+
+    // Clear required fields and type invalid data for fields with additional validation
+    cy.get('input[name="officialName"]').type('1');
+    cy.get('input[name="officialName"]').clear();
+    cy.get('input[name="address"]').type('1');
+    cy.get('input[name="address"]').clear();
+    cy.get('input[name="zip"]').type('1');
+    cy.get('input[name="city"]').type('1');
+    cy.get('input[name="phone"]').type('1');
+    cy.get('input[name="contactPerson"]').type('1');
+    cy.get('input[name="contactPerson"]').clear();
+    cy.get('input[name="email"]').type('1');
+    cy.get('input[name="www"]').type('1');
+
+    // With input above there are should be validation errors for fields: officialName, address, zip, city, phone, contactPerson, email
+    const validationErrors = {
+      page1: [
+        'officialName',
+        'address',
+        'zip',
+        'city',
+        'phone',
+        'contactPerson',
+        'email'
+      ],
+      page2: [
+        'frequencyCurrent',
+        'frequencyNext',
+        'classificationOther'
+      ]
+    };
+
+    // Run validation check
+    cy.checkInputValidationErrors(validationErrors.page1);
+
+    // The Next-button should be disabled
+    cy.getBySel('publisher-form-next-button').should('be.disabled');
+
+    // Clear and redo first page properly
+    firstPageInputFields.forEach(inputField => cy.get(`input[name="${inputField}"]`).clear());
+
+    // Type in data to continue test
     cy.get('input[name="officialName"]').type('Official name');
     cy.get('input[name="otherNames"]').type('Other name');
     cy.get('input[name="address"]').type('Street address');
@@ -39,6 +93,25 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     cy.getBySel('publisher-form-next-button').click();
 
     // Kustannustominta - Step 2
+    // Test page field validation
+    // Note: clear required fields to invoke error
+    cy.get('input[name="frequencyCurrent"]').type('123');
+    cy.get('input[name="frequencyCurrent"]').clear();
+    cy.get('input[name="frequencyNext"]').type('456');
+    cy.get('input[name="frequencyNext"]').clear();
+    cy.get('input[name="classificationOther"]').type('Other classification');
+    cy.get('input[name="classificationOther"]').clear();
+
+    // Click somewhere else to trigger validation of the last field (required due to current validation implementation)
+    cy.get('input[name="frequencyCurrent"]').click();
+
+    // Run validation check
+    cy.checkInputValidationErrors(validationErrors.page2);
+
+    // The Next-button should be disabled
+    cy.getBySel('publisher-form-next-button').should('be.disabled');
+
+    // Type in data to continue test
     cy.get('input[name="frequencyCurrent"]').type('123');
     cy.get('input[name="frequencyNext"]').type('456');
     cy.getBySel('classification').click();
@@ -98,7 +171,7 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     cy.getBySel('publisher-form-submit-button').click();
 
     // Verify response body contains what it should
-    cy.wait('@postPublisherRegistryForm').should((interception) => {
+    cy.wait('@postPublisherRegistryForm').then((interception) => {
       expect(interception.request.url).to.equal('http://localhost:8080/api/public/isbn-registry/requests/publishers');
 
       const expectedRequestBody = {
@@ -111,13 +184,7 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
 
       delete expectedRequestBody.website;
 
-      for (const k of Object.keys(expectedRequestBody)) {
-        if (Array.isArray(expectedRequestBody[k])) {
-          expectedRequestBody[k].map(v => expect(interception.request.body[k]).to.include(v)); // TODO: negative case
-        } else {
-          expect(interception.request.body[k]).to.equal(expectedRequestBody[k]);
-        }
-      }
+      cy.compareObjects(expectedRequestBody, interception.request.body);
     });
 
     // Test redirect and success message
@@ -180,7 +247,7 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     cy.getBySel('publisher-form-submit-button').click();
 
     // Verify response body contains what it should
-    cy.wait('@postPublisherRegistryForm').should((interception) => {
+    cy.wait('@postPublisherRegistryForm').then((interception) => {
       expect(interception.request.url).to.equal('http://localhost:8080/api/public/isbn-registry/requests/publishers');
 
       const expectedRequestBody = {
@@ -191,108 +258,10 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
 
       delete expectedRequestBody.website;
 
-      for (const k of Object.keys(expectedRequestBody)) {
-        if (Array.isArray(expectedRequestBody[k])) {
-          expectedRequestBody[k].map(v => expect(interception.request.body[k]).to.include(v)); // TODO: negative case
-        } else {
-          expect(interception.request.body[k]).to.equal(expectedRequestBody[k]);
-        }
-      }
+      cy.compareObjects(interception.request.body, expectedRequestBody);
     });
 
     // Test redirect and success message
     cy.formSubmittedCorrectly();
-  });
-
-  // Validation tests
-  it('Validates fields properly', () => {
-    cy.changeLanguage('FI');
-    cy.getBySel('publisher-form-accept-terms-button').click();
-
-    const firstPageInputFields = [
-      'officialName',
-      'address',
-      'zip',
-      'city',
-      'phone',
-      'contactPerson',
-      'email',
-      'www'
-    ];
-
-    // Kustantajan tiedot - Step 1
-    // Clear required fields and type invalid data for fields with additional validation
-    cy.get('input[name="officialName"]').type('1');
-    cy.get('input[name="officialName"]').clear();
-    cy.get('input[name="address"]').type('1');
-    cy.get('input[name="address"]').clear();
-    cy.get('input[name="zip"]').type('1');
-    cy.get('input[name="city"]').type('1');
-    cy.get('input[name="phone"]').type('1');
-    cy.get('input[name="contactPerson"]').type('1');
-    cy.get('input[name="contactPerson"]').clear();
-    cy.get('input[name="email"]').type('1');
-    cy.get('input[name="www"]').type('1');
-
-    // With input above there are should be validation errors for fields: officialName, address, zip, city, phone, contactPerson, email
-    const validationErrors = {
-      page1: [
-        'officialName',
-        'address',
-        'zip',
-        'city',
-        'phone',
-        'contactPerson',
-        'email'
-      ],
-      page2: [
-        'frequencyCurrent',
-        'frequencyNext',
-        'classificationOther'
-      ]
-    };
-
-    // Run validation check
-    cy.checkInputValidationErrors(validationErrors.page1);
-
-    // The Next-button should be disabled
-    cy.getBySel('publisher-form-next-button').should('be.disabled');
-
-    // Clear and redo first page properly
-    firstPageInputFields.forEach(inputField => cy.get(`input[name="${inputField}"]`).clear());
-    cy.get('input[name="officialName"]').type('Official name');
-    cy.get('input[name="address"]').type('Street address');
-    cy.get('input[name="zip"]').type('12345');
-    cy.get('input[name="city"]').type('City');
-    cy.get('input[name="phone"]').type('123456789');
-    cy.get('input[name="contactPerson"]').type('Contact person');
-    cy.get('input[name="email"]').type('test@example.com');
-    cy.getBySel('publisher-form-next-button').click();
-
-    // Kustannustominta - Step 2
-    // Note: clear required fields to invoke error
-    cy.get('input[name="frequencyCurrent"]').type('123');
-    cy.get('input[name="frequencyCurrent"]').clear();
-    cy.get('input[name="frequencyNext"]').type('456');
-    cy.get('input[name="frequencyNext"]').clear();
-    cy.get('input[name="classificationOther"]').type('Other classification');
-    cy.get('input[name="classificationOther"]').clear();
-
-    // Click somewhere else to trigger validation of the last field (required due to current validation implementation)
-    cy.get('input[name="frequencyCurrent"]').click();
-
-    // Run validation check
-    cy.checkInputValidationErrors(validationErrors.page2);
-
-    // The Next-button should be disabled
-    cy.getBySel('publisher-form-next-button').should('be.disabled');
-
-    // User can fix the errors and proceed to the next step
-    cy.get('input[name="frequencyCurrent"]').type('123');
-    cy.get('input[name="frequencyNext"]').type('456');
-    cy.getBySel('classification').click();
-    cy.get('#react-select-2-option-0').click(); // TODO: better selector
-
-    cy.getBySel('publisher-form-next-button').should('not.be.disabled').click();
   });
 });
