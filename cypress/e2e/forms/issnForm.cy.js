@@ -8,10 +8,9 @@ describe('Tunnistepalvelut - ISSN-lomake', () => {
     cy.visit('/forms/issn-publication');
   });
 
-  it.only('User can fill, edit, preview and submit the form', () => {
+  it.only('User can fill, edit, preview and submit the form. Validations in the form work as intended.', () => {
     // Check that turnstile notification is displayed
-    cy.turnstileFormNotificationIsDisplayed();
-    cy.changeLanguage('FI'); // tmp
+    cy.turnstileFormNotificationIsDisplayed(); // Note: changes language to FI also.
     cy.getBySel('accept-form-terms-button').click();
 
     // Julkaisujen lukumäärä - Step 1
@@ -164,7 +163,7 @@ describe('Tunnistepalvelut - ISSN-lomake', () => {
     cy.getBySel('issn-form-preview-publisher').should('be.visible');
     cy.getBySel('issn-form-preview-publications').should('be.visible');
 
-    // Publisher's information has valid data
+    // Check publisher information has valid data
     const publisherInfo = {
       officialName: 'Official name',
       contactPerson: 'Contact person',
@@ -227,7 +226,8 @@ describe('Tunnistepalvelut - ISSN-lomake', () => {
 
     // This 'beautiful' loop iterates over each key/value pair to validate that
     // both publications information are displayed correctly. Some keys are objects
-    // so that the validation of data send in POST request is easier to validate.
+    // so that the validation of data send in POST request is easier to validate as API
+    // requires data to be in this format.
     [publicationData1, publicationData2].forEach((publicationData, idx) => {
       for (const [k, v] of Object.entries(publicationData)) {
         if (typeof v === 'string') {
@@ -243,7 +243,7 @@ describe('Tunnistepalvelut - ISSN-lomake', () => {
     // Both publication cards should be accordions that can also be closed
     [1, 2].forEach(publicationIdx => cy.getBySel(`publication-card-${publicationIdx}-summary`).click());
 
-    // Loop again to test that detailed publication data does not be visible
+    // Loop again to test that detailed publication data is not visible since accordion components were closed
     [publicationData1, publicationData2].forEach((publicationData, idx) => {
       for (const [k, v] of Object.entries(publicationData)) {
         if (typeof v === 'string') {
@@ -308,7 +308,7 @@ describe('Tunnistepalvelut - ISSN-lomake', () => {
         ]
       };
 
-      delete expectedRequestBody.form.officialName; // Transformed to 'publisher' key for API
+      delete expectedRequestBody.form.officialName; // Value is transferred to 'publisher' attribute for API
 
       // Verify request matches the expected value
       cy.compareObjects(interception.request.body, expectedRequestBody);

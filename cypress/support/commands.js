@@ -191,7 +191,7 @@ Cypress.Commands.add('isbnFillStep4Validations', () => {
 Cypress.Commands.add('isbnFillStep5', () => {
   cy.get('input[name="firstName"]').type('First name');
   cy.get('input[name="lastName"]').type('Last name');
-  cy.get('input[aria-label="Rooli*"]').click(); // TODO: selectors here could be better
+  cy.get('input[aria-label="Rooli*"]').click(); // TODO: selector here could be better
   cy.get('#react-select-2-option-0').click(); // Select the first option
   cy.getBySel('isbn-form-add-author-button').click(); // Add author
 });
@@ -199,7 +199,7 @@ Cypress.Commands.add('isbnFillStep5', () => {
 Cypress.Commands.add('isbnFillStep5Validations', () => {
   cy.get('input[name="firstName"]').type('First name');
   cy.get('input[name="lastName"]').type('Last name');
-  cy.get('input[aria-label="Rooli*"]').click();
+  cy.get('input[aria-label="Rooli*"]').click(); // TODO: selector here could be better
   cy.get('#react-select-2-option-0').click(); // Select the first option
   cy.getBySel('isbn-form-add-author-button').click(); // Add author
   cy.getBySel('remove-author-button').click(); // Remove author
@@ -259,6 +259,8 @@ Cypress.Commands.add('isbnFillStep7Validations', () => {
   cy.get('input[name="copies"]').clear();
 });
 
+
+// Test internal link with chosen selector has proper href attribute and display text
 Cypress.Commands.add('checkInternalLink', (selector, linkHref, linkText = '') => {
   if (linkText) {
     return cy.getBySel(selector)
@@ -271,6 +273,8 @@ Cypress.Commands.add('checkInternalLink', (selector, linkHref, linkText = '') =>
     .should('have.attr', 'href', linkHref);
 });
 
+// Test external link with chosen selector has proper href attribute, display text and is
+// to be opened in new window with rel=noreferrer attribute
 Cypress.Commands.add('checkExternalLink', (selector, linkHref, linkText = '') => {
   if (linkText) {
     return cy.getBySel(selector)
@@ -287,6 +291,7 @@ Cypress.Commands.add('checkExternalLink', (selector, linkHref, linkText = '') =>
     .should('have.attr', 'rel', 'noreferrer');
 });
 
+// Utility function used mainly for comparing POST request body to expected body
 Cypress.Commands.add('compareObjects', (o1, o2) => {
   expect(objectsAreEqual(o1, o2)).to.equal(true);
 

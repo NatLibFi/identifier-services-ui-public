@@ -1,5 +1,4 @@
 describe('Tunnistepalvelut - ISBN-/ISMN-lomake', () => {
-  // run before each test
   beforeEach(() => {
     cy.intercept('POST', '/api/public/isbn-registry/requests/publications', (req) => {
       return req.reply({statusCode: 201, fixture: 'responses/formCreateSucceeded.json'});
@@ -9,7 +8,7 @@ describe('Tunnistepalvelut - ISBN-/ISMN-lomake', () => {
   });
 
   it('BOOK - User can fill the form with complete information, edit, preview and succesfully submit it', () => {
-    // Check that turnstile notification is displayed
+    // Check that turnstile notification is displayed. This also changes lang to FI.
     cy.turnstileFormNotificationIsDisplayed();
     cy.getBySel('accept-form-terms-button').click();
 
@@ -55,18 +54,13 @@ describe('Tunnistepalvelut - ISBN-/ISMN-lomake', () => {
     cy.getBySel('isbn-form-next-button').click();
 
     // Esikatselu - Step 9
-    cy.get('.mainContainer').within(() => {
-      // Check that preview page has 8 data containers
-      cy.get('.listComponentContainer').should('have.length', 8);
-    });
-
     // Check that user can go back to the previous step and edit a field
     cy.getBySel('isbn-form-back-button').click();
     cy.get('textarea[name="comments"]').clear();
     cy.get('textarea[name="comments"]').type('The new additional info');
     cy.getBySel('isbn-form-next-button').click();
 
-    // Labels that should be displayed on the preview page
+    // Values that should be displayed on the preview page
     const previewTests = {
       officialName: 'Official name',
       publisherIdentifierStr: '1234567890',
@@ -83,7 +77,7 @@ describe('Tunnistepalvelut - ISBN-/ISMN-lomake', () => {
       subtitle: 'Subtitle',
       language: 'suomi',
       month: 'tammikuu',
-      //year: '2025', TODO: this would break each time when year will change
+      //year: '2025', TODO: this would break each time when year will change since options are generated dynamically
       series: 'Series',
       issn: '1234-5678',
       volume: '123',

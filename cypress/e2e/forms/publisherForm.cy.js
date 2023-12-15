@@ -7,15 +7,14 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     cy.visit('/forms/isbn-ismn-publisher');
   });
 
-  it('User can complete form with all information (happy path)', () => {
+  it('User can fill, edit, preview and submit the form. Validations in the form work as intended.', () => {
     // Check turnstile notification
-    cy.turnstileFormNotificationIsDisplayed();
-    cy.changeLanguage('FI');
+    cy.turnstileFormNotificationIsDisplayed(); // Note: changes language to FI
 
     // Check that instructions for filling the form are visible
     cy.getBySel('publisher-registry-form-information').should('be.visible');
 
-    // Check that there are 5 instructions and that the second one has a link
+    // Check that there are 5 instructions regarding joining the publisher registry
     cy.getBySel('publisher-registry-form-information').within(() => {
       cy.get('ul > li').should('have.length', 5);
     });
@@ -26,8 +25,8 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     // Continue to fill form
     cy.getBySel('publisher-form-accept-terms-button').click();
 
-    // Kustantajan tiedot - Step 1
 
+    // Kustantajan tiedot - Step 1
     // Test validations
     const firstPageInputFields = [
       'officialName',
@@ -53,7 +52,7 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     cy.get('input[name="email"]').type('1');
     cy.get('input[name="www"]').type('1');
 
-    // With input above there are should be validation errors for fields: officialName, address, zip, city, phone, contactPerson, email
+    // Following fields validation errors are to be tested
     const validationErrors = {
       page1: [
         'officialName',
@@ -94,7 +93,6 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
 
     // Kustannustominta - Step 2
     // Test page field validation
-    // Note: clear required fields to invoke error
     cy.get('input[name="frequencyCurrent"]').type('123');
     cy.get('input[name="frequencyCurrent"]').clear();
     cy.get('input[name="frequencyNext"]').type('456');
@@ -128,7 +126,6 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
 
     // Esikatselu - Step 4
     // Labels to be displayed on the preview page when all fields are filled
-    // TODO: better selectors
     const previewTests = {
       officialName: 'Official name',
       otherNames: 'Other name',
@@ -138,7 +135,7 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
       phone: '123456789',
       contactPerson: 'Contact person',
       email: 'test@example.com',
-      website: 'https://www.example.com', // Note the automatically added https-prefix
+      website: 'https://www.example.com', // Note: Automatically added https-prefix when user input does not contain protocol
       frequencyCurrent: '123',
       frequencyNext: '456',
       classification: 'Antiikki. Keräily',
@@ -191,7 +188,8 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     cy.formSubmittedCorrectly();
   });
 
-  it('User can complete form with minimal information (happy path)', () => {
+  it('User can complete form with minimal information', () => {
+    // Note: turnstile notification is tested in the previous tests and because of this, it's not re-tested here
     cy.changeLanguage('FI');
 
     // Continue to fill form
@@ -218,8 +216,6 @@ describe('Tunnistepalvelut - Liittymislomake', () => {
     cy.getBySel('publisher-form-next-button').click();
 
     // Esikatselu - Step 4
-    // Labels to be displayed on the preview page when all fields are filled
-    // TODO: better selectors
     const previewTests = {
       officialName: 'Official name',
       address: 'Street address',
