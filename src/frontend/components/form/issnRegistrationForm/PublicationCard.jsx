@@ -32,14 +32,14 @@ import {FormattedMessage} from 'react-intl';
 import {Typography, Accordion, AccordionDetails, AccordionSummary} from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-function PublicationCard ({publication, index}) {
+function PublicationCard({publication, index}) {
   return (
-    <Accordion>
-      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+    <Accordion data-test={`publication-card-${index + 1}`}>
+      <AccordionSummary data-test={`publication-card-${index + 1}-summary`} expandIcon={<ExpandMoreIcon />}>
         <Typography variant="h3" className='normalTitle'>
           <FormattedMessage
             id="request.issn.preview.title"
-            values={{index: ++index, title: publication.title}}
+            values={{index: index + 1, title: publication.title}}
           />
         </Typography>
       </AccordionSummary>
@@ -48,39 +48,39 @@ function PublicationCard ({publication, index}) {
           <Typography>
             <FormattedMessage id="form.common.title" />:
           </Typography>
-          <Typography>{publication.title}</Typography>
+          <Typography data-test={`publication-card-${index + 1}-title`}>{publication.title}</Typography>
         </div>
         {publication.subtitle && (
           <div>
             <Typography>
               <FormattedMessage id="form.common.subtitle" />:
             </Typography>
-            <Typography>{publication.subtitle}</Typography>
+            <Typography data-test={`publication-card-${index + 1}-subtitle`}>{publication.subtitle}</Typography>
           </div>
         )}
         <div>
           <Typography>
             <FormattedMessage id="form.common.publicationCity" />:
           </Typography>
-          <Typography>{publication.placeOfPublication}</Typography>
+          <Typography data-test={`publication-card-${index + 1}-placeOfPublication`}>{publication.placeOfPublication}</Typography>
         </div>
         <div>
           <Typography>
             <FormattedMessage id="publication.issn.firstYear" />:
           </Typography>
-          <Typography>{publication.issuedFromYear}</Typography>
+          <Typography data-test={`publication-card-${index + 1}-issuedFromYear`}>{publication.issuedFromYear}</Typography>
         </div>
         <div>
           <Typography>
             <FormattedMessage id="publication.issn.issued_from_number" />:
           </Typography>
-          <Typography>{publication.issuedFromNumber}</Typography>
+          <Typography data-test={`publication-card-${index + 1}-issuedFromNumber`}>{publication.issuedFromNumber}</Typography>
         </div>
         <div>
           <Typography>
             <FormattedMessage id="publication.issn.frequency" />:
           </Typography>
-          <Typography>
+          <Typography data-test={`publication-card-${index + 1}-frequency`}>
             <FormattedMessage id={`common.${publication.frequency}`} />
           </Typography>
         </div>
@@ -89,14 +89,14 @@ function PublicationCard ({publication, index}) {
             <Typography>
               <FormattedMessage id="publication.issn.other" />:
             </Typography>
-            <Typography>{publication.frequencyOther}</Typography>
+            <Typography data-test={`publication-card-${index + 1}-frequencyOther`}>{publication.frequencyOther}</Typography>
           </div>
         )}
         <div>
           <Typography>
             <FormattedMessage id="form.common.language" />:
           </Typography>
-          <Typography>
+          <Typography data-test={`publication-card-${index + 1}-language`}>
             <FormattedMessage id={`common.${publication.language?.toLowerCase()}`} />
           </Typography>
         </div>
@@ -104,7 +104,7 @@ function PublicationCard ({publication, index}) {
           <Typography>
             <FormattedMessage id="publication.issn.type" />:
           </Typography>
-          <Typography>
+          <Typography data-test={`publication-card-${index + 1}-publicationType`}>
             <FormattedMessage
               id={`common.${publication.publicationType?.toLowerCase()}`}
             />
@@ -115,14 +115,14 @@ function PublicationCard ({publication, index}) {
             <Typography>
               <FormattedMessage id="publication.issn.other" />:
             </Typography>
-            <Typography>{publication.publicationTypeOther}</Typography>
+            <Typography data-test={`publication-card-${index + 1}-publicationTypeOther`}>{publication.publicationTypeOther}</Typography>
           </div>
         )}
         <div>
           <Typography>
             <FormattedMessage id="form.common.format" />:
           </Typography>
-          <Typography>
+          <Typography data-test={`publication-card-${index + 1}-medium`}>
             <FormattedMessage id={`common.${publication.medium?.toLowerCase()}`} />
           </Typography>
         </div>
@@ -131,7 +131,7 @@ function PublicationCard ({publication, index}) {
             <Typography>
               <FormattedMessage id="publication.issn.manufacturer" />:
             </Typography>
-            <Typography>{publication.printer}</Typography>
+            <Typography data-test={`publication-card-${index + 1}-printer`}>{publication.printer}</Typography>
           </div>
         )}
         {publication.mediumOther && (
@@ -139,7 +139,7 @@ function PublicationCard ({publication, index}) {
             <Typography>
               <FormattedMessage id="publication.issn.other" />:
             </Typography>
-            <Typography>{publication.mediumOther}</Typography>
+            <Typography data-test={`publication-card-${index + 1}-mediumOther`}>{publication.mediumOther}</Typography>
           </div>
         )}
         {publication.url && (
@@ -147,7 +147,7 @@ function PublicationCard ({publication, index}) {
             <Typography>
               <FormattedMessage id="form.issn.publicationCard.url" />:
             </Typography>
-            <Typography>{publication.url}</Typography>
+            <Typography data-test={`publication-card-${index + 1}-url`}>{publication.url}</Typography>
           </div>
         )}
         {publication.previous && (
@@ -155,7 +155,7 @@ function PublicationCard ({publication, index}) {
             <Typography>
               <FormattedMessage id="publication.issn.previousNameForms" />:
             </Typography>
-            <Typography>{publication.previous.title[0]}</Typography>
+            <Typography data-test={`publication-card-${index + 1}-previous-title`}>{publication.previous.title[0]}</Typography>
           </div>
         )}
         {publication.previous?.issn[0] && (
@@ -163,7 +163,7 @@ function PublicationCard ({publication, index}) {
             <Typography>
               <FormattedMessage id="common.issn" />:
             </Typography>
-            <Typography>{publication.previous.issn[0]}</Typography>
+            <Typography data-test={`publication-card-${index + 1}-previous-issn`}>{publication.previous.issn[0]}</Typography>
           </div>
         )}
         {publication.previous && (
@@ -171,7 +171,7 @@ function PublicationCard ({publication, index}) {
             <Typography>
               <FormattedMessage id="publication.issn.lastIssue" />:
             </Typography>
-            <Typography>{publication.previous.lastIssue[0]}</Typography>
+            <Typography data-test={`publication-card-${index + 1}-previous-lastIssue`}>{publication.previous.lastIssue[0]}</Typography>
           </div>
         )}
         {publication.mainSeries && (
@@ -179,7 +179,7 @@ function PublicationCard ({publication, index}) {
             <Typography>
               <FormattedMessage id="publication.issn.mainSeries" />:
             </Typography>
-            <Typography>{publication.mainSeries.title[0]}</Typography>
+            <Typography data-test={`publication-card-${index + 1}-mainSeries-title`}>{publication.mainSeries.title[0]}</Typography>
           </div>
         )}
         {publication.mainSeries?.issn[0] && (
@@ -187,7 +187,7 @@ function PublicationCard ({publication, index}) {
             <Typography>
               <FormattedMessage id="common.issn" />:
             </Typography>
-            <Typography>{publication.mainSeries.issn[0]}</Typography>
+            <Typography data-test={`publication-card-${index + 1}-mainSeries-issn`}>{publication.mainSeries.issn[0]}</Typography>
           </div>
         )}
         {publication.subseries && (
@@ -195,7 +195,7 @@ function PublicationCard ({publication, index}) {
             <Typography>
               <FormattedMessage id="publication.issn.subSeries" />:
             </Typography>
-            <Typography>{publication.subseries.title[0]}</Typography>
+            <Typography data-test={`publication-card-${index + 1}-subseries-title`}>{publication.subseries.title[0]}</Typography>
           </div>
         )}
         {publication.subseries?.issn[0] && (
@@ -203,7 +203,7 @@ function PublicationCard ({publication, index}) {
             <Typography>
               <FormattedMessage id="common.issn" />:
             </Typography>
-            <Typography>{publication.subseries.issn[0]}</Typography>
+            <Typography data-test={`publication-card-${index + 1}-subseries-issn`}>{publication.subseries.issn[0]}</Typography>
           </div>
         )}
         {publication.anotherMedium && (
@@ -211,7 +211,7 @@ function PublicationCard ({publication, index}) {
             <Typography>
               <FormattedMessage id="publication.issn.anotherFormat" />:
             </Typography>
-            <Typography>{publication.anotherMedium.title[0]}</Typography>
+            <Typography data-test={`publication-card-${index + 1}-anotherMedium-title`}>{publication.anotherMedium.title[0]}</Typography>
           </div>
         )}
         {publication.anotherMedium?.issn[0] && (
@@ -219,7 +219,7 @@ function PublicationCard ({publication, index}) {
             <Typography>
               <FormattedMessage id="common.issn" />:
             </Typography>
-            <Typography>{publication.anotherMedium.issn[0]}</Typography>
+            <Typography data-test={`publication-card-${index + 1}-anotherMedium-issn`}>{publication.anotherMedium.issn[0]}</Typography>
           </div>
         )}
         {publication.additionalInfo && (
@@ -227,7 +227,7 @@ function PublicationCard ({publication, index}) {
             <Typography>
               <FormattedMessage id="form.common.additionalDetails" />:
             </Typography>
-            <Typography>{publication.additionalInfo}</Typography>
+            <Typography data-test={`publication-card-${index + 1}-additionalInfo`}>{publication.additionalInfo}</Typography>
           </div>
         )}
       </AccordionDetails>

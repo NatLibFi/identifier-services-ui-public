@@ -60,7 +60,7 @@ import {validate} from '/src/frontend/components/form/publisherRegistrationForm/
 import '/src/frontend/css/forms/common.css';
 import '/src/frontend/css/forms/publisherRegistrationForm.css';
 
-function PublisherRegistrationForm (props) {
+function PublisherRegistrationForm(props) {
   const {history, language, configuration, setSnackbarMessage} = props;
   const {disableTurnstile, siteKey} = configuration;
 
@@ -85,7 +85,7 @@ function PublisherRegistrationForm (props) {
 
   // Attempt on loading Turnstile script after information has been viewed and user has decided to progress to form
   useEffect(() => {
-    if(!information && typeof window.turnstile === 'undefined') {
+    if (!information && typeof window.turnstile === 'undefined') {
       const url = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
 
       const scriptElement = document.createElement('script');
@@ -136,12 +136,12 @@ function PublisherRegistrationForm (props) {
     // the loading that happens inside the turnstile callback
     let loading = true;
 
-    if(disableTurnstile) {
+    if (disableTurnstile) {
       return makeApiCall();
     }
 
     // Reset turnstile ID if the challenge has already been presented
-    if(turnstileId) {
+    if (turnstileId) {
       window.turnstile.reset(turnstileId);
     }
 
@@ -159,7 +159,7 @@ function PublisherRegistrationForm (props) {
 
     // Uses loading state from outer scope
     async function loadingHasEnded(resolve) {
-      if(!loading) {
+      if (!loading) {
         return resolve(true);
       }
 
@@ -177,12 +177,12 @@ function PublisherRegistrationForm (props) {
 
   // Formats form values if necessary before displaying preview page
   const formatFormValues = (values, changeValue, updateValues) => {
-    if(!updateValues) {
+    if (!updateValues) {
       return;
     }
 
     // If http/https prefix is not included to the form input, add http-prefix to www value
-    if(values.www && !values.www.match(/^http(s)?:\/\/.+$/)) {
+    if (values.www && !values.www.match(/^http(s)?:\/\/.+$/)) {
       changeValue('www', `https://${values.www}`);
     }
   };
@@ -190,10 +190,10 @@ function PublisherRegistrationForm (props) {
   return information ? (
     <div>
       <h2>
-        <FormattedMessage id="menu.forms.publisherRegistration"/>
+        <FormattedMessage id="menu.forms.publisherRegistration" />
       </h2>
       <RenderTurnstileNotification />
-      <RenderInformation setInformation={setInformation} language={language}/>
+      <RenderInformation setInformation={setInformation} language={language} />
     </div>
   ) : (
     <Form
@@ -212,7 +212,7 @@ function PublisherRegistrationForm (props) {
           >
             <div className='topSticky'>
               <Typography variant="h2" className='normalTitle'>
-                <FormattedMessage id="form.publisherRegistration.title"/>
+                <FormattedMessage id="form.publisherRegistration.title" />
               </Typography>
               {/* Normal Stepper is visible when screen > 500px */}
               <Stepper
@@ -223,7 +223,7 @@ function PublisherRegistrationForm (props) {
                 {contentOrder.map(label => (
                   <Step key={label}>
                     <StepLabel className='stepLabelContainerPublisher'>
-                      <FormattedMessage id={`form.publisherRegistration.stepper.label.${label}`}/>
+                      <FormattedMessage id={`form.publisherRegistration.stepper.label.${label}`} />
                     </StepLabel>
                   </Step>
                 ))}
@@ -239,8 +239,8 @@ function PublisherRegistrationForm (props) {
                   isPreviewPage
                     ? (
                       <Button type="submit" disabled={!valid || submitting} size="small">
-                        <FormattedMessage id="form.button.label.submit"/>
-                        <KeyboardArrowRight/>
+                        <FormattedMessage id="form.button.label.submit" />
+                        <KeyboardArrowRight />
                       </Button>
                     ) : (
                       <Button
@@ -250,14 +250,14 @@ function PublisherRegistrationForm (props) {
                         size="small"
                         onClick={handleNext}
                       >
-                        <FormattedMessage id="form.button.label.next"/>
-                        <KeyboardArrowRight/>
+                        <FormattedMessage id="form.button.label.next" />
+                        <KeyboardArrowRight />
                       </Button>)
                 }
                 backButton={
                   <Button size="small" onClick={handleBack} disabled={submitting}>
-                    <KeyboardArrowLeft/>
-                    <FormattedMessage id="form.button.label.back"/>
+                    <KeyboardArrowLeft />
+                    <FormattedMessage id="form.button.label.back" />
                   </Button>
                 }
               />
@@ -265,8 +265,8 @@ function PublisherRegistrationForm (props) {
             {/* Display an info message regarding required fields marked with an asterisk */}
             {activeStep !== contentOrder.length - 1 && (
               <span className='requiredFieldInfo'>
-                <InfoOutlined/>
-                <FormattedMessage id="common.requiredField"/>
+                <InfoOutlined />
+                <FormattedMessage id="common.requiredField" />
               </span>
             )}
             <div className={activeStep === 3 ? '' : 'subContainer'}>
@@ -285,26 +285,27 @@ function PublisherRegistrationForm (props) {
                 {(activeContent?.renderType === 'element' && activeContent?.fields.some(field => field.name === 'affiliateOf'))
                   && (
                     <div className='organizationDetailsContainer'>
-                      <InfoCard infoText="form.publisherRegistration.card.affiliates" cardStyle='orgDetailsInfoCard'/>
-                      <InfoCard infoText="form.publisherRegistration.card.distributors" cardStyle='orgDetailsInfoCard'/>
+                      <InfoCard infoText="form.publisherRegistration.card.affiliates" cardStyle='orgDetailsInfoCard' />
+                      <InfoCard infoText="form.publisherRegistration.card.distributors" cardStyle='orgDetailsInfoCard' />
                     </div>
                   )}
                 {/* Render the preview of a form with the data passed by user */}
-                {isPreviewPage && <Preview values={values}/>}
+                {isPreviewPage && <Preview values={values} />}
               </Grid>
 
               {/* Required for turnstile */}
               <div id={'turnstileWidget'} style={{textAlign: 'center'}}>
                 {/* Display loading when loading */}
-                {submitting && <CircularProgress/>}
+                {submitting && <CircularProgress />}
               </div>
 
               <div className={isPreviewPage ? 'formSubmitButtonsContainer' : 'formButtonsContainer'}>
-                <Button disableRipple onClick={handleBack} disabled={submitting}>
-                  <FormattedMessage id="form.button.label.back"/>
+                <Button data-test='publisher-form-back-button' disableRipple onClick={handleBack} disabled={submitting}>
+                  <FormattedMessage id="form.button.label.back" />
                 </Button>
                 {isPreviewPage ? null : (
                   <Button
+                    data-test='publisher-form-next-button'
                     disableRipple
                     type="button"
                     variant="contained"
@@ -314,24 +315,26 @@ function PublisherRegistrationForm (props) {
                     disabled={(Object.keys(errors).some(error => activeContent.fields.map(field => field.name).includes(error)))}
                     onClick={handleNext}
                   >
-                    <FormattedMessage id="form.button.label.next"/>
+                    <FormattedMessage id="form.button.label.next" />
                   </Button>
                 )}
                 {isPreviewPage && (
                   <Button
+                    data-test='publisher-form-submit-button'
                     disableRipple
                     type="submit"
                     disabled={!valid || submitting}
                     variant="contained"
                     color="primary"
                   >
-                    <FormattedMessage id="form.button.label.submit"/>
+                    <FormattedMessage id="form.button.label.submit" />
                   </Button>
                 )}
               </div>
             </div>
           </form>
-        );}
+        );
+      }
       }
     </Form>
   );

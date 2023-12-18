@@ -34,7 +34,7 @@ import {Newspaper, OpenInNew} from '@mui/icons-material';
 
 import '/src/frontend/css/mainPage/instructions/issn.css';
 
-function IssnInfoBox ({language}) {
+function IssnInfoBox({language}) {
   // Get correct links for each language
   const getIssnLink = (language) => {
     if (language === 'fi') {
@@ -66,13 +66,14 @@ function IssnInfoBox ({language}) {
                 rel="noreferrer"
               >
                 ISSN Portal
-                <OpenInNew fontSize="small"/>
+                <OpenInNew fontSize="small" />
               </Link>
             )
           }}
         />
       </Typography>
       <Button
+        data-test='homepage-link-external-issn'
         disableRipple
         color="primary"
         href={getIssnLink(language)}

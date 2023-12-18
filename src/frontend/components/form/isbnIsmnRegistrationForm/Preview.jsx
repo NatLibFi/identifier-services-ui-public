@@ -36,12 +36,12 @@ import ListComponent from '/src/frontend/components/ListComponent.jsx';
 import AuthorCard from '/src/frontend/components/subComponents/AuthorCard.jsx';
 import {PUBLICATION_TYPES, PUBLISHING_ACTIVITIES_TYPE} from '../constants';
 
-function Preview ({values, intl}) {
+function Preview({values, intl}) {
   const isDissertation = values.publicationType === PUBLICATION_TYPES.DISSERTATION;
 
   return (
     <>
-      <div className="mainContainer">
+      <div data-test='isbn-form-preview' className="mainContainer">
         {/* Kustantajan tiedot - Publisher details*/}
         <div className="listComponentContainer">
           <Typography variant="h3" className="listComponentContainerHeader">
@@ -56,11 +56,13 @@ function Preview ({values, intl}) {
           {!isDissertation && (
             <>
               <ListComponent
+                fieldName="officialName"
                 label={<FormattedMessage id="form.common.name" />}
                 value={values.officialName}
               />
               {values.publisherIdentifierStr ? (
                 <ListComponent
+                  fieldName="publisherIdentifierStr"
                   label={<FormattedMessage id="form.common.publisherIdentifier" />}
                   value={values.publisherIdentifierStr}
                 />
@@ -68,32 +70,39 @@ function Preview ({values, intl}) {
             </>
           )}
           <ListComponent
+            fieldName="address"
             label={<FormattedMessage id="form.common.address" />}
             value={values.address}
           />
           <ListComponent
+            fieldName="zip"
             label={<FormattedMessage id="form.common.zip" />}
             value={values.zip}
           />
           <ListComponent
+            fieldName="city"
             label={<FormattedMessage id="form.common.city" />}
             value={values.city}
           />
           {isDissertation && (
             <ListComponent
+              fieldName="universityName"
               label={<FormattedMessage id="form.isbnIsmn.preview.universityName" />}
               value={<FormattedMessage id="form.isbnIsmn.preview.helsinki" />}
             />
           )}
           <ListComponent
+            fieldName="contactPerson"
             label={<FormattedMessage id="form.common.contactPerson" />}
             value={values.contactPerson}
           />
           <ListComponent
+            fieldName="phone"
             label={<FormattedMessage id="form.common.phone" />}
             value={values.phone}
           />
           <ListComponent
+            fieldName="email"
             label={<FormattedMessage id="form.common.email" />}
             value={values.email}
           />
@@ -105,24 +114,29 @@ function Preview ({values, intl}) {
             <FormattedMessage id="form.isbnIsmn.preview.publicationInfo" />
           </Typography>
           <ListComponent
+            fieldName="title"
             label={<FormattedMessage id="form.common.title" />}
             value={values.title}
           />
           {values.subtitle ? (
             <ListComponent
+              fieldName="subtitle"
               label={<FormattedMessage id="form.common.subtitle" />}
               value={values.subtitle}
             />
           ) : null}
           <ListComponent
+            fieldName="month"
             label={<FormattedMessage id="form.common.publicationMonth" />}
             value={intl.formatMessage({id: `common.month.${values.publicationMonth}`})}
           />
           <ListComponent
+            fieldName="year"
             label={<FormattedMessage id="form.common.publicationYear" />}
             value={values.publicationYear}
           />
           <ListComponent
+            fieldName="language"
             label={<FormattedMessage id="form.common.language" />}
             value={intl.formatMessage({id: `common.${values.language.toLowerCase()}`})}
           />
@@ -135,10 +149,12 @@ function Preview ({values, intl}) {
               <FormattedMessage id="form.common.publishingActivities" />
             </Typography>
             <ListComponent
+              fieldName="publishedBefore"
               label={<FormattedMessage id="form.isbnIsmn.preview.previouslyPublished" />}
               value={intl.formatMessage({id: `common.${values.publishedBefore}`})}
             />
             <ListComponent
+              fieldName="publishingActivity"
               label={<FormattedMessage id="form.common.publishingActivities" />}
               value={
                 values.publishingActivity === PUBLISHING_ACTIVITIES_TYPE.OCCASIONAL ? (
@@ -149,6 +165,7 @@ function Preview ({values, intl}) {
               }
             />
             <ListComponent
+              fieldName="publishingActivityAmount"
               label={<FormattedMessage id="form.isbnIsmn.preview.thisYear" />}
               value={values.publishingActivityAmount}
             />
@@ -161,6 +178,7 @@ function Preview ({values, intl}) {
             <FormattedMessage id="form.isbnIsmn.preview.formatDetails" />
           </Typography>
           <ListComponent
+            fieldName="publicationFormat"
             label={<FormattedMessage id="form.isbnIsmn.preview.format" />}
             value={intl.formatMessage({
               id: `form.isbnIsmn.format.option.${values.publicationFormat?.toLowerCase()}`
@@ -176,30 +194,35 @@ function Preview ({values, intl}) {
           )}
           {values.typeOther && (
             <ListComponent
+              fieldName="typeOther"
               label={<FormattedMessage id="form.isbnIsmn.preview.printFormatOther" />}
               value={values.typeOther}
             />
           )}
           {values.printingHouse && (
             <ListComponent
+              fieldName="printingHouse"
               label={<FormattedMessage id="form.isbnIsmn.preview.manufacturer" />}
               value={values.printingHouse}
             />
           )}
           {values.printingHouseCity && (
             <ListComponent
+              fieldName="printingHouseCity"
               label={<FormattedMessage id="form.isbnIsmn.preview.city" />}
               value={values.printingHouseCity}
             />
           )}
           {values.edition && (
             <ListComponent
+              fieldName="edition"
               label={<FormattedMessage id="form.isbnIsmn.preview.edition" />}
               value={`${values.edition}.`}
             />
           )}
           {values.copies && (
             <ListComponent
+              fieldName="copies"
               label={<FormattedMessage id="form.isbnIsmn.preview.run" />}
               value={values.copies}
             />
@@ -214,6 +237,7 @@ function Preview ({values, intl}) {
           )}
           {values.fileformatOther && (
             <ListComponent
+              fieldName="fileformatOther"
               label={<FormattedMessage id="form.isbnIsmn.preview.fileformatOther" />}
               value={values.fileformatOther}
             />
@@ -231,7 +255,7 @@ function Preview ({values, intl}) {
         )}
 
         {/* Tekijät - Authors*/}
-        <div className="listComponentContainer listComponentAuthors" data-isDissertation={isDissertation}>
+        <div className="listComponentContainer listComponentAuthors" data-dissertation={isDissertation}>
           <Typography variant="h3" className="listComponentContainerHeader">
             <FormattedMessage id="form.isbnIsmn.preview.authors" />
           </Typography>
@@ -245,17 +269,20 @@ function Preview ({values, intl}) {
               <FormattedMessage id="form.isbnIsmn.preview.seriesDetails" />
             </Typography>
             <ListComponent
+              fieldName="series"
               label={<FormattedMessage id="form.common.title" />}
               value={values.series}
             />
             {values.issn && (
               <ListComponent
+                fieldName="issn"
                 label={<FormattedMessage id="form.common.identifier" />}
                 value={values.issn}
               />
             )}
             {values.volume && (
               <ListComponent
+                fieldName="volume"
                 label={<FormattedMessage id="form.common.volume" />}
                 value={values.volume}
               />
@@ -269,6 +296,7 @@ function Preview ({values, intl}) {
             <FormattedMessage id="form.isbnIsmn.preview.publicationDetails" />
           </Typography>
           <ListComponent
+            fieldName="publicationsPublic"
             label={<FormattedMessage id="form.isbnIsmn.preview.isPublic" />}
             value={
               values.publicationsPublic ? (
@@ -279,6 +307,7 @@ function Preview ({values, intl}) {
             }
           />
           <ListComponent
+            fieldName="publicationType"
             label={<FormattedMessage id="form.common.type" />}
             value={intl.formatMessage({
               id: `form.isbnIsmn.availability.type.option.${values.publicationType?.toLowerCase()}`
@@ -286,6 +315,7 @@ function Preview ({values, intl}) {
           />
           {values.publicationType === PUBLICATION_TYPES.MAP && values.mapScale && (
             <ListComponent
+              fieldName="mapScale"
               label={<FormattedMessage id="form.isbnIsmn.publicationInfo.scale" />}
               value={values.mapScale}
             />

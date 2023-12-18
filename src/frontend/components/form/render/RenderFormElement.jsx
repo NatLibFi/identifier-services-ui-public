@@ -41,16 +41,19 @@ import RenderMultiSelect from './RenderMultiSelect.jsx';
 
 import '/src/frontend/css/forms/common.css';
 
-function RenderFormElement (props) {
+function RenderFormElement(props) {
   const {array, fieldName, publicationIsbnValues, intl} = props;
 
   return array.map((formField) => {
+    // Used in Cypress tests, by default use name of field
+    const dataTestName = formField.name || '';
+
     // Options that should not be translated (month and year translations comes straight from the moment library)
     const nonTranslatableOptions = ['publicationYear', 'publicationMonth'];
     // Translation of options for select and multiselect
     const translatedOptions =
       (formField.type === 'select' || formField.type === 'multiSelect') &&
-      !nonTranslatableOptions.includes(formField.name)
+        !nonTranslatableOptions.includes(formField.name)
         ? translateOptions(formField.options, intl)
         : formField.options;
 
@@ -62,6 +65,7 @@ function RenderFormElement (props) {
               <Typography className="selectTitle">{formField.title}</Typography>
             )}
             <Field
+              data-test={dataTestName}
               className="selectField"
               component={RenderSelect}
               label={intl.formatMessage({id: formField.label})}
@@ -90,7 +94,7 @@ function RenderFormElement (props) {
             item
             xs={formField.width === 'half' ? 6 : 12}
           >
-            <Grid item xs={12}>
+            <Grid data-test={dataTestName} item xs={12}>
               <Field
                 className="selectField"
                 component={RenderMultiSelect}
@@ -117,6 +121,7 @@ function RenderFormElement (props) {
         return (
           <Grid key={formField.name} item xs={formField.width === 'full' ? 12 : 6}>
             <Field
+              data-test={dataTestName}
               className="textField"
               component={RenderTextField}
               label={formField.label}
@@ -131,6 +136,7 @@ function RenderFormElement (props) {
         return (
           <Grid key={formField.name} item xs={formField.width === 'full' ? 12 : 6}>
             <Field
+              data-test={dataTestName}
               className="textField"
               component={RenderTextField}
               label={formField.label}
@@ -167,6 +173,7 @@ function RenderFormElement (props) {
         return (
           <Grid key={formField.name} item xs={formField.width === 'full' ? 12 : 6}>
             <Field
+              data-test={dataTestName}
               className="textArea full"
               component={RenderTextArea}
               name={fieldName ? fieldName : formField.name}

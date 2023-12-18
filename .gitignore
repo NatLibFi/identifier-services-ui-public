@@ -135,3 +135,8 @@ dist
 
 # Dev
 dev-certs
+
+# cypress
+/cypress/screenshots
+/cypress/videos
+/cypress/downloads

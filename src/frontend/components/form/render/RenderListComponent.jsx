@@ -36,7 +36,7 @@ import RenderClassification from './RenderClassification.jsx';
 import {classificationCodes} from '../constants.js';
 
 /* Renders component based on value type and fieldName */
-function RenderListComponent ({value, fieldName, label}) {
+function RenderListComponent({value, fieldName, label}) {
   /* Rendering Array type of values is handled separately at current stage */
   if (Array.isArray(value)) {
     return <RenderArray value={value} fieldName={fieldName} label={label} />;
@@ -63,7 +63,7 @@ function RenderListComponent ({value, fieldName, label}) {
           <span className="label">{label}:</span>
         </Grid>
       )}
-      <Grid item xs={6}>
+      <Grid data-test={`list-component-${fieldName}`} item xs={6}>
         {getValue()}
       </Grid>
     </>

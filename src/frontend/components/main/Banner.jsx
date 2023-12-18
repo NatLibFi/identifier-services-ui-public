@@ -36,7 +36,7 @@ function MainPageBanner() {
   return (
     <div className="bannerContainer">
       <Container className="textContainer">
-        <Typography variant="h1">
+        <Typography data-test="main-page-title" variant="h1">
           <FormattedMessage id="homePage.title" />
         </Typography>
         <div>

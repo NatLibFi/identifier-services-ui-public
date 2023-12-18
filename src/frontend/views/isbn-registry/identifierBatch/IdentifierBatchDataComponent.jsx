@@ -44,18 +44,18 @@ import DownloadIcon from '@mui/icons-material/Download';
 import ListComponent from '/src/frontend/components/ListComponent.jsx';
 import IsbnIsmnPublisherModal from '/src/frontend/views/isbn-registry/publishers/IsbnIsmnPublisherModal.jsx';
 
-function IdentifierBatchDataComponent ({identifierBatch, handleDownload, hasApproved, handleApprove, handleReject}) {
+function IdentifierBatchDataComponent({identifierBatch, handleDownload, hasApproved, handleApprove, handleReject}) {
   // State of the publisher details modal
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className='listComponentContainer publicBatchContainer'>
       <Typography variant="h3" className='listComponentContainerHeader'>
-        <FormattedMessage id="common.batchDetails"/>
+        <FormattedMessage id="common.batchDetails" />
       </Typography>
       <ListComponent
         fieldName="publisher"
-        label={<FormattedMessage id="common.publisher.isbn"/>}
+        label={<FormattedMessage id="common.publisher.isbn" />}
         value={identifierBatch.publisherName}
       />
 
@@ -70,19 +70,19 @@ function IdentifierBatchDataComponent ({identifierBatch, handleDownload, hasAppr
 
       <ListComponent
         fieldName="identifierType"
-        label={<FormattedMessage id="ranges.identifierType"/>}
+        label={<FormattedMessage id="ranges.identifierType" />}
         value={identifierBatch.identifierType ?? ''}
       />
 
       <div className='publicBatchButtons'>
-        <Button variant="outlined" onClick={() => setIsModalOpen(true)}>
-          <FormattedMessage id="common.publisherDetails.isbn"/>
+        <Button data-test='identifierbatch-view-publisher-button' variant="outlined" onClick={() => setIsModalOpen(true)}>
+          <FormattedMessage id="common.publisherDetails.isbn" />
         </Button>
       </div>
 
       <div className='publicBatchButtons'>
-        <Button variant="outlined" onClick={handleDownload} startIcon={<DownloadIcon />}>
-          <FormattedMessage id="form.button.label.downloadAsTextfile"/>
+        <Button data-test='identifierbatch-view-download-batch-button' variant="outlined" onClick={handleDownload} startIcon={<DownloadIcon />}>
+          <FormattedMessage id="form.button.label.downloadAsTextfile" />
         </Button>
       </div>
 
@@ -92,37 +92,38 @@ function IdentifierBatchDataComponent ({identifierBatch, handleDownload, hasAppr
           onClose={handleReject}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
+          data-test='identifierbatch-confirmation'
         >
-          <DialogTitle id="alert-dialog-title">
-            <FormattedMessage id="modal.publicBatch.confirmation"/>
+          <DialogTitle id="alert-dialog-title" data-test='identifierbatch-confirmation-title'>
+            <FormattedMessage id="modal.publicBatch.confirmation" />
           </DialogTitle>
           <DialogContent className="dialogContent">
-            <DialogContentText id="alert-dialog-description">
-              <FormattedMessage id="modal.publicBatch.confirmation.text.part1"/>
+            <DialogContentText data-test='identifierbatch-confirmation-text-fin' id="alert-dialog-description">
+              <FormattedMessage id="modal.publicBatch.confirmation.text.part1" />
               <strong>{identifierBatch.publisherName}</strong>
-              <FormattedMessage id="modal.publicBatch.confirmation.text.part2"/>
+              <FormattedMessage id="modal.publicBatch.confirmation.text.part2" />
               <strong>{identifierBatch.publisherIdentifier}</strong>
             </DialogContentText>
 
-            <DialogContentText id="alert-dialog-description">
-              <FormattedMessage id="modal.publicBatch.confirmation.text.part3"/>
+            <DialogContentText data-test='identifierbatch-confirmation-text-swe' id="alert-dialog-description">
+              <FormattedMessage id="modal.publicBatch.confirmation.text.part3" />
               <strong>{identifierBatch.publisherName}</strong>
-              <FormattedMessage id="modal.publicBatch.confirmation.text.part4"/>
+              <FormattedMessage id="modal.publicBatch.confirmation.text.part4" />
               <strong>{identifierBatch.publisherIdentifier}</strong>
             </DialogContentText>
 
-            <DialogContentText id="alert-dialog-description">
-              <FormattedMessage id="modal.publicBatch.confirmation.text.part5"/>
+            <DialogContentText data-test='identifierbatch-confirmation-text-eng' id="alert-dialog-description">
+              <FormattedMessage id="modal.publicBatch.confirmation.text.part5" />
               <strong>{identifierBatch.publisherName}</strong>
-              <FormattedMessage id="modal.publicBatch.confirmation.text.part6" values={{id: identifierBatch.publisherIdentifier}}/>
+              <FormattedMessage id="modal.publicBatch.confirmation.text.part6" values={{id: identifierBatch.publisherIdentifier}} />
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleReject}>
-              <FormattedMessage id="common.false.allLangs"/>
+            <Button data-test='identifierbatch-confirmation-no' onClick={handleReject}>
+              <FormattedMessage id="common.false.allLangs" />
             </Button>
-            <Button onClick={handleApprove} autoFocus>
-              <FormattedMessage id="common.true.allLangs"/>
+            <Button data-test='identifierbatch-confirmation-yes' onClick={handleApprove} autoFocus>
+              <FormattedMessage id="common.true.allLangs" />
             </Button>
           </DialogActions>
         </Dialog>
