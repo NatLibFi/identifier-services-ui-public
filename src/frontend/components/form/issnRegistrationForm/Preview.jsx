@@ -38,24 +38,24 @@ function Preview ({values}) {
   const {form, publications} = values;
 
   return (
-    <div className="mainContainer">
+    <div data-test='issn-form-preview' className="mainContainer">
       {/* Publisher */}
-      <div className="listComponentContainer">
+      <div data-test='issn-form-preview-publisher' className="listComponentContainer">
         <Typography variant="h3" className="listComponentContainerHeader">
           <FormattedMessage id="form.issn.preview.publisherInfo" />
         </Typography>
         <ListComponent
-          fieldName="official_name"
+          fieldName="officialName"
           label={<FormattedMessage id="form.issn.preview.name" />}
           value={form.publisher ?? ''}
         />
         <ListComponent
-          fieldName="contact_person"
+          fieldName="contactPerson"
           label={<FormattedMessage id="form.common.contactPerson" />}
           value={form.contactPerson ?? ''}
         />
         <ListComponent
-          fieldName="email_common"
+          fieldName="email"
           label={<FormattedMessage id="form.common.email" />}
           value={form.email ?? ''}
         />
@@ -81,7 +81,7 @@ function Preview ({values}) {
         />
       </div>
       {/* Publications data */}
-      <div className="listComponentContainer">
+      <div data-test='issn-form-preview-publications' className="listComponentContainer">
         <Typography variant="h3" className="listComponentContainerHeader">
           <FormattedMessage id="common.publications" />
         </Typography>
