@@ -68,7 +68,7 @@ jobs:
 
   openshift-webhook:
     name: OpenShift webhook for image builder
-    needs: [build-node-versions, njsscan]
+    needs: [build-node-versions, njsscan, cypress-run, license-scan]
     runs-on: ubuntu-latest
 
     steps:
