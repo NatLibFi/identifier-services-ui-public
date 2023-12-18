@@ -52,20 +52,21 @@ function DesktopMenu({getLink}) {
   const handleCloseDesktopMenu = () => setAnchorElDesktop(null);
 
   return (
-    <nav className="desktopMenu">
-      <Link exact to="/">
+    <nav data-test='nav-root' className="desktopMenu">
+      <Link data-test='nav-link-home' exact to="/">
         <div className="menuIcon">
           <HomeIcon fontSize="default" color="primary" />
           <FormattedMessage id="menu.home" />
         </div>
       </Link>
-      <Link exact to="/isbn-registry/publishers">
+      <Link data-test='nav-link-publisher-registry' exact to="/isbn-registry/publishers">
         <Typography className="menuItem">
           <FormattedMessage id="menu.publisherRegistry" />
         </Typography>
       </Link>
       <div>
         <Button
+          data-test='nav-link-forms-button'
           disableRipple
           aria-controls={desktopMenuIsOpen ? 'basic-menu' : undefined}
           aria-haspopup="true"
@@ -82,6 +83,7 @@ function DesktopMenu({getLink}) {
           onClose={handleCloseDesktopMenu}
         >
           <MenuItem
+            data-test='nav-link-forms-publisher'
             component={Link}
             to="/forms/isbn-ismn-publisher"
             onClick={handleCloseDesktopMenu}
@@ -91,6 +93,7 @@ function DesktopMenu({getLink}) {
             </Typography>
           </MenuItem>
           <MenuItem
+            data-test='nav-link-forms-isbnismn'
             component={Link}
             to="/forms/isbn-ismn-publication"
             onClick={handleCloseDesktopMenu}
@@ -100,6 +103,7 @@ function DesktopMenu({getLink}) {
             </Typography>
           </MenuItem>
           <MenuItem
+            data-test='nav-link-forms-issn'
             component={Link}
             to="/forms/issn-publication"
             onClick={handleCloseDesktopMenu}
@@ -110,7 +114,7 @@ function DesktopMenu({getLink}) {
           </MenuItem>
         </Menu>
       </div>
-      <MUILink href={getLink()} target="_blank" rel="noreferrer">
+      <MUILink data-test='nav-link-change-contactinfo' href={getLink()} target="_blank" rel="noreferrer">
         <Typography className="menuItem menuItemWithIcon">
           <FormattedMessage id="menu.forms.contactInformationChange" />
           <OpenInNewIcon fontSize="small" />

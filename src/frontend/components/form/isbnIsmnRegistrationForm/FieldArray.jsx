@@ -66,6 +66,7 @@ function FieldArrayElement (props) {
           <div className='isbnAuthorsFields'>
             {content.map((field) => (
               <Field
+                data-test={field.name}
                 key={field.name}
                 {...field}
                 // Options are transmitted as translated versions
@@ -74,6 +75,7 @@ function FieldArrayElement (props) {
             ))}
           </div>
           <Button
+            data-test='isbn-form-add-author-button'
             disableRipple
             className='addIsbnAuthorButton'
             aria-label="Add"

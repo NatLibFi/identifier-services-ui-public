@@ -43,7 +43,7 @@ import {
 
 import '/src/frontend/css/tableComponent.css';
 
-function TableComponent (props) {
+function TableComponent(props) {
   const {
     data,
     totalDoc,
@@ -54,7 +54,8 @@ function TableComponent (props) {
     rowsPerPage,
     setRowsPerPage,
     unprioritizedRows = [],
-    unprioritizedMobileRows = []
+    unprioritizedMobileRows = [],
+    dataTestName
   } = props;
 
   const intl = useIntl();
@@ -101,13 +102,13 @@ function TableComponent (props) {
   return (
     <Paper className='tableWrapper'>
       <TableContainer>
-        <Table>
+        <Table data-test={dataTestName}>
           {/* Render table headers */}
           <TableHead>
             <TableRow>
               {headRows.map(row => (
                 <TableCell key={row.id} className={hideColumn(row.id)}>
-                  <strong><FormattedMessage id={row.intlId}/></strong>
+                  <strong><FormattedMessage id={row.intlId} /></strong>
                 </TableCell>
               ))}
             </TableRow>
@@ -115,9 +116,10 @@ function TableComponent (props) {
           {/* Render table body content */}
           <TableBody>
             {data
-              .map((row) => {
+              .map((row, idx) => {
                 return (
                   <TableRow
+                    data-test={`${dataTestName}-${idx + 1}`}
                     hover
                     tabIndex={0}
                     key={uuidv4()}
@@ -132,7 +134,7 @@ function TableComponent (props) {
                     {headRows.reduce((acc, h) => {
                       Object.keys(row).forEach(key => h.id === key && acc.push(
                         <TableCell key={uuidv4()} className={hideColumn(key)}>
-                          <div className={h.id === 'type' ? 'tableRowInnerContainer' : ''}>
+                          <div data-test={`${dataTestName}-${idx + 1}-${key}`} className={h.id === 'type' ? 'tableRowInnerContainer' : ''}>
                             {getTableCellContent(h.id, row, key)}
                           </div>
                         </TableCell>)
@@ -147,27 +149,27 @@ function TableComponent (props) {
       </TableContainer>
       { // Display pagination if setPage is defined
         setPage &&
-          (
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 25, 50]}
-              component="div"
-              count={totalDoc || 0}
-              rowsPerPage={rowsPerPage || 0}
-              page={page}
-              labelRowsPerPage={<FormattedMessage id="table.rowsPerPage"/>}
-              labelDisplayedRows={({from, count}) =>
-                rowsPerPage < count
-                  ? `${intl.formatMessage({id: 'table.forms'})} - ${from}-${rowsPerPage * (page + 1)} / ${intl.formatMessage({id: 'table.total'})} - ${count}`
-                  : `${intl.formatMessage({id: 'table.formsOnOnePage'})} - ${count}`}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              // Adding aria-label to the inner select element (Rows per page)
-              SelectProps={{
-                inputProps: {'aria-label': intl.formatMessage({id: 'table.rowsPerPage'})},
-                native: true
-              }}
-            />
-          )
+        (
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 25, 50]}
+            component="div"
+            count={totalDoc || 0}
+            rowsPerPage={rowsPerPage || 0}
+            page={page}
+            labelRowsPerPage={<FormattedMessage id="table.rowsPerPage" />}
+            labelDisplayedRows={({from, count}) =>
+              rowsPerPage < count
+                ? `${intl.formatMessage({id: 'table.forms'})} - ${from}-${rowsPerPage * (page + 1)} / ${intl.formatMessage({id: 'table.total'})} - ${count}`
+                : `${intl.formatMessage({id: 'table.formsOnOnePage'})} - ${count}`}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+            // Adding aria-label to the inner select element (Rows per page)
+            SelectProps={{
+              inputProps: {'data-test': 'select-table-rows', 'aria-label': intl.formatMessage({id: 'table.rowsPerPage'})},
+              native: true
+            }}
+          />
+        )
       }
     </Paper>
   );
@@ -183,7 +185,8 @@ TableComponent.propTypes = {
   rowsPerPage: PropTypes.number,
   setRowsPerPage: PropTypes.func,
   unprioritizedRows: PropTypes.array,
-  unprioritizedMobileRows: PropTypes.array
+  unprioritizedMobileRows: PropTypes.array,
+  dataTestName: PropTypes.string
 };
 
 export default TableComponent;

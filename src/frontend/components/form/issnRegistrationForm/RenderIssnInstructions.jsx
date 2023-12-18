@@ -34,9 +34,9 @@ import InfoIcon from '@mui/icons-material/Info';
 import '/src/frontend/css/forms/issnRegistrationForm.css';
 
 // Component is used on the first step of the ISSN registration form for rendering instructions
-function RenderIssnInstructions () {
+function RenderIssnInstructions() {
   return (
-    <div className="versionGuide">
+    <div data-test='issn-version-guide' className="versionGuide">
       <Typography variant="h3">
         <FormattedMessage id="form.issn.publicationInfo.instructions.part5" />
       </Typography>
@@ -53,9 +53,9 @@ function RenderIssnInstructions () {
         <FormattedMessage id="form.issn.publicationInfo.instructions.part1" />
       </Typography>
       <Typography paragraph>
-        <FormattedMessage id="form.issn.publicationInfo.instructions.part2" values={{lineBreak: <br/>}}/>
+        <FormattedMessage id="form.issn.publicationInfo.instructions.part2" values={{lineBreak: <br />}} />
         <span className="issnElectronicVersionInfo">
-          <FormattedMessage id="form.issn.publicationInfo.instructions.part7" values={{icon: <InfoIcon/>}}/>
+          <FormattedMessage id="form.issn.publicationInfo.instructions.part7" values={{icon: <InfoIcon />}} />
         </span>
       </Typography>
     </div>

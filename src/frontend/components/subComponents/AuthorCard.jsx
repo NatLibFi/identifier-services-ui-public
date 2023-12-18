@@ -47,12 +47,12 @@ function AuthorCard ({authors, handleRemove}) {
             <Typography className='label'>
               <FormattedMessage id="form.isbnIsmn.authors.card.name"/>
             </Typography>
-            <Typography>
+            <Typography data-test={`author-${index+1}-name`}>
               {author.firstName} {author.lastName}
             </Typography>
           </div>
           <div className='authorCardBlock'>
-            <Typography className='label'>
+            <Typography data-test={`author-${index+1}-roles`} className='label'>
               <FormattedMessage id="form.isbnIsmn.authors.card.roles"/>
             </Typography>
             {author.roles.map(role => (
@@ -66,6 +66,7 @@ function AuthorCard ({authors, handleRemove}) {
         </CardContent>
         {handleRemove &&
         <Button
+          data-test='remove-author-button'
           disableRipple
           color="error"
           startIcon={<DeleteIcon/>}

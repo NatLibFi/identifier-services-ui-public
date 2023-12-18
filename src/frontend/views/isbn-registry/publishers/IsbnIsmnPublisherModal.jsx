@@ -38,7 +38,7 @@ import '/src/frontend/css/subComponents/modals.css';
 import useItem from '/src/frontend/hooks/useItem';
 import Spinner from '/src/frontend/components/Spinner.jsx';
 
-function IsbnIsmnPublisherModal ({publisherId, isModalOpen, setIsModalOpen}) {
+function IsbnIsmnPublisherModal({publisherId, isModalOpen, setIsModalOpen}) {
   const intl = useIntl();
   const undefinedString = intl.formatMessage({id: 'common.noValue'});
   const publisherIdentifiersIsbnString = `${intl.formatMessage({id: 'form.common.publisherIdentifiers'})} (ISBN)`;
@@ -55,7 +55,7 @@ function IsbnIsmnPublisherModal ({publisherId, isModalOpen, setIsModalOpen}) {
 
   // Get component based on state
   function getComponent() {
-    if(error) {
+    if (error) {
       return (
         <Typography>
           <FormattedMessage id="error.issn.archive" />
@@ -63,7 +63,7 @@ function IsbnIsmnPublisherModal ({publisherId, isModalOpen, setIsModalOpen}) {
       );
     }
 
-    if(!data || Object.keys(data).length === 0 || loading) {
+    if (!data || Object.keys(data).length === 0 || loading) {
       return <Spinner />;
     }
 
@@ -71,13 +71,13 @@ function IsbnIsmnPublisherModal ({publisherId, isModalOpen, setIsModalOpen}) {
 
     return (
       <>
-        <IconButton onClick={() => setIsModalOpen(false)} aria-label="close">
+        <IconButton data-test='publisher-modal-close-button' onClick={() => setIsModalOpen(false)} aria-label="close">
           <CloseIcon />
         </IconButton>
         <Typography variant="h2" className="normalTitle">
           <FormattedMessage id="common.publisherDetails.isbn" />
         </Typography>
-        <div className="publisherDetailsContainer">
+        <div data-test='publisher-modal-basic-information' className="publisherDetailsContainer">
           <section>
             <h3>
               <FormattedMessage id="form.common.basicInfo" />
@@ -86,49 +86,49 @@ function IsbnIsmnPublisherModal ({publisherId, isModalOpen, setIsModalOpen}) {
               <Typography>
                 <FormattedMessage id="form.common.name" />:
               </Typography>
-              <p>{formattedPublisherData.officialName ?? undefinedString}</p>
+              <p data-test='publisher-modal-officialName'>{formattedPublisherData.officialName ?? undefinedString}</p>
             </div>
             <div>
               <Typography>
                 <FormattedMessage id="form.common.otherNames" />:
               </Typography>
-              <p>{formattedPublisherData.otherNames ?? undefinedString}</p>
+              <p data-test='publisher-modal-otherNames'>{formattedPublisherData.otherNames ?? undefinedString}</p>
             </div>
             <div>
               <Typography>
                 <FormattedMessage id="form.common.previousNames" />:
               </Typography>
-              <p>{formattedPublisherData.previousNames ?? undefinedString}</p>
+              <p data-test='publisher-modal-previousNames'>{formattedPublisherData.previousNames ?? undefinedString}</p>
             </div>
             <div>
               <Typography>
                 <FormattedMessage id="form.common.address" />:
               </Typography>
-              <p>{formattedPublisherData.address ?? undefinedString}</p>
+              <p data-test='publisher-modal-address'>{formattedPublisherData.address ?? undefinedString}</p>
             </div>
             <div>
               <Typography>
                 <FormattedMessage id="form.common.zip" />:
               </Typography>
-              <p>{formattedPublisherData.zip ?? undefinedString}</p>
+              <p data-test='publisher-modal-zip'>{formattedPublisherData.zip ?? undefinedString}</p>
             </div>
             <div>
               <Typography>
                 <FormattedMessage id="form.common.city" />:
               </Typography>
-              <p>{formattedPublisherData.city ?? undefinedString}</p>
+              <p data-test='publisher-modal-city'>{formattedPublisherData.city ?? undefinedString}</p>
             </div>
             <div>
               <Typography>
                 <FormattedMessage id="form.common.phone" />:
               </Typography>
-              <p>{formattedPublisherData.phone ?? undefinedString}</p>
+              <p data-test='publisher-modal-phone'>{formattedPublisherData.phone ?? undefinedString}</p>
             </div>
             <div>
               <Typography>
                 <FormattedMessage id="form.common.website" />:
               </Typography>
-              <p>{formattedPublisherData.www && formattedPublisherData.www.length ? formattedPublisherData.www : undefinedString}</p>
+              <p data-test='publisher-modal-www'>{formattedPublisherData.www && formattedPublisherData.www.length ? formattedPublisherData.www : undefinedString}</p>
             </div>
             {/* If publisher has quitted, display status text */}
             {formattedPublisherData.hasQuitted && <div>
@@ -143,14 +143,14 @@ function IsbnIsmnPublisherModal ({publisherId, isModalOpen, setIsModalOpen}) {
             <h3>
               <FormattedMessage id="common.identifiers" />
             </h3>
-            {formattedPublisherData.isbnPublisherIdentifiers && <div>
+            {formattedPublisherData.isbnPublisherIdentifiers && <div data-test='publisher-modal-isbnIdentifiers'>
               <Typography>
                 {publisherIdentifiersIsbnString}:
               </Typography>
               <p>{formattedPublisherData.isbnPublisherIdentifiers}</p>
             </div>
             }
-            {formattedPublisherData.ismnPublisherIdentifiers && <div>
+            {formattedPublisherData.ismnPublisherIdentifiers && <div data-test='publisher-modal-ismnIdentifiers'>
               <Typography>
                 {publisherIdentifiersIsmnString}:
               </Typography>
@@ -166,7 +166,7 @@ function IsbnIsmnPublisherModal ({publisherId, isModalOpen, setIsModalOpen}) {
   return (
     <>
       <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <Box className="publisherModal">{getComponent()}</Box>
+        <Box data-test='publisher-modal' className="publisherModal">{getComponent()}</Box>
       </Modal>
     </>
   );
@@ -182,7 +182,7 @@ function formatPublisherData(publisherData) {
   };
 
   function transformOtherNames(otherNames) {
-    if(!otherNames || typeof otherNames !== 'string' || otherNames === '') {
+    if (!otherNames || typeof otherNames !== 'string' || otherNames === '') {
       return null;
     }
 
@@ -190,7 +190,7 @@ function formatPublisherData(publisherData) {
   }
 
   function transformPreviousNames(previousNames) {
-    if(!previousNames || !Array.isArray(previousNames) || previousNames.length === 0) {
+    if (!previousNames || !Array.isArray(previousNames) || previousNames.length === 0) {
       return null;
     }
 
@@ -198,11 +198,11 @@ function formatPublisherData(publisherData) {
   }
 
   function transformPublisherIdentifiers(publisherIdentifiers) {
-    if(!publisherIdentifiers || !Array.isArray(publisherIdentifiers)) {
+    if (!publisherIdentifiers || !Array.isArray(publisherIdentifiers)) {
       return null;
     }
 
-    if(publisherIdentifiers.some(({publisherIdentifier}) => !publisherIdentifier)) {
+    if (publisherIdentifiers.some(({publisherIdentifier}) => !publisherIdentifier)) {
       return null;
     }
 

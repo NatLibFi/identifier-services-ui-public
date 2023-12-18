@@ -52,9 +52,23 @@ jobs:
       with:
         args: '.'
 
+  cypress-run:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          record: false # Do not record tests to Cypress Cloud
+          config-file: cypress.config.js
+          build: npm run build
+          start: npm run start:cypress-server
+          wait-on: 'http://localhost:8080'
+
   openshift-webhook:
     name: OpenShift webhook for image builder
-    needs: [build-node-versions, njsscan]
+    needs: [build-node-versions, njsscan, cypress-run, license-scan]
     runs-on: ubuntu-latest
 
     steps:

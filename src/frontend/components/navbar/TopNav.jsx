@@ -37,7 +37,7 @@ import CheckIcon from '@mui/icons-material/Check';
 
 import '/src/frontend/css/navigationBar/topNav.css';
 
-function TopNav (props) {
+function TopNav(props) {
   const {currentLanguage, availableLanguages, handleLanguageChange, environment} = props;
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -80,18 +80,19 @@ function TopNav (props) {
           {/* Show "Tunnistepalvelut" H1 title on all pages except the home page */}
           {pathname !== '/' &&
             <Typography variant="h1" className='topNavTitle'>
-              <FormattedMessage id="homePage.title"/>
+              <FormattedMessage id="homePage.title" />
             </Typography>
           }
         </div>
         {/* Language select menu */}
         <div className='languageContainer'>
-          <button className='languageSelect' onClick={handleClick}>
-            <LanguageIcon/>
+          <button data-test='language-select-button' className='languageSelect' onClick={handleClick}>
+            <LanguageIcon />
             <span>{currentLanguage.toUpperCase()}</span>
-            <ArrowDropDown/>
+            <ArrowDropDown />
           </button>
           <Menu
+            data-test='language-select-list'
             anchorEl={anchorEl}
             open={Boolean(anchorEl)}
             anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
@@ -104,7 +105,7 @@ function TopNav (props) {
                 onClick={() => changeLang(language)}
               >
                 {language.toUpperCase()}
-                {currentLanguage === language ? <CheckIcon/> : null}
+                {currentLanguage === language ? <CheckIcon /> : null}
               </MenuItem>
             ))}
           </Menu>

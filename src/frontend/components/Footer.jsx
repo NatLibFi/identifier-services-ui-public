@@ -44,16 +44,17 @@ function Footer({customerServiceContact}) {
   const {phone, email} = customerServiceContact;
 
   return (
-    <footer>
+    <footer data-test='footer'>
       <Grid item xs={12} className="footerContainer">
         <Box component="span">
           <img
+            data-test='footer-logo'
             src="https://extra.kansalliskirjasto.fi/kk_logo.svg"
             alt={intl.formatMessage({id: 'altText.logo.library'})}
             width={125}
           />
         </Box>
-        <Box component="span">
+        <Box data-test='footer-contact-information' component="span">
           <span className="footerBoldText">
             <FormattedMessage id="footer.library" /> <br />
           </span>
@@ -74,6 +75,7 @@ function Footer({customerServiceContact}) {
           </span>
           <span className="socialContainer">
             <IconButton
+              data-test='footer-socials-facebook'
               href="https://facebook.com/Kansalliskirjasto"
               target="_blank"
               rel="noreferrer"
@@ -82,6 +84,7 @@ function Footer({customerServiceContact}) {
               <FacebookIcon />
             </IconButton>
             <IconButton
+              data-test='footer-socials-twitter'
               href="https://twitter.com/NatLibFi"
               target="_blank"
               rel="noreferrer"
@@ -90,6 +93,7 @@ function Footer({customerServiceContact}) {
               <TwitterIcon />
             </IconButton>
             <IconButton
+              data-test='footer-socials-youtube'
               href="https://www.youtube.com/channel/UCMCKdIT517O4D8o9-lesbvQ"
               target="_blank"
               rel="noreferrer"
@@ -98,6 +102,7 @@ function Footer({customerServiceContact}) {
               <YouTubeIcon />
             </IconButton>
             <IconButton
+              data-test='footer-socials-instagram'
               href="https://instagram.com/kansalliskirjasto/"
               target="_blank"
               rel="noreferrer"
@@ -106,6 +111,7 @@ function Footer({customerServiceContact}) {
               <InstagramIcon />
             </IconButton>
             <IconButton
+              data-test='footer-socials-linkedin'
               href="https://fi.linkedin.com/company/nationallibraryfinland"
               target="_blank"
               rel="noreferrer"
@@ -114,16 +120,18 @@ function Footer({customerServiceContact}) {
               <LinkedInIcon />
             </IconButton>
           </span>
-          <FormattedMessage id="footer.copyright" />
+          <FormattedMessage data-test='footer-copyright' id="footer.copyright" />
         </Box>
       </Grid>
       <p>
         <Link
+          data-test='footer-accessibility'
           href="/accessibility-statement"
         >
           <FormattedMessage id="footer.accessibilityStatement" />
         </Link>
         <Link
+          data-test='footer-privacy'
           className="privacyPolicyLink"
           href="https://www.kansalliskirjasto.fi/fi/tietosuoja"
           target="_blank"
