@@ -125,6 +125,7 @@ function IsbnIsmnPublisherSearch() {
 
     return (
       <TableComponent
+        dataTestName={'publisher-registry-search-results'}
         loading={loading}
         pagination
         data={data.results.map((v) => formatSearchResult(v))}
@@ -148,7 +149,7 @@ function IsbnIsmnPublisherSearch() {
           <FormattedMessage id="publisherRegistry.title" />
         </Typography>
       </InputLabel>
-      <SearchComponent searchFunction={updateSearchText} className="publisherRegisterSearch"/>
+      <SearchComponent dataTestName={'publisher-registry-search-form'} searchFunction={updateSearchText} className="publisherRegisterSearch" />
       <div className="publisherRegisterTable">{getComponent()}</div>
       {/* Display modal if selecting publisher from table */}
       {selectedPublisherId && (

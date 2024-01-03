@@ -35,7 +35,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import '/src/frontend/css/searchComponent.css';
 
-function SearchComponent ({searchFunction}) {
+function SearchComponent({searchFunction, dataTestName}) {
   const intl = useIntl();
 
   const [inputVal, setInputVal] = useState('');
@@ -50,9 +50,10 @@ function SearchComponent ({searchFunction}) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form data-test={dataTestName} onSubmit={handleSubmit}>
       <TextField
         id="search-input"
+        data-test={`${dataTestName}-input`}
         placeholder={intl.formatMessage({id: 'common.search.inputPlaceholder'})}
         margin="normal"
         variant="outlined"
@@ -77,7 +78,8 @@ function SearchComponent ({searchFunction}) {
 }
 
 SearchComponent.propTypes = {
-  searchFunction: PropTypes.func.isRequired
+  searchFunction: PropTypes.func.isRequired,
+  dataTestName: PropTypes.string
 };
 
 export default withRouter(SearchComponent);

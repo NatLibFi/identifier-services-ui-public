@@ -36,7 +36,7 @@ import '/src/frontend/css/forms/common.css';
 
 import {classificationCodes} from '../constants';
 
-function RenderArray ({value, fieldName, label}) {
+function RenderArray({value, fieldName, label}) {
   // Used as a helper function for rendering the label of a single Classification Code (Publisher registration form -> Preview)
   const renderClassification = (value, array) => {
     const currentValue = array.find((item) => item.value === value);
@@ -51,7 +51,7 @@ function RenderArray ({value, fieldName, label}) {
           <Grid item xs={6}>
             <span className="label">{label}:</span>
           </Grid>
-          <div>
+          <div data-test={`list-component-${fieldName}`}>
             {value.length === 0 ? (
               <FormattedMessage id="common.noValue" />
             ) : (
@@ -65,14 +65,14 @@ function RenderArray ({value, fieldName, label}) {
         </div>
       );
     case 'publisherIdentifier':
-      return value.map((item) => <Chip key={item} label={item} />);
+      return (<div data-test={`list-component-${fieldName}`} >{value.map((item) => <Chip key={item} label={item} />)}</div>);
     case 'previousNames':
       return (
         <div className="classificationCodes">
           <Grid item xs={6}>
             <span className="label">{label}:</span>
           </Grid>
-          <div>
+          <div data-test={`list-component-${fieldName}`}>
             {value.map((item) => (
               <Grid key={item} item>
                 <Chip label={item} />
@@ -88,14 +88,13 @@ function RenderArray ({value, fieldName, label}) {
           <Grid item xs={6}>
             <span className="label">{label}:</span>
           </Grid>
-          <Grid item xs={6}>
+          <Grid data-test={`list-component-${fieldName}`} item xs={6}>
             {value.map((item) => (
               <Chip
                 key={item}
                 label={
                   <FormattedMessage
-                    id={`form.printFormat.${
-                      item === 'OTHER' ? 'other_electronical' : item?.toLowerCase()
+                    id={`form.printFormat.${item === 'OTHER' ? 'other_electronical' : item?.toLowerCase()
                     }`}
                   />
                 }
@@ -110,7 +109,7 @@ function RenderArray ({value, fieldName, label}) {
           <Grid item xs={6}>
             <span className="label">{label}:</span>
           </Grid>
-          <Grid item xs={6}>
+          <Grid data-test={`list-component-${fieldName}`} item xs={6}>
             {value.map((item) => (
               <Chip
                 key={item}
@@ -126,7 +125,7 @@ function RenderArray ({value, fieldName, label}) {
           <Grid item xs={6}>
             <span className="label">{label}:</span>
           </Grid>
-          <Grid item xs={6}>
+          <Grid data-test={`list-component-${fieldName}`} item xs={6}>
             {value.map((item) => (
               <Chip
                 key={item}
@@ -144,7 +143,7 @@ function RenderArray ({value, fieldName, label}) {
           <Grid item xs={6}>
             <span className="label">{label}:</span>
           </Grid>
-          <Grid item xs={6}>
+          <Grid data-test={`list-component-${fieldName}`} item xs={6}>
             {value.map((item) => (
               <Chip
                 key={item}

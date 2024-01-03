@@ -698,7 +698,7 @@ const en = {
   'modal.publicBatch.confirmation': 'Vahvistus / Bekräftelse / Confirmation',
   'modal.publicBatch.confirmation.text.part1': 'Vahvistan edustavani kustantajaa ',
   'modal.publicBatch.confirmation.text.part2': ' ja omistavani kustantajatunnuksen ',
-  'modal.publicBatch.confirmation.text.part3': 'Jag bekräftar att jag representerar förlaget  ',
+  'modal.publicBatch.confirmation.text.part3': 'Jag bekräftar att jag representerar förlaget ',
   'modal.publicBatch.confirmation.text.part4': ' och äger förlagsbeteckningen ',
   'modal.publicBatch.confirmation.text.part5': 'I confirm I represent ',
   'modal.publicBatch.confirmation.text.part6': ' (publisher ID {id})',

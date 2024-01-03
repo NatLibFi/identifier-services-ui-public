@@ -56,6 +56,7 @@ function CustomizedSnackbar (props) {
       onClose={handleClose}
     >
       <Alert
+        data-test='notification-banner'
         aria-describedby="client-snackbar"
         severity={message.severity ?? 'warning'}
         variant="filled"
