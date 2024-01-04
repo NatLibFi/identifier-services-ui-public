@@ -2,6 +2,7 @@
 User-agent: *
 Disallow: /api/
 Disallow: /isbn-registry/identifierbatches/
+Disallow: /isbn-registry/publishers/
 
 # Sitemap file used by search engines
 Sitemap: https://tunnisteportaali.kansalliskirjasto.fi/sitemap.xml
