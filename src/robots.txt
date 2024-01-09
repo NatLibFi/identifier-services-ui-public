@@ -1,5 +1,6 @@
-# Do not allow access to the API and the identifier batches
+# Do not allow access to the API (other than config, which is FE-defined resource) and the identifier batches
 User-agent: *
+Allow: /api/config
 Disallow: /api/
 Disallow: /isbn-registry/identifierbatches/
 Disallow: /isbn-registry/publishers/
