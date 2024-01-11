@@ -35,7 +35,7 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 import '/src/frontend/css/forms/publisherRegistrationForm.css';
 
-function RenderInformation ({setInformation, language}) {
+function RenderInformation({setInformation, language}) {
   const notes = ['note0', 'note1', 'note2', 'note3', 'note4'];
 
   // Get correct info link for each language version
@@ -52,10 +52,10 @@ function RenderInformation ({setInformation, language}) {
   };
 
   return (
-    <div className='notesContainer'>
+    <div data-test='publisher-registry-form-information' className='notesContainer'>
       <Typography>
         <strong>
-          <FormattedMessage id="form.publisherRegistration.instructions.title"/>
+          <FormattedMessage id="form.publisherRegistration.instructions.title" />
         </strong>
       </Typography>
       <List>
@@ -63,27 +63,27 @@ function RenderInformation ({setInformation, language}) {
           item === 'note1'
             ? (
               <ListItem key={item} className='notesList'>
-                <StopIcon fontSize="small"/>
+                <StopIcon fontSize="small" />
                 <Typography>
-                  <FormattedMessage id={`form.publisherRegistration.instructions.${item}.part1`}/>
-                  <Link target="_blank" rel="noopener" href={getInfoLink(language)}>
-                    <FormattedMessage id={`form.publisherRegistration.instructions.${item}.link`}/>
-                    <OpenInNewIcon fontSize="small"/>
+                  <FormattedMessage id={`form.publisherRegistration.instructions.${item}.part1`} />
+                  <Link data-test='publisher-registry-form-instructions-link' target="_blank" rel="noreferrer" href={getInfoLink(language)}>
+                    <FormattedMessage id={`form.publisherRegistration.instructions.${item}.link`} />
+                    <OpenInNewIcon fontSize="small" />
                   </Link>
-                  <FormattedMessage id={`form.publisherRegistration.instructions.${item}.part2`}/>
+                  <FormattedMessage id={`form.publisherRegistration.instructions.${item}.part2`} />
                 </Typography>
               </ListItem>)
             : (
               <ListItem key={item} className='notesList'>
-                <StopIcon fontSize="small"/>
+                <StopIcon fontSize="small" />
                 <Typography>
-                  <FormattedMessage id={`form.publisherRegistration.instructions.${item}`}/>
+                  <FormattedMessage id={`form.publisherRegistration.instructions.${item}`} />
                 </Typography>
               </ListItem>)
         ))}
       </List>
-      <Button disableRipple variant="contained" color="primary" onClick={() => setInformation(false)}>
-        <FormattedMessage id="form.button.label.proceed"/>
+      <Button data-test='publisher-form-accept-terms-button' disableRipple variant="contained" color="primary" onClick={() => setInformation(false)}>
+        <FormattedMessage id="form.button.label.proceed" />
       </Button>
     </div>
   );

@@ -66,7 +66,7 @@ import {getSteps} from '/src/frontend/components/form/isbnIsmnRegistrationForm/l
 import {formatPublicationValues, filterFormFields} from '/src/frontend/components/form/isbnIsmnRegistrationForm/utils';
 import Preview from '/src/frontend/components/form/isbnIsmnRegistrationForm/Preview.jsx';
 
-function IsbnIsmnPublicationRegistrationForm (props) {
+function IsbnIsmnPublicationRegistrationForm(props) {
   const {history, language, configuration, setSnackbarMessage} = props;
   const {disableTurnstile, siteKey} = configuration;
 
@@ -81,7 +81,7 @@ function IsbnIsmnPublicationRegistrationForm (props) {
 
   // Attempt on loading Turnstile script after information has been viewed and user has decided to progress to form
   useEffect(() => {
-    if(!information && typeof window.turnstile === 'undefined') {
+    if (!information && typeof window.turnstile === 'undefined') {
       const url = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
 
       const scriptElement = document.createElement('script');
@@ -135,12 +135,12 @@ function IsbnIsmnPublicationRegistrationForm (props) {
     // the loading that happens inside the turnstile callback
     let loading = true;
 
-    if(disableTurnstile) {
+    if (disableTurnstile) {
       return makeApiCall();
     }
 
     // Reset turnstile ID if the challenge has already been presented
-    if(turnstileId) {
+    if (turnstileId) {
       window.turnstile.reset(turnstileId);
     }
 
@@ -158,7 +158,7 @@ function IsbnIsmnPublicationRegistrationForm (props) {
 
     // Uses loading state from outer scope
     async function loadingHasEnded(resolve) {
-      if(!loading) {
+      if (!loading) {
         return resolve(true);
       }
 
@@ -176,8 +176,8 @@ function IsbnIsmnPublicationRegistrationForm (props) {
 
   const disableNextButton = ({errors, activeContent}) => {
     // In format selection, we need to make additional test whether additional fields produce errors
-    if(activeContent.name === 'formatDetails') {
-      if(errors.additionalFormatFields) {
+    if (activeContent.name === 'formatDetails') {
+      if (errors.additionalFormatFields) {
         return true;
       }
     }
@@ -190,43 +190,43 @@ function IsbnIsmnPublicationRegistrationForm (props) {
   // Add additional fields to form content depending on publication type and format
   const getActiveArray = (activeContent, values) => {
     // Add additional fields only on format selection step, otherwise return the basic active content
-    if(activeContent.fields.find(item => item.name !== 'publicationFormat')) {
+    if (activeContent.fields.find(item => item.name !== 'publicationFormat')) {
       return activeContent.fields;
     }
 
     // Show no additional fields for dissertation if electronical format is selected
-    if(values.publicationType === PUBLICATION_TYPES.DISSERTATION && values.publicationFormat === FORMATS.ELECTRONICAL) {
+    if (values.publicationType === PUBLICATION_TYPES.DISSERTATION && values.publicationFormat === FORMATS.ELECTRONICAL) {
       return activeContent.fields;
     }
 
     // If publication type is not dissertation, show different additional fields depending on publication format
-    if (values.publicationType !== PUBLICATION_TYPES.DISSERTATION){
+    if (values.publicationType !== PUBLICATION_TYPES.DISSERTATION) {
       // Additional fields for print format
       const printFields = activeContent.additionalFields.find(f => f.format === FORMATS.PRINT).fields;
       // Additional fields for electronical format
       const electronicalFields = activeContent.additionalFields.find(f => f.format === FORMATS.ELECTRONICAL).fields;
 
       // Display print additional fields if print format is selected
-      if(values.publicationFormat === FORMATS.PRINT) {
+      if (values.publicationFormat === FORMATS.PRINT) {
         return [...activeContent.fields, ...printFields];
       }
 
       // Display electronical additional fields if electronical format is selected
-      if(values.publicationFormat === FORMATS.ELECTRONICAL) {
+      if (values.publicationFormat === FORMATS.ELECTRONICAL) {
         return [...activeContent.fields, ...electronicalFields];
       }
 
       // Display all additional fields if "Print and electronical" is selected as a publication format
-      if(values.publicationFormat === FORMATS.PRINT_ELECTRONICAL) {
+      if (values.publicationFormat === FORMATS.PRINT_ELECTRONICAL) {
         return [...activeContent.fields, ...printFields, ...electronicalFields];
       }
-    // If publication type is dissertation and format is print or print and electronical, add additional fields regarding manufacturer
+      // If publication type is dissertation and format is print or print and electronical, add additional fields regarding manufacturer
     } else {
       const dissertationAdditionalFields = activeContent?.additionalFields
         .find(f => f.name === 'dissertationAdditionalFields').fields ?? [];
 
       // Display edition field if publication format is either print or print and electronical
-      if(values.publicationFormat === FORMATS.PRINT || values.publicationFormat === FORMATS.PRINT_ELECTRONICAL) {
+      if (values.publicationFormat === FORMATS.PRINT || values.publicationFormat === FORMATS.PRINT_ELECTRONICAL) {
         return [...activeContent.fields, ...dissertationAdditionalFields];
       }
     }
@@ -250,7 +250,7 @@ function IsbnIsmnPublicationRegistrationForm (props) {
     }
 
     // If there is no typeOther value, remove it from the form
-    if(!values.type?.some(v => v.value === 'OTHER_PRINT')) {
+    if (!values.type?.some(v => v.value === 'OTHER_PRINT')) {
       changeValue('typeOther', undefined);
     }
     // If there is no fileformatOther value, remove it from the form
@@ -264,9 +264,9 @@ function IsbnIsmnPublicationRegistrationForm (props) {
   return information ? (
     <div>
       <h2>
-        <FormattedMessage id="menu.forms.publicationRegistration.isbn-ismn"/>
+        <FormattedMessage id="menu.forms.publicationRegistration.isbn-ismn" />
       </h2>
-      <RenderTurnstileNotification setInformation={setInformation} formType='isbnIsmn'/>
+      <RenderTurnstileNotification setInformation={setInformation} formType='isbnIsmn' />
     </div>
   ) : (
     <Form
@@ -287,7 +287,7 @@ function IsbnIsmnPublicationRegistrationForm (props) {
           <form className={activeStep === 8 ? 'container' : 'wideContainer'} onSubmit={handleSubmit}>
             <div className='topSticky'>
               <Typography variant="h2" className='normalTitle'>
-                <FormattedMessage id="form.isbnIsmn.title"/>
+                <FormattedMessage id="form.isbnIsmn.title" />
               </Typography>
               {/* Normal Stepper is visible when screen > 1100px */}
               <Stepper
@@ -318,8 +318,8 @@ function IsbnIsmnPublicationRegistrationForm (props) {
                         disabled={!valid || submitting}
                         size="small"
                       >
-                        <FormattedMessage id="form.button.label.submit"/>
-                        <KeyboardArrowRight/>
+                        <FormattedMessage id="form.button.label.submit" />
+                        <KeyboardArrowRight />
                       </Button>
                     ) : (
                       <Button
@@ -329,14 +329,14 @@ function IsbnIsmnPublicationRegistrationForm (props) {
                         disabled={disableNextButton({errors, activeContent})}
                         onClick={handleNext}
                       >
-                        <FormattedMessage id="form.button.label.next"/>
-                        <KeyboardArrowRight/>
+                        <FormattedMessage id="form.button.label.next" />
+                        <KeyboardArrowRight />
                       </Button>)
                 }
                 backButton={
                   <Button size="small" disabled={submitting} onClick={handleBack}>
-                    <KeyboardArrowLeft/>
-                    <FormattedMessage id="form.button.label.back"/>
+                    <KeyboardArrowLeft />
+                    <FormattedMessage id="form.button.label.back" />
                   </Button>
                 }
               />
@@ -344,8 +344,8 @@ function IsbnIsmnPublicationRegistrationForm (props) {
             {/* Display an info message regarding required fields marked with an asterisk */}
             {activeStep !== contentOrder.length - 1 && (
               <span className='requiredFieldInfo'>
-                <InfoOutlined/>
-                <FormattedMessage id="common.requiredField"/>
+                <InfoOutlined />
+                <FormattedMessage id="common.requiredField" />
               </span>
             )}
             <div className={(activeStep === 0 || activeStep === 4 || activeStep === 8) ? '' : 'subContainer'}>
@@ -377,7 +377,7 @@ function IsbnIsmnPublicationRegistrationForm (props) {
                   && <InfoCard
                     infoText="form.isbnIsmn.card.publicationIsPublic"
                     cardStyle='isPublicInfoCardContainer'
-                    textStyle='infoCardWarning'/>
+                    textStyle='infoCardWarning' />
                 }
                 {/* Instruct user to find out if he can obtain ID from his own department (showing if a dissertation is chosen as a publication type) */}
                 {(activeContent?.renderType === 'element' && activeContent?.fields.some(field => field.name === 'publicationType'))
@@ -385,55 +385,57 @@ function IsbnIsmnPublicationRegistrationForm (props) {
                   && <InfoCard
                     infoText="form.isbnIsmn.card.otherUniversity"
                     cardStyle='dissertationInfoCardContainer'
-                    textStyle='infoCardTextBold'/>
+                    textStyle='infoCardTextBold' />
                 }
                 {/* Brief reminder to check if it is possible to obtain an ID from users own department */}
                 {(activeContent?.renderType === 'element' && activeContent?.fields.some(field => field.name === 'isHelsinki'))
                   && values.isHelsinki
-                  && <InfoCard infoText="form.isbnIsmn.card.universityOfHelsinki" cardStyle='dissertationInfoCardContainer'/>
+                  && <InfoCard infoText="form.isbnIsmn.card.universityOfHelsinki" cardStyle='dissertationInfoCardContainer' />
                 }
                 {(activeContent?.renderType === 'element' && activeContent?.fields.some(field => field.name === 'publicationYear'))
-                  && <InfoCard infoText="form.isbnIsmn.card.publicationInfo" cardStyle='dissertationInfoCardContainer'/>
+                  && <InfoCard infoText="form.isbnIsmn.card.publicationInfo" cardStyle='dissertationInfoCardContainer' />
                 }
                 {/* Info card with the link to the publication edition info page */}
                 {(activeContent?.renderType === 'element' && activeContent?.fields.some(field => field.name === 'edition'))
-                  && <EditionInfoCard infoText="form.isbnIsmn.card.editionInfo" language={language}/>
+                  && <EditionInfoCard infoText="form.isbnIsmn.card.editionInfo" language={language} />
                 }
                 {(activeContent?.renderType === 'element' && activeContent?.fields.some(field => field.name === 'series'))
-                  && <InfoCard infoText="form.isbnIsmn.card.seriesInfo" cardStyle='dissertationInfoCardContainer'/>
+                  && <InfoCard infoText="form.isbnIsmn.card.seriesInfo" cardStyle='dissertationInfoCardContainer' />
                 }
                 {/* Display added authors if in author page */}
                 {(activeContent?.renderType === 'fieldArray' && activeContent?.name === 'authors') &&
                   <div className='renderAuthorsContainer'>
-                    {/* Displaying different messages depending on amount of added authors */ }
+                    {/* Displaying different messages depending on amount of added authors */}
                     <Typography>
-                      {!values.authors?.length && <FormattedMessage id="form.isbnIsmn.authors.card.noAuthors"/>}
-                      {values.authors?.length > 0 && values.authors?.length < 4 && <FormattedMessage id="form.isbnIsmn.authors.card.addMoreAuthors"/>}
-                      {values.authors?.length > 3 && <FormattedMessage id="form.isbnIsmn.authors.card.maxAuthors"/>}
+                      {!values.authors?.length && <FormattedMessage id="form.isbnIsmn.authors.card.noAuthors" />}
+                      {values.authors?.length > 0 && values.authors?.length < 4 && <FormattedMessage id="form.isbnIsmn.authors.card.addMoreAuthors" />}
+                      {values.authors?.length > 3 && <FormattedMessage id="form.isbnIsmn.authors.card.maxAuthors" />}
                     </Typography>
-                    <AuthorCard authors={values.authors} handleRemove={index => form.change('authors', values.authors.filter((_, i) => i !== index))}/>
+                    <AuthorCard authors={values.authors} handleRemove={index => form.change('authors', values.authors.filter((_, i) => i !== index))} />
                   </div>
                 }
                 {/* Render the preview of a form with the data passed by user */}
-                {isPreviewPage && <Preview values={handlePreviewValues(values, form.change)} intl={intl}/>}
+                {isPreviewPage && <Preview values={handlePreviewValues(values, form.change)} intl={intl} />}
               </Grid>
 
               {/* Required for turnstile */}
               <div id={'turnstileWidget'} style={{textAlign: 'center'}}>
                 {/* Display loading when loading */}
-                {submitting && <CircularProgress/>}
+                {submitting && <CircularProgress />}
               </div>
 
               <div className={isPreviewPage ? 'formSubmitButtonsContainer' : 'formButtonsContainer'}>
                 <Button
+                  data-test='isbn-form-back-button'
                   disableRipple
                   disabled={submitting}
                   onClick={handleBack}
                 >
-                  <FormattedMessage id="form.button.label.back"/>
+                  <FormattedMessage id="form.button.label.back" />
                 </Button>
                 {activeStep !== contentOrder.length - 1 &&
                   <Button
+                    data-test='isbn-form-next-button'
                     disableRipple
                     variant="contained"
                     color="primary"
@@ -442,24 +444,26 @@ function IsbnIsmnPublicationRegistrationForm (props) {
                     disabled={disableNextButton({errors, activeContent})}
                     onClick={handleNext}
                   >
-                    <FormattedMessage id="form.button.label.next"/>
+                    <FormattedMessage id="form.button.label.next" />
                   </Button>
                 }
                 {isPreviewPage && (
                   <Button
+                    data-test='isbn-form-submit-button'
                     disableRipple
                     type="submit"
                     variant="contained"
                     color="primary"
                     disabled={!valid || submitting}
                   >
-                    <FormattedMessage id="form.button.label.submit"/>
+                    <FormattedMessage id="form.button.label.submit" />
                   </Button>
                 )}
               </div>
             </div>
           </form>
-        );}}
+        );
+      }}
     </Form>
   );
 }

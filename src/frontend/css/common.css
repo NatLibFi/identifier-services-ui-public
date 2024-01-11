@@ -18,7 +18,7 @@
   grid-column: 2 / 3;
 }
 
-.listComponentAuthors[data-isDissertation="true"] {
+.listComponentAuthors[data-dissertation="true"] {
   grid-row: 2/3;
 }
 

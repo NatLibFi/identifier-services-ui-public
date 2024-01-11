@@ -316,6 +316,7 @@ function IssnPublicationRegistrationForm (props) {
               {/* Back, next & submit buttons */}
               <div className={isFinalPage ? 'formSubmitButtonsContainer' : 'formButtonsContainer'}>
                 <Button
+                  data-test='issn-form-back-button'
                   disableRipple
                   disabled={submitting}
                   onClick={handleBack}
@@ -324,6 +325,7 @@ function IssnPublicationRegistrationForm (props) {
                 </Button>
                 {activeStep !== contentOrder.length - 1 && (
                   <Button
+                    data-test='issn-form-next-button'
                     disableRipple
                     variant="contained"
                     color="primary"
@@ -335,6 +337,7 @@ function IssnPublicationRegistrationForm (props) {
                 )}
                 {isFinalPage && (
                   <Button
+                    data-test='issn-form-submit-button'
                     disableRipple
                     disabled={submitting}
                     type="submit"
