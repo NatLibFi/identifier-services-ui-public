@@ -34,6 +34,6 @@ export function formatPublisher(values, formattedLanguage) {
   return {
     ...values,
     langCode: formattedLanguage,
-    classification: values.classification.map(item => item.value.toString())
+    classification: values.classification ? values.classification.map(item => item.value.toString()) : []
   };
 }
