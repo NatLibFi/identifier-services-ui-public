@@ -111,6 +111,6 @@ describe('Tunnistepalvelut - Etusivu', () => {
     cy.checkInternalLink('footer-accessibility', '/accessibility-statement', 'Saavutettavuusseloste');
 
     // Test privacy policy
-    cy.checkExternalLink('footer-privacy', 'https://www.kansalliskirjasto.fi/fi/tietosuoja', 'Tietosuoja');
+    cy.checkInternalLink('footer-privacy', '/privacy-policy', 'Tietosuoja');
   });
 });
