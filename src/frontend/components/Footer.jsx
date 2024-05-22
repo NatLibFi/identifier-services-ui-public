@@ -35,7 +35,6 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 import '/src/frontend/css/footer.css';
 
@@ -133,12 +132,9 @@ function Footer({customerServiceContact}) {
         <Link
           data-test='footer-privacy'
           className="privacyPolicyLink"
-          href="https://www.kansalliskirjasto.fi/fi/tietosuoja"
-          target="_blank"
-          rel="noreferrer"
+          href="/privacy-policy"
         >
           <FormattedMessage id="footer.privacyPolicy" />
-          <OpenInNewIcon fontSize="small" />
         </Link>
       </p>
     </footer>

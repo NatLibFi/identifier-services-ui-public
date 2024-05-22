@@ -60,6 +60,9 @@ import Batch from './views/isbn-registry/identifierBatch/IdentifierBatch.jsx';
 // Accessibility statement
 import AccessibilityStatement from './views/AccessibilityStatement.jsx';
 
+// Privacy policy
+import PrivacyPolicy from './views/PrivacyPolicy.jsx';
+
 // Language config
 import {translations} from './intl/index.js';
 
@@ -117,7 +120,7 @@ function App() {
       setConfiguration(fetchedConfig);
 
       // If config contains message, set showNotificationBanner
-      if(fetchedConfig.notificationBanner?.text && fetchedConfig.notificationBanner?.title) {
+      if (fetchedConfig.notificationBanner?.text && fetchedConfig.notificationBanner?.title) {
         setShowNotificationBanner(true);
       }
 
@@ -133,7 +136,7 @@ function App() {
   // Handles language change
   function changeLanguage(newLanguage) {
     // Validate the messages for language exists
-    if(availableLanguages.includes(newLanguage)) {
+    if (availableLanguages.includes(newLanguage)) {
       const documentHtml = document.querySelector('html');
 
       if (documentHtml !== newLanguage) {
@@ -161,7 +164,9 @@ function App() {
     {path: '/forms/isbn-ismn-publisher', component: PublisherRegistrationForm},
     {path: '/forms/issn-publication', component: IssnRegistrationForm},
     // Accessibility statement
-    {path: '/accessibility-statement', component: AccessibilityStatement}
+    {path: '/accessibility-statement', component: AccessibilityStatement},
+    // Privacy policy
+    {path: '/privacy-policy', component: PrivacyPolicy}
   ];
 
   const routes = (
@@ -171,7 +176,7 @@ function App() {
           key={fields.path}
           exact
           path={fields.path}
-          render={props => <fields.component setSnackbarMessage={setSnackbarMessage} configuration={configuration} language={language} {...props}/>}
+          render={props => <fields.component setSnackbarMessage={setSnackbarMessage} configuration={configuration} language={language} {...props} />}
         />
       ))}
     </>
@@ -180,11 +185,11 @@ function App() {
   // Get the component based on state
   const getComponent = () => {
     if (loading) {
-      return <Spinner/>;
+      return <Spinner />;
     }
 
     if (configuration.maintenance) {
-      return <ErrorPage errorType={'SERVICE_UNDER_MAINTENANCE'}/>;
+      return <ErrorPage errorType={'SERVICE_UNDER_MAINTENANCE'} />;
     }
 
     return <Switch>{routes}</Switch>;
@@ -193,7 +198,7 @@ function App() {
   return (
     <IntlProvider locale={language} messages={translations[language]}>
       {/* CssBaseline is a MUI global style reset */}
-      <CssBaseline/>
+      <CssBaseline />
       {showNotificationBanner &&
         <NotificationBanner
           // "error" (red), "warning" (orange), "info" (blue), "success" (green)
@@ -204,25 +209,25 @@ function App() {
           // variant='filled'
           // optional prop, can be used to give user a way to close the banner, otherwise can be omitted, then banner is not closable
           action={() => setShowNotificationBanner(false)}
-          // optional prop, can be used to hide the icon, otherwise can be omitted
-          // icon={false}
+        // optional prop, can be used to hide the icon, otherwise can be omitted
+        // icon={false}
         />
       }
       {/* Skip to main content link */}
       <a href="#main-content" className="skipLink">
-        <FormattedMessage id="common.skipLink"/>
+        <FormattedMessage id="common.skipLink" />
       </a>
       {/* App content wrapper */}
       <div className='appWrapper'>
         {/* Top navigation bar & Menu bar */}
-        <TopNav environment={configuration.environment} currentLanguage={language} availableLanguages={availableLanguages} handleLanguageChange={changeLanguage}/>
-        <MenuBar language={language} contactInformationChangeUrl={configuration.contactInformationChangeUrl}/>
+        <TopNav environment={configuration.environment} currentLanguage={language} availableLanguages={availableLanguages} handleLanguageChange={changeLanguage} />
+        <MenuBar language={language} contactInformationChangeUrl={configuration.contactInformationChangeUrl} />
         {/* Main content */}
         <div className='bodyContainer' id='main-content'>
           {getComponent()}
-          {snackbarMessage && <CustomizedSnackbar message={snackbarMessage} setMessage={setSnackbarMessage}/>}
+          {snackbarMessage && <CustomizedSnackbar message={snackbarMessage} setMessage={setSnackbarMessage} />}
         </div>
-        <Footer customerServiceContact={configuration.customerServiceContact ?? {}}/>
+        <Footer customerServiceContact={configuration.customerServiceContact ?? {}} />
       </div>
     </IntlProvider>
   );

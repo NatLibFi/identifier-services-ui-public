@@ -1,0 +1,46 @@
+.privacyPolicy {
+  padding: 0 15%;
+  font-family: "Open Sans", Helvetica, sans-serif;
+
+  & h3 {
+      margin-top: 3rem;
+  }
+
+  & p {
+      text-wrap: balance;
+  }
+
+  & a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+
+      & svg {
+          font-size: 1.125rem;
+      }
+  }
+
+  & section {
+      background-color: var(--color-brand-gold-20);
+      padding: 0.5rem;
+
+      & p:nth-child(even) {
+          font-size: 0.75rem;
+          font-weight: bold;
+      }
+  }
+
+  & section:not(:last-of-type) {
+      margin-bottom: 2rem;
+  }
+}
+
+.privacyPolicyContent {
+  white-space: pre-wrap;
+}
+
+@media (width <= 750px) {
+  .privacyPolicy {
+      padding: 0 5%;
+  }
+}
