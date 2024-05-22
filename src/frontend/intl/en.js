@@ -787,6 +787,7 @@ const en = {
   // Privacy policy
   'privacyPolicy.title': 'Privacy policy',
   'privacyPolicy.1a.title': '1a. Data file controller',
+  'privacyPolicy.1a.content': 'The National Library of Finland\nLibrary network services\nP.O. Box 15 (Unioninkatu 36)\n00014 University of Helsinki\nTelephone 02941 911',
   'privacyPolicy.1b.title': '1b. Data protection officer',
   'privacyPolicy.1b.content': 'The National Library of Finland is an independent institute at the University of Helsinki. The data protection officer of the University of Helsinki can be reached by email at tietosuoja(at)helsinki.fi.',
   'privacyPolicy.2.title': '2. Contact information for questions about data processing',

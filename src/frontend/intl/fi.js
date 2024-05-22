@@ -787,6 +787,7 @@ const fi = {
   // Privacy policy
   'privacyPolicy.title': 'Tietosuojaseloste',
   'privacyPolicy.1a.title': '1a. Rekisterin ylläpitäjä',
+  'privacyPolicy.1a.content': 'Kansalliskirjasto\nKirjastoverkkopalvelut\nPL 15 (Unioninkatu 36)\n00014 Helsingin yliopisto\nP. 02941 911',
   'privacyPolicy.1b.title': '1b. Tietosuojavastaava',
   'privacyPolicy.1b.content': 'Kansalliskirjasto on Helsingin yliopiston erillislaitos. Helsingin yliopiston tietosuojavastaavan tavoitat sähköpostiosoitteesta tietosuoja(at)helsinki.fi',
   'privacyPolicy.2.title': '2. Yhteystiedot tietojen käsittelyyn liittyviä kysymyksiä varten',

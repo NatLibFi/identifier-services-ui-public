@@ -787,6 +787,7 @@ const sv = {
   // Privacy policy
   'privacyPolicy.title': 'Dataskydd',
   'privacyPolicy.1a.title': '1a. Personuppgiftsansvarig',
+  'privacyPolicy.1a.content': 'Nationalbiblioteket\nBiblioteksnättjänster\nPB 15 (Unionsgatan 36)\n00014 Helsingfors universitet\nTelefon 02941 911',
   'privacyPolicy.1b.title': '1b. Dataskyddsombud',
   'privacyPolicy.1b.content': 'Nationalbiblioteket är en fristående institution vid Helsingfors universitet. Helsingfors universitets dataskyddsombud når du på e-postadressen tietosuoja(at)helsinki.fi.',
   'privacyPolicy.2.title': '2. Kontaktuppgifter vid frågor om behandlingen av uppgifter',

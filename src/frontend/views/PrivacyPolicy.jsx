@@ -86,18 +86,6 @@ function PrivacyPolicy() {
       {parts.map(part => (
         <div key={part}>
           <h3><FormattedMessage id={`privacyPolicy.${part}.title`} /></h3>
-          {/* Part 1a content is shared between languages */}
-          {part === '1a' && (
-            <div>
-              Kansalliskirjasto<br />
-              Kirjastoverkkopalvelut<br />
-              PL 15 (Unioninkatu 26)<br />
-              00014 Helsingin yliopisto<br />
-              P. 02941 911
-            </div>
-          )}
-
-
           {/* Part 5 and 11 have different structure than other parts */}
           {part === '5' && (
             <div>
@@ -123,7 +111,7 @@ function PrivacyPolicy() {
             ))
           )}
 
-          {!['1a', '5', '11'].includes(part) && (
+          {!['5', '11'].includes(part) && (
             <div className='privacyPolicyContent'><FormattedMessage id={`privacyPolicy.${part}.content`} /></div>
           )}
         </div>
