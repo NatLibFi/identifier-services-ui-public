@@ -38,9 +38,13 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 import '/src/frontend/css/footer.css';
 
-function Footer({customerServiceContact}) {
+function Footer({customerServiceContact, language}) {
   const intl = useIntl();
   const {phone, email} = customerServiceContact;
+
+  function getLinkWithLang(path) {
+    return `${path}?lng=${language}`;
+  }
 
   return (
     <footer data-test='footer'>
@@ -125,14 +129,14 @@ function Footer({customerServiceContact}) {
       <p>
         <Link
           data-test='footer-accessibility'
-          href="/accessibility-statement"
+          href={getLinkWithLang('/accessibility-statement')}
         >
           <FormattedMessage id="footer.accessibilityStatement" />
         </Link>
         <Link
           data-test='footer-privacy'
           className="privacyPolicyLink"
-          href="/privacy-policy"
+          href={getLinkWithLang('/privacy-policy')}
         >
           <FormattedMessage id="footer.privacyPolicy" />
         </Link>
@@ -142,7 +146,8 @@ function Footer({customerServiceContact}) {
 }
 
 Footer.propTypes = {
-  customerServiceContact: PropTypes.object.isRequired
+  customerServiceContact: PropTypes.object.isRequired,
+  language: PropTypes.string.isRequired
 };
 
 export default Footer;

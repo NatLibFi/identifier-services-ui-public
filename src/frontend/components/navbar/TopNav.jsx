@@ -41,7 +41,7 @@ function TopNav(props) {
   const {currentLanguage, availableLanguages, handleLanguageChange, environment} = props;
 
   const [anchorEl, setAnchorEl] = useState(null);
-  const {pathname} = useLocation();
+  const {pathname, search} = useLocation();
   const intl = useIntl();
 
   function handleClick(event) {
@@ -71,7 +71,7 @@ function TopNav(props) {
       <div className='navbarContainer'>
         {/* Main logo & Tunnistepalvelut H1 title */}
         <div className='navbarInnerContainer'>
-          <Link to="/" className='mainLogo'>
+          <Link to={`/${search}`} className='mainLogo'>
             <img
               src="https://extra.kansalliskirjasto.fi/kk_logo.svg"
               alt={intl.formatMessage({id: 'altText.logo.library'})}

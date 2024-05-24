@@ -48,7 +48,7 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 
-function MobileMenu({getLink}) {
+function MobileMenu({getLink, language}) {
   const [anchorElMobile, setAnchorElMobile] = useState(null);
 
   const mobileMenuIsOpen = Boolean(anchorElMobile);
@@ -57,11 +57,15 @@ function MobileMenu({getLink}) {
 
   const handleCloseMobileMenu = () => setAnchorElMobile(null);
 
+  function getLinkWithLang(path) {
+    return `${path}?lng=${language}`;
+  }
+
   return (
     <nav className="mobileMenu">
       <MenuItem
         component={Link}
-        to="/"
+        to={getLinkWithLang('/')}
         onClick={handleCloseMobileMenu}
         tabIndex={0}
       >
@@ -87,7 +91,7 @@ function MobileMenu({getLink}) {
       >
         <MenuItem
           component={Link}
-          to="/isbn-registry/publishers"
+          to={getLinkWithLang('/isbn-registry/publishers')}
           onClick={handleCloseMobileMenu}
         >
           <ListItemIcon>
@@ -100,7 +104,7 @@ function MobileMenu({getLink}) {
         <Divider />
         <MenuItem
           component={Link}
-          to="/forms/isbn-ismn-publisher"
+          to={getLinkWithLang('/forms/isbn-ismn-publisher')}
           onClick={handleCloseMobileMenu}
         >
           <ListItemIcon>
@@ -112,7 +116,7 @@ function MobileMenu({getLink}) {
         </MenuItem>
         <MenuItem
           component={Link}
-          to="/forms/isbn-ismn-publication"
+          to={getLinkWithLang('/forms/isbn-ismn-publication')}
           onClick={handleCloseMobileMenu}
         >
           <ListItemIcon>
@@ -124,7 +128,7 @@ function MobileMenu({getLink}) {
         </MenuItem>
         <MenuItem
           component={Link}
-          to="/forms/issn-publication"
+          to={getLinkWithLang('/forms/issn-publication')}
           onClick={handleCloseMobileMenu}
         >
           <ListItemIcon>
@@ -155,7 +159,8 @@ function MobileMenu({getLink}) {
 }
 
 MobileMenu.propTypes = {
-  getLink: PropTypes.func.isRequired
+  getLink: PropTypes.func.isRequired,
+  language: PropTypes.string.isRequired
 };
 
 export default MobileMenu;

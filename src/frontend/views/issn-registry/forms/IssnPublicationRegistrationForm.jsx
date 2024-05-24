@@ -61,7 +61,7 @@ import RenderTurnstileNotification from '/src/frontend/components/form/RenderTur
 
 import Preview from '/src/frontend/components/form/issnRegistrationForm/Preview.jsx';
 
-function IssnPublicationRegistrationForm (props) {
+function IssnPublicationRegistrationForm(props) {
   const {history, language, configuration, setSnackbarMessage} = props;
   const {disableTurnstile, siteKey} = configuration;
 
@@ -78,7 +78,7 @@ function IssnPublicationRegistrationForm (props) {
 
   // Attempt on loading Turnstile script after information has been viewed and user has decided to progress to form
   useEffect(() => {
-    if(!information && typeof window.turnstile === 'undefined') {
+    if (!information && typeof window.turnstile === 'undefined') {
       const url = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
 
       const scriptElement = document.createElement('script');
@@ -130,12 +130,12 @@ function IssnPublicationRegistrationForm (props) {
     // the loading that happens inside the turnstile callback
     let loading = true;
 
-    if(disableTurnstile) {
+    if (disableTurnstile) {
       return makeApiCall();
     }
 
     // Reset turnstile ID if the challenge has already been presented
-    if(turnstileId) {
+    if (turnstileId) {
       window.turnstile.reset(turnstileId);
     }
 
@@ -153,7 +153,7 @@ function IssnPublicationRegistrationForm (props) {
 
     // Uses loading state from outer scope
     async function loadingHasEnded(resolve) {
-      if(!loading) {
+      if (!loading) {
         return resolve(true);
       }
 
@@ -164,7 +164,7 @@ function IssnPublicationRegistrationForm (props) {
 
     async function makeApiCall(turnstileToken) {
       const apiValues = {...formatValues({...values}, formattedLanguage), turnstileToken};
-      await createRequest(apiValues, '/api/public/issn-registry/requests', history, setSnackbarMessage);
+      await createRequest(apiValues, '/api/public/issn-registry/requests', history, setSnackbarMessage, language);
       loading = false; // Sets loading to false to outer scope since API responded to request
     }
   };
@@ -172,9 +172,9 @@ function IssnPublicationRegistrationForm (props) {
   return information ? (
     <div>
       <h2>
-        <FormattedMessage id="menu.forms.publicationRegistration.issn"/>
+        <FormattedMessage id="menu.forms.publicationRegistration.issn" />
       </h2>
-      <RenderTurnstileNotification setInformation={setInformation}/>
+      <RenderTurnstileNotification setInformation={setInformation} />
     </div>
   ) : (
     <Form
@@ -196,19 +196,19 @@ function IssnPublicationRegistrationForm (props) {
         // Get an object with the current step's fields and render type
         const activeContent = () =>
           activeStep > contentOrder.length - 1
-        && activeStep < contentOrder.length - 1
+            && activeStep < contentOrder.length - 1
             ? undefined
             : content[contentOrder[activeStep]];
 
         // Handles the state of the Next-button
         const disableNextButton = (errors) => {
-          if(typeof errors !== 'object') {
+          if (typeof errors !== 'object') {
             return false;
           }
 
           const pageContent = activeContent();
 
-          if(!pageContent) {
+          if (!pageContent) {
             return false;
           }
 
@@ -224,7 +224,7 @@ function IssnPublicationRegistrationForm (props) {
           >
             <div className='topSticky'>
               <Typography variant="h2" className='normalTitle'>
-                <FormattedMessage id="form.issn.title"/>
+                <FormattedMessage id="form.issn.title" />
               </Typography>
               {/* Normal Stepper is visible when screen > 500px */}
               <Stepper
@@ -235,7 +235,7 @@ function IssnPublicationRegistrationForm (props) {
                 {contentOrder.map(label => (
                   <Step key={label}>
                     <StepLabel>
-                      <FormattedMessage id={`form.issn.stepper.label.${label}`}/>
+                      <FormattedMessage id={`form.issn.stepper.label.${label}`} />
                     </StepLabel>
                   </Step>
                 ))}
@@ -255,8 +255,8 @@ function IssnPublicationRegistrationForm (props) {
                         disabled={submitting}
                         type="submit"
                       >
-                        <FormattedMessage id="form.button.label.submit"/>
-                        <KeyboardArrowRight/>
+                        <FormattedMessage id="form.button.label.submit" />
+                        <KeyboardArrowRight />
                       </Button>
                     ) : (
                       <Button
@@ -264,8 +264,8 @@ function IssnPublicationRegistrationForm (props) {
                         disabled={disableNextButton(errors, values)}
                         onClick={handleNext}
                       >
-                        <FormattedMessage id="form.button.label.next"/>
-                        <KeyboardArrowRight/>
+                        <FormattedMessage id="form.button.label.next" />
+                        <KeyboardArrowRight />
                       </Button>)
                 }
                 backButton={
@@ -274,8 +274,8 @@ function IssnPublicationRegistrationForm (props) {
                     disabled={submitting}
                     onClick={handleBack}
                   >
-                    <KeyboardArrowLeft/>
-                    <FormattedMessage id="form.button.label.back"/>
+                    <KeyboardArrowLeft />
+                    <FormattedMessage id="form.button.label.back" />
                   </Button>
                 }
               />
@@ -283,8 +283,8 @@ function IssnPublicationRegistrationForm (props) {
             {/* Display an info message regarding required fields marked with an asterisk */}
             {!isFinalPage && (
               <span className='requiredFieldInfo'>
-                <InfoOutlined/>
-                <FormattedMessage id="common.requiredField"/>
+                <InfoOutlined />
+                <FormattedMessage id="common.requiredField" />
               </span>
             )}
             <div className="issnFormContainer">
@@ -299,18 +299,18 @@ function IssnPublicationRegistrationForm (props) {
                 }
 
                 {/* Render the preview of a form with the data passed by user */}
-                {isFinalPage && <Preview values={formatValues(values)}/>}
+                {isFinalPage && <Preview values={formatValues(values)} />}
               </Grid>
 
               <Grid container spacing={2} className="issnFormGrid">
                 {/* Render instructions */}
-                {activeStep === 0 && <RenderIssnInstructions/>}
+                {activeStep === 0 && <RenderIssnInstructions />}
               </Grid>
 
               {/* Required for turnstile */}
               <div id={'turnstileWidget'} style={{textAlign: 'center'}}>
                 {/* Display loading when loading */}
-                {submitting && <CircularProgress/>}
+                {submitting && <CircularProgress />}
               </div>
 
               {/* Back, next & submit buttons */}
@@ -321,7 +321,7 @@ function IssnPublicationRegistrationForm (props) {
                   disabled={submitting}
                   onClick={handleBack}
                 >
-                  <FormattedMessage id="form.button.label.back"/>
+                  <FormattedMessage id="form.button.label.back" />
                 </Button>
                 {activeStep !== contentOrder.length - 1 && (
                   <Button
@@ -332,7 +332,7 @@ function IssnPublicationRegistrationForm (props) {
                     disabled={disableNextButton(errors, values)}
                     onClick={handleNext}
                   >
-                    <FormattedMessage id="form.button.label.next"/>
+                    <FormattedMessage id="form.button.label.next" />
                   </Button>
                 )}
                 {isFinalPage && (
@@ -344,13 +344,14 @@ function IssnPublicationRegistrationForm (props) {
                     variant="contained"
                     color="primary"
                   >
-                    <FormattedMessage id="form.button.label.submit"/>
+                    <FormattedMessage id="form.button.label.submit" />
                   </Button>
                 )}
               </div>
             </div>
           </form>
-        );}}
+        );
+      }}
     </Form>
   );
 }

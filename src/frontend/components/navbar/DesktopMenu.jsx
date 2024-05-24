@@ -42,7 +42,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import ArrowDropDown from '@mui/icons-material/ArrowDropDown';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
-function DesktopMenu({getLink}) {
+function DesktopMenu({getLink, language}) {
   const [anchorElDesktop, setAnchorElDesktop] = useState(null);
 
   const desktopMenuIsOpen = Boolean(anchorElDesktop);
@@ -51,15 +51,19 @@ function DesktopMenu({getLink}) {
 
   const handleCloseDesktopMenu = () => setAnchorElDesktop(null);
 
+  function getLinkWithLang(path) {
+    return `${path}?lng=${language}`;
+  }
+
   return (
     <nav data-test='nav-root' className="desktopMenu">
-      <Link data-test='nav-link-home' exact to="/">
+      <Link data-test='nav-link-home' exact to={getLinkWithLang('/')}>
         <div className="menuIcon">
           <HomeIcon fontSize="default" color="primary" />
           <FormattedMessage id="menu.home" />
         </div>
       </Link>
-      <Link data-test='nav-link-publisher-registry' exact to="/isbn-registry/publishers">
+      <Link data-test='nav-link-publisher-registry' exact to={getLinkWithLang('/isbn-registry/publishers')}>
         <Typography className="menuItem">
           <FormattedMessage id="menu.publisherRegistry" />
         </Typography>
@@ -85,7 +89,7 @@ function DesktopMenu({getLink}) {
           <MenuItem
             data-test='nav-link-forms-publisher'
             component={Link}
-            to="/forms/isbn-ismn-publisher"
+            to={getLinkWithLang('/forms/isbn-ismn-publisher')}
             onClick={handleCloseDesktopMenu}
           >
             <Typography className="menuItem">
@@ -95,7 +99,7 @@ function DesktopMenu({getLink}) {
           <MenuItem
             data-test='nav-link-forms-isbnismn'
             component={Link}
-            to="/forms/isbn-ismn-publication"
+            to={getLinkWithLang('/forms/isbn-ismn-publication')}
             onClick={handleCloseDesktopMenu}
           >
             <Typography className="menuItem">
@@ -105,7 +109,7 @@ function DesktopMenu({getLink}) {
           <MenuItem
             data-test='nav-link-forms-issn'
             component={Link}
-            to="/forms/issn-publication"
+            to={getLinkWithLang('/forms/issn-publication')}
             onClick={handleCloseDesktopMenu}
           >
             <Typography className="menuItem">
@@ -125,6 +129,7 @@ function DesktopMenu({getLink}) {
 }
 
 DesktopMenu.propTypes = {
+  language: PropTypes.string.isRequired,
   getLink: PropTypes.func.isRequired
 };
 
