@@ -24,6 +24,12 @@ describe('Tunnistepalvelut - Tunnuslista', () => {
     cy.getBySel('turnstile-notification-text')
       .should('be.visible')
       .invoke('text')
+      .should('equal', 'Siirtymällä lataamaan tunnukset hyväksyt, että automaattista tunnistusta käytetään taustalla erottelemaan ihmiskäyttäjät robottikäyttäjistä. Automaattisen tunnistamisen yhteydessä tunnistamisen palveluntarjoaja (Cloudflare) saa tiedon IP-osoitteestasi.');
+
+    cy.changeLanguage('EN');
+    cy.getBySel('turnstile-notification-text')
+      .should('be.visible')
+      .invoke('text')
       .should('equal', 'By proceeding to download the identifiers you agree and consent that the site is protected by an automated detection service to distinguish human users from bot users. In the process, the service provider (Cloudflare) receives information on your IP-address.');
 
     cy.changeLanguage('SV');
@@ -31,12 +37,6 @@ describe('Tunnistepalvelut - Tunnuslista', () => {
       .should('be.visible')
       .invoke('text')
       .should('equal', 'Genom att ladda ner identifierna ger du samtycke till att en automatisk identifiering används för att skilja åt mänskliga användare från botanvändare. I samband med den automatiska identifieringen får tjänsteleverantören (Cloudflare) information om din IP-adress.');
-
-    cy.changeLanguage('FI');
-    cy.getBySel('turnstile-notification-text')
-      .should('be.visible')
-      .invoke('text')
-      .should('equal', 'Siirtymällä lataamaan tunnukset hyväksyt, että automaattista tunnistusta käytetään taustalla erottelemaan ihmiskäyttäjät robottikäyttäjistä. Automaattisen tunnistamisen yhteydessä tunnistamisen palveluntarjoaja (Cloudflare) saa tiedon IP-osoitteestasi.');
 
     // Test publisher modal
     // Verify modal contents
@@ -70,6 +70,6 @@ describe('Tunnistepalvelut - Tunnuslista', () => {
 
   it('Selecting "no" for publisher confirmation redirects user to home page', () => {
     cy.getBySel('identifierbatch-confirmation-no').click();
-    cy.url().should('equal', 'http://localhost:8080/');
+    cy.url().should('equal', 'http://localhost:8080/?lng=fi');
   });
 });

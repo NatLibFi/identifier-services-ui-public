@@ -48,6 +48,8 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 
+import {getLinkWithLang} from '../utils';
+
 function MobileMenu({getLink, language}) {
   const [anchorElMobile, setAnchorElMobile] = useState(null);
 
@@ -57,15 +59,11 @@ function MobileMenu({getLink, language}) {
 
   const handleCloseMobileMenu = () => setAnchorElMobile(null);
 
-  function getLinkWithLang(path) {
-    return `${path}?lng=${language}`;
-  }
-
   return (
     <nav className="mobileMenu">
       <MenuItem
         component={Link}
-        to={getLinkWithLang('/')}
+        to={getLinkWithLang('/', language)}
         onClick={handleCloseMobileMenu}
         tabIndex={0}
       >
@@ -91,7 +89,7 @@ function MobileMenu({getLink, language}) {
       >
         <MenuItem
           component={Link}
-          to={getLinkWithLang('/isbn-registry/publishers')}
+          to={getLinkWithLang('/isbn-registry/publishers', language)}
           onClick={handleCloseMobileMenu}
         >
           <ListItemIcon>
@@ -104,7 +102,7 @@ function MobileMenu({getLink, language}) {
         <Divider />
         <MenuItem
           component={Link}
-          to={getLinkWithLang('/forms/isbn-ismn-publisher')}
+          to={getLinkWithLang('/forms/isbn-ismn-publisher', language)}
           onClick={handleCloseMobileMenu}
         >
           <ListItemIcon>
@@ -116,7 +114,7 @@ function MobileMenu({getLink, language}) {
         </MenuItem>
         <MenuItem
           component={Link}
-          to={getLinkWithLang('/forms/isbn-ismn-publication')}
+          to={getLinkWithLang('/forms/isbn-ismn-publication', language)}
           onClick={handleCloseMobileMenu}
         >
           <ListItemIcon>
@@ -128,7 +126,7 @@ function MobileMenu({getLink, language}) {
         </MenuItem>
         <MenuItem
           component={Link}
-          to={getLinkWithLang('/forms/issn-publication')}
+          to={getLinkWithLang('/forms/issn-publication', language)}
           onClick={handleCloseMobileMenu}
         >
           <ListItemIcon>

@@ -27,13 +27,13 @@ describe('Tunnistepalvelut - Etusivu', () => {
 
     // Test finnish translations of each nav link
     cy.getBySel('nav-link-home')
-      .should('have.attr', 'href', '/')
+      .should('have.attr', 'href', '/?lng=fi')
       .invoke('text')
       .should('equal', 'Etusivu');
 
 
     cy.getBySel('nav-link-publisher-registry')
-      .should('have.attr', 'href', '/isbn-registry/publishers')
+      .should('have.attr', 'href', '/isbn-registry/publishers?lng=fi')
       .invoke('text')
       .should('equal', 'Kustantajarekisteri');
 
@@ -48,9 +48,9 @@ describe('Tunnistepalvelut - Etusivu', () => {
     cy.getBySel('nav-link-forms-button').click();
 
     const formTestDataSelectors = {
-      publisher: {text: 'Liittymislomake ISBN-/ISMN-järjestelmään', url: '/forms/isbn-ismn-publisher'},
-      isbnismn: {text: 'ISBN/ISMN kirjoille ja nuottijulkaisuille', url: '/forms/isbn-ismn-publication'},
-      issn: {text: 'ISSN sarjoille ja lehdille', url: '/forms/issn-publication'}
+      publisher: {text: 'Liittymislomake ISBN-/ISMN-järjestelmään', url: '/forms/isbn-ismn-publisher?lng=fi'},
+      isbnismn: {text: 'ISBN/ISMN kirjoille ja nuottijulkaisuille', url: '/forms/isbn-ismn-publication?lng=fi'},
+      issn: {text: 'ISSN sarjoille ja lehdille', url: '/forms/issn-publication?lng=fi'}
     };
 
     for (const [k, v] of Object.entries(formTestDataSelectors)) {
@@ -108,9 +108,9 @@ describe('Tunnistepalvelut - Etusivu', () => {
     }
 
     // Test accessibility statement
-    cy.checkInternalLink('footer-accessibility', '/accessibility-statement', 'Saavutettavuusseloste');
+    cy.checkInternalLink('footer-accessibility', '/accessibility-statement?lng=fi', 'Saavutettavuusseloste');
 
     // Test privacy policy
-    cy.checkInternalLink('footer-privacy', '/privacy-policy', 'Tietosuoja');
+    cy.checkInternalLink('footer-privacy', '/privacy-policy?lng=fi', 'Tietosuoja');
   });
 });

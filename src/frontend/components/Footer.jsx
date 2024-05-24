@@ -36,15 +36,13 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
+import {getLinkWithLang} from './utils';
+
 import '/src/frontend/css/footer.css';
 
 function Footer({customerServiceContact, language}) {
   const intl = useIntl();
   const {phone, email} = customerServiceContact;
-
-  function getLinkWithLang(path) {
-    return `${path}?lng=${language}`;
-  }
 
   return (
     <footer data-test='footer'>
@@ -129,14 +127,14 @@ function Footer({customerServiceContact, language}) {
       <p>
         <Link
           data-test='footer-accessibility'
-          href={getLinkWithLang('/accessibility-statement')}
+          href={getLinkWithLang('/accessibility-statement', language)}
         >
           <FormattedMessage id="footer.accessibilityStatement" />
         </Link>
         <Link
           data-test='footer-privacy'
           className="privacyPolicyLink"
-          href={getLinkWithLang('/privacy-policy')}
+          href={getLinkWithLang('/privacy-policy', language)}
         >
           <FormattedMessage id="footer.privacyPolicy" />
         </Link>

@@ -93,6 +93,10 @@ function App() {
   const parsedQuery = queryString.parse(search);
   const language = getPrimaryLanguage(parsedQuery.lng, availableLanguages);
 
+  // Set lang attribute to HTML
+  const documentHtml = document.querySelector('html');
+  documentHtml.setAttribute('lang', language);
+
   // Load config
   useEffect(() => {
     async function fetchConfig() {
