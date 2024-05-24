@@ -44,6 +44,7 @@
     "helmet": "^7.0.0",
     "http-status": "^1.7.0",
     "prop-types": "^15.8.1",
+    "query-string": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-final-form": "^6.5.9",

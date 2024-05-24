@@ -53,9 +53,9 @@ function MenuBar({language, contactInformationChangeUrl}) {
       <Grid item xs={12}>
         <AppBar position="static">
           {/* Desktop menu is displayed when screen width > 600px */}
-          <DesktopMenu getLink={getLink} />
+          <DesktopMenu getLink={getLink} language={language} />
           {/* Mobile menu is displayed when screen width < 600px */}
-          <MobileMenu getLink={getLink} />
+          <MobileMenu getLink={getLink} language={language} />
         </AppBar>
       </Grid>
     </Grid>

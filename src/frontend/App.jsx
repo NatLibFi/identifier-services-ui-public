@@ -27,7 +27,9 @@
 
 import React, {useEffect, useState} from 'react';
 import {FormattedMessage, IntlProvider} from 'react-intl';
-import {Switch, Route, withRouter} from 'react-router-dom';
+import {Switch, Route, useLocation, useHistory, withRouter} from 'react-router-dom';
+
+import queryString from 'query-string';
 
 import CssBaseline from '@mui/material/CssBaseline';
 
@@ -66,6 +68,9 @@ import PrivacyPolicy from './views/PrivacyPolicy.jsx';
 // Language config
 import {translations} from './intl/index.js';
 
+// Utils
+import {getPrimaryLanguage} from './actions/util/index.js';
+
 // Styles
 import '/src/frontend/css/global.css';
 import '/src/frontend/css/app.css';
@@ -79,39 +84,18 @@ function App() {
   // Check if language is saved in local storage
   // const languageInLocalStorage = localStorage.getItem('language') ?? null;
 
-  // Get list of user preferred languages from the browser settings
-  const userPreferredLanguages = navigator.languages;
-
   // Language versions available in the app
   const availableLanguages = Object.keys(translations);
 
-  // Get language to use based on local storage, order of user preferred languages and language versions available in the app
-  const getPrimaryLanguage = () => {
-    // Check if language is saved in local storage and use it if it is available in the app
+  const history = useHistory();
+  const location = useLocation();
+  const {pathname, search} = location;
+  const parsedQuery = queryString.parse(search);
+  const language = getPrimaryLanguage(parsedQuery.lng, availableLanguages);
 
-    //if (languageInLocalStorage && availableLanguages.includes(languageInLocalStorage)) {
-    //  return languageInLocalStorage;
-    //}
-
-
-    /* If no language is saved in local storage continue with the steps below */
-
-    // Check if some of the user preferred languages is available in the app (use the first one found)
-    const primaryLanguage = userPreferredLanguages.find(language =>
-      availableLanguages.includes(language.slice(0, 2))
-    );
-
-    if (primaryLanguage) {
-      // Save preferred language to local storage
-      // localStorage.setItem('language', primaryLanguage.slice(0, 2));
-
-      // Slice is used (here and above), since language can be presented in different formats, however we need only the first two letters
-      return primaryLanguage.slice(0, 2);
-    }
-
-    // If no user preferred language is available in the app, use the default language ('fi')
-    return 'fi';
-  };
+  // Set lang attribute to HTML
+  const documentHtml = document.querySelector('html');
+  documentHtml.setAttribute('lang', language);
 
   // Load config
   useEffect(() => {
@@ -130,24 +114,12 @@ function App() {
     fetchConfig();
   }, []);
 
-  // Language state
-  const [language, setLanguage] = useState(getPrimaryLanguage());
 
-  // Handles language change
   function changeLanguage(newLanguage) {
-    // Validate the messages for language exists
-    if (availableLanguages.includes(newLanguage)) {
-      const documentHtml = document.querySelector('html');
-
-      if (documentHtml !== newLanguage) {
-        documentHtml.setAttribute('lang', newLanguage);
-      }
-
-      // Set language to state
-      setLanguage(newLanguage);
-
-      // Save language to local storage
-      // localStorage.setItem('language', newLanguage);
+    // Process only if language value was actually changed
+    if (newLanguage !== language) {
+      const newQueryParams = {...parsedQuery, lng: newLanguage};
+      history.push(`${pathname}?${queryString.stringify(newQueryParams)}`);
     }
   }
 
@@ -227,7 +199,7 @@ function App() {
           {getComponent()}
           {snackbarMessage && <CustomizedSnackbar message={snackbarMessage} setMessage={setSnackbarMessage} />}
         </div>
-        <Footer customerServiceContact={configuration.customerServiceContact ?? {}} />
+        <Footer customerServiceContact={configuration.customerServiceContact ?? {}} language={language} />
       </div>
     </IntlProvider>
   );
