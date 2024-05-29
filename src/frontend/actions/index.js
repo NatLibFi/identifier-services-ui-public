@@ -64,9 +64,10 @@ export const getConfig = async () => {
   * @param url URL to send the request to
   * @param history History object allowing redirects
   * @param setSnackbarMessage Function that allows display of success message
+  * @param language Language version to redirect
   * @returns Returns true and redirects to home page on success, otherwise returns false
 */
-export async function createRequest(values, url, history, setSnackbarMessage) {
+export async function createRequest(values, url, history, setSnackbarMessage, language) {
   try {
     const response = await fetch(url, {
       method: 'POST',
@@ -76,7 +77,7 @@ export async function createRequest(values, url, history, setSnackbarMessage) {
 
     if (response.status === HttpStatus.CREATED) {
       setSnackbarMessage({severity: 'success', intlId: 'serviceMessage.registration.success'});
-      redirect(history, '/', {messageId: '', type: 'success'});
+      redirect(history, '/', {messageId: '', type: 'success'}, `?lng=${language}`);
       return true;
     }
 

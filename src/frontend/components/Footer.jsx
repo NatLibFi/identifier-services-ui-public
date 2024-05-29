@@ -35,11 +35,12 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+
+import {getLinkWithLang} from './utils';
 
 import '/src/frontend/css/footer.css';
 
-function Footer({customerServiceContact}) {
+function Footer({customerServiceContact, language}) {
   const intl = useIntl();
   const {phone, email} = customerServiceContact;
 
@@ -126,19 +127,16 @@ function Footer({customerServiceContact}) {
       <p>
         <Link
           data-test='footer-accessibility'
-          href="/accessibility-statement"
+          href={getLinkWithLang('/accessibility-statement', language)}
         >
           <FormattedMessage id="footer.accessibilityStatement" />
         </Link>
         <Link
           data-test='footer-privacy'
           className="privacyPolicyLink"
-          href="https://www.kansalliskirjasto.fi/fi/tietosuoja"
-          target="_blank"
-          rel="noreferrer"
+          href={getLinkWithLang('/privacy-policy', language)}
         >
           <FormattedMessage id="footer.privacyPolicy" />
-          <OpenInNewIcon fontSize="small" />
         </Link>
       </p>
     </footer>
@@ -146,7 +144,8 @@ function Footer({customerServiceContact}) {
 }
 
 Footer.propTypes = {
-  customerServiceContact: PropTypes.object.isRequired
+  customerServiceContact: PropTypes.object.isRequired,
+  language: PropTypes.string.isRequired
 };
 
 export default Footer;

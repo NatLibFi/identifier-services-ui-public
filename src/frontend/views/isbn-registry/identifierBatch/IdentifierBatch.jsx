@@ -46,7 +46,7 @@ import RenderTurnstileNotification from '/src/frontend/components/form/RenderTur
 
 import useDocumentTitle from '/src/frontend/hooks/useDocumentTitle';
 
-function IdentifierBatch ({history, configuration, match, setSnackbarMessage}) {
+function IdentifierBatch({history, configuration, match, setSnackbarMessage, language}) {
   // Set the title of the current page
   useDocumentTitle('common.batch');
 
@@ -59,7 +59,7 @@ function IdentifierBatch ({history, configuration, match, setSnackbarMessage}) {
   // Redirects to the main page if the user doesn't confirm having access to the batch
   const handleReject = () => {
     setHasApproved(false);
-    history.push('/');
+    history.push(`/?lng=${language}`);
   };
 
   // Current range's id
@@ -93,7 +93,7 @@ function IdentifierBatch ({history, configuration, match, setSnackbarMessage}) {
 
   async function loadTurnstilScript(setSnackbarMessage) {
     return new Promise(resolve => {
-      if(typeof window.turnstile === 'undefined') {
+      if (typeof window.turnstile === 'undefined') {
         const url = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
 
         const scriptElement = document.createElement('script');
@@ -118,18 +118,18 @@ function IdentifierBatch ({history, configuration, match, setSnackbarMessage}) {
     setLoadingTurnstile(true);
     await loadTurnstilScript(setSnackbarMessage);
 
-    if(disableTurnstile) {
+    if (disableTurnstile) {
       return makeApiCall();
     }
 
     try {
-      if(turnstileId) {
+      if (turnstileId) {
         window.turnstile.reset(turnstileId);
       } else {
         const turnstileWidgedId = window.turnstile.render('#turnstileWidget', turnstileConfiguration);
         setTurnstileId(turnstileWidgedId);
       }
-    } catch(err) {
+    } catch (err) {
       // Attempt reinitializing widget once more
       const turnstileWidgedId = window.turnstile.render('#turnstileWidget', turnstileConfiguration);
 
@@ -163,7 +163,7 @@ function IdentifierBatch ({history, configuration, match, setSnackbarMessage}) {
 
   return (
     <Grid item xs={12}>
-      {!loading && !error && Object.keys(data).length > 0 && <RenderTurnstileNotification identifierBatch={true}/>}
+      {!loading && !error && Object.keys(data).length > 0 && <RenderTurnstileNotification identifierBatch={true} />}
       {data.publisherName && (
         <Typography variant="h2" className='batchesTitleColorPublic normalTitle'>
           <FormattedMessage id="common.batch" /> -{' '}
@@ -183,7 +183,8 @@ IdentifierBatch.propTypes = {
   configuration: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
-  setSnackbarMessage: PropTypes.func.isRequired
+  setSnackbarMessage: PropTypes.func.isRequired,
+  language: PropTypes.string.isRequired
 };
 
 export default IdentifierBatch;

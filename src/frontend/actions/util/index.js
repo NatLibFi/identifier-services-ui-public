@@ -54,14 +54,15 @@ export function getQueryWithDefaults(values) {
  * @param {object} history History object
  * @param {string} path Path to redirect (if empty, refreshes page)
  * @param {object} state History state to use when pushing new path to history
+ * @param {string} search Query params
  */
-export function redirect(history, pathname = '', state={}) {
+export function redirect(history, pathname = '', state={}, search) {
   const redirectTime = 500;
   if (pathname === '' || history.location.pathname === pathname) {
     setTimeout(history.go(0), redirectTime); // njsscan-ignore: eval_nodejs
   }
 
-  return setTimeout(() => history.push({pathname, state}), redirectTime);
+  return setTimeout(() => history.push({pathname, state, search}), redirectTime);
 }
 
 /**
@@ -74,4 +75,15 @@ export function formatBody(body) {
   function isEmptyStringOrUndefined(value) {
     return value === undefined || value === null;
   }
+}
+
+// Get language to use based on local storage, order of user preferred languages and language versions available in the app
+export function getPrimaryLanguage(parsedLng, availableLanguages) {
+  // Default to Finnish if no language parameters is included to URL
+  if (!parsedLng) {
+    return 'fi';
+  }
+
+  // Use selected language if it is available, otherwise use Finnish
+  return availableLanguages.find(language => language === parsedLng) || 'fi';
 }
