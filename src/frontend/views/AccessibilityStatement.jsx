@@ -81,7 +81,7 @@ function AccessibilityStatement () {
       <FormattedMessage
         id="accessibilityStatement.authority.description"
         values={{
-          link: <a href="https://www.saavutettavuusvaatimukset.fi/oikeutesi/" target="_blank" rel="noopener noreferrer">
+          link: <a href="https://www.saavutettavuusvaatimukset.fi/fi/kayttajan-oikeudet/tee-saavutettavuuskantelu-tai-pyyda-selvitysta" target="_blank" rel="noopener noreferrer">
             <FormattedMessage id="accessibilityStatement.authority.description.link" />
             <OpenInNew fontSize="small"/>
           </a>
