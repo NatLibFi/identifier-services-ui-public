@@ -31,7 +31,6 @@ import {FormattedMessage, useIntl} from 'react-intl';
 
 import {Grid, Box, IconButton, Link} from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -83,15 +82,6 @@ function Footer({customerServiceContact, language}) {
               aria-label="facebook"
             >
               <FacebookIcon />
-            </IconButton>
-            <IconButton
-              data-test='footer-socials-twitter'
-              href="https://twitter.com/NatLibFi"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="twitter"
-            >
-              <TwitterIcon />
             </IconButton>
             <IconButton
               data-test='footer-socials-youtube'

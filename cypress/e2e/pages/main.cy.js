@@ -97,7 +97,6 @@ describe('Tunnistepalvelut - Etusivu', () => {
     // Test social media links
     const socialMediaLinks = {
       'facebook': 'https://facebook.com/Kansalliskirjasto',
-      'twitter': 'https://twitter.com/NatLibFi',
       'youtube': 'https://www.youtube.com/channel/UCMCKdIT517O4D8o9-lesbvQ',
       'instagram': 'https://instagram.com/kansalliskirjasto/',
       'linkedin': 'https://fi.linkedin.com/company/nationallibraryfinland'
