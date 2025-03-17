@@ -750,7 +750,7 @@ const en = {
   'accessibilityStatement.issues.reflow.description': 'Content is not entirely responsive when the page width is under 450 px (the target is 320px). This does not necessarily have a direct effect on functionality, but clearly affects usability and the accessibility of the service.',
   'accessibilityStatement.issues.reflow.wcag': '1.4.10 Reflow',
   'accessibilityStatement.issues.links.title': 'Operable: Unclear text alternatives in the language menu',
-  'accessibilityStatement.issues.links.description': 'The text alternatives for links are unclear, screen reader users hear them as such - EN, FI, SV. This is issue appears in all the site\'s language variants (EN, FI, SV).',
+  'accessibilityStatement.issues.links.description': 'The text alternatives for links are unclear, screen reader users hear them as such - EN, FI, SV.',
   'accessibilityStatement.issues.links.wcag': '2.4.4 Link Purpose (In Context)',
   'accessibilityStatement.issues.siteMap.title': 'Operable: Missing site map',
   'accessibilityStatement.issues.siteMap.description': 'There is currently only one way to locate individual web pages, namely, the navigation menu.',
