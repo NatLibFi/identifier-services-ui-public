@@ -33,8 +33,9 @@ import {Typography, Button, Link, Alert} from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 import '/src/frontend/css/forms/turnstileNotification.css';
+import {getLinkWithLang} from '../utils';
 
-function RenderTurnstileNotification({setInformation, identifierBatch = false, formType}) {
+function RenderTurnstileNotification({language, setInformation, identifierBatch = false, formType}) {
   return (
     <div className={setInformation ? 'turnstileContainer' : 'notificationContainer'}>
       <Alert severity='error'>
@@ -47,7 +48,14 @@ function RenderTurnstileNotification({setInformation, identifierBatch = false, f
         {
           formType === 'isbnIsmn' &&
           <Typography className="isbnIsmnInstructions">
-            <FormattedMessage id={'form.isbnIsmn.instructions'} />
+            <b><FormattedMessage id={'form.isbnIsmn.instructions'} /> </b>
+            <Link
+              data-test='footer-privacy'
+              className="privacyPolicyLink"
+              href={getLinkWithLang('/privacy-policy', language)}
+            >
+              <FormattedMessage id="footer.privacyPolicy" />
+            </Link>
           </Typography>
         }
 
@@ -80,7 +88,8 @@ function RenderTurnstileNotification({setInformation, identifierBatch = false, f
 RenderTurnstileNotification.propTypes = {
   setInformation: PropTypes.func,
   identifierBatch: PropTypes.bool,
-  formType: PropTypes.string
+  formType: PropTypes.string,
+  language: PropTypes.language
 };
 
 export default RenderTurnstileNotification;
