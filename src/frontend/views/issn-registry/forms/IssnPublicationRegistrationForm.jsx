@@ -174,7 +174,7 @@ function IssnPublicationRegistrationForm(props) {
       <h2>
         <FormattedMessage id="menu.forms.publicationRegistration.issn" />
       </h2>
-      <RenderTurnstileNotification setInformation={setInformation} />
+      <RenderTurnstileNotification language={language} setInformation={setInformation} />
     </div>
   ) : (
     <Form

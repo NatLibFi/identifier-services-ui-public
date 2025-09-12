@@ -163,7 +163,7 @@ function IdentifierBatch({history, configuration, match, setSnackbarMessage, lan
 
   return (
     <Grid item xs={12}>
-      {!loading && !error && Object.keys(data).length > 0 && <RenderTurnstileNotification identifierBatch={true} />}
+      {!loading && !error && Object.keys(data).length > 0 && <RenderTurnstileNotification language={language} identifierBatch={true} />}
       {data.publisherName && (
         <Typography variant="h2" className='batchesTitleColorPublic normalTitle'>
           <FormattedMessage id="common.batch" /> -{' '}
