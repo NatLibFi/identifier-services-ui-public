@@ -34,6 +34,7 @@ import StopIcon from '@mui/icons-material/Stop';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 import '/src/frontend/css/forms/publisherRegistrationForm.css';
+import {getLinkWithLang} from '../../utils';
 
 function RenderInformation({setInformation, language}) {
   const notes = ['note0', 'note1', 'note2', 'note3', 'note4'];
@@ -76,9 +77,27 @@ function RenderInformation({setInformation, language}) {
             : (
               <ListItem key={item} className='notesList'>
                 <StopIcon fontSize="small" />
-                <Typography>
-                  <FormattedMessage id={`form.publisherRegistration.instructions.${item}`} />
-                </Typography>
+                {item === 'note4' && (
+                  <div>
+                    <Typography>
+
+                      <b><FormattedMessage id={`form.publisherRegistration.instructions.${item}`} /> </b>
+                      <Link
+                        data-test='footer-privacy'
+                        className="privacyPolicyLink"
+                        href={getLinkWithLang('/privacy-policy', language)}
+                      >
+                        <FormattedMessage id="footer.privacyPolicy" />
+                      </Link>
+                    </Typography>
+
+                  </div>
+                )}
+                {item !== 'note4' && (
+                  <Typography>
+                    <FormattedMessage id={`form.publisherRegistration.instructions.${item}`} />
+                  </Typography>
+                )}
               </ListItem>)
         ))}
       </List>
