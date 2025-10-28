@@ -51,7 +51,7 @@ function filterRequest(req, _res) {
 // eslint-disable-next-line no-unused-vars
 function preprocessRequest(proxyReqOpts, srcReq) {
   // For development purposes only
-  if(config.ALLOW_SELF_SIGNED) {
+  if(config.ALLOW_SELF_SIGNED && config.NODE_ENV === 'development') {
     proxyReqOpts.rejectUnauthorized = false;
   }
 
