@@ -58,7 +58,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Cypress run
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7
         with:
           record: false # Do not record tests to Cypress Cloud
           config-file: cypress.config.js
