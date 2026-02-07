@@ -76,7 +76,7 @@
     "nodemon": "^3.1.9",
     "prettier": "^3.5.3",
     "style-loader": "^4.0.0",
-    "webpack": "^5.99.6",
+    "webpack": "^5.105.0",
     "webpack-cli": "^5.1.4",
     "webpack-node-externals": "^3.0.0"
   },
