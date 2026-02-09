@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <!-- Url of the page (required) -->
+    <loc>https://tunnisteportaali.kansalliskirjasto.fi</loc>
+    <!-- The date of last modification of a page (optional) -->
+    <lastmod>2026-02-10</lastmod>
+    <!-- How frequently the page is likely to change (optional) -->
+    <changefreq>monthly</changefreq>
+    <!-- Priority for crawlers 0.0 to 1.0 (optional)-->
+    <priority>1.0</priority>
+  </url>
+</urlset>
