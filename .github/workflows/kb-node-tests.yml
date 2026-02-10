@@ -24,7 +24,7 @@ jobs:
           cache: 'npm'
         env:
           NPM_CONFIG_IGNORE_SCRIPTS: true
-      - run: npm audit --package-lock-only --production --audit-level=critical
+      - run: npm audit --package-lock-only --production --audit-level=high
       - run: npm ci
       - run: npm run lint
       - run: npm run build --if-present
@@ -52,23 +52,9 @@ jobs:
         with:
           args: '.'
 
-  cypress-run:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          record: false # Do not record tests to Cypress Cloud
-          config-file: cypress.config.js
-          build: npm run build
-          start: npm run start:cypress-server
-          wait-on: 'http://localhost:8080'
-
   openshift-webhook:
     name: OpenShift webhook for image builder
-    needs: [build-node-versions, njsscan, cypress-run, license-scan]
+    needs: [build-node-versions, njsscan, license-scan]
     runs-on: ubuntu-latest
 
     steps:

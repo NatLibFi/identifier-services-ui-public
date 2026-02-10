@@ -1,9 +1,0 @@
-# Do not allow access to the API (other than config, which is FE-defined resource) and the identifier batches
-User-agent: *
-Allow: /api/config
-Disallow: /api/
-Disallow: /isbn-registry/identifierbatches/
-Disallow: /isbn-registry/publishers/
-
-# Sitemap file used by search engines
-Sitemap: https://tunnisteportaali.kansalliskirjasto.fi/sitemap.xml
