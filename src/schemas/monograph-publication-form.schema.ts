@@ -20,7 +20,7 @@ export const monographPublicationFormV1Schema = z
     publisherIdentifierStr: z
       .string()
       .max(20, 'forms.errors.common.max-length')
-      .regex(/^(97[89]-95[12]-[0-9]{1,7})?$/, 'forms.errors.monograph-publications.publisher-identifier-format')
+      .regex(/^(97[89]-(0|95[12])-[0-9]{1,7})?$/, 'forms.errors.monograph-publications.publisher-identifier-format')
       .optional(),
     locality: z.enum(['', 'Helsinki']).optional(),
     contactPerson: z.string().min(1, 'forms.errors.common.min-length').max(100, 'forms.errors.common.max-length'),
