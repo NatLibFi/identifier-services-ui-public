@@ -76,7 +76,14 @@ export default defineConfig({
 
 // In dev load dev-proxy since /config handler is required, otherwise load only react
 function getPlugins(isDev: boolean, frontendConfig: FrontendConfig | undefined) {
-  const basePlugins = [react(), tailwindcss()];
+  const basePlugins = [
+    react({
+      babel: {
+        plugins: ['babel-plugin-react-compiler'],
+      },
+    }),
+    tailwindcss(),
+  ];
 
   if (isDev) {
     return [...basePlugins, reactDevProxy(frontendConfig)];
