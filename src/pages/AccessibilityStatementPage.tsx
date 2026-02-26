@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { ExternalLinkIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
@@ -37,6 +39,10 @@ const getAccessibilityStatementPageLinkLink = (language: string, linkName: strin
 function AccessibilityStatementPage() {
   const { translate: t, getCurrentLanguage } = useTranslation();
   const currentLanguage = getCurrentLanguage();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, []);
 
   return (
     <div

@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { cn } from '@/lib/utils';
 import useTranslation from '@/hooks/useTranslation';
 
@@ -34,6 +36,10 @@ const part5Configuration: Record<string, string[]> = {
 
 function PrivacyPolicyPage() {
   const { translate: t } = useTranslation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, []);
 
   return (
     <div
