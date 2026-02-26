@@ -140,3 +140,6 @@ dev-certs
 /cypress/screenshots
 /cypress/videos
 /cypress/downloads
+
+# csv
+*.csv
