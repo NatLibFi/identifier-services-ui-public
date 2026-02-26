@@ -38,7 +38,7 @@ function PrivacyPolicyPage() {
   const { translate: t } = useTranslation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    document.getElementById('root')?.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
   return (

@@ -133,6 +133,8 @@ function MonographPublishersForm() {
   }
 
   const onSubmitHandler = async (data: MonographPublisherFormV1) => {
+    document.getElementById('root')?.scrollIntoView({ behavior: 'smooth' });
+
     try {
       setSubmitting(true);
 
@@ -155,12 +157,10 @@ function MonographPublishersForm() {
       const dataApiV1 = transformMonographPublisherFormDataV1(data, turnstileToken);
       await createMonographPublisherRequestV1(dataApiV1);
 
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-
       // eslint-disable-next-line react-hooks/rules-of-hooks
       return navigate(useLink('/form-success?form=monograph-publisher'));
     } catch (error) {
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      document.getElementById('root')?.scrollIntoView({ behavior: 'smooth' });
 
       if (error instanceof APIError) {
         setSubmitting(false);

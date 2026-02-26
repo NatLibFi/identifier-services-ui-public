@@ -279,7 +279,7 @@ function MonographPublicationForm() {
 
   // Scroll on top after accepting the conditions, useful especially for mobile
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    document.getElementById('root')?.scrollIntoView({ behavior: 'smooth' });
   }, [conditionsAccepted]);
 
   // Display terms and conditions before entering the form if not in development environment
@@ -313,6 +313,8 @@ function MonographPublicationForm() {
   }
 
   const onSubmitHandler = async (data: MonographPublicationFormV1) => {
+    document.getElementById('root')?.scrollIntoView({ behavior: 'smooth' });
+
     try {
       setSubmitting(true);
 
@@ -335,12 +337,10 @@ function MonographPublicationForm() {
       const dataApiV1 = transforMonographPublicationFormDataV1(data, turnstileToken);
       await createMonographPublicationRequestV1(dataApiV1);
 
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-
       // eslint-disable-next-line react-hooks/rules-of-hooks
       return navigate(useLink('/form-success?form=monograph-publication'));
     } catch (error) {
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      document.getElementById('root')?.scrollIntoView({ behavior: 'smooth' });
 
       if (error instanceof APIError) {
         setSubmitting(false);
