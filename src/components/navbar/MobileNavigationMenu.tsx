@@ -23,7 +23,7 @@ function MobileNavigationMenu() {
 
   // Prevent flashing of old content by allowing graceful navigation period
   const autoHideMenu = () => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    document.getElementById('root')?.scrollIntoView({ behavior: 'smooth' });
     setTimeout(() => setShowMobileContent(false), 1000);
   };
 

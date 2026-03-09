@@ -135,8 +135,12 @@ dist
 
 # Dev
 dev-certs
+todo.md
 
 # cypress
 /cypress/screenshots
 /cypress/videos
 /cypress/downloads
+
+# csv
+*.csv

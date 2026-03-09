@@ -135,7 +135,7 @@ function SerialPublicationForm() {
 
   // Scroll on top after accepting the conditions, useful especially for mobile
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    document.documentElement.scrollTo({ behavior: 'smooth' });
   }, [conditionsAccepted]);
 
   // Display terms and conditions before entering the form if not in development environment
@@ -170,6 +170,8 @@ function SerialPublicationForm() {
   }
 
   const onSubmitHandler = async (data: SerialPublicationFormV1) => {
+    document.getElementById('root')?.scrollIntoView({ behavior: 'smooth' });
+
     try {
       setSubmitting(true);
 
@@ -192,12 +194,10 @@ function SerialPublicationForm() {
       const formData = transformSerialPublicationFormDataV1(data, turnstileToken);
       await createSerialPublicationRequestV1(formData);
 
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-
       // eslint-disable-next-line react-hooks/rules-of-hooks
       return navigate(useLink('/form-success?form=serial-publication'));
     } catch (error) {
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      document.getElementById('root')?.scrollIntoView({ behavior: 'smooth' });
 
       if (error instanceof APIError) {
         setSubmitting(false);
