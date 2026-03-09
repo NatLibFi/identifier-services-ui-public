@@ -135,6 +135,7 @@ dist
 
 # Dev
 dev-certs
+todo.md
 
 # cypress
 /cypress/screenshots
