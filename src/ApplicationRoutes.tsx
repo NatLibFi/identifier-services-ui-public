@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { Routes, Route } from 'react-router';
+import { Routes, Route, Navigate } from 'react-router';
 
 import MainLayout from '@/layouts/MainLayout.tsx';
 
@@ -48,8 +48,9 @@ function ApplicationRoutes() {
         <Route index element={<HomePage />} />
         <Route path="/monograph-publishers" element={<MonographPublisherSearchPage />} />
         <Route path="/monograph-publishers/:monographPublisherId" element={<MonographPublisherPage />} />
+        <Route path="/isbn-registry/publishers" element={<Navigate replace to="/monograph-publishers" />} />
 
-        {/* Note: v1 route prefix is used to maintain link integrity without need to redirect */}
+        {/* Note: at this point v1 route prefix is used to maintain link integrity without need to redirect */}
         <Route path="/isbn-registry/identifierbatches/:identifierBatchId" element={<IdentifierBatchDownloadPage />} />
 
         {/* Policy pages */}
@@ -60,10 +61,13 @@ function ApplicationRoutes() {
         <Route path="/form-success" element={<FormSuccessPage />} />
 
         <Route path="/forms/monograph-publishers" element={<MonographPublishersForm />} />
+        <Route path="/forms/isbn-ismn-publisher" element={<Navigate replace to="/forms/monograph-publishers" />} />
 
         <Route path="/forms/monograph-publications" element={<MonographPublicationsForm />} />
+        <Route path="/forms/isbn-ismn-publication" element={<Navigate replace to="/forms/monograph-publications" />} />
 
         <Route path="/forms/serial-publications" element={<SerialPublicationsForm />} />
+        <Route path="/forms/issn-publication" element={<Navigate replace to="/forms/serial-publications" />} />
 
         {/* Not found */}
         <Route path="*" element={<NotFoundPage />} />
