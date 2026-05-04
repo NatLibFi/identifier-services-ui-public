@@ -464,7 +464,7 @@ const en = {
   'forms.monograph-publications.fields.title.placeholder': 'e.g., Matti Meikäläisen seikkailut',
 
   'forms.monograph-publications.fields.subtitle': 'Subtitle',
-  'forms.monograph-publications.fields.subtitle.placeholder': 'e.g., Romaani',
+  'forms.monograph-publications.fields.subtitle.placeholder': '',
 
   'forms.monograph-publications.fields.locality': 'University location',
 

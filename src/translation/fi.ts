@@ -459,7 +459,7 @@ const fi = {
   'forms.monograph-publications.fields.title.placeholder': 'esim. Matti Meikäläisen seikkailut',
 
   'forms.monograph-publications.fields.subtitle': 'Alanimeke',
-  'forms.monograph-publications.fields.subtitle.placeholder': 'esim. Romaani',
+  'forms.monograph-publications.fields.subtitle.placeholder': '',
 
   'forms.monograph-publications.fields.locality': 'Yliopiston sijainti',
 
