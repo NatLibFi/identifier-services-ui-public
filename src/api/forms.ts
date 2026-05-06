@@ -18,10 +18,10 @@ export async function createMonographPublisherRequestV1(formData: MonographPubli
 }
 
 export async function createMonographPublicationRequestV1(formData: MonographPublicationFormApiV1) {
-  const body = { ...formData };
+  const body = { version: 1, ...formData };
 
   return makePostRequest<MonographPublicationFormApiV1, CreatedResponse>(
-    '/api/public/isbn-registry/requests/publications',
+    '/api/v2/monograph/publication-requests',
     body,
   );
 }
