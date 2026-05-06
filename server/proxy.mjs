@@ -34,7 +34,11 @@ function filterRequest(req, _res) {
     { regex: /^\/public\/isbn-registry\/requests\/publications$/, method: 'POST' },
   ];
 
-  const endpointIsAllowed = allowedEndpointsV1.find(
+  const allowedEndpointsV2 = [{ regex: /^\/v2\/monograph\/publication-requests$/, method: 'POST' }];
+
+  const allowedEndpoints = allowedEndpointsV1.concat(allowedEndpointsV2);
+
+  const endpointIsAllowed = allowedEndpoints.find(
     (endpoint) => endpoint.method === req.method && endpoint.regex.test(req.url),
   );
   return endpointIsAllowed;
