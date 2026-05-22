@@ -546,7 +546,7 @@ const fi = {
 
   // Monograph Publication Request - Additional information
   'forms.monograph-publications.fields.comments': 'Lisätietoja',
-  'forms.monograph-publications.fields.comments.placeholder': 'Syötä hakemukseen liittyvät lisätiedot',
+  'forms.monograph-publications.fields.comments.placeholder': 'Syötä julkaisuun ja hakemukseen liittyvät lisätiedot',
 
   // Forms - Serial Publication Request
   'forms.serial-publications.title': 'ISSN-tunnuksen hakulomake',
