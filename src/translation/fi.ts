@@ -420,6 +420,8 @@ const fi = {
   // Monograph Publication Request - notes
   'forms.monograph-publications.notes.dissertation-locality':
     'Tarkista saatko ISBN-tunnukset omalta laitokselta/yliopistolta. Jos väitöskirja kuuluu sarjaan Dissertationes Universitatis Helsingiensis, saat tunnukset Unigrafialta. Jos väittelet muualla kuin Helsingin yliopistossa, pyydä ISBN-tunnukset omalta laitokselta/tiedekunnasta. Tarvittaessa ota yhteyttä ISBN-keskukseen.',
+  'forms.monograph-publications.notes.spiral-binding':
+    'Jos kirja ilmestyy vain kierreselkäisenä, älä valitse muita kansityyppejä.',
 
   // Monograph Publication Request - Publisher / Publication basic information
   'forms.monograph-publications.fields.publications-public':

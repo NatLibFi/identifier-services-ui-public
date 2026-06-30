@@ -425,6 +425,8 @@ const en = {
   // Monograph Publication Request - notes
   'forms.monograph-publications.notes.dissertation-locality':
     'Before you fill in this ISBN application form, please check at your department/faculty if you get an ISBN from there. If the dissertation is part of a series Dissertationes Universitatis Helsingiensis, please contact Unigrafia. If needed, please contact ISBN Agency for more information.',
+  'forms.monograph-publications.notes.spiral-binding':
+    'If the book is published only with spiral binding, don’t choose other cover formats.',
 
   // Monograph Publication Request - Publisher / Publication basic information
   'forms.monograph-publications.fields.publications-public':
