@@ -6,11 +6,11 @@ import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Turnstile } from '@marsidev/react-turnstile';
 
-import { AlertCircleIcon } from 'lucide-react';
+import { AlertCircleIcon, InfoIcon } from 'lucide-react';
 import { ClipLoader } from 'react-spinners';
 
+import { Alert, AlertDescription } from '@/components/shadcn/alert';
 import { Button } from '@/components/shadcn/button';
-
 import { Card, CardContent, CardHeader } from '@/components/shadcn/card';
 import { Field, FieldError, FieldLabel } from '@/components/shadcn/field';
 
@@ -570,6 +570,12 @@ function MonographPublicationForm() {
                       </Field>
                     )}
                   />
+
+                  {/* Note regarding spiral-binding */}
+                  <Alert variant="destructive" className="mt-4">
+                    <InfoIcon />
+                    <AlertDescription>{t('forms.monograph-publications.notes.spiral-binding')}</AlertDescription>
+                  </Alert>
                 </div>
               )}
 
