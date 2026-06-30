@@ -423,7 +423,7 @@ const sv = {
   'forms.monograph-publications.notes.dissertation-locality':
     'Kontrollera om du får ett ISBN-nummer från din institution/avdelning/universitetet. Om doktorsavhandlingen ingår i serien Dissertationes Universitatis Helsingiensis får du numret av Unigrafia. Om du disputerar någon annanstans än vid Helsingfors universitet ska du be institutionen/fakulteten om ett ISBN-nummer. Kontakta ISBN-centralen vid behov.',
   'forms.monograph-publications.notes.spiral-binding':
-    'Om boken endast är utgiven i spiralrygg, välj inte andra publikationsformer.',
+    'Om boken är utgiven endast i spiralrygg, välj inte andra publikationsformer.',
 
   // Monograph Publication Request - Publisher / Publication basic information
   'forms.monograph-publications.fields.publications-public':
