@@ -602,11 +602,11 @@ const en = {
   'forms.serial-publications.fields.frequency.#': 'Irregular',
   'forms.serial-publications.fields.frequency.z': 'Other',
 
-  'forms.serial-publications.fields.frequency-other': 'Muu ilmestymistiheys, mikä?',
-  'forms.serial-publications.fields.frequency-other.placeholder': 'e.g., kerran kahdessa vuodessa',
+  'forms.serial-publications.fields.frequency-other': 'Other, which?',
+  'forms.serial-publications.fields.frequency-other.placeholder': 'e.g., once in two years',
 
-  'forms.serial-publications.fields.publication-type': 'Julkaisutyyppi',
-  'forms.serial-publications.fields.publication-type.placeholder': 'Valitse vaihtoehto',
+  'forms.serial-publications.fields.publication-type': 'Publication type',
+  'forms.serial-publications.fields.publication-type.placeholder': 'Choose one option',
   'forms.serial-publications.fields.publication-type.JOURNAL': 'Journal',
   'forms.serial-publications.fields.publication-type.NEWSLETTER': 'Newsletter',
   'forms.serial-publications.fields.publication-type.STAFF_MAGAZINE': 'Staff magazine',
