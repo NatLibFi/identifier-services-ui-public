@@ -24,27 +24,23 @@ function filterRequest(req, _res) {
     return false;
   }
 
-  const allowedEndpointsV1 = [
-    { regex: /^\/public\/isbn-registry\/publishers\/query$/, method: 'POST' },
-    { regex: /^\/public\/isbn-registry\/publishers\/[0-9]+$/, method: 'GET' },
-    { regex: /^\/public\/isbn-registry\/identifierbatches\/[0-9]+$/, method: 'GET' },
-    { regex: /^\/public\/isbn-registry\/identifierbatches\/[0-9]+\/download$/, method: 'POST' },
-    { regex: /^\/public\/issn-registry\/requests$/, method: 'POST' },
-    { regex: /^\/public\/isbn-registry\/requests\/publishers$/, method: 'POST' },
-    { regex: /^\/public\/isbn-registry\/requests\/publications$/, method: 'POST' },
+  // API V2
+  const allowedEndpoints = [
+    { regex: /^\/monograph\/publishers\/search$/, method: 'POST' }, // search publishers
+    { regex: /^\/monograph\/publishers\/[0-9]+$/, method: 'GET' }, // read publisher information
+    { regex: /^\/monograph\/isbn-publisher-ranges\/[0-9]+$/, method: 'GET' }, // get ISBN publisher range information
+    { regex: /^\/monograph\/ismn-publisher-ranges\/[0-9]+$/, method: 'GET' }, // get ISBN publisher range information
+    { regex: /^\/monograph\/isbn-publisher-ranges\/[0-9]+\/get-identifiers$/, method: 'POST' }, // get ISBN publisher range identifier list
+    { regex: /^\/monograph\/ismn-publisher-ranges\/[0-9]+\/get-identifiers$/, method: 'POST' }, // get ISBN publisher range identifier list
+    { regex: /^\/monograph\/publisher-requests$/, method: 'POST' }, // send monograph publisher requests
+    { regex: /^\/monograph\/publication-requests$/, method: 'POST' }, // send monograph publication requests
+    { regex: /^\/serial\/publication-requests$/, method: 'POST' }, // send serial publication requests
   ];
 
-  const allowedEndpointsV2 = [
-    { regex: /^\/monograph\/publisher-requests$/, method: 'POST' },
-    { regex: /^\/monograph\/publication-requests$/, method: 'POST' },
-    { regex: /^\/serial\/publication-requests$/, method: 'POST' },
-  ];
-
-  const allowedEndpoints = allowedEndpointsV1.concat(allowedEndpointsV2);
-
-  const endpointIsAllowed = allowedEndpoints.find(
+  const endpointIsAllowed = allowedEndpoints.some(
     (endpoint) => endpoint.method === req.method && endpoint.regex.test(req.url),
   );
+
   return endpointIsAllowed;
 }
 

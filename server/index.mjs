@@ -66,6 +66,7 @@ app.get('/{*path}', (req, res) => {
 });
 
 // Sanity: 404 handler (check app handler if this is matched)
+// Note: entries filtered by proxy may end up here
 app.use(handleNotFound);
 
 // Error management
