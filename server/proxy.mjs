@@ -34,7 +34,11 @@ function filterRequest(req, _res) {
     { regex: /^\/public\/isbn-registry\/requests\/publications$/, method: 'POST' },
   ];
 
-  const allowedEndpointsV2 = [{ regex: /^\/v2\/monograph\/publication-requests$/, method: 'POST' }];
+  const allowedEndpointsV2 = [
+    { regex: /^\/v2\/monograph\/publisher-requests$/, method: 'POST' },
+    { regex: /^\/v2\/monograph\/publication-requests$/, method: 'POST' },
+    { regex: /^\/v2\/serial\/publication-requests$/, method: 'POST' },
+  ];
 
   const allowedEndpoints = allowedEndpointsV1.concat(allowedEndpointsV2);
 

@@ -61,7 +61,7 @@ export default defineConfig({
     proxy: {
       '^/api': {
         target: 'http://localhost:8081',
-        rewrite: (path) => path.replace(/^\/api/, ''),
+        rewrite: (path) => path.replace(/^\/api/, '/v2'),
         // Uncomment if you need to investigate requests proxied to api
         /*
         configure: (proxy, options) => {

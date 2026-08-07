@@ -9,25 +9,19 @@ interface CreatedResponse {
 }
 
 export async function createMonographPublisherRequestV1(formData: MonographPublisherFormApiV1) {
-  const body = { ...formData };
+  const body = { version: 1, ...formData };
 
-  return makePostRequest<MonographPublisherFormApiV1, CreatedResponse>(
-    '/api/public/isbn-registry/requests/publishers',
-    body,
-  );
+  return makePostRequest<MonographPublisherFormApiV1, CreatedResponse>('/api/monograph/publisher-requests', body);
 }
 
 export async function createMonographPublicationRequestV1(formData: MonographPublicationFormApiV1) {
-  const body = { ...formData };
+  const body = { version: 1, ...formData };
 
-  return makePostRequest<MonographPublicationFormApiV1, CreatedResponse>(
-    '/api/public/isbn-registry/requests/publications',
-    body,
-  );
+  return makePostRequest<MonographPublicationFormApiV1, CreatedResponse>('/api/monograph/publication-requests', body);
 }
 
 export async function createSerialPublicationRequestV1(formData: SerialPublicationFormApiV1) {
-  const body = { ...formData };
+  const body = { version: 1, ...formData };
 
-  return makePostRequest<SerialPublicationFormApiV1, CreatedResponse>('/api/public/issn-registry/requests', body);
+  return makePostRequest<SerialPublicationFormApiV1, CreatedResponse>('/api/serial/publication-requests', body);
 }
