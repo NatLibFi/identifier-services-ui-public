@@ -91,7 +91,7 @@ function MonographPublisherSearchPage() {
       {!isError && !isPending && (
         <MonographPublisherDataTable
           data={data.results}
-          rowCount={data.totalDoc}
+          rowCount={data.total_doc}
           columns={monographPublisherTableColumns}
           pagination={pagination}
           setPagination={setUrlPagination}

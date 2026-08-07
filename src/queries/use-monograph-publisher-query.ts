@@ -4,8 +4,8 @@ import type { PaginationState } from '@tanstack/react-table';
 import {
   readMonographPublisher,
   searchMonographPublishers,
-  type MonographPublisherQueryV1Response,
-  type MonographPublisherReadV1Response,
+  type MonographPublisherSearchHttpResponse,
+  type MonographPublisherPublicInfo,
 } from '@/api/monograph-publishers';
 
 export const monographPublisherQueries = {
@@ -13,9 +13,9 @@ export const monographPublisherQueries = {
   search: ['searchMonographPublishers'],
 };
 
-export function useReadMonographPublisher<TData = MonographPublisherReadV1Response, TError = Error>(
+export function useReadMonographPublisher<TData = MonographPublisherPublicInfo, TError = Error>(
   monographPublisherId: string,
-  options?: Omit<UseQueryOptions<MonographPublisherReadV1Response, TError, TData>, 'queryKey' | 'queryFn'>,
+  options?: Omit<UseQueryOptions<MonographPublisherPublicInfo, TError, TData>, 'queryKey' | 'queryFn'>,
 ) {
   return queryOptions({
     ...options,
@@ -24,10 +24,10 @@ export function useReadMonographPublisher<TData = MonographPublisherReadV1Respon
   });
 }
 
-export function useSearchMonographPublishersQuery<TData = MonographPublisherQueryV1Response, TError = Error>(
+export function useSearchMonographPublishersQuery<TData = MonographPublisherSearchHttpResponse, TError = Error>(
   queryString: string,
   pagination: PaginationState,
-  options?: Omit<UseQueryOptions<MonographPublisherQueryV1Response, TError, TData>, 'queryKey' | 'queryFn'>,
+  options?: Omit<UseQueryOptions<MonographPublisherSearchHttpResponse, TError, TData>, 'queryKey' | 'queryFn'>,
 ) {
   return queryOptions({
     ...options,

@@ -2,13 +2,13 @@ import { useSearchParams } from 'react-router';
 
 import { type Row } from '@tanstack/react-table';
 
-import type { MonographPublisherSearchResultV1 } from '@/api/monograph-publishers';
+import type { MonographPublisherPublicInfo } from '@/api/monograph-publishers';
 import InternalLink from '@/components/links/InternalLink';
 import NatlibfiLinkText from '@/components/text/NatlibfiLinkText';
 
 import { getParameterizedLink } from '@/utils/link-utils';
 
-function OfficialNameRow({ row }: { row: Row<MonographPublisherSearchResultV1> }) {
+function OfficialNameRow({ row }: { row: Row<MonographPublisherPublicInfo> }) {
   const [searchParams] = useSearchParams();
   const useLink = (href: string) => getParameterizedLink(href, searchParams);
 
@@ -19,7 +19,7 @@ function OfficialNameRow({ row }: { row: Row<MonographPublisherSearchResultV1> }
         backlink: `${window.location.pathname}${window.location.search}`,
       }}
     >
-      <NatlibfiLinkText className="overflow-hidden overflow-ellipsis">{row.getValue('officialName')}</NatlibfiLinkText>
+      <NatlibfiLinkText className="overflow-hidden overflow-ellipsis">{row.getValue('official_name')}</NatlibfiLinkText>
     </InternalLink>
   );
 }

@@ -2,63 +2,49 @@ import type { PaginationState } from '@tanstack/react-table';
 
 import { makeGetRequest, makePostRequest } from '@/api';
 
-export interface MonographPublisherSearchResultV1 {
-  id: number;
-  officialName: string;
-  otherNames: string | null;
-  hasQuitted: boolean;
-  activeIdentifierIsbn: string | null;
-  activeIdentifierIsmn: string | null;
+interface PublisherRange {
+  publisher_identifier: string;
 }
 
-export interface MonographPublisherQueryV1Response {
-  totalDoc: number;
-  results: MonographPublisherSearchResultV1[];
-}
-
-interface MonographPublisherSubrange {
+export interface MonographPublisherPublicInfo {
   id: number;
-  publisherIdentifier: string;
-}
-
-export interface MonographPublisherReadV1Response {
-  id: number;
-  officialName: string;
-  previousNames: string[];
-  otherNames: string | null;
-  address: string;
-  hasQuitted: boolean;
-  city: string;
-  zip: string;
+  official_name: string;
+  other_names: string[];
+  previous_names: string[];
+  address: string | null;
+  zip: string | null;
+  city: string | null;
   phone: string | null;
+  has_quitted: boolean;
   www: string | null;
-  isbnSubRanges: MonographPublisherSubrange[];
-  ismnSubRanges: MonographPublisherSubrange[];
-  activeIdentifierIsbn: string | null;
-  activeIdentifierIsmn: string | null;
+  isbn_publisher_ranges: PublisherRange[];
+  ismn_publisher_ranges: PublisherRange[];
 }
 
-export interface MonographPublisherQueryV1Body {
-  searchText: string;
+export interface MonographPublisherSearchHttpResponse {
+  total_doc: number;
+  results: MonographPublisherPublicInfo[];
+}
+
+export interface MonographPublisherSearchHttpBody {
+  search_text: string;
   offset: number;
   limit: number;
 }
 
 export async function searchMonographPublishers(searchText: string, pagination: PaginationState) {
   const body = {
-    searchText,
+    search_text: searchText,
     offset: pagination.pageIndex * pagination.pageSize,
     limit: pagination.pageSize,
   };
 
-  return makePostRequest<MonographPublisherQueryV1Body, MonographPublisherQueryV1Response>(
-    '/api/public/isbn-registry/publishers/query',
+  return makePostRequest<MonographPublisherSearchHttpBody, MonographPublisherSearchHttpResponse>(
+    '/api/monograph/publishers/search',
     body,
   );
 }
 
 export async function readMonographPublisher(monographPublisherId: string) {
-  return makeGetRequest<MonographPublisherReadV1Response>(
-    `/api/public/isbn-registry/publishers/${monographPublisherId}`,
-  );
+  return makeGetRequest<MonographPublisherPublicInfo>(`/api/monograph/publishers/${monographPublisherId}`);
 }

@@ -31,13 +31,22 @@ function MonographPublisherPage() {
     return <ErrorDisplay />;
   }
 
-  const publisherHasQuitted = data?.hasQuitted === true;
+  const publisherHasQuitted = data.has_quitted === true;
   const title = publisherHasQuitted
-    ? `${data?.officialName} / ${t('pages.monograph-publisher.has-quitted')}`
-    : data?.officialName;
+    ? `${data.official_name} / ${t('pages.monograph-publisher.has-quitted')}`
+    : data.official_name;
 
-  const hasIsbnPublisherRanges = data?.isbnSubRanges && data.isbnSubRanges.length > 0;
-  const hasIsmnPublisherRanges = data?.isbnSubRanges && data.ismnSubRanges.length > 0;
+  const hasIsbnPublisherRanges = data.isbn_publisher_ranges.length > 0;
+  const hasIsmnPublisherRanges = data.ismn_publisher_ranges.length > 0;
+
+  // Construct address
+  let addressString = '';
+  if (data.address) addressString += `${data.address}, `;
+  if (data.zip) addressString += `${data.zip}, `;
+  if (data.city) addressString += `${data.city} `;
+
+  if (addressString.length === 0) addressString = '-';
+  if (addressString.length > 0) addressString = addressString.replace(/,\s$/, '').trim();
 
   return (
     <ContentWrapper>
@@ -51,34 +60,31 @@ function MonographPublisherPage() {
           <div className={'grid max-lg:gap-y-2 lg:grid-cols-2 lg:gap-x-2'}>
             <MonographPublisherDataEntry
               heading={t('pages.monograph-publisher.previous-names')}
-              value={data?.previousNames}
+              value={data.previous_names.join(', ')}
             />
 
             <MonographPublisherDataEntry
               heading={t('data-tables.monograph-publisher.headers.other-names')}
-              value={data?.otherNames}
+              value={data.other_names.join(', ')}
             />
 
-            <MonographPublisherDataEntry
-              heading={t('forms.common.fields.address')}
-              value={`${data?.address}, ${data?.zip} ${data?.city}`}
-            />
+            <MonographPublisherDataEntry heading={t('forms.common.fields.address')} value={addressString} />
 
-            <MonographPublisherDataEntry heading={t('forms.common.fields.phone')} value={data?.phone} />
+            <MonographPublisherDataEntry heading={t('forms.common.fields.phone')} value={data.phone} />
 
-            <MonographPublisherDataEntry heading={t('forms.monograph-publishers.fields.www')} value={data?.www} />
+            <MonographPublisherDataEntry heading={t('forms.monograph-publishers.fields.www')} value={data.www} />
 
             {hasIsbnPublisherRanges && (
               <MonographPublisherDataEntry
                 heading={t('pages.monograph-publisher.headings.isbn-publisher-ranges')}
-                value={data?.isbnSubRanges.map((isbnSubRange) => isbnSubRange.publisherIdentifier)}
+                value={data.isbn_publisher_ranges.map(({ publisher_identifier }) => publisher_identifier)}
               />
             )}
 
             {hasIsmnPublisherRanges && (
               <MonographPublisherDataEntry
                 heading={t('pages.monograph-publisher.headings.ismn-publisher-ranges')}
-                value={data?.ismnSubRanges.map((ismnSubRange) => ismnSubRange.publisherIdentifier)}
+                value={data.ismn_publisher_ranges.map(({ publisher_identifier }) => publisher_identifier)}
               />
             )}
           </div>
