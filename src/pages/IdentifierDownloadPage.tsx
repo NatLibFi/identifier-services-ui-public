@@ -20,7 +20,7 @@ import useApplicationConfiguration from '@/hooks/useApplicationConfiguration';
 import useTranslation from '@/hooks/useTranslation';
 
 import { useReadPublisherIdentifierPublicInfo } from '@/queries/use-identifierbatch-query';
-import { downloadIdentifiers } from '@/api/identifier-batches';
+import { downloadIdentifiers } from '@/api/identifier-download';
 
 import { asIdNumber } from '@/utils/generic-utils';
 

@@ -3,7 +3,7 @@ import { queryOptions, type UseQueryOptions } from '@tanstack/react-query';
 import {
   readPublisherIdentifierPublicInfo,
   type PublisherIdentifierInformationHttpResponse,
-} from '@/api/identifier-batches';
+} from '@/api/identifier-download';
 
 export const publisherIdentifierQueries = {
   read: ['readPublisherIdentifierPublicInfo'],
