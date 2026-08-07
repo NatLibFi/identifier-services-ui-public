@@ -68,6 +68,11 @@ const fi = {
   // Pages - Identifier Batch Download
   'pages.identifierbatch-download.title': 'Tunnuslista',
 
+  // Pages - Identifier Batch Download (deprecated)
+  'pages.deprecated-identifier-download.title': 'Vanhentunut linkki',
+  'pages.deprecated-identifier-download.description':
+    'Tunnuslistojen lataaminen on uudistunut. Ole hyvä ja pyydä uusi linkki asiakaspalvelusta.',
+
   // Pages- Accessibility Statement
   'pages.accessibility-statement.title': 'Saavutettavuusseloste',
   'pages.accessibility-statement.description.main':

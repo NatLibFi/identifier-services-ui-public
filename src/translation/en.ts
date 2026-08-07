@@ -69,6 +69,10 @@ const en = {
   // Pages - Identifier Batch Download
   'pages.identifierbatch-download.title': 'List of identifiers',
 
+  // Pages - Identifier Batch Download (deprecated)
+  'pages.deprecated-identifier-download.title': 'TODO english translation',
+  'pages.deprecated-identifier-download.description': 'TODO english translation',
+
   // Pages- Accessibility Statement
   'pages.accessibility-statement.title': 'Accessibility statement',
   'pages.accessibility-statement.description.main':

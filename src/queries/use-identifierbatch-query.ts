@@ -1,18 +1,25 @@
 import { queryOptions, type UseQueryOptions } from '@tanstack/react-query';
 
-import { readIdentifierBatch, type IdentifierBatchReadV1Response } from '@/api/identifier-batches';
+import {
+  readPublisherIdentifierPublicInfo,
+  type PublisherIdentifierInformationHttpResponse,
+} from '@/api/identifier-batches';
 
-export const identifierBatchQueries = {
-  read: ['readIdentifierBatch'],
+export const publisherIdentifierQueries = {
+  read: ['readPublisherIdentifierPublicInfo'],
 };
 
-export function useReadIdentifierBatch<TData = IdentifierBatchReadV1Response, TError = Error>(
-  identifierBatchId: string,
-  options?: Omit<UseQueryOptions<IdentifierBatchReadV1Response, TError, TData>, 'queryKey' | 'queryFn'>,
+export function useReadPublisherIdentifierPublicInfo<
+  TData = PublisherIdentifierInformationHttpResponse,
+  TError = Error,
+>(
+  publisherIdentifierType: 'isbn' | 'ismn',
+  publisherIdentifierId: number,
+  options?: Omit<UseQueryOptions<PublisherIdentifierInformationHttpResponse, TError, TData>, 'queryKey' | 'queryFn'>,
 ) {
   return queryOptions({
     ...options,
-    queryKey: [...identifierBatchQueries.read, identifierBatchId],
-    queryFn: () => readIdentifierBatch(identifierBatchId),
+    queryKey: [...publisherIdentifierQueries.read, { publisherIdentifierType, publisherIdentifierId }],
+    queryFn: () => readPublisherIdentifierPublicInfo(publisherIdentifierType, publisherIdentifierId),
   });
 }

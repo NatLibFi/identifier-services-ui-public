@@ -1,30 +1,37 @@
 import { getRequestHeaders, makeGetRequest } from '@/api';
 
-export interface IdentifierBatchReadV1Response {
-  id: number;
-  identifierType: string;
-  identifierCount: number;
-  publisherId: number;
-  publisherName: string;
-  publisherIdentifier: string;
+export interface PublisherIdentifierInformationHttpResponse {
+  publisher_name: string;
+  publisher_identifier: string;
 }
 
-export interface IdentifierBatchDownloadBody {
+export interface PublisherIdentifierDownloadHttpBody {
+  download: boolean;
   turnstileToken: string;
 }
 
-export async function readIdentifierBatch(identifierBatchId: string) {
-  return makeGetRequest<IdentifierBatchReadV1Response>(
-    `/api/public/isbn-registry/identifierbatches/${identifierBatchId}`,
+export async function readPublisherIdentifierPublicInfo(
+  publisherIdentifierType: 'isbn' | 'ismn',
+  publisherIdentifierId: number,
+) {
+  return makeGetRequest<PublisherIdentifierInformationHttpResponse>(
+    `/api/monograph/${publisherIdentifierType}-publisher-ranges/${publisherIdentifierId}`,
   );
 }
 
-export async function downloadIdentifierBatch(identifierBatchId: string, turnstileToken: string | undefined) {
-  const response = await fetch(`/api/public/isbn-registry/identifierbatches/${identifierBatchId}/download`, {
-    method: 'POST',
-    headers: getRequestHeaders(true),
-    body: JSON.stringify({ turnstileToken }),
-  });
+export async function downloadIdentifiers(
+  publisherIdentifierType: 'isbn' | 'ismn',
+  publisherIdentifierId: number,
+  turnstileToken: string | undefined,
+) {
+  const response = await fetch(
+    `/api/monograph/${publisherIdentifierType}-publisher-ranges/${publisherIdentifierId}/get-identifiers`,
+    {
+      method: 'POST',
+      headers: getRequestHeaders(true),
+      body: JSON.stringify({ download: true, turnstileToken }),
+    },
+  );
 
   if (response.status === 200) {
     const blob = await response.blob();
@@ -37,7 +44,7 @@ export async function downloadIdentifierBatch(identifierBatchId: string, turnsti
     // get filename from response header & format it
     const fileName =
       response.headers?.get('content-disposition')?.split('filename=')[1].slice(1, -1) ||
-      `tunnuslista-${identifierBatchId}.txt`;
+      `${publisherIdentifierType}-tunnuslista-${publisherIdentifierId}.txt`;
 
     a.download = fileName;
     document.body.appendChild(a);

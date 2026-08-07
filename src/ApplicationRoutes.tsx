@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from 'react-router';
 import MainLayout from '@/layouts/MainLayout.tsx';
 
 import useApplicationConfiguration from '@/hooks/useApplicationConfiguration';
+import DeprecatedIdentifierDownloadPage from '@/pages/DeprecatedIdentifierDownloadPage';
 
 // Lazy-load pages to reduce bundle size
 
@@ -17,7 +18,7 @@ const PrivacyPolicyPage = lazy(() => import('@/pages/PrivacyPolicyPage'));
 
 // Main pages
 const HomePage = lazy(() => import('@/pages/HomePage.tsx'));
-const IdentifierBatchDownloadPage = lazy(() => import('@/pages/IdentifierBatchDownloadPage'));
+const IdentifierBatchDownloadPage = lazy(() => import('@/pages/IdentifierDownloadPage'));
 const MonographPublisherSearchPage = lazy(() => import('@/pages/MonographPublisherSearchPage'));
 const MonographPublisherPage = lazy(() => import('@/pages/MonographPublisherPage'));
 
@@ -50,8 +51,21 @@ function ApplicationRoutes() {
         <Route path="/monograph-publishers/:monographPublisherId" element={<MonographPublisherPage />} />
         <Route path="/isbn-registry/publishers" element={<Navigate replace to="/monograph-publishers" />} />
 
-        {/* Note: at this point v1 route prefix is used to maintain link integrity without need to redirect */}
-        <Route path="/isbn-registry/identifierbatches/:identifierBatchId" element={<IdentifierBatchDownloadPage />} />
+        {/* Note: v1 route is deprecated due to data schema changing away from batch-based approach */}
+        <Route
+          path="/isbn-registry/identifierbatches/:identifierBatchId"
+          element={<DeprecatedIdentifierDownloadPage />}
+        />
+
+        {/* V2 identifier download routers */}
+        <Route
+          path="/monograph/isbn-publisher-ranges/:publisherIdentifierIdString"
+          element={<IdentifierBatchDownloadPage publisherIdentifierType="isbn" />}
+        />
+        <Route
+          path="/monograph/ismn-publisher-ranges/:publisherIdentifierIdString"
+          element={<IdentifierBatchDownloadPage publisherIdentifierType="ismn" />}
+        />
 
         {/* Policy pages */}
         <Route path="/accessibility-statement" element={<AccessibilityStatementPage />} />

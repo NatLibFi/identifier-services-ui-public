@@ -7,7 +7,6 @@ import { Turnstile } from '@marsidev/react-turnstile';
 import { ClipLoader } from 'react-spinners';
 
 import { Button } from '@/components/shadcn/button';
-import { Card, CardContent, CardFooter } from '@/components/shadcn/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/shadcn/dialog';
 
 import ContentWrapper from '@/components/layout-utils/ContentWrapper';
@@ -15,15 +14,17 @@ import ErrorDisplay from '@/components/ErrorDisplay';
 import FormTermsAndConditions from '@/components/forms/terms-and-conditions/FormTermsAndConditions';
 import LoadingDisplay from '@/components/LoadingDisplay';
 import NatlibfiHeading from '@/components/text/NatlibfiHeading';
-import NatlibfiBodyText from '@/components/text/NatlibfiBodyText';
 
 import useAlert from '@/hooks/useAlert';
 import useApplicationConfiguration from '@/hooks/useApplicationConfiguration';
 import useTranslation from '@/hooks/useTranslation';
-import { useReadIdentifierBatch } from '@/queries/use-identifierbatch-query';
-import { downloadIdentifierBatch } from '@/api/identifier-batches';
 
-function IdentifierBatchDownloadPage() {
+import { useReadPublisherIdentifierPublicInfo } from '@/queries/use-identifierbatch-query';
+import { downloadIdentifiers } from '@/api/identifier-batches';
+
+import { asIdNumber } from '@/utils/generic-utils';
+
+function IdentifierBatchDownloadPage({ publisherIdentifierType }: { publisherIdentifierType: 'isbn' | 'ismn' }) {
   const navigate = useNavigate();
   const { translate: t } = useTranslation();
   const { isProductionLikeEnvironment, turnstileSiteKey } = useApplicationConfiguration();
@@ -35,11 +36,14 @@ function IdentifierBatchDownloadPage() {
   const [submitting, setSubmitting] = useState(false);
 
   // Cast typing as suggested in https://stackoverflow.com/a/75711570
-  const { identifierBatchId } = useParams() as {
-    identifierBatchId: string;
+  const { publisherIdentifierIdString } = useParams() as {
+    publisherIdentifierIdString: string;
   };
 
-  const { data, isPending, isError } = useQuery(useReadIdentifierBatch(identifierBatchId));
+  const publisherIdentifierId = asIdNumber(publisherIdentifierIdString);
+  const { data, isPending, isError } = useQuery(
+    useReadPublisherIdentifierPublicInfo(publisherIdentifierType, publisherIdentifierId),
+  );
 
   if (isPending) {
     return <LoadingDisplay />;
@@ -51,16 +55,16 @@ function IdentifierBatchDownloadPage() {
 
   // Some formatting. Could be improved.
   const confirmationFinnish = t('components.identifierbatches.dialog.description-fi')
-    .replace('#PUBLISHER', data.publisherName)
-    .replace('#PUBLISHER-IDENTIFIER', data.publisherIdentifier);
+    .replace('#PUBLISHER', data.publisher_name)
+    .replace('#PUBLISHER-IDENTIFIER', data.publisher_identifier);
 
   const confirmationSwedish = t('components.identifierbatches.dialog.description-sv')
-    .replace('#PUBLISHER', data.publisherName)
-    .replace('#PUBLISHER-IDENTIFIER', data.publisherIdentifier);
+    .replace('#PUBLISHER', data.publisher_name)
+    .replace('#PUBLISHER-IDENTIFIER', data.publisher_identifier);
 
   const confirmationEnglish = t('components.identifierbatches.dialog.description-en')
-    .replace('#PUBLISHER', data.publisherName)
-    .replace('#PUBLISHER-IDENTIFIER', data.publisherIdentifier);
+    .replace('#PUBLISHER', data.publisher_name)
+    .replace('#PUBLISHER-IDENTIFIER', data.publisher_identifier);
 
   const acceptConditions = () => setConditionsAccepted(true);
   const redirectToHome = () => navigate('/');
@@ -94,7 +98,7 @@ function IdentifierBatchDownloadPage() {
         });
       }
 
-      await downloadIdentifierBatch(identifierBatchId, turnstileToken);
+      await downloadIdentifiers(publisherIdentifierType, publisherIdentifierId, turnstileToken);
       // eslint-disable-next-line
     } catch (_error) {
       displayAlert({
@@ -106,14 +110,14 @@ function IdentifierBatchDownloadPage() {
     setSubmitting(false);
   };
 
-  if (!conditionsAccepted) {
+  if (conditionsAccepted) {
     return (
       <ContentWrapper>
         {/* TODO: refactor as separate component */}
         <Dialog defaultOpen onOpenChange={handleDialogOpenChange}>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>{t('components.identifierbatches.dialog.title')}</DialogTitle>
+              <DialogTitle>{t('components.identifier.dialog.title')}</DialogTitle>
               <DialogDescription>
                 {confirmationFinnish}
                 <br />
@@ -154,34 +158,13 @@ function IdentifierBatchDownloadPage() {
   return (
     <ContentWrapper>
       <NatlibfiHeading size={'l'}>
-        {t('pages.identifierbatch-download.title')} ({data.identifierType}) - {data.publisherName}{' '}
+        {t('pages.identifierbatch-download.title')} ({publisherIdentifierType.toUpperCase()}) / {data.publisher_name} /{' '}
+        {data.publisher_identifier}
       </NatlibfiHeading>
 
-      {/* TODO: refactor as separate component */}
-      <Card className="mb-8">
-        <CardContent>
-          <div className={'grid max-lg:gap-y-2 lg:grid-cols-2 lg:gap-x-2'}>
-            <div>
-              <NatlibfiHeading size={'m'} className="mb-0">
-                {t('components.identifierbatches.card.batch-type')}
-              </NatlibfiHeading>
-              <NatlibfiBodyText className="wrap-anywhere">{data.identifierType}</NatlibfiBodyText>
-            </div>
-
-            <div>
-              <NatlibfiHeading size={'m'} className="mb-0">
-                {t('components.identifierbatches.card.batch-identifiers')}
-              </NatlibfiHeading>
-              <NatlibfiBodyText className="wrap-anywhere">{data.identifierCount}</NatlibfiBodyText>
-            </div>
-          </div>
-        </CardContent>
-        <CardFooter>
-          <Button onClick={handleDownload} variant="default">
-            {t('components.identifierbatches.card.download')}
-          </Button>
-        </CardFooter>
-      </Card>
+      <Button className="w-64 mb-8 cursor-pointer" onClick={handleDownload} variant="default">
+        {t('components.identifierbatches.card.download')}
+      </Button>
 
       <FormTermsAndConditions type="download" />
     </ContentWrapper>

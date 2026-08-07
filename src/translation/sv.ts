@@ -67,6 +67,10 @@ const sv = {
   // Pages - Identifier Batch Download
   'pages.identifierbatch-download.title': 'Listor med identifikatorer',
 
+  // Pages - Identifier Batch Download (deprecated)
+  'pages.deprecated-identifier-download.title': 'TODO swedish translation',
+  'pages.deprecated-identifier-download.description': 'TODO swedish translation',
+
   // Pages- Accessibility Statement
   'pages.accessibility-statement.title': 'Tillgänglighetsutlåtande',
   'pages.accessibility-statement.description.main':
