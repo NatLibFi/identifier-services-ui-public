@@ -65,11 +65,11 @@ app.get('/{*path}', (req, res) => {
   return res.sendFile(path.join(__dirname, `${staticFolder}/index.html`));
 });
 
-// Error management
-app.use(handleErrors);
-
 // Sanity: 404 handler (check app handler if this is matched)
 app.use(handleNotFound);
+
+// Error management
+app.use(handleErrors);
 
 // Log config options if necessary
 if (MAINTENANCE_MODE) {
@@ -101,7 +101,8 @@ function shutdown() {
   });
 }
 
-function handleErrors(err, req, res) {
+// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+function handleErrors(err, req, res, _next) {
   logger.warn('Webserver has encountered an error: ', err.message);
 
   const responseBody = {

@@ -35,9 +35,9 @@ function filterRequest(req, _res) {
   ];
 
   const allowedEndpointsV2 = [
-    { regex: /^\/v2\/monograph\/publisher-requests$/, method: 'POST' },
-    { regex: /^\/v2\/monograph\/publication-requests$/, method: 'POST' },
-    { regex: /^\/v2\/serial\/publication-requests$/, method: 'POST' },
+    { regex: /^\/monograph\/publisher-requests$/, method: 'POST' },
+    { regex: /^\/monograph\/publication-requests$/, method: 'POST' },
+    { regex: /^\/serial\/publication-requests$/, method: 'POST' },
   ];
 
   const allowedEndpoints = allowedEndpointsV1.concat(allowedEndpointsV2);
