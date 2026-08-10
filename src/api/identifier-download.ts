@@ -5,11 +5,6 @@ export interface PublisherIdentifierInformationHttpResponse {
   publisher_identifier: string;
 }
 
-export interface PublisherIdentifierDownloadHttpBody {
-  download: boolean;
-  turnstileToken: string;
-}
-
 export async function readPublisherIdentifierPublicInfo(
   publisherIdentifierType: 'isbn' | 'ismn',
   publisherIdentifierId: number,
@@ -29,7 +24,7 @@ export async function downloadIdentifiers(
     {
       method: 'POST',
       headers: getRequestHeaders(true),
-      body: JSON.stringify({ download: true, turnstileToken }),
+      body: JSON.stringify({ download: true, turnstile_token: turnstileToken }),
     },
   );
 
