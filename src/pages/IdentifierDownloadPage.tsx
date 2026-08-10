@@ -110,7 +110,7 @@ function IdentifierBatchDownloadPage({ publisherIdentifierType }: { publisherIde
     setSubmitting(false);
   };
 
-  if (conditionsAccepted) {
+  if (!conditionsAccepted) {
     return (
       <ContentWrapper>
         {/* TODO: refactor as separate component */}
