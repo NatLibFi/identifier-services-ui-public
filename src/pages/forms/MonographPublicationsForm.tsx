@@ -510,6 +510,7 @@ function MonographPublicationForm() {
                   form={form}
                   fieldName="publishingActivityAmount"
                   fieldBaseTranslateId="forms.monograph-publications.fields.publishing-activity-amount"
+                  required
                 />
               )}
             </CardContent>

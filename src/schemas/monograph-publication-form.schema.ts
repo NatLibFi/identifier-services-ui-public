@@ -119,6 +119,22 @@ export const monographPublicationFormV1Schema = z
       });
     }
 
+    if (!isDissertation && !data.publishingActivity) {
+      ctx.addIssue({
+        path: ['publishingActivity'],
+        code: 'custom',
+        message: 'forms.errors.common.required',
+      });
+    }
+
+    if (!isDissertation && !data.publishingActivityAmount) {
+      ctx.addIssue({
+        path: ['publishingActivityAmount'],
+        code: 'custom',
+        message: 'forms.errors.common.required',
+      });
+    }
+
     // Publishing date validation
     const currentDate = new Date();
     const publishedDuringCurrentYear = data.year === String(currentDate.getFullYear());
