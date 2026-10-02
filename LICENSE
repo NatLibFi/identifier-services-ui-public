@@ -2,6 +2,8 @@
 
 # Icons
 
+Third-party icons remain subject to their respective licenses. For licenses regarding each icon, please see the licensing information of the external dependency that provides the icon.
+
 Following npm dependencies provide icon files that are licensed under CC BY 4.0:
   - https://www.npmjs.com/package/@fortawesome/fontawesome-svg-core
   - https://www.npmjs.com/package/@fortawesome/free-brands-svg-icons
@@ -12,11 +14,26 @@ Following npm dependencies provide icon files that are licensed under CC BY 4.0:
 
 # Fonts
 
+Third-party fonts remain subject to their respective licenses. For licenses regarding each font, please see the licensing information of the external dependency that provides the font.
+
 Following npm dependencies provide font files that are licensed under SIL OFL 1.1 License:
+
 - https://www.npmjs.com/package/@fortawesome/fontawesome-svg-core
 - https://www.npmjs.com/package/@fortawesome/free-brands-svg-icons
 - https://www.npmjs.com/package/@fortawesome/free-regular-svg-icons
 - https://www.npmjs.com/package/@fortawesome/free-solid-svg-icons
+
+---
+
+# Third-party dependency notes
+
+Third-party dependencies, including build-time tooling and associated assets, remain subject to their respective licenses.
+
+Notable third-party licenses differing from the project's MIT license include, but are not limited to:
+
+- CC-BY-4.0 (caniuse-lite, a transitive dependency of @vitejs/plugin-react)
+- MPL-2.0 (lightningcss, a transitive dependency of @tailwindcss/vite)
+- Python-2.0 (argparse, a transitive dependency of eslint)
 
 ---
 
