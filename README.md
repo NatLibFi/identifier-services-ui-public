@@ -68,4 +68,4 @@ Copyright (c) of Identifier Registry 2016 University Of Helsinki (The National L
 
 Copyright (c) of Identifier Services UI 2023-2026 **University Of Helsinki (The National Library Of Finland)**
 
-This project's source code located in this repository is licensed under the terms of **MIT**. Note that icons and fonts provided by project dependencies use separate licenses. For further information see [LICENSE-file](https://github.com/NatLibFi/identifier-services-ui-public/blob/main/LICENSE).
+This project's source code located in this repository is licensed under the terms of **MIT**. Third-party dependencies, including build-time tooling and associated assets, remain subject to their respective licenses. Note that also icons and fonts provided by project dependencies also remain subject to their respective licenses. For further information see [LICENSE-file](https://github.com/NatLibFi/identifier-services-ui-public/blob/main/LICENSE).
