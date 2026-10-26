@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader } from '@/components/shadcn/card';
 import CommonCheckbox from '@/components/forms/fields/CommonCheckbox';
 import CommonInputField from '@/components/forms/fields/CommonInputField';
 import CommonSelectField from '@/components/forms/fields/CommonSelectField';
+import CommonTextAreaField from '@/components/forms/fields/CommonTextAreaField';
 import ResponsiveTwoColumnBlock from '@/components/forms/field-layouts/ResponsiveTwoColumnBlock';
 
 import useTranslation from '@/hooks/useTranslation';
@@ -399,7 +400,7 @@ function SerialPublicationCard({ form, idx, removePublications, ...props }: Seri
           )}
 
           <div className="lg:col-span-2">
-            <CommonInputField
+            <CommonTextAreaField
               form={form}
               fieldName={`publications.${idx}.additionalInfo`}
               fieldBaseTranslateId="forms.serial-publications.fields.additional-info"

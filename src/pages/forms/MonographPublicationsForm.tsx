@@ -18,6 +18,7 @@ import { MultiSelect } from '@/components/shadcn-custom/multi-select';
 
 import CommonInputField from '@/components/forms/fields/CommonInputField';
 import CommonSelectField from '@/components/forms/fields/CommonSelectField';
+import CommonTextAreaField from '@/components/forms/fields/CommonTextAreaField';
 import ContentWrapper from '@/components/layout-utils/ContentWrapper';
 
 import BooleanSelectField from '@/components/forms/fields/BooleanSelectField';
@@ -888,7 +889,7 @@ function MonographPublicationForm() {
           <Card>
             <CardHeader className="pb-2">{t('forms.monograph-publications.headings.other-information')}</CardHeader>
             <CardContent>
-              <CommonInputField
+              <CommonTextAreaField
                 form={form}
                 fieldName="comments"
                 fieldBaseTranslateId="forms.monograph-publications.fields.comments"
