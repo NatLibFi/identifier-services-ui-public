@@ -83,7 +83,7 @@ const mediumSchema = z
   .object({
     medium: z.enum([...Object.values(SERIAL_PUBLICATION_MEDIUMS)], 'forms.errors.common.required'),
     mediumOther: z.string().max(50, 'forms.errors.common.max-length'),
-    url: z.url('forms.errors.common.www-format').or(z.literal('')),
+    url: z.url('forms.errors.common.www-format').max(100, 'forms.errors.common.max-length').or(z.literal('')),
   })
   .superRefine((data, ctx) => {
     const requireMediumOther = data.medium === SERIAL_PUBLICATION_MEDIUMS.OTHER;
