@@ -433,6 +433,9 @@ const sv = {
   'forms.monograph-publications.fields.publications-public':
     'Publikationen är avsedd för allmän spridning (t.ex. för utlåning i bibliotek eller försäljning i bokhandel)',
 
+  'forms.monograph-publications.fields.publisher-address': 'Förlagets adress',
+  'forms.monograph-publications.fields.publisher-address.placeholder': 't.ex. Esimerkkikatu 1',
+
   'forms.monograph-publications.fields.publication-type': 'Publikationen är',
   'forms.monograph-publications.fields.publication-type.placeholder': 'Välja',
 

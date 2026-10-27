@@ -436,6 +436,9 @@ const en = {
   'forms.monograph-publications.fields.publications-public':
     'Publication is intended for public use (e.g., for library use or sale in bookshops)',
 
+  'forms.monograph-publications.fields.publisher-address': 'Publisher address',
+  'forms.monograph-publications.fields.publisher-address.placeholder': 'e.g., Esimerkkikatu 1',
+
   'forms.monograph-publications.fields.publication-type': 'Publication is',
   'forms.monograph-publications.fields.publication-type.placeholder': 'Choose publication type',
 

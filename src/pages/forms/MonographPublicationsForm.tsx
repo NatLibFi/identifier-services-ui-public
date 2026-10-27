@@ -444,20 +444,12 @@ function MonographPublicationForm() {
                 />
               )}
 
-              {/* Contact person */}
-              <CommonInputField
-                form={form}
-                fieldName="contactPerson"
-                fieldBaseTranslateId="forms.common.fields.contact-person"
-                required
-              />
-
               {/* Address */}
               <CommonInputField
                 autoComplete="address"
                 form={form}
                 fieldName="address"
-                fieldBaseTranslateId="forms.common.fields.address"
+                fieldBaseTranslateId="forms.monograph-publications.fields.publisher-address"
                 required
               />
 
@@ -466,6 +458,14 @@ function MonographPublicationForm() {
 
               {/* City */}
               <CommonInputField form={form} fieldName="city" fieldBaseTranslateId="forms.common.fields.city" required />
+
+              {/* Contact person */}
+              <CommonInputField
+                form={form}
+                fieldName="contactPerson"
+                fieldBaseTranslateId="forms.common.fields.contact-person"
+                required
+              />
 
               {/* Phone */}
               <CommonInputField
