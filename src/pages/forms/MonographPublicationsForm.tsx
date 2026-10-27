@@ -18,6 +18,7 @@ import { MultiSelect } from '@/components/shadcn-custom/multi-select';
 
 import CommonInputField from '@/components/forms/fields/CommonInputField';
 import CommonSelectField from '@/components/forms/fields/CommonSelectField';
+import CommonTextAreaField from '@/components/forms/fields/CommonTextAreaField';
 import ContentWrapper from '@/components/layout-utils/ContentWrapper';
 
 import BooleanSelectField from '@/components/forms/fields/BooleanSelectField';
@@ -443,20 +444,12 @@ function MonographPublicationForm() {
                 />
               )}
 
-              {/* Contact person */}
-              <CommonInputField
-                form={form}
-                fieldName="contactPerson"
-                fieldBaseTranslateId="forms.common.fields.contact-person"
-                required
-              />
-
               {/* Address */}
               <CommonInputField
                 autoComplete="address"
                 form={form}
                 fieldName="address"
-                fieldBaseTranslateId="forms.common.fields.address"
+                fieldBaseTranslateId="forms.monograph-publications.fields.publisher-address"
                 required
               />
 
@@ -465,6 +458,14 @@ function MonographPublicationForm() {
 
               {/* City */}
               <CommonInputField form={form} fieldName="city" fieldBaseTranslateId="forms.common.fields.city" required />
+
+              {/* Contact person */}
+              <CommonInputField
+                form={form}
+                fieldName="contactPerson"
+                fieldBaseTranslateId="forms.common.fields.contact-person"
+                required
+              />
 
               {/* Phone */}
               <CommonInputField
@@ -888,7 +889,7 @@ function MonographPublicationForm() {
           <Card>
             <CardHeader className="pb-2">{t('forms.monograph-publications.headings.other-information')}</CardHeader>
             <CardContent>
-              <CommonInputField
+              <CommonTextAreaField
                 form={form}
                 fieldName="comments"
                 fieldBaseTranslateId="forms.monograph-publications.fields.comments"

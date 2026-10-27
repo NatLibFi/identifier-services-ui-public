@@ -427,6 +427,9 @@ const fi = {
   'forms.monograph-publications.fields.publications-public':
     'Julkaisu on tarkoitettu julkiseen käyttöön (esim. lainattavaksi kirjastosta tai myytäväksi kirjakaupassa)',
 
+  'forms.monograph-publications.fields.publisher-address': 'Kustantajan osoite',
+  'forms.monograph-publications.fields.publisher-address.placeholder': 'esim. Esimerkkikatu 1',
+
   'forms.monograph-publications.fields.publication-type': 'Julkaisun tyyppi',
   'forms.monograph-publications.fields.publication-type.placeholder': 'Valitse julkaisun tyyppi',
 
