@@ -45,7 +45,7 @@ function transformSerialPublicationV1(
     transformedPublication.previous = {
       title: [previous.title],
       issn: previous.issn.length > 1 ? [previous.issn] : [],
-      lastIssue: [previous.title],
+      lastIssue: [previous.lastIssue],
     };
   }
 
